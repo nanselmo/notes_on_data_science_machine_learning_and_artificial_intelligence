@@ -109,7 +109,7 @@ footer {
 
 .post-list li a{
 text-decoration: none;
-font-family: inherit;
+font-family: sans-serif;
 font-size:.85em;
 }
 
@@ -121,7 +121,7 @@ font-size:.85em;
 .post-list .subtopic {
   font-weight:bold;              
   border-bottom: 1px solid #eaeaea;
-font-family: inherit;}
+font-family: sans-serif;}
 
 /* ---------------------------------------------------------
 Print styles
