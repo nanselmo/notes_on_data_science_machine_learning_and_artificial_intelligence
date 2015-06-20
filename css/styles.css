@@ -25,7 +25,6 @@ a:active { color:#B23921; }
 
 header {
     background-color: #E74A3C;
-    font-family: 'Sarala', sans-serif;
 }
 
 .row {
@@ -38,13 +37,13 @@ header {
 }
 
 .row h2{
-margin: -9px 0;
+margin:0 0 -7px 0;
 padding: 0;
 }
 
 .row nav{
 float:right;
-margin-top:-1.4em;
+margin-top:-.9em;
 }
 
 .row a, .row a:hover, .row a:visited{
