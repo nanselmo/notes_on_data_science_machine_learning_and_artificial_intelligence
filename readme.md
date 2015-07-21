@@ -48,6 +48,10 @@ A folder containing the ipython notebooks and html files.
 
 Javascript a file to fix ie9 problems.
 
+### in_progress/
+
+Folders for snippits is various stages of completion.
+
 ## Credits
 
 - Ian Devlin for creating [HTML5 Bones](http://www.html5bones.com/)
