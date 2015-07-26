@@ -94,12 +94,10 @@ footer {
 }
 
 .post-list {
-  -webkit-columns: 3 250px;
-  -moz-columns: 3 250px;
-  columns: 3 250px;
-  border:1px solid #E6E6E6;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+  columns: 2;
   padding: .5em;
-  margin-bottom: 1em;
 }
 
 .post-list ul{
@@ -123,10 +121,19 @@ font-size:.85em;
   text-decoration:none;
 }
 
-.post-list .subtopic {
+.topic {
+  font-family: sans-serif;}
+
+.subtopic {
   font-weight:bold;              
   border-bottom: 1px solid #eaeaea;
-font-family: sans-serif;}
+  font-family: sans-serif;}
+
+.post-list-box {
+  border:1px solid #D6D6D6;
+  padding: .5em;
+  margin-bottom: 1em;
+}
 
 /* ---------------------------------------------------------
 Print styles
