@@ -26,10 +26,10 @@ a:active { color:#B23921; }
 header {
     background-color: #E74A3C;
     font-family: sans-serif;
-    webkit-box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-      -moz-box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-           box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    margin-bottom: 4px;
+    webkit-box-shadow: 0 3px 4px rgba(0,0,0,0.2);
+      -moz-box-shadow: 0 3px 4px rgba(0,0,0,0.2);
+           box-shadow: 0 3px 4px rgba(0,0,0,0.2);
+    margin-bottom: 6px;
 }
 
 .row {
@@ -122,7 +122,8 @@ font-size:.85em;
 }
 
 .topic {
-  font-family: sans-serif;}
+  font-family: sans-serif;
+}
 
 .subtopic {
   font-weight:bold;              
