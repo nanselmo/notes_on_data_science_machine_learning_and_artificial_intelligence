@@ -8,7 +8,7 @@
 body {
   font-family: 'Source Serif Pro', serif;
   background: #fff;
-  color: #333333;
+  color: #474740;
 }
 
 
@@ -24,7 +24,7 @@ a:active { color:#B23921; }
 ---------------------------------------------------------*/
 
 header {
-  background-color: #E74A3C;
+  background-color: #EB5000;
   font-family: 'Work Sans', sans-serif;
   webkit-box-shadow: 0 3px 4px rgba(0,0,0,0.2);
     -moz-box-shadow: 0 3px 4px rgba(0,0,0,0.2);
@@ -34,7 +34,7 @@ header {
 
 .row {
   max-width: 980px;
-  border-bottom: 1px solid #BF3E32;
+  border-bottom: 1px solid #EB5000;
   padding: .7em 1em .7em 1em;
   color: #fff;
   font-size: .95em;
@@ -130,10 +130,11 @@ footer {
 }
 
 .post-list-box {
-  border:1px solid #D6D6D6;
-  background: #F7F7F5;
+  background: #F8F8F8;
+  border: 1px solid #eaeaea;
   padding: 1em 1em 0em 1em;
   margin-bottom: 1em;
+  border-radius:4px
 }
 
 /* ---------------------------------------------------------
