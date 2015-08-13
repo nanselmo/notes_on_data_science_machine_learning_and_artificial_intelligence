@@ -25,7 +25,7 @@ a:active { color:#B23921; }
 
 header {
     background-color: #E74A3C;
-    font-family: sans-serif;
+    font-family: 'Work Sans', sans-serif;
     webkit-box-shadow: 0 3px 4px rgba(0,0,0,0.2);
       -moz-box-shadow: 0 3px 4px rgba(0,0,0,0.2);
            box-shadow: 0 3px 4px rgba(0,0,0,0.2);
@@ -91,6 +91,7 @@ footer {
   background: #F7F7F5;
   padding: 0em 1em 0em 1em;
   margin: 1em 0em 1em 0em;
+  font-family: 'Work Sans', sans-serif;
 }
 
 .post-list {
@@ -112,7 +113,7 @@ footer {
 
 .post-list li a{
 text-decoration: none;
-font-family: sans-serif;
+font-family: 'Work Sans', sans-serif;
 font-size:.85em;
 }
 
@@ -122,13 +123,13 @@ font-size:.85em;
 }
 
 .topic {
-  font-family: sans-serif;
+  font-family: 'Work Sans', sans-serif;
 }
 
 .subtopic {
   font-weight:bold;              
   border-bottom: 1px solid #eaeaea;
-  font-family: sans-serif;}
+  font-family: 'Work Sans', sans-serif;}
 
 .post-list-box {
   border:1px solid #D6D6D6;
