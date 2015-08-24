@@ -8,7 +8,7 @@ Code Cell Formating
 
 .notebook {
   font-family: 'Source Serif Pro', serif;
-  font-size:1.1em;
+  font-size:1.2em;
 }
 
 
@@ -340,4 +340,3 @@ Mathjax
 
 .notebook .MathJax_Display{
     margin: 1em 0 1em 0;}
-
