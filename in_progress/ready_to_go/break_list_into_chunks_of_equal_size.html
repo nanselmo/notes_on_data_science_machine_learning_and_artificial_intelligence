@@ -1,0 +1,80 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Break A List Into N-Sized Chunks</title><meta name="description" content=""><meta name="viewport" content="width=device-width, initial-scale=1.0"><link href="../css/normalize.css" rel="stylesheet" media="all"> <link href="../css/styles.css" rel="stylesheet" media="all"> <link href="../css/notebooks.css" rel="stylesheet" media="all"> <link href='http://fonts.googleapis.com/css?family=Source+Serif+Pro:400,700' rel='stylesheet' type='text/css'> <!--[if lt IE 9]><script src="js/html5shiv-printshiv.js" media="all"></script><![endif]--> </head> <body> <header role="banner"> <div class="row"> <h2><a href="http://chrisalbon.com">Chris Albon</a></h2> <nav role="navigation"> <a href="html/miscellaneous/about.html">About</a> | <a href="https://github.com/chrisalbon">GitHub</a> | <a href="https://twitter.com/chrisalbon">Twitter</a> </nav> </div> </header> <div class="wrap"> <main role="main"> <div class="notebook"> <!-- end of header section --> <!-- PASTE IPYTHON NOTEBOOK BELOW THIS LINE -->
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Break-A-List-Into-N-Sized-Chunks">Break A List Into N-Sized Chunks<a class="anchor-link" href="#Break-A-List-Into-N-Sized-Chunks">&#182;</a></h1><ul>
+<li><strong>By Chris Albon</strong></li>
+<li>August 8, 2015</li>
+</ul>
+<p>In this snippit we take a list and break it up into n-size chunks. This is a very common practice when dealing with APIs that have a maximum request size.</p>
+<p>Credit for this nifty function goes to Ned Batchelder who <a href="http://stackoverflow.com/questions/312443/how-do-you-split-a-list-into-evenly-sized-chunks-in-python">posted it on StackOverflow</a>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="c"># Create a list of first names</span>
+<span class="n">first_names</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;Steve&#39;</span><span class="p">,</span> <span class="s">&#39;Jane&#39;</span><span class="p">,</span> <span class="s">&#39;Sara&#39;</span><span class="p">,</span> <span class="s">&#39;Mary&#39;</span><span class="p">,</span><span class="s">&#39;Jack&#39;</span><span class="p">,</span><span class="s">&#39;Bob&#39;</span><span class="p">,</span> <span class="s">&#39;Bily&#39;</span><span class="p">,</span> <span class="s">&#39;Boni&#39;</span><span class="p">,</span> <span class="s">&#39;Chris&#39;</span><span class="p">,</span><span class="s">&#39;Sori&#39;</span><span class="p">,</span> <span class="s">&#39;Will&#39;</span><span class="p">,</span> <span class="s">&#39;Won&#39;</span><span class="p">,</span><span class="s">&#39;Li&#39;</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="c"># Create a function called &quot;chunks&quot; with two arguments, l and n:</span>
+<span class="k">def</span> <span class="nf">chunks</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="c"># For item i in a range that is a length of l,</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">),</span> <span class="n">n</span><span class="p">):</span>
+        <span class="c"># Create an index range for l of n items:</span>
+        <span class="k">yield</span> <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">n</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="c"># Create a list that from the results of the function chunks:</span>
+<span class="nb">list</span><span class="p">(</span><span class="n">chunks</span><span class="p">(</span><span class="n">first_names</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[[&apos;Steve&apos;, &apos;Jane&apos;, &apos;Sara&apos;, &apos;Mary&apos;, &apos;Jack&apos;],
+ [&apos;Bob&apos;, &apos;Bily&apos;, &apos;Boni&apos;, &apos;Chris&apos;, &apos;Sori&apos;],
+ [&apos;Will&apos;, &apos;Won&apos;, &apos;Li&apos;]]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div><!-- PASTE IPYTHON NOTEBOOK ABOVE THIS LINE --> <!-- start of footer section --> </div> </main> </div> <footer role="contentinfo"> Copyright &copy; Chris Albon, <time datetime="2015">2015</time> </footer> <!-- Load Google Analytics --> <script> (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','//www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-66582-32', 'auto'); ga('send', 'pageview'); </script> <!-- End of Google Analytics --> <!-- Loading mathjax macro --> <!-- Load mathjax --> <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script> <!-- MathJax configuration --> <script type="text/x-mathjax-config"> MathJax.Hub.Config({tex2jax: {inlineMath: [ ['$','$'], ["\(","\)"] ], displayMath: [ ['$$','$$'], ["\[","\]"] ], processEscapes: true, processEnvironments: true }, // Center justify equations in code and markdown cells. Elsewhere // we use CSS to left justify single line equations in code cells. displayAlign: 'center', "HTML-CSS": {styles: {'.MathJax_Display': {"margin": 0}}, linebreaks: { automatic: true } } }); </script> <!-- End of mathjax configuration --> </body> </html>
