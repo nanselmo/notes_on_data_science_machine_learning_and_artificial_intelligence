@@ -1,4 +1,4 @@
-<h1>Embedded Chart Test v1</h1>
+<h1>Popily Production Embedded Chart Test v1</h1>
 
 <h2>Rule "*" from public data source</h2>
 <hr>
@@ -29,4 +29,53 @@
 <script>var POPILY_HOST="popily.com";</script><script src="http://popily.com/static/js/widget.js" ></script><script>    var chart = POPILY.chart('state-2-number-1-15');    chart.setDimensions(560, 800);    chart.draw();</script>
 <hr>
 
-embed_test_titanic_public
+<h1>Popily Staging Embedded Chart Test v1</h1>
+
+<h2>Rule "*" from public data source</h2>
+<hr>
+<script src="http://staging.popily.com/static/js/widget.js" ></script><script>
+    POPILY.host = "staging.popily.com";
+    var chart = POPILY.chart('survived-3', '-');
+    chart.setDimensions(560, 800);
+    chart.draw();
+</script>
+<hr>
+<h2>Rule "*" from private data source</h2>
+<hr>
+<script src="http://staging.popily.com/static/js/widget.js" ></script><script>
+    POPILY.host = "staging.popily.com";
+    var chart = POPILY.chart('age-17', '-');
+    chart.setDimensions(560, 800);
+    chart.draw();
+</script>
+<hr>
+<h2>Domain specific rule (chrisalbon.com) from private data source</h2>
+<hr>
+<script src="http://staging.popily.com/static/js/widget.js" ></script><script>
+    POPILY.host = "staging.popily.com";
+    var chart = POPILY.chart('survived-5', '-');
+    chart.setDimensions(560, 800);
+    chart.secure('13');
+    chart.draw();
+</script>
+<hr>
+
+<h2>Domain specific rule (yahoo.com) from private data source</h2>
+<hr>
+<script src="http://staging.popily.com/static/js/widget.js" ></script><script>
+    POPILY.host = "staging.popily.com";
+    var chart = POPILY.chart('survived-5', '-');
+    chart.setDimensions(560, 800);
+    chart.secure('14');
+    chart.draw();
+</script>
+<hr>
+<h2>Embedded chart with rule "*" from a public data source that was deleted</h2>
+<hr>
+<script src="http://staging.popily.com/static/js/widget.js" ></script><script>
+    POPILY.host = "staging.popily.com";
+    var chart = POPILY.chart('category-4', '-');
+    chart.setDimensions(560, 800);
+    chart.draw();
+</script>
+<hr>
