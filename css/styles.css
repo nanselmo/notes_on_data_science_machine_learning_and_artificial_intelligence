@@ -119,6 +119,7 @@ footer {
   border: 1px solid #eaeaea;
   padding: 1em 1em 0em 1em;
   margin-bottom: 1em;
+  max-width: 300px;
 }
 
 .table-of-contents-list {
@@ -139,6 +140,10 @@ footer {
   text-decoration: none;
   font-family: 'Work Sans', sans-serif;
   font-size:.85em;
+}
+
+.table-of-contents-box h2{
+  font-weight: normal;
 }
 
 .repo_link a{
