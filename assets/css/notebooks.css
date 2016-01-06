@@ -309,6 +309,10 @@ hiding it.
 h4:hover .anchor-link,h5:hover .anchor-link,h6:hover .anchor-link{
     visibility:hidden;}
 
+.rendered_html{
+  
+}
+
 
 /* ---------------------------------------------------------
 Tables
