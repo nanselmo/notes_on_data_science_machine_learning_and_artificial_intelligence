@@ -1,0 +1,84 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+body > .container {
+  padding: 60px 15px 0;
+  color: #474740;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.panel-body {
+  -webkit-columns: 384px 1;
+   -moz-columns: 384px 1;
+        columns: 384px 1;
+}
+
+@media (min-width: 480px) {
+  .panel-body {
+    -webkit-columns: 384px 2;
+     -moz-columns: 384px 2;
+          columns: 384px 2;
+  }
+}
+
+.navbar-default {
+  background-color: #EB5000;
+  border: none;
+  box-shadow: 0 3px 4px rgba(0,0,0,0.2);
+}
+
+.navbar-default .navbar-brand, .navbar-default .navbar-brand:hover {
+  color: #fff;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #fff;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+  color: #fff;
+}
+
+.navbar-default .navbar-nav > li:hover {
+  background: #f06018;
+}
+
+.dropdown-menu {
+  border: none;
+}
+
+.navbar-toggle {
+  background: #eee;
+}
+
+.footer {
+  border-top: 1px solid #ddd;
+}
