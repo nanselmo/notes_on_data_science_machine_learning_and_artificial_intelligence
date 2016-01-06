@@ -19,7 +19,7 @@ div.prompt{
     font-family:monospace;text-align:right;
     line-height:1.231em;
     text-align: left;
-    font-size:.9em;}
+    font-size:12px;}
 
 div.inner_cell{
 
@@ -224,7 +224,7 @@ Source: http://www.sebastianraschka.com/CSS/codehilite.css
 .notebook pre {
     color: #2C3539;
     background-color: #F8F8F8;
-    font-size: 14px;
+    font-size: 12px;
     overflow: auto;
     padding: 0px 10px;
     white-space: pre-wrap;       /* css-3 */
