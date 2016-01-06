@@ -106,7 +106,7 @@ div.output_area pre{
     font-family:monospace;
     margin:0;padding:0;
     border:0;
-    font-size:14px;
+    font-size:13px;
     vertical-align:baseline;
     color:black;
     background-color:transparent;
@@ -310,7 +310,7 @@ h4:hover .anchor-link,h5:hover .anchor-link,h6:hover .anchor-link{
     visibility:hidden;}
 
 .rendered_html{
-  
+
 }
 
 
