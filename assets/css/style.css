@@ -72,6 +72,20 @@ body > .container {
   background: #f06018;
 }
 
+.profile-radial{
+  height: 150px;
+  weight: 150px;
+  border: 1px solid #ddd;
+  border-radius:300px;
+  float:right;
+  vertical-align: middle;
+  margin-right: -35px;
+  margin-top: -50px;
+  margin-left: 10px;
+  box-shadow: 0 2px 2px rgba(0,0,0,.4);
+}
+
+
 .dropdown-menu {
   border: none;
 }
