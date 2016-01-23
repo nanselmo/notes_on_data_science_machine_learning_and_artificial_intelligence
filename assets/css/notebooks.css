@@ -7,9 +7,10 @@ Code Cell Formating
 ---------------------------------------------------------*/
 
 .notebook {
-  font-size: 16px;
+  font-size: 18px;
   margin-top: 10px;
   margin-bottom: 30px;
+  font-family: 'Gentium Book Basic', serif;
 }
 
 
@@ -270,12 +271,12 @@ Text
 .notebook strong{font-weight:bold;}
 .notebook u{text-decoration:underline;}
 
-.notebook h1{font-size:160%;font-weight:bold;}
-.notebook h2{font-size:120%;font-weight:bold;}
-.notebook h3{font-size:110%;font-weight:bold;}
-.notebook h4{font-size:105%;font-weight:bold;}
-.notebook h5{font-size:100%;font-weight:bold;}
-.notebook h6{font-size:100%;font-weight:bold;}
+.notebook h1{font-size:180%;font-weight:bold; font-family: 'Open Sans', serif;}
+.notebook h2{font-size:150%;font-weight:bold; font-family: 'Open Sans', serif;}
+.notebook h3{font-size:125%;font-weight:bold; font-family: 'Open Sans', serif;}
+.notebook h4{font-size:110%;font-weight:bold; font-family: 'Open Sans', serif;}
+.notebook h5{font-size:100%;font-weight:bold; font-family: 'Open Sans', serif;}
+.notebook h6{font-size:100%;font-weight:bold; font-family: 'Open Sans', serif;}
 
 .notebook ul{list-style:disc;}
 .notebook ul ul{list-style:square;margin:0em 2em;}
