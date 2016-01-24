@@ -134,6 +134,11 @@ h3.panel-title {
     font-size: 17px;
 }
 
+.alert-summary h4{
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
 .alert {
   border-radius: 0;
 }
