@@ -7,8 +7,8 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
-  font-family: sans-serif;
-}
+  font-family: 'PT Serif', serif;}
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -51,6 +51,10 @@ body > .container {
   }
 }
 
+.navbar {
+      font-family: sans-serif;
+}
+
 .navbar-default {
   background-color: #EB5000;
   border: none;
@@ -59,6 +63,7 @@ body > .container {
 
 .navbar-default .navbar-brand, .navbar-default .navbar-brand:hover {
   color: #fff;
+
 }
 
 .navbar-default .navbar-nav > li > a {
@@ -110,11 +115,15 @@ body > .container {
   font-weight: bold;
 }
 
+.panel-body li a{
+  font-size: 16px;
+}
+
 .alert-summary {
-    color: #777;
+    color: #555;
     background-color: #f9f9f9;
     border-color: #ddd;
-    font-size: 16px;
+    font-size: 19px;
 }
 
 .alert {
