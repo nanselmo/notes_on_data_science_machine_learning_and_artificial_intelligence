@@ -28,6 +28,10 @@ body > .container {
   color: #474740;
 }
 
+.container {
+  max-width: 960px;
+}
+
 .container .text-muted {
   margin: 20px 0;
 }
