@@ -12,6 +12,13 @@ Code Cell Formating
   margin-bottom: 30px;
 }
 
+.notebook p {
+  font-size: 1.1em;
+}
+
+.notebook li {
+  font-size: 1.1em;
+}
 
 /* Overall */
 div.prompt{
