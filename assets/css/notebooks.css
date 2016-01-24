@@ -13,11 +13,11 @@ Code Cell Formating
 }
 
 .notebook p {
-  font-size: 1.1em;
+  font-size: 1em;
 }
 
 .notebook li {
-  font-size: 1.1em;
+  font-size: 1em;
 }
 
 /* Overall */
@@ -30,7 +30,7 @@ div.prompt{
     font-size:14px;}
 
 div.inner_cell{
-font-size: 1.1em;
+font-size: 1em;
 }
 
 /* Inputs */
