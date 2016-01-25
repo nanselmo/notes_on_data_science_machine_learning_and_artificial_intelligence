@@ -7,7 +7,7 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
-  font-family: 'PT Serif', serif;}
+  font-family: 'Crimson Text', serif;}
 
 .footer {
   position: absolute;
@@ -107,30 +107,39 @@ body > .container {
 
 .footer {
   border-top: 1px solid #ddd;
+  font-size: 18px;
 }
 
 .index-page-title {
-  font-size: 1.8em;
+  font-size: 30px;
   font-weight: bold;
 }
 
+.panel-default > .panel-heading {
+    background-color: #ffffff;
+}
+
+.panel {
+    border-radius: 0px;
+}
+
 .panel-body li a{
-  font-size: 16px;
+  font-size: 18px;
 }
 
 h3.panel-title {
-  font-size: 20px;
+  font-size: 22px;
 }
 
 .alert-summary {
     color: #555;
-    background-color: #f9f9f9;
+    background-color: #fff;
     border-color: #ddd;
-    font-size: 17px;
+    font-size: 20px;
 }
 
 .alert-summary h4{
-    font-size: 1.1em;
+    font-size: 25px;
     font-weight: bold;
 }
 
