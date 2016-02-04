@@ -92,11 +92,6 @@
     <!-- Begin page content -->
       <!-- Begin notebook -->
 
-      <hr/>
-            <hr/>
-                  <hr/>
-                        <hr/>
-
       <div class='row'>
         <div class='col-sm-6'>
           <script src="http://dev.popily.com/static/js/widget.js" ></script><script>
@@ -119,7 +114,13 @@
       </div>
       <div class='row'>
         <div class='col-sm-6'>
-
+          <script src="http://dev.popily.com/static/js/widget.js" ></script><script>
+              POPILY.host = "dev.popily.com";
+              var chart = POPILY.chart('date-logins-per-day-2', '-');
+              chart.setDimensions('100%', 300);
+              chart.setStyle('regular');
+              chart.draw();
+          </script>
         </div>
         <div class='col-sm-6'>
 
@@ -146,8 +147,6 @@
         </div>
       </div>
 
-      <hr/>
-      <hr/>
 <!-- End of content -->
 
 <footer class="footer">
