@@ -26,7 +26,7 @@ DEFAULT_PAGINATION = False
 # Uncomment following line if you want document-relative URLs when developing
 RELATIVE_URLS = True
 
-STATIC_PATHS = ['images']
+STATIC_PATHS = ['images', 'extra/CNAME', 'extra/favicon.ico']
 
 ARTICLE_URL = '{category}/{slug}.html'
 ARTICLE_SAVE_AS = '{category}/{slug}.html'
