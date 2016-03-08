@@ -34,7 +34,7 @@
     <link href="http://chrisalbon.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Chris Albon Full RSS Feed" />
 
 
-    <meta name="tags" content="Data Wrangling" />
+    <meta name="tags" content="Other" />
 
   </head>
 
@@ -96,37 +96,71 @@
 <section id="content" class="body">
   <header>
     <h1>
-      Break A List Into N-Sized Chunks
+      Monitor A Website For Changes With Python
     </h1>
-    <time class="published" datetime="2016-03-07T12:00:00-08:00">
-      Mon 07 March 2016
+    <time class="published" datetime="2016-04-01T12:00:00-07:00">
+      Fri 01 April 2016
     </time>
   </header>
 
-<p>In this snippet we take a list and break it up into n-size chunks. This is a very common practice when dealing with APIs that have a maximum request size.</p>
-<p>Credit for this nifty function goes to Ned Batchelder who <a href="http://stackoverflow.com/questions/312443/how-do-you-split-a-list-into-evenly-sized-chunks-in-python">posted it on StackOverflow</a>.</p>
-<div class="highlight"><pre><span></span><span class="c1"># Create a list of first names</span>
-<span class="n">first_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Steve&#39;</span><span class="p">,</span> <span class="s1">&#39;Jane&#39;</span><span class="p">,</span> <span class="s1">&#39;Sara&#39;</span><span class="p">,</span> <span class="s1">&#39;Mary&#39;</span><span class="p">,</span><span class="s1">&#39;Jack&#39;</span><span class="p">,</span><span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Bily&#39;</span><span class="p">,</span> <span class="s1">&#39;Boni&#39;</span><span class="p">,</span> <span class="s1">&#39;Chris&#39;</span><span class="p">,</span><span class="s1">&#39;Sori&#39;</span><span class="p">,</span> <span class="s1">&#39;Will&#39;</span><span class="p">,</span> <span class="s1">&#39;Won&#39;</span><span class="p">,</span><span class="s1">&#39;Li&#39;</span><span class="p">]</span>
+<p>In this snippet, we create a continous loop that, at set times, scrapes a website, checks to see if it contains some text and if so, emails me. Specifically I used this script to find when Venture Beat had published an article about my company.</p>
+<p>It should be noted that there are more efficient ways of setting scripts to run at certain times, notable cron. However, this is a quick and dirty solution.</p>
+<h2>Preliminaries</h2>
+<div class="highlight"><pre><span></span><span class="c1"># Import requests (to download the page)</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="c1"># Import BeautifulSoup (to parse what we download)</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+
+<span class="c1"># Import Time (to add a delay between the times the scape runs)</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="c1"># Import smtplib (to allow us to email)</span>
+<span class="kn">import</span> <span class="nn">smtplib</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create a function called &quot;chunks&quot; with two arguments, l and n:</span>
-<span class="k">def</span> <span class="nf">chunks</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-    <span class="c1"># For item i in a range that is a length of l,</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">),</span> <span class="n">n</span><span class="p">):</span>
-        <span class="c1"># Create an index range for l of n items:</span>
-        <span class="k">yield</span> <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">n</span><span class="p">]</span>
-</pre></div>
+<h2>Monitoring Script</h2>
+<div class="highlight"><pre><span></span><span class="c1"># This is a pretty simple script. The script downloads the homepage of VentureBeat, and if it finds some text, emails me.</span>
+<span class="c1"># If it does not find some text, it waits 60 seconds and downloads the homepage again.</span>
 
+<span class="c1"># while this is true (it is true by default),</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="c1"># set the url as VentureBeat,</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://venturebeat.com/&quot;</span>
+    <span class="c1"># set the headers like we are a browser,</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;User-Agent&#39;</span><span class="p">:</span> <span class="s1">&#39;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36&#39;</span><span class="p">}</span>
+    <span class="c1"># download the homepage</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+    <span class="c1"># parse the downloaded homepage and grab all text, then,</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 
-<div class="highlight"><pre><span></span><span class="c1"># Create a list that from the results of the function chunks:</span>
-<span class="nb">list</span><span class="p">(</span><span class="n">chunks</span><span class="p">(</span><span class="n">first_names</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-</pre></div>
+    <span class="c1"># if the number of times the word Popily occurs on the page is less than 1,</span>
+    <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">soup</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;Popily&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="c1"># wait 60 seconds,</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+        <span class="c1"># continue with the script,</span>
+        <span class="k">continue</span>
 
+    <span class="c1"># but if the word &quot;Popily&quot; occurs any other number of times,</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># create an email message with just a subject line,</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;Subject: This is Chris</span><span class="se">\&#39;</span><span class="s1">s script talking, CHECK VENTURE BEAT!&#39;</span>
+        <span class="c1"># set the &#39;from&#39; address,</span>
+        <span class="n">fromaddr</span> <span class="o">=</span> <span class="s1">&#39;YOUR_EMAIL_ADDRESS&#39;</span>
+        <span class="c1"># set the &#39;to&#39; addresses,</span>
+        <span class="n">toaddrs</span>  <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;YOUR_EMAIL_ADDRESS&#39;</span><span class="p">,</span><span class="s1">&#39;A_SECOND_EMAIL_ADDRESS&#39;</span><span class="p">,</span> <span class="s1">&#39;A_THIRD_EMAIL_ADDRESS&#39;</span><span class="p">]</span>
 
-<div class="highlight"><pre><span></span>[[&#39;Steve&#39;, &#39;Jane&#39;, &#39;Sara&#39;, &#39;Mary&#39;, &#39;Jack&#39;],
- [&#39;Bob&#39;, &#39;Bily&#39;, &#39;Boni&#39;, &#39;Chris&#39;, &#39;Sori&#39;],
- [&#39;Will&#39;, &#39;Won&#39;, &#39;Li&#39;]]
+        <span class="c1"># setup the email server,</span>
+        <span class="n">server</span> <span class="o">=</span> <span class="n">smtplib</span><span class="o">.</span><span class="n">SMTP</span><span class="p">(</span><span class="s1">&#39;smtp.gmail.com&#39;</span><span class="p">,</span> <span class="mi">587</span><span class="p">)</span>
+        <span class="n">server</span><span class="o">.</span><span class="n">starttls</span><span class="p">()</span>
+        <span class="c1"># add my account login name and password,</span>
+        <span class="n">server</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="s2">&quot;YOUR_EMAIL_ADDRESS&quot;</span><span class="p">,</span> <span class="s2">&quot;YOUR_PASSWORD&quot;</span><span class="p">)</span>
+
+        <span class="c1"># send the email</span>
+        <span class="n">server</span><span class="o">.</span><span class="n">sendmail</span><span class="p">(</span><span class="n">fromaddr</span><span class="p">,</span> <span class="n">toaddrs</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+        <span class="c1"># disconnect from the server</span>
+        <span class="n">server</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
 </pre></div>
 </section>
 
