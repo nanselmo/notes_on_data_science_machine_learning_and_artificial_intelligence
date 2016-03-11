@@ -12,6 +12,7 @@ PATH = 'content'
 TIMEZONE = 'America/Tijuana'
 
 DEFAULT_LANG = 'en'
+DEFAULT_DATE = 'fs'
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
@@ -35,5 +36,7 @@ FEED_MAX_ITEMS = 10
 
 EXTRA_PATH_METADATA = {
     'extra/favicon.ico': {'path': 'favicon.ico'},
-    'extra/CNAME': {'path': 'CNAME'}
+    'extra/CNAME': {'path': 'CNAME'},
 }
+
+PLUGIN_PATHS = ['plugins']

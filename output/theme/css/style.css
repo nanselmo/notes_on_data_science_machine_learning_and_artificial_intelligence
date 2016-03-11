@@ -79,7 +79,7 @@ body > .container {
 }
 
 .navbar-default .navbar-nav > li:hover {
-  background: #ff5b38;
+  background: #ff5b38aa;
 }
 
 .profile-radial{
@@ -170,4 +170,29 @@ p {
 
 header {
     margin-bottom: 2em;
+}
+
+h1,
+.h1 {
+  font-size: 36px;
+}
+h2,
+.h2 {
+  font-size: 28px;
+}
+h3,
+.h3 {
+  font-size: 24px;
+}
+h4,
+.h4 {
+  font-size: 18px;
+}
+h5,
+.h5 {
+  font-size: 14px;
+}
+h6,
+.h6 {
+  font-size: 12px;
 }

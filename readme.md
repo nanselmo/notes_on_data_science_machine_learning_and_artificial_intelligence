@@ -15,6 +15,8 @@ It is a custom Pelican bootstrap template I made specifically for ChrisAlbon.com
 ## Open Issues
 - Fix Jupyter Notebooks Naming
 - Fix Command Line Notebook Naming
+- Add Bug Reporting Via Github
+- Add Search
 
 # Deployment Procedure
 
