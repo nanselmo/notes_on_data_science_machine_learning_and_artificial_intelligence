@@ -172,6 +172,9 @@ header {
     margin-bottom: 2em;
 }
 
+/* Header sizes
+-------------------------------------------------- */
+
 h1,
 .h1 {
   font-size: 36px;
@@ -195,4 +198,21 @@ h5,
 h6,
 .h6 {
   font-size: 12px;
+}
+
+/* Bug reporting box
+-------------------------------------------------- */
+
+.bug-reporting__panel{
+    padding: 1em;
+    border: solid 1px #dddddd;
+    margin-top: 3em;
+}
+
+.bug-reporting__panel h3{
+    margin: 0 0 10px 0;
+}
+
+.bug-reporting__panel p{
+    margin: 0;
 }
