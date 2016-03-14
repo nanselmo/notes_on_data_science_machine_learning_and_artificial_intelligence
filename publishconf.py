@@ -20,9 +20,6 @@ DELETE_OUTPUT_DIRECTORY = True
 
 LOAD_CONTENT_CACHE = False
 
-
-
 # Following items are often useful when publishing
 
-#DISQUS_SITENAME = ""
 GOOGLE_ANALYTICS = "UA-66582-32"
