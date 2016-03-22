@@ -8,7 +8,7 @@ Authors: Chris Albon
 
 
 
-There are four: lists, truples, dictionaries, and sets
+There are four: lists, Tuples, dictionaries, and sets
 
 ## Lists
 
@@ -155,7 +155,7 @@ allies.append(3442); allies
 
 
 
-## Truples
+## Tuples
 
 "Though tuples may seem similar to lists, they are often used in different situations and for different purposes. Tuples are immutable, and usually contain an heterogeneous sequence of elements that are accessed via unpacking (or indexing (or even by attribute in the case of namedtuples). Lists are mutable, and their elements are usually homogeneous and are accessed by iterating over the list." - Python Documentation
 

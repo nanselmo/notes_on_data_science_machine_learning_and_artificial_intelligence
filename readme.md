@@ -12,12 +12,6 @@ More specifically, this repo is a Pelican site for my personal homepage, [ChrisA
 
 It is a custom Pelican bootstrap template I made specifically for ChrisAlbon.com. You can [view the repo here](https://github.com/chrisalbon/simple_library).
 
-## Open Issues
-- Fix Jupyter Notebooks Naming
-- Fix Command Line Notebook Naming
-- Add Bug Reporting Via Github
-- Add Search
-
 # Deployment Procedure
 
 $ pelican content -o output -s pelicanconf.py

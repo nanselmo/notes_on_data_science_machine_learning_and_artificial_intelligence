@@ -14,9 +14,7 @@ I code in [R](http://r-project.org) and [Python](http://www.python.org/), and wr
 
 --Want to talk? Contact Me--
 
--   Email: moc.liamg _at_ nobla.sirhc (reversed)
--   GChat: Chris Albon
--   Skype: ChrisAlbon
+-   Email: &#099;&#114;&#097;&#108;&#098;&#111;&#110;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;
 -   Twitter: [@chrisalbon](https://twitter.com/chrisalbon)
 
 ## Curriculum Vitae
