@@ -30,7 +30,7 @@
     <![endif]-->
      <link href="http://chrisalbon.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Chris Albon Full RSS Feed" />        
 
-    <meta name="tags" content="Basics" />
+    <meta name="tags" content="Data Wrangling" />
 
 </head>
 
@@ -94,24 +94,25 @@
 <section id="content" class="body">
     <header>
     <h1>
-      Index, Select, And Filter pandas Dataframes
+      Iterating Through The Rows Of Multiple Columns In Pandas
     </h1>
     <time class="published" datetime="2016-12-01T12:00:00-08:00">
       01 December 2016
     </time>
 </header>
 
-<h3>Import modules</h3>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<div class="highlight"><pre><span></span><span class="c1"># Import modules</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 </pre></div>
 
 
-<h3>Create a dataframe</h3>
-<div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Jason&#39;</span><span class="p">,</span> <span class="s1">&#39;Molly&#39;</span><span class="p">,</span> <span class="s1">&#39;Tina&#39;</span><span class="p">,</span> <span class="s1">&#39;Jake&#39;</span><span class="p">,</span> <span class="s1">&#39;Amy&#39;</span><span class="p">],</span> 
-        <span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">2012</span><span class="p">,</span> <span class="mi">2013</span><span class="p">,</span> <span class="mi">2014</span><span class="p">,</span> <span class="mi">2014</span><span class="p">],</span> 
-        <span class="s1">&#39;reports&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
-        <span class="s1">&#39;coverage&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">94</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">70</span><span class="p">]}</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Cochice&#39;</span><span class="p">,</span> <span class="s1">&#39;Pima&#39;</span><span class="p">,</span> <span class="s1">&#39;Santa Cruz&#39;</span><span class="p">,</span> <span class="s1">&#39;Maricopa&#39;</span><span class="p">,</span> <span class="s1">&#39;Yuma&#39;</span><span class="p">])</span>
+<div class="highlight"><pre><span></span><span class="n">raw_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;first_name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Jason&#39;</span><span class="p">,</span> <span class="s1">&#39;Jason&#39;</span><span class="p">,</span> <span class="s1">&#39;Tina&#39;</span><span class="p">,</span> <span class="s1">&#39;Jake&#39;</span><span class="p">,</span> <span class="s1">&#39;Amy&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;last_name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Miller&#39;</span><span class="p">,</span> <span class="s1">&#39;Miller&#39;</span><span class="p">,</span> <span class="s1">&#39;Ali&#39;</span><span class="p">,</span> <span class="s1">&#39;Milner&#39;</span><span class="p">,</span> <span class="s1">&#39;Cooze&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">42</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">73</span><span class="p">],</span>
+        <span class="s1">&#39;preTestScore&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+        <span class="s1">&#39;postTestScore&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">70</span><span class="p">]}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;first_name&#39;</span><span class="p">,</span> <span class="s1">&#39;last_name&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;preTestScore&#39;</span><span class="p">,</span> <span class="s1">&#39;postTestScore&#39;</span><span class="p">])</span>
 <span class="n">df</span>
 </pre></div>
 
@@ -121,150 +122,78 @@
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>coverage</th>
-      <th>name</th>
-      <th>reports</th>
-      <th>year</th>
+      <th>first_name</th>
+      <th>last_name</th>
+      <th>age</th>
+      <th>preTestScore</th>
+      <th>postTestScore</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>Cochice</th>
+      <th>0</th>
+      <td> Jason</td>
+      <td> Miller</td>
+      <td> 42</td>
+      <td>  4</td>
       <td> 25</td>
+    </tr>
+    <tr>
+      <th>1</th>
       <td> Jason</td>
+      <td> Miller</td>
+      <td> 42</td>
       <td>  4</td>
-      <td> 2012</td>
-    </tr>
-    <tr>
-      <th>Pima</th>
-      <td> 94</td>
-      <td> Molly</td>
-      <td> 24</td>
-      <td> 2012</td>
-    </tr>
-    <tr>
-      <th>Santa Cruz</th>
-      <td> 57</td>
-      <td>  Tina</td>
-      <td> 31</td>
-      <td> 2013</td>
-    </tr>
-    <tr>
-      <th>Maricopa</th>
-      <td> 62</td>
-      <td>  Jake</td>
-      <td>  2</td>
-      <td> 2014</td>
-    </tr>
-    <tr>
-      <th>Yuma</th>
-      <td> 70</td>
-      <td>   Amy</td>
-      <td>  3</td>
-      <td> 2014</td>
-    </tr>
-  </tbody>
-</table>
-<p>5 rows × 4 columns</p>
-</div>
-
-<h3>View a column of the dataframe</h3>
-<div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
-</pre></div>
-
-
-<div class="highlight"><pre><span></span>Cochice       Jason
-Pima          Molly
-Santa Cruz     Tina
-Maricopa       Jake
-Yuma            Amy
-Name: name, dtype: object
-</pre></div>
-
-
-<h3>View two columns of the dataframe</h3>
-<div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;reports&#39;</span><span class="p">]]</span>
-</pre></div>
-
-
-<div style="max-height:1000px;max-width:1500px;overflow:auto;">
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>name</th>
-      <th>reports</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Cochice</th>
-      <td> Jason</td>
-      <td>  4</td>
-    </tr>
-    <tr>
-      <th>Pima</th>
-      <td> Molly</td>
-      <td> 24</td>
-    </tr>
-    <tr>
-      <th>Santa Cruz</th>
-      <td>  Tina</td>
-      <td> 31</td>
-    </tr>
-    <tr>
-      <th>Maricopa</th>
-      <td>  Jake</td>
-      <td>  2</td>
-    </tr>
-    <tr>
-      <th>Yuma</th>
-      <td>   Amy</td>
-      <td>  3</td>
-    </tr>
-  </tbody>
-</table>
-<p>5 rows × 2 columns</p>
-</div>
-
-<h3>View the first two rows of the dataframe</h3>
-<div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
-</pre></div>
-
-
-<div style="max-height:1000px;max-width:1500px;overflow:auto;">
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>coverage</th>
-      <th>name</th>
-      <th>reports</th>
-      <th>year</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Cochice</th>
       <td> 25</td>
-      <td> Jason</td>
-      <td>  4</td>
-      <td> 2012</td>
     </tr>
     <tr>
-      <th>Pima</th>
-      <td> 94</td>
-      <td> Molly</td>
+      <th>2</th>
+      <td>  Tina</td>
+      <td>    Ali</td>
+      <td> 36</td>
+      <td> 31</td>
+      <td> 57</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>  Jake</td>
+      <td> Milner</td>
       <td> 24</td>
-      <td> 2012</td>
+      <td>  2</td>
+      <td> 62</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>   Amy</td>
+      <td>  Cooze</td>
+      <td> 73</td>
+      <td>  3</td>
+      <td> 70</td>
     </tr>
   </tbody>
 </table>
-<p>2 rows × 4 columns</p>
 </div>
 
-<h3>View all rows where coverage is more than 50</h3>
-<div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;coverage&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">]</span>
+<h2>Iterate Over The Rows Of Two Columns</h2>
+<div class="highlight"><pre><span></span><span class="c1"># Create an empty column for the full names</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;full_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">NaN</span>
+
+<span class="c1"># Create an iteration counter</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># For each element in first_name and last_name,</span>
+<span class="k">for</span> <span class="n">first</span><span class="p">,</span> <span class="n">last</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;first_name&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;last_name&#39;</span><span class="p">]):</span>
+    <span class="c1"># Change the value of the i&#39;th row in full_name</span>
+    <span class="c1"># to the combination of the first and last name</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;full_name&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">first</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">last</span>
+
+    <span class="c1"># Add one to the iteration counter</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c1"># View the dataframe</span>
+<span class="n">df</span>
 </pre></div>
 
 
@@ -273,84 +202,67 @@ Name: name, dtype: object
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>coverage</th>
-      <th>name</th>
-      <th>reports</th>
-      <th>year</th>
+      <th>first_name</th>
+      <th>last_name</th>
+      <th>age</th>
+      <th>preTestScore</th>
+      <th>postTestScore</th>
+      <th>full_name</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>Pima</th>
-      <td> 94</td>
-      <td> Molly</td>
-      <td> 24</td>
-      <td> 2012</td>
+      <th>0</th>
+      <td> Jason</td>
+      <td> Miller</td>
+      <td> 42</td>
+      <td>  4</td>
+      <td> 25</td>
+      <td> Jason Miller</td>
     </tr>
     <tr>
-      <th>Santa Cruz</th>
-      <td> 57</td>
+      <th>1</th>
+      <td> Jason</td>
+      <td> Miller</td>
+      <td> 42</td>
+      <td>  4</td>
+      <td> 25</td>
+      <td> Jason Miller</td>
+    </tr>
+    <tr>
+      <th>2</th>
       <td>  Tina</td>
+      <td>    Ali</td>
+      <td> 36</td>
       <td> 31</td>
-      <td> 2013</td>
+      <td> 57</td>
+      <td>     Tina Ali</td>
     </tr>
     <tr>
-      <th>Maricopa</th>
-      <td> 62</td>
+      <th>3</th>
       <td>  Jake</td>
+      <td> Milner</td>
+      <td> 24</td>
       <td>  2</td>
-      <td> 2014</td>
+      <td> 62</td>
+      <td>  Jake Milner</td>
     </tr>
     <tr>
-      <th>Yuma</th>
-      <td> 70</td>
+      <th>4</th>
       <td>   Amy</td>
+      <td>  Cooze</td>
+      <td> 73</td>
       <td>  3</td>
-      <td> 2014</td>
+      <td> 70</td>
+      <td>    Amy Cooze</td>
     </tr>
   </tbody>
 </table>
-<p>4 rows × 4 columns</p>
 </div>
-
-<h3>View a row</h3>
-<div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="s1">&#39;Maricopa&#39;</span><span class="p">]</span>
-</pre></div>
-
-
-<div class="highlight"><pre><span></span>coverage      62
-name        Jake
-reports        2
-year        2014
-Name: Maricopa, dtype: object
-</pre></div>
-
-
-<h3>View a column</h3>
-<div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">ix</span><span class="p">[:,</span> <span class="s1">&#39;coverage&#39;</span><span class="p">]</span>
-</pre></div>
-
-
-<div class="highlight"><pre><span></span>Cochice       25
-Pima          94
-Santa Cruz    57
-Maricopa      62
-Yuma          70
-Name: coverage, dtype: int64
-</pre></div>
-
-
-<h3>View the value based on a row and column</h3>
-<div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="s1">&#39;Yuma&#39;</span><span class="p">,</span> <span class="s1">&#39;coverage&#39;</span><span class="p">]</span>
-</pre></div>
-
-
-<div class="highlight"><pre><span></span>70
-</pre></div>
     <aside>
     <div class="bug-reporting__panel">
         <h3>Find an error or bug? Have a suggestion?</h3>
-        <p>Everything on this site is avaliable on GitHub. Head on over and <a href='https://github.com/chrisalbon/peripheral_brain/blob/gh-pages/data-wrangling/pandas_index_select_and_filter.html'>submit an issue.</a> You can also message me directly on <a href='https://twitter.com/chrisalbon'>Twitter</a>.</p>
+        <p>Everything on this site is avaliable on GitHub. Head on over and <a href='https://github.com/chrisalbon/peripheral_brain/blob/gh-pages/python/pandas_iterate_over_rows_of_multiple_columns.html'>submit an issue.</a> You can also message me directly on <a href='https://twitter.com/chrisalbon'>Twitter</a>.</p>
     </div>
     </aside>
 </section>
