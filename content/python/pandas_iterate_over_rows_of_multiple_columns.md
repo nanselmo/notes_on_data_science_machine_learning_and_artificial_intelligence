@@ -2,8 +2,8 @@ Title: Iterating Through The Rows Of Multiple Columns In Pandas
 Slug: pandas_iterate_over_rows_of_multiple_columns
 Summary: Iterating Through The Rows Of Multiple Columns In Pandas
 Date: 2016-12-01 12:00
-Category: Data Wrangling
-Tags: Basics
+Category: Python
+Tags: Data Wrangling
 Authors: Chris Albon
 
 
@@ -15,9 +15,9 @@ import numpy as np
 
 
 ```python
-raw_data = {'first_name': ['Jason', 'Jason', 'Tina', 'Jake', 'Amy'], 
-        'last_name': ['Miller', 'Miller', 'Ali', 'Milner', 'Cooze'], 
-        'age': [42, 42, 36, 24, 73], 
+raw_data = {'first_name': ['Jason', 'Jason', 'Tina', 'Jake', 'Amy'],
+        'last_name': ['Miller', 'Miller', 'Ali', 'Milner', 'Cooze'],
+        'age': [42, 42, 36, 24, 73],
         'preTestScore': [4, 4, 31, 2, 3],
         'postTestScore': [25, 25, 57, 62, 70]}
 df = pd.DataFrame(raw_data, columns = ['first_name', 'last_name', 'age', 'preTestScore', 'postTestScore'])
@@ -98,10 +98,10 @@ i = 0
 
 # For each element in first_name and last_name,
 for first, last in zip(df['first_name'], df['last_name']):
-    # Change the value of the i'th row in full_name 
+    # Change the value of the i'th row in full_name
     # to the combination of the first and last name
     df['full_name'][i] = first + ' ' + last
-    
+
     # Add one to the iteration counter
     i = i+1
 ```
@@ -177,5 +177,3 @@ df
   </tbody>
 </table>
 </div>
-
-

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block head %}
+  {{ super() }}
+  {% if article.description %}
+    <meta name="description" content="{{article.description}}" />
+  {% endif %}
+
+  {% for tag in article.tags %}
+    <meta name="tags" content="{{tag}}" />
+  {% endfor %}
+
+{% endblock %}
+
+{% block content %}
+<section id="content" class="body">
+    <header>
+    <h1>
+      {{ article.title }}
+    </h1>
+    <time class="published" datetime="{{ article.date.isoformat() }}">
+      {{ article.date.strftime("%d %B %Y") }}
+    </time>
+</header>
+
+{{ article.content }}
+    <aside>
+    <div class="bug-reporting__panel">
+        <h3>Find an error or bug? Have a suggestion?</h3>
+        <p>Everything on this site is avaliable on GitHub. Head on over and <a href='https://github.com/chrisalbon/peripheral_brain/blob/gh-pages/{{ article.url }}'>submit an issue.</a> You can also message me directly on <a href='https://twitter.com/chrisalbon'>Twitter</a>.</p>
+    </div>
+    </aside>
+</section>
+
+{% endblock %}

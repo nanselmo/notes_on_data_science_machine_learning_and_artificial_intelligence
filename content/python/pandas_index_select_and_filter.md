@@ -2,8 +2,8 @@ Title: Index, Select, And Filter pandas Dataframes
 Slug: pandas_index_select_and_filter
 Summary: Index, Select, And Filter pandas Dataframes
 Date: 2016-12-01 12:00
-Category: Data Wrangling
-Tags: Basics
+Category: Python
+Tags: Data Wrangling
 Authors: Chris Albon
 
 
@@ -19,8 +19,8 @@ import pandas as pd
 
 
 ```python
-data = {'name': ['Jason', 'Molly', 'Tina', 'Jake', 'Amy'], 
-        'year': [2012, 2012, 2013, 2014, 2014], 
+data = {'name': ['Jason', 'Molly', 'Tina', 'Jake', 'Amy'],
+        'year': [2012, 2012, 2013, 2014, 2014],
         'reports': [4, 24, 31, 2, 3],
         'coverage': [25, 94, 57, 62, 70]}
 df = pd.DataFrame(data, index = ['Cochice', 'Pima', 'Santa Cruz', 'Maricopa', 'Yuma'])
@@ -303,5 +303,3 @@ df.ix['Yuma', 'coverage']
 
 
     70
-
-

@@ -5,7 +5,7 @@ from __future__ import unicode_literals
 AUTHOR = 'Chris Albon'
 SITENAME = 'Chris Albon'
 SITEURL = 'http://chrisalbon.com'
-THEME = '../simple_library/'
+THEME = 'theme/'
 
 PATH = 'content'
 
@@ -40,3 +40,13 @@ EXTRA_PATH_METADATA = {
 }
 
 PLUGIN_PATHS = ['plugins']
+PLUGINS = ["render_math"]
+
+
+CATEGORY_SAVE_AS = ''
+AUTHOR_SAVE_AS = ''
+TAG_SAVE_AS = ''
+AUTHORS_SAVE_AS = ''
+CATEGORIES_SAVE_AS = ''
+TAGS_SAVE_AS = ''
+ARCHIVES_SAVE_AS = ''

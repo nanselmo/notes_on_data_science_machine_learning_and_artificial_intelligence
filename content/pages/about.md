@@ -12,8 +12,6 @@ I earned a B.A. from the University of Miami, where I triple majored in politica
 
 I code in [R](http://r-project.org) and [Python](http://www.python.org/), and write in [Markdown](http://daringfireball.net/projects/markdown/).
 
---Want to talk? Contact Me--
-
 -   Email: &#099;&#114;&#097;&#108;&#098;&#111;&#110;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;
 -   Twitter: [@chrisalbon](https://twitter.com/chrisalbon)
 
@@ -28,6 +26,8 @@ I code in [R](http://r-project.org) and [Python](http://www.python.org/), and wr
     -   Thesis: "U.N. Peace Operations And Public Health After Civil War"
 -   B.A., University of Miami, Miami, FL. 2006
     -   Triple majored in political science, international studies, and religious studies
+
+/**
 
 ### Experience
 

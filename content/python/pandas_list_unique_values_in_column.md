@@ -8,6 +8,8 @@ Authors: Chris Albon
 
 
 
+Special thanks to Bob Haffner for pointing out a better way of doing it.
+
 ## Preliminaries
 
 
@@ -27,8 +29,8 @@ pd.set_option('display.max_columns', 50)
 
 ```python
 # Create an example dataframe
-data = {'name': ['Jason', 'Molly', 'Tina', 'Jake', 'Amy'], 
-        'year': [2012, 2012, 2013, 2014, 2014], 
+data = {'name': ['Jason', 'Molly', 'Tina', 'Jake', 'Amy'],
+        'year': [2012, 2012, 2013, 2014, 2014],
         'reports': [4, 24, 31, 2, 3]}
 df = pd.DataFrame(data, index = ['Cochice', 'Pima', 'Santa Cruz', 'Maricopa', 'Yuma'])
 df
@@ -37,7 +39,7 @@ df
 
 
 
-<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<div>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -50,33 +52,33 @@ df
   <tbody>
     <tr>
       <th>Cochice</th>
-      <td> Jason</td>
-      <td>  4</td>
-      <td> 2012</td>
+      <td>Jason</td>
+      <td>4</td>
+      <td>2012</td>
     </tr>
     <tr>
       <th>Pima</th>
-      <td> Molly</td>
-      <td> 24</td>
-      <td> 2012</td>
+      <td>Molly</td>
+      <td>24</td>
+      <td>2012</td>
     </tr>
     <tr>
       <th>Santa Cruz</th>
-      <td>  Tina</td>
-      <td> 31</td>
-      <td> 2013</td>
+      <td>Tina</td>
+      <td>31</td>
+      <td>2013</td>
     </tr>
     <tr>
       <th>Maricopa</th>
-      <td>  Jake</td>
-      <td>  2</td>
-      <td> 2014</td>
+      <td>Jake</td>
+      <td>2</td>
+      <td>2014</td>
     </tr>
     <tr>
       <th>Yuma</th>
-      <td>   Amy</td>
-      <td>  3</td>
-      <td> 2014</td>
+      <td>Amy</td>
+      <td>3</td>
+      <td>2014</td>
     </tr>
   </tbody>
 </table>
@@ -89,12 +91,10 @@ df
 
 ```python
 #List unique values in the df['name'] column
-pd.unique(df.name.ravel())
+df.name.unique()
 ```
 
 
 
 
     array(['Jason', 'Molly', 'Tina', 'Jake', 'Amy'], dtype=object)
-
-

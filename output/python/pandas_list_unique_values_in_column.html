@@ -21,7 +21,6 @@
     <link rel="stylesheet" type="text/css" href="../theme/css/style.css" />
     <link rel="stylesheet" type="text/css" href="../theme/css/notebooks.css" />
 
-
     <link href='https://fonts.googleapis.com/css?family=Crimson+Text' rel='stylesheet' type='text/css'>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -76,7 +75,7 @@
                             <li><a href="..#Writing">Writing</a></li>
                             <li><a href="..#Projects">Projects</a></li>
                             <li><a href="http://popily.com">Popily</a></li>
-                            <li><a href="http://partiallyderiative.com">Partially Derivative</a></li>
+                            <li><a href="http://partiallyderivative.com">Partially Derivative</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="https://github.com/chrisalbon/peripheral_brain">Peripheral Brain</a></li>
                         </ul>
@@ -102,6 +101,7 @@
     </time>
 </header>
 
+<p>Special thanks to Bob Haffner for pointing out a better way of doing it.</p>
 <h2>Preliminaries</h2>
 <div class="highlight"><pre><span></span><span class="c1"># Import modules</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
@@ -116,15 +116,15 @@
 
 <h2>Create an example dataframe</h2>
 <div class="highlight"><pre><span></span><span class="c1"># Create an example dataframe</span>
-<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Jason&#39;</span><span class="p">,</span> <span class="s1">&#39;Molly&#39;</span><span class="p">,</span> <span class="s1">&#39;Tina&#39;</span><span class="p">,</span> <span class="s1">&#39;Jake&#39;</span><span class="p">,</span> <span class="s1">&#39;Amy&#39;</span><span class="p">],</span> 
-        <span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">2012</span><span class="p">,</span> <span class="mi">2013</span><span class="p">,</span> <span class="mi">2014</span><span class="p">,</span> <span class="mi">2014</span><span class="p">],</span> 
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Jason&#39;</span><span class="p">,</span> <span class="s1">&#39;Molly&#39;</span><span class="p">,</span> <span class="s1">&#39;Tina&#39;</span><span class="p">,</span> <span class="s1">&#39;Jake&#39;</span><span class="p">,</span> <span class="s1">&#39;Amy&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">2012</span><span class="p">,</span> <span class="mi">2013</span><span class="p">,</span> <span class="mi">2014</span><span class="p">,</span> <span class="mi">2014</span><span class="p">],</span>
         <span class="s1">&#39;reports&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]}</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Cochice&#39;</span><span class="p">,</span> <span class="s1">&#39;Pima&#39;</span><span class="p">,</span> <span class="s1">&#39;Santa Cruz&#39;</span><span class="p">,</span> <span class="s1">&#39;Maricopa&#39;</span><span class="p">,</span> <span class="s1">&#39;Yuma&#39;</span><span class="p">])</span>
 <span class="n">df</span>
 </pre></div>
 
 
-<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<div>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -137,33 +137,33 @@
   <tbody>
     <tr>
       <th>Cochice</th>
-      <td> Jason</td>
-      <td>  4</td>
-      <td> 2012</td>
+      <td>Jason</td>
+      <td>4</td>
+      <td>2012</td>
     </tr>
     <tr>
       <th>Pima</th>
-      <td> Molly</td>
-      <td> 24</td>
-      <td> 2012</td>
+      <td>Molly</td>
+      <td>24</td>
+      <td>2012</td>
     </tr>
     <tr>
       <th>Santa Cruz</th>
-      <td>  Tina</td>
-      <td> 31</td>
-      <td> 2013</td>
+      <td>Tina</td>
+      <td>31</td>
+      <td>2013</td>
     </tr>
     <tr>
       <th>Maricopa</th>
-      <td>  Jake</td>
-      <td>  2</td>
-      <td> 2014</td>
+      <td>Jake</td>
+      <td>2</td>
+      <td>2014</td>
     </tr>
     <tr>
       <th>Yuma</th>
-      <td>   Amy</td>
-      <td>  3</td>
-      <td> 2014</td>
+      <td>Amy</td>
+      <td>3</td>
+      <td>2014</td>
     </tr>
   </tbody>
 </table>
@@ -171,7 +171,7 @@
 
 <h2>List unique values</h2>
 <div class="highlight"><pre><span></span><span class="c1">#List unique values in the df[&#39;name&#39;] column</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">ravel</span><span class="p">())</span>
+<span class="n">df</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 </pre></div>
 
 
@@ -215,16 +215,6 @@
         ga('send', 'pageview');
     </script>
     <!-- End of Google Analytics -->
-
-    <!-- Loading mathjax macro -->
-    <!-- Load mathjax -->
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
-    <!-- MathJax configuration -->
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({ tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ], displayMath: [ ['$$','$$'], ["\\[","\\]"] ], processEscapes: true, processEnvironments: true }, // Center justify equations in code and markdown cells. Elsewhere // we use CSS to
-        left justify single line equations in code cells. displayAlign: 'center', "HTML-CSS": { styles: {'.MathJax_Display': {"margin": 0}}, linebreaks: { automatic: true } } });
-    </script>
-    <!-- End of mathjax configuration -->
 
     <!-- Bootstrap core JavaScript
       ================================================== -->
