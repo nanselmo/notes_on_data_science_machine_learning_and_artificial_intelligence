@@ -1,7 +1,7 @@
 Title: Geocoding And Reverse Geocoding
 Slug: geocoding_and_reverse_geocoding
 Summary: Geocoding And Reverse Geocoding
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon

@@ -1,7 +1,7 @@
 Title: if and if else
 Slug: if_and_if_else_statements
 Summary: if and if else
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Basics
 Authors: Chris Albon

@@ -1,7 +1,7 @@
 Title: List Unique Values In A Pandas Column
 Slug: pandas_list_unique_values_in_column
 Summary: List Unique Values In A Pandas Column
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon

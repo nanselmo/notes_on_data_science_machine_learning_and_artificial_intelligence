@@ -1,7 +1,7 @@
 Title: Apply Operations To Groups In Pandas
 Slug: pandas_apply_operations_to_groups
 Summary: Apply Operations To Groups In Pandas
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon

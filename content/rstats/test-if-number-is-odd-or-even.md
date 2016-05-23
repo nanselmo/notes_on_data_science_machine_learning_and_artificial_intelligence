@@ -1,7 +1,7 @@
 Title: Testing if a number is odd or even
 Slug: test-if-number-is-odd-or-even
 Summary: Testing if a number is odd or even
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: R Stats
 Tags: Other
 Authors: Chris Albon

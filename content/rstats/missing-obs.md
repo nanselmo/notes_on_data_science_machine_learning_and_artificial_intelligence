@@ -1,7 +1,7 @@
 Title: Removing Missing Observations
 Slug: missing-obs
 Summary: Removing Missing Observations
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: R Stats
 Tags: Data Wrangling
 Authors: Chris Albon

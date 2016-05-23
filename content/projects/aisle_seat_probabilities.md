@@ -1,7 +1,7 @@
 Title: Calculating The Probability An Economy Class Seat Is An Aisle
 Slug: aisle_seat_probabilities
 Summary: Calculating The Probability An Economy Class Seat Is An Aisle
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Projects
 Tags: Small Projects
 Authors: Chris Albon

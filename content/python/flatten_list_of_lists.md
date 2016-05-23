@@ -1,7 +1,7 @@
 Title: Flatten Lists Of Lists
 Slug: flatten_list_of_lists
 Summary: Flatten Lists Of Lists
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon

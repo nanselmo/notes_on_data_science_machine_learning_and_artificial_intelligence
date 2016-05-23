@@ -1,7 +1,7 @@
 Title: Rename Multiple Pandas Dataframe Column Names At Once
 Slug: pandas_rename_multiple_columns
 Summary: Rename Multiple Pandas Dataframe Column Names At Once
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon

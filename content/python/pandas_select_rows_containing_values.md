@@ -1,7 +1,7 @@
 Title: Select Rows That Have A Certain Value
 Slug: pandas_select_rows_containing_values
 Summary: Select Rows That Have A Certain Value
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon

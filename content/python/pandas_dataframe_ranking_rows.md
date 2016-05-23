@@ -1,7 +1,7 @@
 Title: Ranking Rows Of pandas Dataframes
 Slug: pandas_dataframe_ranking_rows
 Summary: Ranking Rows Of pandas Dataframes
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon

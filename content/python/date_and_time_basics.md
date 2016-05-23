@@ -1,7 +1,7 @@
 Title: Date And Time Basics
 Slug: date_and_time_basics
 Summary: Date And Time Basics
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Basics
 Authors: Chris Albon

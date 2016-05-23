@@ -1,7 +1,7 @@
 Title: All Combinations For A List Of Objects
 Slug: all_combinations_of_a_list_of_objects
 Summary: All Combinations For A List Of Objects
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Basics
 Authors: Chris Albon

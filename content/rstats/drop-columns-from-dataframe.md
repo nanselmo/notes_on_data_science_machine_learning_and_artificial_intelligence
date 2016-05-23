@@ -1,7 +1,7 @@
 Title: Drop Columns From Dataframe
 Slug: drop-columns-from-dataframe
 Summary: Drop Columns From Dataframe
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: R Stats
 Tags: Data Wrangling
 Authors: Chris Albon

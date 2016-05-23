@@ -1,7 +1,7 @@
 Title: Drop A Column That Contains A Certain String In Pandas
 Slug: pandas_drop_column_containing_certain_string
 Summary: Drop A Column That Contains A Certain String In Pandas
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon

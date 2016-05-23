@@ -1,7 +1,7 @@
 Title: Convert A String Categorical Variable To A Numeric Variable Naively
 Slug: convert_categorical_to_numeric_naively
 Summary: Convert A String Categorical Variable To A Numeric Variable Naively
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon

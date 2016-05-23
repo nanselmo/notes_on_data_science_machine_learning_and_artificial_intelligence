@@ -1,7 +1,7 @@
 Title: Change The Class Of An Object
 Slug: change-object-class
 Summary: Change The Class Of An Object
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: R Stats
 Tags: Basics
 Authors: Chris Albon

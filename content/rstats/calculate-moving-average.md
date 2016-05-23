@@ -1,7 +1,7 @@
 Title: Calculate A Moving Average
 Slug: calculate-moving-average
 Summary: Calculate A Moving Average
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: R Stats
 Tags: Basics
 Authors: Chris Albon

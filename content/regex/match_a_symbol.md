@@ -1,7 +1,7 @@
 Title: Match A Symbol
 Slug: match_a_symbol
 Summary: Match A Symbol
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Regex
 Tags: Basics
 Authors: Chris Albon

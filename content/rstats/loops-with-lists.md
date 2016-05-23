@@ -1,7 +1,7 @@
 Title: Loops With Lists
 Slug: loops-with-lists
 Summary: Loops With Lists
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: R Stats
 Tags: Basics
 Authors: Chris Albon

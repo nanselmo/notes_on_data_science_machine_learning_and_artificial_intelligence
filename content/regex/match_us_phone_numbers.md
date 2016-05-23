@@ -1,7 +1,7 @@
 Title: Match US Phone Numbers
 Slug: match_us_phone_numbers
 Summary: Match US Phone Numbers
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Regex
 Tags: Basics
 Authors: Chris Albon

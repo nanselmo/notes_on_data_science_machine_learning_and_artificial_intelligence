@@ -1,7 +1,7 @@
 Title: Descriptive Statistics For pandas Dataframe
 Slug: pandas_dataframe_descriptive_stats
 Summary: Descriptive Statistics For pandas Dataframe
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon

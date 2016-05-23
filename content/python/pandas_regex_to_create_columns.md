@@ -1,7 +1,7 @@
 Title: Breaking Up A String Into Columns Using Regex In Pandas
 Slug: pandas_regex_to_create_columns
 Summary: Breaking Up A String Into Columns Using Regex In Pandas
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon

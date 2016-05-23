@@ -1,7 +1,7 @@
 Title: Select Rows When Columns Contain Certain Values
 Slug: pandas_select_rows_when_column_has_certain_values
 Summary: Select Rows When Columns Contain Certain Values
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon

@@ -1,7 +1,7 @@
 Title: Simple Clustering With SciPy
 Slug: scipy_simple_clustering
 Summary: Simple Clustering With SciPy
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Other
 Authors: Chris Albon

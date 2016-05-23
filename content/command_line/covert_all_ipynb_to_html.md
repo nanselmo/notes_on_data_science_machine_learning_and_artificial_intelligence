@@ -1,5 +1,5 @@
 Title: Convert All Jupyter Notebooks In A Folder To Basic HTML Using Bash
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Command Line
 Tags:
 Slug: covert_all_ipynb_to_html

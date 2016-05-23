@@ -1,7 +1,7 @@
 Title: Expand Cells Containing Lists Into Their Own Variables In Pandas
 Slug: pandas_expand_cells_containing_lists
 Summary: Expand Cells Containing Lists Into Their Own Variables In Pandas
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon

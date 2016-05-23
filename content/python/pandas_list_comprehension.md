@@ -1,7 +1,7 @@
 Title: Using List Comprehensions With Pandas
 Slug: pandas_list_comprehension
 Summary: Using List Comprehensions With Pandas
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon

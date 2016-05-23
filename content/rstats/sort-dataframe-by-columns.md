@@ -1,7 +1,7 @@
 Title: Sorting A Data Frame By A Single Column
 Slug: sort-dataframe-by-columns
 Summary: Sorting A Data Frame By A Single Column
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: R Stats
 Tags: Data Wrangling
 Authors: Chris Albon

@@ -1,7 +1,7 @@
 Title: Convert A CSV Into Python Code To Recreate It
 Slug: csv_to_python_code
 Summary: Convert A CSV Into Python Code To Recreate It
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon

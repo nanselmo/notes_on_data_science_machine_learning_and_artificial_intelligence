@@ -1,7 +1,7 @@
 Title: Convert A Numeric Categorical Variable With Patsy
 Slug: pandas_convert_numeric_categorical_to_numeric_with_patsy
 Summary: Convert A Numeric Categorical Variable With Patsy
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon

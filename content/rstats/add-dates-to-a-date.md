@@ -1,7 +1,7 @@
 Title: Adding Time To A Date
 Slug: add-dates-to-a-date
 Summary: Adding Time To A Date
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: R Stats
 Tags: Data Wrangling
 Authors: Chris Albon

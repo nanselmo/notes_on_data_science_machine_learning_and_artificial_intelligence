@@ -1,7 +1,7 @@
 Title: Set The Color Of A Matplotlib Plot
 Slug: set_the_color_of_a_matplotlib
 Summary: Set The Color Of A Matplotlib Plot
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Visualization
 Authors: Chris Albon

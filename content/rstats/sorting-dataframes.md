@@ -1,7 +1,7 @@
 Title: Sorting Data Frames
 Slug: sorting-dataframes
 Summary: Sorting Data Frames
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: R Stats
 Tags: Data Wrangling
 Authors: Chris Albon

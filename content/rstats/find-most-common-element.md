@@ -1,7 +1,7 @@
 Title: Finding the most common element
 Slug: find-most-common-element
 Summary: Finding the most common element
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: R Stats
 Tags: Data Wrangling
 Authors: Chris Albon

@@ -1,7 +1,7 @@
 Title: Search A Pandas Column For A Value
 Slug: pandas_search_column_for_value
 Summary: Search A Pandas Column For A Value
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon

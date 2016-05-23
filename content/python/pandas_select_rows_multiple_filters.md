@@ -1,7 +1,7 @@
 Title: Select Rows With Multiple Filters
 Slug: pandas_select_rows_multiple_filters
 Summary: Select Rows With Multiple Filters
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon

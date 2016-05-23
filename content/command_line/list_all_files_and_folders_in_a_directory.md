@@ -1,5 +1,5 @@
 Title: List All Files And Folders In A Directory
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Command Line
 Tags:
 Slug: list_all_files_and_folders_in_a_directory

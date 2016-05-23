@@ -1,7 +1,7 @@
 Title: Create a Column Based on a Conditional in pandas
 Slug: pandas_create_column_using_conditional
 Summary: Create a Column Based on a Conditional in pandas
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon

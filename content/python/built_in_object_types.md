@@ -1,7 +1,7 @@
 Title: Built-In Object Types
 Slug: built_in_object_types
 Summary: Built-In Object Types
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Basics
 Authors: Chris Albon

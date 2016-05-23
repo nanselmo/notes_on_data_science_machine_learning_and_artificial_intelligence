@@ -1,7 +1,7 @@
 Title: Using Seaborn To Visualize A Pandas Dataframe
 Slug: pandas_with_seaborn
 Summary: Using Seaborn To Visualize A Pandas Dataframe
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon

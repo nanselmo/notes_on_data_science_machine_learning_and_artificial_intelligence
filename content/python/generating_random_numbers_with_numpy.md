@@ -1,7 +1,7 @@
 Title: Generating Random Numbers With Numpy
 Slug: generating_random_numbers_with_numpy
 Summary: Generating Random Numbers With Numpy
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Basics
 Authors: Chris Albon

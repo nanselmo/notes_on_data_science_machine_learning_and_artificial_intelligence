@@ -1,7 +1,7 @@
 Title: Join And Merge Pandas Dataframe
 Slug: pandas_join_merge_dataframe
 Summary: Join And Merge Pandas Dataframe
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon

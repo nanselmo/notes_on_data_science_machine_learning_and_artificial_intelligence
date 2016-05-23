@@ -1,7 +1,7 @@
 Title: Make New Columns Using Functions
 Slug: pandas_make_new_columns_using_functions
 Summary: Make New Columns Using Functions
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon

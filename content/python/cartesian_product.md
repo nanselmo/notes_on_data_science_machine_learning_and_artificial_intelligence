@@ -1,7 +1,7 @@
 Title: Cartesian Product
 Slug: cartesian_product
 Summary: Cartesian Product
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Basics
 Authors: Chris Albon

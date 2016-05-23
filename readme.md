@@ -10,7 +10,7 @@ More specifically, this repo is a Pelican site for my personal homepage, [ChrisA
 
 ## What template do you use?
 
-It is a custom Pelican bootstrap template I made specifically for ChrisAlbon.com. You can [view the repo here](https://github.com/chrisalbon/simple_library).
+It is a custom Pelican bootstrap template I made specifically for ChrisAlbon.com. You can see it in the theme folder.
 
 # Deployment Procedure
 

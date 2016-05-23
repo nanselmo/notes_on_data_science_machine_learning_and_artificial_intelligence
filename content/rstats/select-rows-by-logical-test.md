@@ -1,7 +1,7 @@
 Title: Select Rows By Logical Test
 Slug: select-rows-by-logical-test
 Summary: Select Rows By Logical Test
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: R Stats
 Tags: Data Wrangling
 Authors: Chris Albon

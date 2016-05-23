@@ -1,7 +1,7 @@
 Title: Selecting Pandas DataFrame Rows Based On Conditions
 Slug: pandas_selecting_rows_on_conditions
 Summary: Selecting Pandas DataFrame Rows Based On Conditions
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon

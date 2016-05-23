@@ -1,7 +1,7 @@
 Title: If Else On Any Or All Elements
 Slug: ifelse_on_any_or_all_elements
 Summary: If Else On Any Or All Elements
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Basics
 Authors: Chris Albon

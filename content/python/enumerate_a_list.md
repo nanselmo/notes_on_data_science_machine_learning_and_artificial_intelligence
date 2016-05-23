@@ -1,7 +1,7 @@
 Title: Enumerate A List
 Slug: enumerate_a_list
 Summary: Enumerate A List
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Basics
 Authors: Chris Albon

@@ -1,7 +1,7 @@
 Title: Apply A Function On Every Row Of A Dataframe
 Slug: apply-function-to-every-row
 Summary: Apply A Function On Every Row Of A Dataframe
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: R Stats
 Tags: Basics
 Authors: Chris Albon

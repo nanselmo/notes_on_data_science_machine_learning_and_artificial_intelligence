@@ -1,7 +1,7 @@
 Title: Creating Lists From Dictionary Keys And Values
 Slug: create_list_from_dictionary_keys_and_values
 Summary: Creating Lists From Dictionary Keys And Values
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon

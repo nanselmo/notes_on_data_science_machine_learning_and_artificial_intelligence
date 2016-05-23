@@ -1,7 +1,7 @@
 Title: Brute Force D20 Roll Simulator
 Slug: brute_force_d20_simulator
 Summary: Brute Force D20 Roll Simulator
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Basics
 Authors: Chris Albon

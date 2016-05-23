@@ -1,7 +1,7 @@
 Title: Apply Operations Over Items In A List
 Slug: apply_operations_over_items_in_lists
 Summary: Apply Operations Over Items In A List
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Basics
 Authors: Chris Albon

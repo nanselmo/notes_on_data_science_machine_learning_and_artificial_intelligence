@@ -1,7 +1,7 @@
 Title: Wrangling DHS Border Crossing Data
 Slug: example_exploring_border_crossing_data
 Summary: Wrangling DHS Border Crossing Data
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon

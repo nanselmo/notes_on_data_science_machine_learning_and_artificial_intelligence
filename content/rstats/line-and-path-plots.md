@@ -1,7 +1,7 @@
 Title: Line and Path Plots
 Slug: line-and-path-plots
 Summary: Line and Path Plots
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: R Stats
 Tags: Data Visualization
 Authors: Chris Albon

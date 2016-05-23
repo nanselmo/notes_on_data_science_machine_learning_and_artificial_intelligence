@@ -1,7 +1,7 @@
 Title: About Chris Albon
 Slug: about
 Summary: About Chris Albon
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Authors: Chris Albon
 
 I am a data scientist, and the co-founder and Chief Science Officer at [Popily](http://www.popily.com). I am also the co-host of the data science podcast, [Partially Derivative](http://www.partiallyderivative.com). Previously, I lead [Ushahidi's](http://www.ushahidi.com) work on crisis and humanitarian data and launched [CrisisNET](http://crisis.net). Prior to Ushahidi, I was Director of the Governance Project at [FrontlineSMS](http://www.frontlinesms.com). I earned a Ph.D. in Political Science from the University of California, Davis researching the quantitative impact of civil wars on health care systems.
@@ -26,8 +26,6 @@ I code in [R](http://r-project.org) and [Python](http://www.python.org/), and wr
     -   Thesis: "U.N. Peace Operations And Public Health After Civil War"
 -   B.A., University of Miami, Miami, FL. 2006
     -   Triple majored in political science, international studies, and religious studies
-
-/**
 
 ### Experience
 

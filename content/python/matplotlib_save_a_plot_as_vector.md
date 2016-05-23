@@ -1,7 +1,7 @@
 Title: Save A Matplotlib Plot As A Vector
 Slug: matplotlib_save_a_plot_as_vector
 Summary: Save A Matplotlib Plot As A Vector
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Visualization
 Authors: Chris Albon

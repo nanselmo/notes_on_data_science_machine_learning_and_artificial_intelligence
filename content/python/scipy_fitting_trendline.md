@@ -1,7 +1,7 @@
 Title: Finding A Trend Line Of Data
 Slug: scipy_fitting_trendline
 Summary: Finding A Trend Line Of Data
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Other
 Authors: Chris Albon

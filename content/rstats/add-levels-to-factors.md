@@ -1,7 +1,7 @@
 Title: Adding Levels To A Factor (i.e. adding Categories To A Nominal Variable)
 Slug: add-levels-to-factors
 Summary: Adding Levels To A Factor (i.e. adding Categories To A Nominal Variable)
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: R Stats
 Tags: Basics
 Authors: Chris Albon

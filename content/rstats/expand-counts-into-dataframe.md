@@ -1,7 +1,7 @@
 Title: Expand A Table Of Counts Into A Dataframe
 Slug: expand-counts-into-dataframe
 Summary: Expand A Table Of Counts Into A Dataframe
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: R Stats
 Tags: Data Wrangling
 Authors: Chris Albon

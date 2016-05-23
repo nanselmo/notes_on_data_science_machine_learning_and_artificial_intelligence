@@ -1,7 +1,7 @@
 Title: Count The Number Of Times X Appears In A Vector
 Slug: count-number-elements
 Summary: Count The Number Of Times X Appears In A Vector
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: R Stats
 Tags: Basics
 Authors: Chris Albon

@@ -1,7 +1,7 @@
 Title: Breaking Up String Variables
 Slug: breaking_up_string_variables
 Summary: Breaking Up String Variables
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Basics
 Authors: Chris Albon

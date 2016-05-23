@@ -1,7 +1,7 @@
 Title: Prussian Horse Kick Data
 Slug: dataset_prussian_horse_kicks
 Summary: Prussian Horse Kick Data
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Basics
 Authors: Chris Albon

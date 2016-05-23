@@ -1,7 +1,7 @@
 Title: Selecting Items In A List With Filters
 Slug: filter_items_in_list_with_filter
 Summary: Selecting Items In A List With Filters
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon

@@ -1,7 +1,7 @@
 Title: Iterating Through The Rows Of Multiple Columns In Pandas
 Slug: pandas_iterate_over_rows_of_multiple_columns
 Summary: Iterating Through The Rows Of Multiple Columns In Pandas
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon

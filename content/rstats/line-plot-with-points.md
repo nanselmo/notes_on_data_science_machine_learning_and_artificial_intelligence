@@ -1,7 +1,7 @@
 Title: Plot With Both Lines And Poiints
 Slug: line-plot-with-points
 Summary: Plot With Both Lines And Poiints
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: R Stats
 Tags: Data Visualization
 Authors: Chris Albon

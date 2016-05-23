@@ -1,7 +1,7 @@
 Title: Line Plot With Multiple Lines
 Slug: line-plot-with-multiple-lines
 Summary: Line Plot With Multiple Lines
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: R Stats
 Tags: Data Visualization
 Authors: Chris Albon

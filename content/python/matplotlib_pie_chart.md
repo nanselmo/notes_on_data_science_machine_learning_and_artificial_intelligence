@@ -1,7 +1,7 @@
 Title: Pie Chart In MatPlotLib
 Slug: matplotlib_pie_chart
 Summary: Pie Chart In MatPlotLib
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Visualization
 Authors: Chris Albon

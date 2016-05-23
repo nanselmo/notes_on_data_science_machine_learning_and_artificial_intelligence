@@ -1,7 +1,7 @@
 Title: Find Approximate Number Of Google Search Results For A String
 Slug: number-of-google-search-results
 Summary: Find Approximate Number Of Google Search Results For A String
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: R Stats
 Tags: Other
 Authors: Chris Albon

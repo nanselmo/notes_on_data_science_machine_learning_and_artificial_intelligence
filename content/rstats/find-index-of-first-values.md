@@ -1,7 +1,7 @@
 Title: Finding the location (the index) of the first instance of values in a vector
 Slug: find-index-of-first-values
 Summary: Finding the location (the index) of the first instance of values in a vector
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: R Stats
 Tags: Data Wrangling
 Authors: Chris Albon

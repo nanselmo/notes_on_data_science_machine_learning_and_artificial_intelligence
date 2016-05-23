@@ -1,7 +1,7 @@
 Title: Getting A Sample Of Random Rows From A Dataframe
 Slug: sampling-a-dataframe
 Summary: Getting A Sample Of Random Rows From A Dataframe
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: R Stats
 Tags: Data Wrangling
 Authors: Chris Albon

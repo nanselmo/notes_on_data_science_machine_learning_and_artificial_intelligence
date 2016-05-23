@@ -1,7 +1,7 @@
 Title: Map External Values To Dataframe Values in Pandas
 Slug: pandas_map_values_to_values
 Summary: Map External Values To Dataframe Values in Pandas
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon

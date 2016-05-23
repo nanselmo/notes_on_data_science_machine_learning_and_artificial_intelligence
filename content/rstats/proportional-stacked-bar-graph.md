@@ -1,7 +1,7 @@
 Title: Proportional Stacked Bar Graph
 Slug: proportional-stacked-bar-graph
 Summary: Proportional Stacked Bar Graph
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: R Stats
 Tags: Data Visualization
 Authors: Chris Albon

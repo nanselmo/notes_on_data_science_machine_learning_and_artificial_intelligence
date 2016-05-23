@@ -1,7 +1,7 @@
 Title: Bar Graph Of Two Sets Of Data
 Slug: barplot-two-sets-of-data
 Summary: Bar Graph Of Two Sets Of Data
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: R Stats
 Tags: Data Visualization
 Authors: Chris Albon

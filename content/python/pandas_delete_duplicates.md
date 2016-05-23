@@ -1,7 +1,7 @@
 Title: Delete Duplicates In Pandas
 Slug: pandas_delete_duplicates
 Summary: Delete Duplicates In Pandas
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon

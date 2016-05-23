@@ -1,7 +1,7 @@
 Title: Creating Scatterplots with Seaborn
 Slug: seaborn_scatterplot
 Summary: Creating Scatterplots with Seaborn
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Visualization
 Authors: Chris Albon

@@ -1,7 +1,7 @@
 Title: Convert A Categorical Variable Into Dummy Variables
 Slug: pandas_convert_categorical_to_dummies
 Summary: Convert A Categorical Variable Into Dummy Variables
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon

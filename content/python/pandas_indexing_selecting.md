@@ -1,7 +1,7 @@
 Title: Indexing and Selecting Data With Pandas
 Slug: pandas_indexing_selecting
 Summary: Indexing and Selecting Data With Pandas
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon

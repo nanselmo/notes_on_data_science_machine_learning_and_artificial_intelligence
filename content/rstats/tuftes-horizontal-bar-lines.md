@@ -1,7 +1,7 @@
 Title: Tufte's Horizontal Bar Lines
 Slug: tuftes-horizontal-bar-lines
 Summary: Tufte's Horizontal Bar Lines
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: R Stats
 Tags: Data Visualization
 Authors: Chris Albon

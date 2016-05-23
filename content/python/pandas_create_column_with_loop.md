@@ -1,7 +1,7 @@
 Title: Create A Pandas Column With A For Loop
 Slug: pandas_create_column_with_loop
 Summary: Create A Pandas Column With A For Loop
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon

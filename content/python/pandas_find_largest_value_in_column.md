@@ -1,7 +1,7 @@
 Title: Find Largest Value In A Dataframe Column
 Slug: pandas_find_largest_value_in_column
 Summary: Find Largest Value In A Dataframe Column
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon

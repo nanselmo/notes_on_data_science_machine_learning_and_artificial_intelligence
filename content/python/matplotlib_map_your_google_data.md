@@ -1,7 +1,7 @@
 Title: Map Your Google Location History
 Slug: matplotlib_map_your_google_data
 Summary: Map Your Google Location History
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Visualization
 Authors: Chris Albon

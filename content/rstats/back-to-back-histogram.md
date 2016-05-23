@@ -1,7 +1,7 @@
 Title: Making A Back To Back Histogram
 Slug: back-to-back-histogram
 Summary: Making A Back To Back Histogram
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: R Stats
 Tags: Data Visualization
 Authors: Chris Albon

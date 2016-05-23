@@ -1,7 +1,7 @@
 Title: Match US and UK Spellings
 Slug: match_us_uk_spellings
 Summary: Match US and UK Spellings
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Regex
 Tags: Basics
 Authors: Chris Albon

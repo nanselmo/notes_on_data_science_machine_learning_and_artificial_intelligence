@@ -1,7 +1,7 @@
 Title: String Munging In Dataframe
 Slug: pandas_string_munging
 Summary: String Munging In Dataframe
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon

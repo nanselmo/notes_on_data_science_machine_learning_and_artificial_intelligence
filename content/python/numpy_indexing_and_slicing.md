@@ -1,7 +1,7 @@
 Title: Indexing And Slicing Numpy Arrays
 Slug: numpy_indexing_and_slicing
 Summary: Indexing And Slicing Numpy Arrays
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Basics
 Authors: Chris Albon

@@ -1,7 +1,7 @@
 Title: Creating Numpy Arrays
 Slug: creating_numpy_arrays
 Summary: Creating Numpy Arrays
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Basics
 Authors: Chris Albon

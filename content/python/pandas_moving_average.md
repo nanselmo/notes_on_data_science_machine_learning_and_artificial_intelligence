@@ -1,7 +1,7 @@
 Title: Moving Averages In Pandas
 Slug: pandas_moving_average
 Summary: Moving Averages In Pandas
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon

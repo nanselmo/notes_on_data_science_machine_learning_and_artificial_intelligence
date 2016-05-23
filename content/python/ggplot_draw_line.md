@@ -1,7 +1,7 @@
 Title: Draw a line in ggplot
 Slug: ggplot_draw_line
 Summary: Draw a line in ggplot
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Visualization
 Authors: Chris Albon

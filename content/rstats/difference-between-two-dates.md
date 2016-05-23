@@ -1,7 +1,7 @@
 Title: Difference Between Two Date-Times
 Slug: difference-between-two-dates
 Summary: Difference Between Two Date-Times
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: R Stats
 Tags: Data Wrangling
 Authors: Chris Albon

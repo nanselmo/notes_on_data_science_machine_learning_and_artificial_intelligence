@@ -1,7 +1,7 @@
 Title: Find Which Column Has The Greatest Value In Each Row
 Slug: max-columns-value
 Summary: Find Which Column Has The Greatest Value In Each Row
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: R Stats
 Tags: Data Wrangling
 Authors: Chris Albon

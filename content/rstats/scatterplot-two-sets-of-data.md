@@ -1,7 +1,7 @@
 Title: Scatter plot two sets of data with smooth lines
 Slug: scatterplot-two-sets-of-data
 Summary: Scatter plot two sets of data with smooth lines
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: R Stats
 Tags: Data Visualization
 Authors: Chris Albon

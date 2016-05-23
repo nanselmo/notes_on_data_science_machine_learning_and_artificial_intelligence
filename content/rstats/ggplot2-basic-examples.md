@@ -1,7 +1,7 @@
 Title: Basic ggplot2 examples
 Slug: ggplot2-basic-examples
 Summary: Basic ggplot2 examples
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: R Stats
 Tags: Data Visualization
 Authors: Chris Albon

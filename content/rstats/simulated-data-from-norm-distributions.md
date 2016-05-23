@@ -1,7 +1,7 @@
 Title: Simulated Data From Normal Distribution Function
 Slug: simulated-data-from-norm-distributions
 Summary: Simulated Data From Normal Distribution Function
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: R Stats
 Tags: Other
 Authors: Chris Albon

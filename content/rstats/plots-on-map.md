@@ -1,7 +1,7 @@
 Title: Plot Points On A Map
 Slug: plots-on-map
 Summary: Plot Points On A Map
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: R Stats
 Tags: Data Visualization
 Authors: Chris Albon

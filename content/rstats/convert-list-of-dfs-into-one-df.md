@@ -1,7 +1,7 @@
 Title: Converting List Of Dataframes Into A Single Dataframe
 Slug: convert-list-of-dfs-into-one-df
 Summary: Converting List Of Dataframes Into A Single Dataframe
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: R Stats
 Tags: Data Wrangling
 Authors: Chris Albon

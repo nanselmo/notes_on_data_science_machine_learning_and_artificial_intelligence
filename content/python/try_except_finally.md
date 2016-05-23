@@ -1,7 +1,7 @@
 Title: Try, Except, and Finally
 Slug: try_except_finally
 Summary: Try, Except, and Finally
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Basics
 Authors: Chris Albon

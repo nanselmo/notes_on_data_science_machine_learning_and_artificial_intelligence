@@ -1,7 +1,7 @@
 Title: Scraping a HTML with Beauitful Soup
 Slug: beautiful_soup_scrape_table
 Summary: Scraping a HTML with Beauitful Soup
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Web Scraping
 Authors: Chris Albon

@@ -1,7 +1,7 @@
 Title: Color Palettes in Seaborn
 Slug: seaborn_color_palettes
 Summary: Color Palettes in Seaborn
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Visualization
 Authors: Chris Albon

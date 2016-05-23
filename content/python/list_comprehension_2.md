@@ -1,7 +1,7 @@
 Title: List Comprehension 2
 Slug: list_comprehension_2
 Summary: List Comprehension 2
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Basics
 Authors: Chris Albon

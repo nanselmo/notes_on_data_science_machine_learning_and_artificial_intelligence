@@ -1,7 +1,7 @@
 Title: Load Excel Spreadsheet As Pandas Dataframe
 Slug: pandas_dataframe_load_xls
 Summary: Load Excel Spreadsheet As Pandas Dataframe
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon

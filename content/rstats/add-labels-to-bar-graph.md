@@ -1,7 +1,7 @@
 Title: Adding labels to a ggplot2 bar graph
 Slug: add-labels-to-bar-graph
 Summary: Adding labels to a ggplot2 bar graph
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: R Stats
 Tags: Data Visualization
 Authors: Chris Albon

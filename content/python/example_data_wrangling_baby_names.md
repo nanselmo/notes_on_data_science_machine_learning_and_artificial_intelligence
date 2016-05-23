@@ -1,7 +1,7 @@
 Title: Creating a list of potential baby names
 Slug: example_data_wrangling_baby_names
 Summary: Creating a list of potential baby names
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon

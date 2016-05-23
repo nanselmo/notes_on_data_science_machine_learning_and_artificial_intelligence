@@ -1,7 +1,7 @@
 Title: Histograms and Density Plots
 Slug: histograms-and-density-plots
 Summary: Histograms and Density Plots
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: R Stats
 Tags: Data Visualization
 Authors: Chris Albon

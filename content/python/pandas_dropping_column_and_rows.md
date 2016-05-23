@@ -1,7 +1,7 @@
 Title: Dropping Rows And Columns In pandas Dataframe
 Slug: pandas_dropping_column_and_rows
 Summary: Dropping Rows And Columns In pandas Dataframe
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon

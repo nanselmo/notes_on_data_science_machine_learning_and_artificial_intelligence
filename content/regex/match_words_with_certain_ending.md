@@ -1,7 +1,7 @@
 Title: Match Words With A Certain Ending
 Slug: match_words_with_certain_ending
 Summary: Match Words With A Certain Ending
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Regex
 Tags: Basics
 Authors: Chris Albon

@@ -1,7 +1,7 @@
 Title: Plot Points On A Map
 Slug: matplotlib_plot_points_on_map
 Summary: Plot Points On A Map
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Visualization
 Authors: Chris Albon

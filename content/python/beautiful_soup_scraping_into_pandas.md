@@ -1,7 +1,7 @@
 Title: Scraping And Parsing A Wikipedia List into Pandas
 Slug: beautiful_soup_scraping_into_pandas
 Summary: Scraping And Parsing A Wikipedia List into Pandas
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Web Scraping
 Authors: Chris Albon

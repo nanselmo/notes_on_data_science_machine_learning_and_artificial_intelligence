@@ -1,7 +1,7 @@
 Title: Making A Matplotlib Scatterplot From A Pandas Dataframe
 Slug: matplotlib_scatterplot_from_pandas
 Summary: Making A Matplotlib Scatterplot From A Pandas Dataframe
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Visualization
 Authors: Chris Albon

@@ -1,7 +1,7 @@
 Title: Applying Functions To List Items
 Slug: applying_functions_to_list_items
 Summary: Applying Functions To List Items
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Basics
 Authors: Chris Albon

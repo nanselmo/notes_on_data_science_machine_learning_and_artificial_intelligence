@@ -1,7 +1,7 @@
 Title: Importing an HTML table into pandas
 Slug: pandas_import_html_table
 Summary: Importing an HTML table into pandas
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Data Wrangling
 Tags: Basics
 Authors: Chris Albon

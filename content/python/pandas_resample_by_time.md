@@ -1,7 +1,7 @@
 Title: Resampling a Time Series in pandas
 Slug: pandas_resample_by_time
 Summary: Resampling a Time Series in pandas
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon

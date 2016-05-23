@@ -1,7 +1,7 @@
 Title: Change The Barplot Bar Width
 Slug: change-barplot-bar-width
 Summary: Change The Barplot Bar Width
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: R Stats
 Tags: Data Visualization
 Authors: Chris Albon

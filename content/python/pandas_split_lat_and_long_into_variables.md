@@ -1,7 +1,7 @@
 Title: Split Combined Lat/Long Coordinate Variables Into Seperate Variables In Pandas
 Slug: pandas_split_lat_and_long_into_variables
 Summary: Split Combined Lat/Long Coordinate Variables Into Seperate Variables In Pandas
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon

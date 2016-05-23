@@ -1,7 +1,7 @@
 Title: My Data Science Reading List
 Slug: data_science_reading_list
 Summary: My Data Science Reading List
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Projects
 Tags: Small Projects
 Authors: Chris Albon

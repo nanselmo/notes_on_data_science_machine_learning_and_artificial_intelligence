@@ -1,7 +1,7 @@
 Title: Kolmogorov Smirnov Test
 Slug: kolmogorov_smirnov_test
 Summary: Kolmogorov Smirnov Test
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Python
 Tags: Other
 Authors: Chris Albon

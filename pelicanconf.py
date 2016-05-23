@@ -40,8 +40,9 @@ EXTRA_PATH_METADATA = {
 }
 
 PLUGIN_PATHS = ['plugins']
-PLUGINS = ["render_math"]
+PLUGINS = ['render_math', 'tipue_search', 'sitemap']
 
+DIRECT_TEMPLATES = ['index', 'search']
 
 CATEGORY_SAVE_AS = ''
 AUTHOR_SAVE_AS = ''
@@ -50,3 +51,17 @@ AUTHORS_SAVE_AS = ''
 CATEGORIES_SAVE_AS = ''
 TAGS_SAVE_AS = ''
 ARCHIVES_SAVE_AS = ''
+
+SITEMAP = {
+    'format': 'xml',
+    'priorities': {
+        'articles': 0.5,
+        'indexes': 0.5,
+        'pages': 0.5
+    },
+    'changefreqs': {
+        'articles': 'monthly',
+        'indexes': 'daily',
+        'pages': 'monthly'
+    }
+}

@@ -1,5 +1,5 @@
 Title: Load Jupyter Notebook In Non-Default Browser
-Date: 2016-12-01 12:00
+Date: 2016-05-01 12:00
 Category: Command Line
 Tags:
 Slug: open_ipython_nb_in_nondefault_browser
