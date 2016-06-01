@@ -28,7 +28,7 @@ a:hover {
 }
 
 
-/* Custom page CSS
+/* Primary CSS
 -------------------------------------------------- */
 /* Not required for template or sticky footer method. */
 
@@ -165,7 +165,7 @@ body > .container {
 
 pre {
     background-color: #fff;
-    border: 1px solid #DEDEDE;
+    border: 0px solid #DEDEDE;
     border-radius: 0px;
     font-size: 12px;
 }
@@ -267,12 +267,12 @@ h6,
 
 .bug-reporting__panel h3{
     margin: 0 0 10px 0;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .bug-reporting__panel p{
     margin: 0;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 
