@@ -131,37 +131,29 @@
 </ol>
 </header>
 
-<div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">bash</span>
+<p><em>Note: This code has been commented out. To run the code, remove the comments.</em></p>
+<div class="highlight"><pre><span></span><span class="c1"># %%bash</span>
 <span class="c1"># #!/bin/bash</span>
 
-<span class="c1"># activates a python 3.x environment called py3k</span>
-<span class="n">source</span> <span class="n">activate</span> <span class="n">py3k</span>
-
 <span class="c1"># sets the working directory to the current directory</span>
-<span class="n">cd</span> <span class="s2">&quot;$(dirname &quot;</span><span class="err">$</span><span class="mi">0</span><span class="s2">&quot;)&quot;</span>
+<span class="c1"># acd &quot;$(dirname &quot;$0&quot;)&quot;</span>
 
-<span class="c1"># converts all iPython Notebook files to basic html</span>
-<span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="o">*.</span><span class="n">ipynb</span><span class="p">;</span> <span class="n">do</span> <span class="n">jupyter</span> <span class="n">nbconvert</span> <span class="o">--</span><span class="n">to</span> <span class="n">html</span> <span class="o">--</span><span class="n">template</span> <span class="n">basic</span> <span class="err">$</span><span class="n">f</span><span class="p">;</span> <span class="n">done</span>
+<span class="c1"># converts all Jupyter Notebook files to basic html</span>
+<span class="c1"># for f in *.ipynb; do jupyter nbconvert --to html --template basic $f; done</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>discarding /Users/chrisralbon/anaconda/envs/py3k/bin from PATH
-prepending /Users/chrisralbon/anaconda/envs/py3k/bin to PATH
-[NbConvertApp] Using existing profile dir: &#39;/Users/chrisralbon/.ipython/profile_default&#39;
-[NbConvertApp] Converting notebook covert_all_ipynb_to_html.ipynb to html
-[NbConvertApp] Support files will be in covert_all_ipynb_to_html_files/
-[NbConvertApp] Loaded template basic.tpl
-[NbConvertApp] Writing 2959 bytes to covert_all_ipynb_to_html.html
-[NbConvertApp] Using existing profile dir: &#39;/Users/chrisralbon/.ipython/profile_default&#39;
+<div class="highlight"><pre><span></span>[NbConvertApp] Converting notebook covert_all_ipynb_to_html.ipynb to html
+[NbConvertApp] Writing 2632 bytes to covert_all_ipynb_to_html.html
 [NbConvertApp] Converting notebook list_all_files_and_folders_in_a_directory.ipynb to html
-[NbConvertApp] Support files will be in list_all_files_and_folders_in_a_directory_files/
-[NbConvertApp] Loaded template basic.tpl
-[NbConvertApp] Writing 2123 bytes to list_all_files_and_folders_in_a_directory.html
+[NbConvertApp] Writing 2153 bytes to list_all_files_and_folders_in_a_directory.html
+[NbConvertApp] Converting notebook open_ipython_nb_in_nondefault_browser.ipynb to html
+[NbConvertApp] Writing 1552 bytes to open_ipython_nb_in_nondefault_browser.html
 </pre></div>
     <aside>
     <div class="bug-reporting__panel">
         <h3>Find an error or bug? Have a suggestion?</h3>
-        <p>Everything on this site is avaliable on GitHub. Head on over and <a href='https://github.com/chrisalbon/Data-Science-For-Political-And-Social-Phenomena/blob/gh-pages/command-line/covert_all_ipynb_to_html.html'>submit an issue.</a> You can also message me directly on <a href='https://twitter.com/chrisalbon'>Twitter</a>.</p>
+        <p>Everything on this site is avaliable on GitHub. Head on over and <a href='https://github.com/chrisalbon/Data-Science-For-Political-And-Social-Phenomena/issues/new'>submit an issue.</a> You can also message me directly on <a href='https://twitter.com/chrisalbon'>Twitter</a>.</p>
     </div>
     </aside>
 </section>

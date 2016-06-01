@@ -131,24 +131,18 @@
 </ol>
 </header>
 
-<p>The one part of Jupyter Notebooks that I don't like is not having a dedicated IDE for it. As an effective workaround, I started using Firefox as my general use browser and Chrome as my Jupyter Notebook "IDE".</p>
-<p>However, by default Jupyter Notebooks loads the default browser (which in my is Firefox). The following bash script loads my Python 3 environment and then opens Jupyter Notebook in Chrome.</p>
-<p>Note: I have commented out all the commands so it doesn't run while in Jupyter.</p>
-<div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">bash</span>
-
-<span class="c1"># Set the bash hashbang</span>
-<span class="c1"># #!/bin/bash</span>
-
-<span class="c1"># Activate my Python 3 environment</span>
-<span class="c1"># source activate py3k</span>
-
-<span class="c1"># Open IPython Notebook using Chrome</span>
-<span class="c1"># BROWSER=/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome ipython notebook</span>
-</pre></div>
+<p>By default Jupyter Notebooks loads in your default browser. The following bash script opens Jupyter Notebook in a specific browser (in this example, Chrome).</p>
+<p><em>Note: I have commented out all the commands so it doesn't run while in Jupyter</em></p>
+<p>```python</p>
+<h1>%%bash</h1>
+<h1>Set the bash hashbang</h1>
+<h1>#!/bin/bash</h1>
+<h1>Open IPython Notebook using Chrome</h1>
+<h1>BROWSER=/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome jupyter notebook</h1>
     <aside>
     <div class="bug-reporting__panel">
         <h3>Find an error or bug? Have a suggestion?</h3>
-        <p>Everything on this site is avaliable on GitHub. Head on over and <a href='https://github.com/chrisalbon/Data-Science-For-Political-And-Social-Phenomena/blob/gh-pages/command-line/open_ipython_nb_in_nondefault_browser.html'>submit an issue.</a> You can also message me directly on <a href='https://twitter.com/chrisalbon'>Twitter</a>.</p>
+        <p>Everything on this site is avaliable on GitHub. Head on over and <a href='https://github.com/chrisalbon/Data-Science-For-Political-And-Social-Phenomena/issues/new'>submit an issue.</a> You can also message me directly on <a href='https://twitter.com/chrisalbon'>Twitter</a>.</p>
     </div>
     </aside>
 </section>

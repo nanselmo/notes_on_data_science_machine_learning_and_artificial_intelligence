@@ -10,7 +10,7 @@
     <meta name="author" content="Chris Albon">
     <link rel="icon" href="../favicon.ico">
 
-    <title>Crosstabs - R Stats</title>
+    <title>View An Image In Jupyter Notebook - Jupyter</title>
 
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -33,7 +33,6 @@
     <![endif]-->
      <link href="http://chrisalbon.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Chris Albon Full RSS Feed" />        
 
-    <meta name="tags" content="Data Visualization" />
 
 
 </head>
@@ -120,53 +119,45 @@
 <section id="content" class="body">
     <header>
     <h1>
-      Crosstabs
+      View An Image In Jupyter Notebook
     </h1>
 <ol class="breadcrumb">
     <li>
-        <time class="published" datetime="2016-05-01T12:00:00-07:00">
-            01 May 2016
+        <time class="published" datetime="2010-12-03T10:20:00-08:00">
+            03 December 2010
         </time>
     </li>
-    <li>R Stats</li>
-    <li>Data Visualization</li>
+    <li>Jupyter</li>
 </ol>
 </header>
 
-<div class="highlight"><pre><span></span><span class="c1"># create some simulated disaster data</span>
-event <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;flood&quot;</span><span class="p">,</span><span class="s">&quot;fire&quot;</span><span class="p">,</span><span class="s">&quot;flood&quot;</span><span class="p">,</span><span class="s">&quot;fire&quot;</span><span class="p">,</span><span class="s">&quot;riot&quot;</span><span class="p">,</span><span class="s">&quot;flood&quot;</span><span class="p">,</span><span class="s">&quot;riot&quot;</span><span class="p">,</span><span class="s">&quot;riot&quot;</span><span class="p">,</span><span class="s">&quot;flood&quot;</span><span class="p">);</span>
-location <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;africa&quot;</span><span class="p">,</span> <span class="s">&quot;asia&quot;</span><span class="p">,</span> <span class="s">&quot;europe&quot;</span><span class="p">,</span><span class="s">&quot;africa&quot;</span><span class="p">,</span> <span class="s">&quot;asia&quot;</span><span class="p">,</span> <span class="s">&quot;europe&quot;</span><span class="p">,</span><span class="s">&quot;africa&quot;</span><span class="p">,</span> <span class="s">&quot;asia&quot;</span><span class="p">,</span> <span class="s">&quot;europe&quot;</span><span class="p">)</span>
-disaster <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>event<span class="p">,</span> location<span class="p">)</span>
-<span class="kp">rm</span><span class="p">(</span>event<span class="p">,</span> location<span class="p">)</span>
+<h2>Display an image</h2>
+<div class="highlight"><pre><span></span><span class="c1"># Load the ipython display and image module</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a variable that is the frequency counts of different types of disaster events</span>
-event.counts.df <span class="o">&lt;-</span> <span class="kp">as.data.frame</span><span class="p">(</span><span class="kp">table</span><span class="p">(</span>disaster<span class="o">$</span>event<span class="p">));</span>event.counts.df
+<div class="highlight"><pre><span></span><span class="c1"># display this image</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">&#39;http://history.nasa.gov/ap11ann/kippsphotos/5903.jpg&#39;</span><span class="p">))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>   Var1 Freq
-1  fire    2
-2 flood    4
-3  riot    3
+<p><img src="http://history.nasa.gov/ap11ann/kippsphotos/5903.jpg"/></p>
+<h2>Display an svg</h2>
+<div class="highlight"><pre><span></span><span class="c1"># Load the svg module</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">SVG</span>
+
+<span class="c1"># Display an svg</span>
+<span class="n">SVG</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">&#39;http://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg&#39;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a crosstab of event types by location</span>
-disaster.crosstab <span class="o">&lt;-</span> <span class="kp">table</span><span class="p">(</span>disaster<span class="o">$</span>event<span class="p">,</span> disaster<span class="o">$</span>location<span class="p">);</span> disaster.crosstab
-</pre></div>
-
-
-<div class="highlight"><pre><span></span>        africa asia europe
-  fire       1    1      0
-  flood      1    0      3
-  riot       1    2      0
-</pre></div>
+<p><img alt="svg" src="output_5_0.svg" /></p>
     <aside>
     <div class="bug-reporting__panel">
         <h3>Find an error or bug? Have a suggestion?</h3>
-        <p>Everything on this site is avaliable on GitHub. Head on over and <a href='https://github.com/chrisalbon/Data-Science-For-Political-And-Social-Phenomena/issues/new'>submit an issue.</a> You can also message me directly on <a href='https://twitter.com/chrisalbon'>Twitter</a>.</p>
+        <p>Everything on this site is avaliable on GitHub. Head on over and <a href='https://github.com/chrisalbon/Data-Science-For-Political-And-Social-Phenomena/blob/gh-pages/jupyter/jupyter_display_image.html'>submit an issue.</a> You can also message me directly on <a href='https://twitter.com/chrisalbon'>Twitter</a>.</p>
     </div>
     </aside>
 </section>
