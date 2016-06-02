@@ -133,7 +133,7 @@
 </ol>
 </header>
 
-<p><strong>Note:</strong> Originally based on <a href="http://nbviewer.ipython.org/github/swcarpentry/notebooks/blob/master/regex-intro.ipynb">this tutorial in nbviewer</a>.</p>
+<p>Based on <a href="http://nbviewer.ipython.org/github/swcarpentry/notebooks/blob/master/regex-intro.ipynb">this tutorial in nbviewer</a>.</p>
 <h3>Import modules</h3>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
@@ -141,19 +141,19 @@
 
 
 <h3>Create a dataframe of raw strings</h3>
-<div class="highlight"><pre><span></span># Create a dataframe with a single column of strings
-data = {&#39;raw&#39;: [&#39;Arizona 1 2014-12-23       3242.0&#39;,
-                &#39;Iowa 1 2010-02-23       3453.7&#39;,
-                &#39;Oregon 0 2014-06-20       2123.0&#39;,
-                &#39;Maryland 0 2014-03-14       1123.6&#39;,
-                &#39;Florida 1 2013-01-15       2134.0&#39;,
-                &#39;Georgia 0 2012-07-14       2345.6&#39;]}
-df = pd.DataFrame(data, columns = [&#39;raw&#39;])
-df
+<div class="highlight"><pre><span></span><span class="c1"># Create a dataframe with a single column of strings</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;raw&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Arizona 1 2014-12-23       3242.0&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Iowa 1 2010-02-23       3453.7&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Oregon 0 2014-06-20       2123.0&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Maryland 0 2014-03-14       1123.6&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Florida 1 2013-01-15       2134.0&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Georgia 0 2012-07-14       2345.6&#39;</span><span class="p">]}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;raw&#39;</span><span class="p">])</span>
+<span class="n">df</span>
 </pre></div>
 
 
-<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<div>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -164,36 +164,35 @@ df
   <tbody>
     <tr>
       <th>0</th>
-      <td>  Arizona 1 2014-12-23       3242.0</td>
+      <td>Arizona 1 2014-12-23       3242.0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>     Iowa 1 2010-02-23       3453.7</td>
+      <td>Iowa 1 2010-02-23       3453.7</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>   Oregon 0 2014-06-20       2123.0</td>
+      <td>Oregon 0 2014-06-20       2123.0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td> Maryland 0 2014-03-14       1123.6</td>
+      <td>Maryland 0 2014-03-14       1123.6</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>  Florida 1 2013-01-15       2134.0</td>
+      <td>Florida 1 2013-01-15       2134.0</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>  Georgia 0 2012-07-14       2345.6</td>
+      <td>Georgia 0 2012-07-14       2345.6</td>
     </tr>
   </tbody>
 </table>
-<p>6 rows × 1 columns</p>
 </div>
 
 <h3>Search a column of strings for a pattern</h3>
-<div class="highlight"><pre><span></span># Which rows of df[&#39;raw&#39;] contain &#39;xxxx-xx-xx&#39;?
-df[&#39;raw&#39;].str.contains(&#39;....-..-..&#39;, regex=True)
+<div class="highlight"><pre><span></span><span class="c1"># Which rows of df[&#39;raw&#39;] contain &#39;xxxx-xx-xx&#39;?</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;raw&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;....-..-..&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>
 
 
@@ -208,9 +207,9 @@ Name: raw, dtype: bool
 
 
 <h3>Extract the column of single digits</h3>
-<div class="highlight"><pre><span></span># In the column &#39;raw&#39;, extract single digit in the strings
-df[&#39;female&#39;] = df[&#39;raw&#39;].str.extract(&#39;(\d)&#39;)
-df[&#39;female&#39;]
+<div class="highlight"><pre><span></span><span class="c1"># In the column &#39;raw&#39;, extract single digit in the strings</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;female&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;raw&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="s1">&#39;(\d)&#39;</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;female&#39;</span><span class="p">]</span>
 </pre></div>
 
 
@@ -225,9 +224,9 @@ Name: female, dtype: object
 
 
 <h3>Extract the column of dates</h3>
-<div class="highlight"><pre><span></span># In the column &#39;raw&#39;, extract xxxx-xx-xx in the strings
-df[&#39;date&#39;] = df[&#39;raw&#39;].str.extract(&#39;(....-..-..)&#39;)
-df[&#39;date&#39;]
+<div class="highlight"><pre><span></span><span class="c1"># In the column &#39;raw&#39;, extract xxxx-xx-xx in the strings</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;raw&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="s1">&#39;(....-..-..)&#39;</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span>
 </pre></div>
 
 
@@ -242,9 +241,9 @@ Name: date, dtype: object
 
 
 <h3>Extract the column of thousands</h3>
-<div class="highlight"><pre><span></span># In the column &#39;raw&#39;, extract ####.## in the strings
-df[&#39;score&#39;] = df[&#39;raw&#39;].str.extract(&#39;(\d\d\d\d\.\d)&#39;)
-df[&#39;score&#39;]
+<div class="highlight"><pre><span></span><span class="c1"># In the column &#39;raw&#39;, extract ####.## in the strings</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;raw&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="s1">&#39;(\d\d\d\d\.\d)&#39;</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">]</span>
 </pre></div>
 
 
@@ -259,9 +258,9 @@ Name: score, dtype: object
 
 
 <h3>Extract the column of words</h3>
-<div class="highlight"><pre><span></span># In the column &#39;raw&#39;, extract the word in the strings
-df[&#39;state&#39;] = df[&#39;raw&#39;].str.extract(&#39;([A-Z]\w{0,})&#39;)
-df[&#39;state&#39;]
+<div class="highlight"><pre><span></span><span class="c1"># In the column &#39;raw&#39;, extract the word in the strings</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;raw&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="s1">&#39;([A-Z]\w{0,})&#39;</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">]</span>
 </pre></div>
 
 
@@ -276,11 +275,11 @@ Name: state, dtype: object
 
 
 <h3>View the final dataframe</h3>
-<div class="highlight"><pre><span></span>df
+<div class="highlight"><pre><span></span><span class="n">df</span>
 </pre></div>
 
 
-<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<div>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -295,55 +294,54 @@ Name: state, dtype: object
   <tbody>
     <tr>
       <th>0</th>
-      <td>  Arizona 1 2014-12-23       3242.0</td>
-      <td> 1</td>
-      <td> 2014-12-23</td>
-      <td> 3242.0</td>
-      <td>  Arizona</td>
+      <td>Arizona 1 2014-12-23       3242.0</td>
+      <td>1</td>
+      <td>2014-12-23</td>
+      <td>3242.0</td>
+      <td>Arizona</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>     Iowa 1 2010-02-23       3453.7</td>
-      <td> 1</td>
-      <td> 2010-02-23</td>
-      <td> 3453.7</td>
-      <td>     Iowa</td>
+      <td>Iowa 1 2010-02-23       3453.7</td>
+      <td>1</td>
+      <td>2010-02-23</td>
+      <td>3453.7</td>
+      <td>Iowa</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>   Oregon 0 2014-06-20       2123.0</td>
-      <td> 0</td>
-      <td> 2014-06-20</td>
-      <td> 2123.0</td>
-      <td>   Oregon</td>
+      <td>Oregon 0 2014-06-20       2123.0</td>
+      <td>0</td>
+      <td>2014-06-20</td>
+      <td>2123.0</td>
+      <td>Oregon</td>
     </tr>
     <tr>
       <th>3</th>
-      <td> Maryland 0 2014-03-14       1123.6</td>
-      <td> 0</td>
-      <td> 2014-03-14</td>
-      <td> 1123.6</td>
-      <td> Maryland</td>
+      <td>Maryland 0 2014-03-14       1123.6</td>
+      <td>0</td>
+      <td>2014-03-14</td>
+      <td>1123.6</td>
+      <td>Maryland</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>  Florida 1 2013-01-15       2134.0</td>
-      <td> 1</td>
-      <td> 2013-01-15</td>
-      <td> 2134.0</td>
-      <td>  Florida</td>
+      <td>Florida 1 2013-01-15       2134.0</td>
+      <td>1</td>
+      <td>2013-01-15</td>
+      <td>2134.0</td>
+      <td>Florida</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>  Georgia 0 2012-07-14       2345.6</td>
-      <td> 0</td>
-      <td> 2012-07-14</td>
-      <td> 2345.6</td>
-      <td>  Georgia</td>
+      <td>Georgia 0 2012-07-14       2345.6</td>
+      <td>0</td>
+      <td>2012-07-14</td>
+      <td>2345.6</td>
+      <td>Georgia</td>
     </tr>
   </tbody>
 </table>
-<p>6 rows × 5 columns</p>
 </div>
     <aside>
     <div class="bug-reporting__panel">
