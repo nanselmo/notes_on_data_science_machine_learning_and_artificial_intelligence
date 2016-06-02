@@ -133,6 +133,7 @@
 </ol>
 </header>
 
+<p>This this example, we download annual baby name frequency data from 1880 to 2013 and merge it into a single dataframe.</p>
 <h2>Prelimaries</h2>
 <div class="highlight"><pre><span></span><span class="c1"># Import modules</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
@@ -215,7 +216,7 @@
 
 
 <div class="highlight"><pre><span></span><span class="c1"># Create a file path for the directory where the files are located</span>
-<span class="n">file_loc</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s2">&quot;data/names/&quot;</span><span class="p">)</span>
+<span class="n">file_loc</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s2">&quot;../data/baby_names/&quot;</span><span class="p">)</span>
 </pre></div>
 
 
@@ -251,7 +252,7 @@
 
 <h2>Clean the data</h2>
 <div class="highlight"><pre><span></span><span class="c1"># Drop all males (I&#39;m having a daughter!)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">sex</span> <span class="o">!=</span> <span class="s1">&#39;M&#39;</span><span class="p">]</span> 
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">sex</span> <span class="o">!=</span> <span class="s1">&#39;M&#39;</span><span class="p">]</span>
 </pre></div>
 
 
@@ -278,7 +279,7 @@
 </pre></div>
 
 
-<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<div>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -294,44 +295,44 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td> Mary</td>
-      <td> F</td>
-      <td> 7065</td>
-      <td> 1880</td>
-      <td> False</td>
-      <td> 22245</td>
+      <td>Mary</td>
+      <td>F</td>
+      <td>7065</td>
+      <td>1880</td>
+      <td>False</td>
+      <td>22245.0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td> Anna</td>
-      <td> F</td>
-      <td> 2604</td>
-      <td> 1880</td>
-      <td> False</td>
-      <td> 20871</td>
+      <td>Anna</td>
+      <td>F</td>
+      <td>2604</td>
+      <td>1880</td>
+      <td>False</td>
+      <td>20871.0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td> Emma</td>
-      <td> F</td>
-      <td> 2003</td>
-      <td> 1880</td>
-      <td> False</td>
-      <td> 19026</td>
+      <td>Emma</td>
+      <td>F</td>
+      <td>2003</td>
+      <td>1880</td>
+      <td>False</td>
+      <td>19026.0</td>
     </tr>
   </tbody>
 </table>
 </div>
 
 <h2>Reshape the data into the format we want</h2>
-<div class="highlight"><pre><span></span><span class="c1"># Create a variable that is a pivot table, </span>
+<div class="highlight"><pre><span></span><span class="c1"># Create a variable that is a pivot table,</span>
 <span class="c1"># totalling the number of times a name is registered</span>
 <span class="n">names</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span> <span class="n">aggfunc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">)</span>
 </pre></div>
 
 
 <div class="highlight"><pre><span></span><span class="c1"># Sort the names variable by their popularity in 2012</span>
-<span class="n">names</span> <span class="o">=</span> <span class="n">names</span><span class="o">.</span><span class="n">sort</span><span class="p">([</span><span class="s1">&#39;count_2012&#39;</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">names</span> <span class="o">=</span> <span class="n">names</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;count_2012&#39;</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 
 
@@ -364,7 +365,7 @@
 </pre></div>
 
 
-<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<div>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -383,9 +384,9 @@
   <tbody>
     <tr>
       <th>Zaria</th>
-      <td> 6892</td>
-      <td> 7449</td>
-      <td> Zaria</td>
+      <td>6892</td>
+      <td>7449.0</td>
+      <td>Zaria</td>
     </tr>
   </tbody>
 </table>
@@ -393,7 +394,7 @@
 
 <h2>Export the data</h2>
 <div class="highlight"><pre><span></span><span class="c1"># Export the data to csv</span>
-<span class="n">a_names</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;names.csv&#39;</span><span class="p">)</span>
+<span class="c1"># a_names.to_csv(&#39;names.csv&#39;)</span>
 </pre></div>
     <aside>
     <div class="bug-reporting__panel">

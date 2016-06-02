@@ -151,7 +151,7 @@
 <span class="n">html_content</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">text</span>
 
 <span class="c1"># Convert the html content into a beautiful soup object</span>
-<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html_content</span><span class="p">)</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html_content</span><span class="p">,</span> <span class="s1">&#39;lxml&#39;</span><span class="p">)</span>
 </pre></div>
 
 
@@ -161,17 +161,7 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="nt">&lt;title&gt;</span>Chris R. Albon<span class="nt">&lt;/title&gt;</span>
-</pre></div>
-
-
-<h3>Website title's tag</h3>
-<div class="highlight"><pre><span></span><span class="c1"># View the name of the title</span>
-<span class="n">soup</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">name</span>
-</pre></div>
-
-
-<div class="highlight"><pre><span></span>&#39;title&#39;
+<div class="highlight"><pre><span></span><span class="nt">&lt;title&gt;</span>Chris Albon<span class="nt">&lt;/title&gt;</span>
 </pre></div>
 
 
@@ -181,7 +171,7 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>&#39;Chris R. Albon&#39;
+<div class="highlight"><pre><span></span>&#39;Chris Albon&#39;
 </pre></div>
 
 
@@ -191,7 +181,7 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">&quot;site-description&quot;</span><span class="nt">&gt;</span>Data for social good.<span class="nt">&lt;/p&gt;</span>
+<div class="highlight"><pre><span></span><span class="nt">&lt;p&gt;</span>I am a <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;./pages/about.html&quot;</span><span class="nt">&gt;</span>data scientist originally trained as a quantitative political scientist<span class="nt">&lt;/a&gt;</span>. I specialize in the technical and organizational aspects of applying data science to political and social issues. <span class="nt">&lt;/p&gt;</span>
 </pre></div>
 
 
@@ -204,46 +194,25 @@
 </pre></div>
 
 
-<h3>The class of the first paragraph tag</h3>
-<div class="highlight"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">p</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">]</span>
-</pre></div>
-
-
-<div class="highlight"><pre><span></span>[&#39;site-description&#39;]
-</pre></div>
-
-
 <h3>The first link tag</h3>
 <div class="highlight"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">a</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;logo&quot;</span> <span class="na">href=</span><span class="s">&quot;http://www.chrisralbon.com/about-chris-albon/&quot;</span><span class="nt">&gt;&lt;img</span> <span class="na">alt=</span><span class="s">&quot;Blog Logo&quot;</span> <span class="na">src=</span><span class="s">&quot;/content/images/2014/Feb/chrisalbon_radial-16.png&quot;</span><span class="nt">/&gt;&lt;/a&gt;</span>
+<div class="highlight"><pre><span></span><span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;navbar-brand&quot;</span> <span class="na">href=</span><span class="s">&quot;.&quot;</span><span class="nt">&gt;</span>Chris Albon<span class="nt">&lt;/a&gt;</span>
 </pre></div>
 
 
-<h3>Find all the link tags</h3>
-<div class="highlight"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<h3>Find all the link tags and list the first five</h3>
+<div class="highlight"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[<span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;logo&quot;</span> <span class="na">href=</span><span class="s">&quot;http://www.chrisralbon.com/about-chris-albon/&quot;</span><span class="nt">&gt;&lt;img</span> <span class="na">alt=</span><span class="s">&quot;Blog Logo&quot;</span> <span class="na">src=</span><span class="s">&quot;/content/images/2014/Feb/chrisalbon_radial-16.png&quot;</span><span class="nt">/&gt;&lt;/a&gt;</span>,
- <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://www.chrisralbon.com&quot;</span><span class="nt">&gt;</span>Chris R. Albon<span class="nt">&lt;/a&gt;</span>,
- <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;/conflict-health/&quot;</span><span class="nt">&gt;</span>Conflict Health Has Shut Down<span class="nt">&lt;/a&gt;</span>,
- <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;/about-chris-albon/&quot;</span><span class="nt">&gt;</span>About Chris Albon<span class="nt">&lt;/a&gt;</span>,
- <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://www.chrisralbon.com/about-chris-albon/&quot;</span><span class="nt">&gt;</span>About<span class="nt">&lt;/a&gt;</span>,
- <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;https://twitter.com/chrisalbon&quot;</span><span class="nt">&gt;</span>Twitter<span class="nt">&lt;/a&gt;</span>,
+<div class="highlight"><pre><span></span>[<span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;navbar-brand&quot;</span> <span class="na">href=</span><span class="s">&quot;.&quot;</span><span class="nt">&gt;</span>Chris Albon<span class="nt">&lt;/a&gt;</span>,
+ <span class="nt">&lt;a</span> <span class="na">aria-expanded=</span><span class="s">&quot;false&quot;</span> <span class="na">aria-haspopup=</span><span class="s">&quot;true&quot;</span> <span class="na">class=</span><span class="s">&quot;dropdown-toggle&quot;</span> <span class="na">data-toggle=</span><span class="s">&quot;dropdown&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">role=</span><span class="s">&quot;button&quot;</span><span class="nt">&gt;</span>About<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;caret&quot;</span><span class="nt">&gt;&lt;/span&gt;&lt;/a&gt;</span>,
+ <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;./pages/about.html&quot;</span><span class="nt">&gt;</span>About Chris<span class="nt">&lt;/a&gt;</span>,
  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;https://github.com/chrisalbon&quot;</span><span class="nt">&gt;</span>GitHub<span class="nt">&lt;/a&gt;</span>,
- <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;https://pinboard.in/u:chrisalbon&quot;</span><span class="nt">&gt;</span>Pinboard<span class="nt">&lt;/a&gt;</span>]
-</pre></div>
-
-
-<h3>Get all the text on the page</h3>
-<div class="highlight"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
-</pre></div>
-
-
-<div class="highlight"><pre><span></span>&#39;\n\n\n\nChris R. Albon\n\n\n\n\n\n\n\n\n\r\n\t\tvar infinite_conf = {&quot;button_text&quot;:&quot;Older posts&quot;,&quot;no_more_post&quot;:&quot;No More Post&quot;,&quot;enable_infinite&quot;:&quot;1&quot;};\r\n\t\t\n\n\n\n\n\n\n\n\n\n\nChris R. Albon\n\nData for social good.\n\n\n\n\n\n\n\nFeb 16, 2014\n\nConflict Health Has Shut Down\n\n In 2008, I launched the blog Conflict Health to investigate and defend the role of health workers during political violence and armed conflicts. Four years later, I had written almost 500 posts on Conflict Health…\n\n\nFeb 14, 2014\n\nAbout Chris Albon\n\nShort version: I use data for social good. I also write about it. Longer version: I am the Director of a new crisis data project at Ushahidi, leading our work around the use of data…\n\n\n\nPage 1 of 1\n\n\n\n\n\n\nAbout | Twitter | GitHub | Pinboard\n\n\n\n\n\n\n\n\n&#39;
+ <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;https://twitter.com/chrisalbon&quot;</span><span class="nt">&gt;</span>Twitter<span class="nt">&lt;/a&gt;</span>]
 </pre></div>
 
 
@@ -252,172 +221,29 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>&#39;Data for social good.&#39;
+<h3>Find all the h2 tags and list the first five</h3>
+<div class="highlight"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;h2&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
 </pre></div>
 
 
-<h3>Find all the h2 tags</h3>
-<div class="highlight"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;h2&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span>[<span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">&quot;homepage_category_title&quot;</span><span class="nt">&gt;</span>Articles<span class="nt">&lt;/h2&gt;</span>,
+ <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">&quot;homepage_category_title&quot;</span><span class="nt">&gt;</span>Projects<span class="nt">&lt;/h2&gt;</span>,
+ <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">&quot;homepage_category_title&quot;</span><span class="nt">&gt;</span>Python<span class="nt">&lt;/h2&gt;</span>,
+ <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">&quot;homepage_category_title&quot;</span><span class="nt">&gt;</span>R Stats<span class="nt">&lt;/h2&gt;</span>,
+ <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">&quot;homepage_category_title&quot;</span><span class="nt">&gt;</span>Regex<span class="nt">&lt;/h2&gt;</span>]
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[<span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">&quot;entry-title&quot;</span><span class="nt">&gt;</span>
- <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;/conflict-health/&quot;</span><span class="nt">&gt;</span>Conflict Health Has Shut Down<span class="nt">&lt;/a&gt;</span>
- <span class="nt">&lt;/h2&gt;</span>, <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">&quot;entry-title&quot;</span><span class="nt">&gt;</span>
- <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;/about-chris-albon/&quot;</span><span class="nt">&gt;</span>About Chris Albon<span class="nt">&lt;/a&gt;</span>
- <span class="nt">&lt;/h2&gt;</span>]
+<h3>Find all the links on the page and list the first five</h3>
+<div class="highlight"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
 </pre></div>
 
 
-<h3>Find all the links on the page</h3>
-<div class="highlight"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
-</pre></div>
-
-
-<div class="highlight"><pre><span></span>[<span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;logo&quot;</span> <span class="na">href=</span><span class="s">&quot;http://www.chrisralbon.com/about-chris-albon/&quot;</span><span class="nt">&gt;&lt;img</span> <span class="na">alt=</span><span class="s">&quot;Blog Logo&quot;</span> <span class="na">src=</span><span class="s">&quot;/content/images/2014/Feb/chrisalbon_radial-16.png&quot;</span><span class="nt">/&gt;&lt;/a&gt;</span>,
- <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://www.chrisralbon.com&quot;</span><span class="nt">&gt;</span>Chris R. Albon<span class="nt">&lt;/a&gt;</span>,
- <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;/conflict-health/&quot;</span><span class="nt">&gt;</span>Conflict Health Has Shut Down<span class="nt">&lt;/a&gt;</span>,
- <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;/about-chris-albon/&quot;</span><span class="nt">&gt;</span>About Chris Albon<span class="nt">&lt;/a&gt;</span>,
- <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://www.chrisralbon.com/about-chris-albon/&quot;</span><span class="nt">&gt;</span>About<span class="nt">&lt;/a&gt;</span>,
- <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;https://twitter.com/chrisalbon&quot;</span><span class="nt">&gt;</span>Twitter<span class="nt">&lt;/a&gt;</span>,
+<div class="highlight"><pre><span></span>[<span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;navbar-brand&quot;</span> <span class="na">href=</span><span class="s">&quot;.&quot;</span><span class="nt">&gt;</span>Chris Albon<span class="nt">&lt;/a&gt;</span>,
+ <span class="nt">&lt;a</span> <span class="na">aria-expanded=</span><span class="s">&quot;false&quot;</span> <span class="na">aria-haspopup=</span><span class="s">&quot;true&quot;</span> <span class="na">class=</span><span class="s">&quot;dropdown-toggle&quot;</span> <span class="na">data-toggle=</span><span class="s">&quot;dropdown&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">role=</span><span class="s">&quot;button&quot;</span><span class="nt">&gt;</span>About<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;caret&quot;</span><span class="nt">&gt;&lt;/span&gt;&lt;/a&gt;</span>,
+ <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;./pages/about.html&quot;</span><span class="nt">&gt;</span>About Chris<span class="nt">&lt;/a&gt;</span>,
  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;https://github.com/chrisalbon&quot;</span><span class="nt">&gt;</span>GitHub<span class="nt">&lt;/a&gt;</span>,
- <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;https://pinboard.in/u:chrisalbon&quot;</span><span class="nt">&gt;</span>Pinboard<span class="nt">&lt;/a&gt;</span>]
-</pre></div>
-
-
-<h3>Find all the tag pairs with class=logo</h3>
-<div class="highlight"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="n">class_</span><span class="o">=</span><span class="s1">&#39;logo&#39;</span><span class="p">)</span>
-</pre></div>
-
-
-<div class="highlight"><pre><span></span>[<span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;logo&quot;</span> <span class="na">href=</span><span class="s">&quot;http://www.chrisralbon.com/about-chris-albon/&quot;</span><span class="nt">&gt;&lt;img</span> <span class="na">alt=</span><span class="s">&quot;Blog Logo&quot;</span> <span class="na">src=</span><span class="s">&quot;/content/images/2014/Feb/chrisalbon_radial-16.png&quot;</span><span class="nt">/&gt;&lt;/a&gt;</span>]
-</pre></div>
-
-
-<h3>Select the string in front of the link nested inside the h2 tag pair</h3>
-<div class="highlight"><pre><span></span><span class="n">posts</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&quot;h2 &gt; a&quot;</span><span class="p">)</span>
-<span class="n">posts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">string</span>
-</pre></div>
-
-
-<div class="highlight"><pre><span></span>&#39;Conflict Health Has Shut Down&#39;
-</pre></div>
-
-
-<h3>Print the pretty, nested version of the Beautiful Soup object</h3>
-<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">prettify</span><span class="p">())</span>
-</pre></div>
-
-
-<div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
- <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;text/html&quot;</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;Content-Type&quot;</span><span class="p">/&gt;</span>
-  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;IE=edge,chrome=1&quot;</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;X-UA-Compatible&quot;</span><span class="p">/&gt;</span>
-  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>
-   Chris R. Albon
-  <span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;Data for social good.&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;description&quot;</span><span class="p">/&gt;</span>
-  <span class="c">&lt;!--[if lt IE 9]&gt;</span>
-<span class="c">            &lt;script type=&quot;text/javascript&quot; src=&quot;/assets/js/html5shiv.js&quot;&gt;&lt;/script&gt;</span>
-<span class="c">        &lt;![endif]--&gt;</span>
-  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;True&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;HandheldFriendly&quot;</span><span class="p">/&gt;</span>
-  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;320&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;MobileOptimized&quot;</span><span class="p">/&gt;</span>
-  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1.0&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span><span class="p">/&gt;</span>
-  <span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;http://fonts.googleapis.com/css?family=Lato|Oswald|Open+Sans:300|Merriweather:400,400italic,700,700italic&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span><span class="p">/&gt;</span>
-  <span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/assets/css/framework.css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span><span class="p">/&gt;</span>
-  <span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/assets/css/style.css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span><span class="p">/&gt;</span>
-  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span><span class="p">&gt;</span>
-   <span class="kd">var</span> <span class="nx">infinite_conf</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;button_text&quot;</span><span class="o">:</span><span class="s2">&quot;Older posts&quot;</span><span class="p">,</span><span class="s2">&quot;no_more_post&quot;</span><span class="o">:</span><span class="s2">&quot;No More Post&quot;</span><span class="p">,</span><span class="s2">&quot;enable_infinite&quot;</span><span class="o">:</span><span class="s2">&quot;1&quot;</span><span class="p">};</span>
-  <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;Ghost 0.4&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;generator&quot;</span><span class="p">/&gt;</span>
-  <span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/rss/&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;alternate&quot;</span> <span class="na">title</span><span class="o">=</span><span class="s">&quot;Chris R. Albon&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;application/rss+xml&quot;</span><span class="p">/&gt;</span>
-  <span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;http://www.chrisralbon.com/&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;canonical&quot;</span><span class="p">/&gt;</span>
- <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
- <span class="p">&lt;</span><span class="nt">body</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;home-template&quot;</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">header</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;header-section container&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;background-image: url(/content/images/2014/Feb/orange_bg.png)&quot;</span><span class="p">&gt;</span>
-   <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;logo&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;http://www.chrisralbon.com/about-chris-albon/&quot;</span><span class="p">&gt;</span>
-     <span class="p">&lt;</span><span class="nt">img</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Blog Logo&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/content/images/2014/Feb/chrisalbon_radial-16.png&quot;</span><span class="p">/&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;branding&quot;</span><span class="p">&gt;</span>
-     <span class="p">&lt;</span><span class="nt">h1</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;site-title&quot;</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;http://www.chrisralbon.com&quot;</span><span class="p">&gt;</span>
-       Chris R. Albon
-      <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
-     <span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
-     <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;site-description&quot;</span><span class="p">&gt;</span>
-      Data for social good.
-     <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-  <span class="p">&lt;/</span><span class="nt">header</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">section</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;main-content container&quot;</span><span class="p">&gt;</span>
-   <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;post-list&quot;</span><span class="p">&gt;</span>
-     <span class="p">&lt;</span><span class="nt">article</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;entry-post post&quot;</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">time</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;entry-date&quot;</span><span class="p">&gt;</span>
-       Feb 16, 2014
-      <span class="p">&lt;/</span><span class="nt">time</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;entry-title&quot;</span><span class="p">&gt;</span>
-       <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/conflict-health/&quot;</span><span class="p">&gt;</span>
-        Conflict Health Has Shut Down
-       <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
-      <span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
-       In 2008, I launched the blog Conflict Health to investigate and defend the role of health workers during political violence and armed conflicts. Four years later, I had written almost 500 posts on Conflict Health…
-      <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-     <span class="p">&lt;/</span><span class="nt">article</span><span class="p">&gt;</span>
-     <span class="p">&lt;</span><span class="nt">article</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;entry-post post&quot;</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">time</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;entry-date&quot;</span><span class="p">&gt;</span>
-       Feb 14, 2014
-      <span class="p">&lt;/</span><span class="nt">time</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;entry-title&quot;</span><span class="p">&gt;</span>
-       <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/about-chris-albon/&quot;</span><span class="p">&gt;</span>
-        About Chris Albon
-       <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
-      <span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
-       Short version: I use data for social good. I also write about it. Longer version: I am the Director of a new crisis data project at Ushahidi, leading our work around the use of data…
-      <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-     <span class="p">&lt;/</span><span class="nt">article</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">nav</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;pagination clearfix&quot;</span> <span class="na">role</span><span class="o">=</span><span class="s">&quot;pagination&quot;</span><span class="p">&gt;</span>
-     <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;page-number&quot;</span><span class="p">&gt;</span>
-      Page 1 of 1
-     <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
-   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-  <span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">footer</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;footer-section container&quot;</span><span class="p">&gt;</span>
-   <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;signature&quot;</span><span class="p">&gt;</span>
-     <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;http://www.chrisralbon.com/about-chris-albon/&quot;</span><span class="p">&gt;</span>
-      About
-     <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
-     |
-     <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://twitter.com/chrisalbon&quot;</span><span class="p">&gt;</span>
-      Twitter
-     <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
-     |
-     <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://github.com/chrisalbon&quot;</span><span class="p">&gt;</span>
-      GitHub
-     <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
-     |
-     <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://pinboard.in/u:chrisalbon&quot;</span><span class="p">&gt;</span>
-      Pinboard
-     <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-  <span class="p">&lt;/</span><span class="nt">footer</span><span class="p">&gt;</span>
-  <span class="c">&lt;!-- .footer-section --&gt;</span>
-  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/public/jquery.js?v=821a9ed878&quot;</span><span class="p">&gt;</span>
-  <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js&quot;</span><span class="p">&gt;</span>
-  <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">img</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="na">hidden</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/view.gif?page=/&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;display:none&quot;</span><span class="p">/&gt;</span>
- <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+ <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;https://twitter.com/chrisalbon&quot;</span><span class="nt">&gt;</span>Twitter<span class="nt">&lt;/a&gt;</span>]
 </pre></div>
     <aside>
     <div class="bug-reporting__panel">

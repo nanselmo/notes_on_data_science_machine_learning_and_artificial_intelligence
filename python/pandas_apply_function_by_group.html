@@ -133,12 +133,6 @@
 </ol>
 </header>
 
-<ul>
-<li><strong>Author:</strong> <a href="http://www.chrisalbon.com/">Chris Albon</a>, <a href="https://twitter.com/chrisalbon">@ChrisAlbon</a></li>
-<li><strong>Date:</strong> 22 May 2015</li>
-<li><strong>Repo:</strong> <a href="https://github.com/chrisalbon/Data-Science-For-Political-And-Social-Phenomena">Data Science for Political and Social Phenomena</a></li>
-<li><strong>Note:</strong></li>
-</ul>
 <h2>Preliminaries</h2>
 <div class="highlight"><pre><span></span><span class="c1"># import pandas as pd</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
@@ -154,7 +148,7 @@
 </pre></div>
 
 
-<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<div>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -250,7 +244,7 @@
 
 <h2>Apply A Function (Rolling Mean) To The DataFrame, By Group</h2>
 <div class="highlight"><pre><span></span><span class="c1"># Group df by df.platoon, then apply a rolling mean lambda function to df.casualties</span>
-<span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Platoon&#39;</span><span class="p">)[</span><span class="s1">&#39;Casualties&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">pd</span><span class="o">.</span><span class="n">rolling_mean</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Platoon&#39;</span><span class="p">)[</span><span class="s1">&#39;Casualties&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="n">window</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
 </pre></div>
 
 

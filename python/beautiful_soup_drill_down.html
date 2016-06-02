@@ -148,7 +148,7 @@
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 
 <span class="c1"># Turn the HTML into a Beautiful Soup object</span>
-<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">&quot;lxml&quot;</span><span class="p">)</span>
 </pre></div>
 
 
@@ -188,16 +188,18 @@
 
 
 <div class="highlight"><pre><span></span>[&#39;Eddard Stark&#39;,
- &#39;Catelyn Stark&#39;,
+ &#39;Catelyn Tully&#39;,
  &#39;Robb Stark&#39;,
  &#39;Sansa Stark&#39;,
  &#39;Arya Stark&#39;,
  &#39;Bran Stark&#39;,
  &#39;Rickon Stark&#39;,
  &#39;Jon Snow&#39;,
+ &#39;Benjen Stark&#39;,
  &#39;Lyanna Stark&#39;,
+ &#39;Theon Greyjoy&#39;,
  &#39;Roose Bolton&#39;,
- &#39;Ramsay Snow&#39;,
+ &#39;Ramsay Bolton&#39;,
  &#39;Hodor&#39;,
  &#39;Osha&#39;,
  &#39;Jeyne Poole&#39;,
@@ -208,17 +210,23 @@
  &#39;Rhaegar Targaryen&#39;,
  &#39;Aegon V Targaryen&#39;,
  &#39;Aerys II Targaryen&#39;,
- &#39;Aegon Targaryen&#39;,
+ &#39;Aegon VI Targaryen&#39;,
  &#39;Jon Connington&#39;,
  &#39;Jorah Mormont&#39;,
  &#39;Brynden Rivers&#39;,
+ &#39;Missandei&#39;,
+ &#39;Daario Naharis&#39;,
+ &#39;Grey Worm&#39;,
  &#39;Jon Arryn&#39;,
  &#39;Lysa Arryn&#39;,
  &#39;Robert Arryn&#39;,
+ &#39;Yohn Royce&#39;,
  &#39;Tywin Lannister&#39;,
  &#39;Cersei Lannister&#39;,
  &#39;Jaime Lannister&#39;,
  &#39;Joffrey Baratheon&#39;,
+ &#39;Myrcella Baratheon&#39;,
+ &#39;Tommen Baratheon&#39;,
  &#39;Tyrion Lannister&#39;,
  &#39;Kevan Lannister&#39;,
  &#39;Lancel Lannister&#39;,
@@ -227,9 +235,9 @@
  &#39;Sandor Clegane&#39;,
  &#39;Podrick Payne&#39;,
  &#39;Robert Baratheon&#39;,
- &#39;Myrcella Baratheon&#39;,
- &#39;Tommen Baratheon&#39;,
  &#39;Stannis Baratheon&#39;,
+ &#39;Selyse Baratheon&#39;,
+ &#39;Shireen Baratheon&#39;,
  &#39;Melisandre&#39;,
  &#39;Davos Seaworth&#39;,
  &#39;Renly Baratheon&#39;,
@@ -238,15 +246,16 @@
  &#39;Gendry&#39;,
  &#39;Balon Greyjoy&#39;,
  &#39;Asha Greyjoy&#39;,
- &#39;Theon Greyjoy&#39;,
  &#39;Euron Greyjoy&#39;,
  &#39;Victarion Greyjoy&#39;,
  &#39;Aeron Greyjoy&#39;,
  &#39;Doran Martell&#39;,
  &#39;Arianne Martell&#39;,
  &#39;Quentyn Martell&#39;,
+ &#39;Trystane Martell&#39;,
  &#39;Elia Martell&#39;,
  &#39;Oberyn Martell&#39;,
+ &#39;Ellaria Sand&#39;,
  &#39;The Sand Snakes&#39;,
  &#39;Areo Hotah&#39;,
  &#39;Hoster Tully&#39;,
@@ -254,19 +263,25 @@
  &#39;Brynden Tully&#39;,
  &#39;Walder Frey&#39;,
  &#39;Mace Tyrell&#39;,
- &#39;Willas Tyrell&#39;,
- &#39;Garlan Tyrell&#39;,
  &#39;Loras Tyrell&#39;,
  &#39;Margaery Tyrell&#39;,
  &#39;Olenna Tyrell&#39;,
+ &#39;Randyll Tarly&#39;,
  &#39;Jeor Mormont&#39;,
  &#39;Maester Aemon&#39;,
  &#39;Yoren&#39;,
  &#39;Samwell Tarly&#39;,
  &#39;Janos Slynt&#39;,
+ &#39;Alliser Thorne&#39;,
  &#39;Mance Rayder&#39;,
  &#39;Ygritte&#39;,
+ &#39;Craster&#39;,
+ &#39;Gilly&#39;,
  &#39;Val&#39;,
+ &#39;Lord of Bones&#39;,
+ &#39;Bowen Marsh&#39;,
+ &#39;Eddison Tollett&#39;,
+ &#39;Tormund Giantsbane&#39;,
  &#39;Petyr Baelish&#39;,
  &#39;Varys&#39;,
  &#39;Pycelle&#39;,
@@ -274,13 +289,18 @@
  &#39;Arys Oakheart&#39;,
  &#39;Ilyn Payne&#39;,
  &#39;Qyburn&#39;,
- &#39;Balon Swann&#39;,
+ &#39;The High Sparrow&#39;,
  &#39;Khal Drogo&#39;,
  &#39;Syrio Forel&#39;,
  &quot;Jaqen H&#39;ghar&quot;,
  &#39;Illyrio Mopatis&#39;,
  &#39;Thoros of Myr&#39;,
- &#39;Ser Duncan the Tall&#39;]
+ &#39;Ser Duncan the Tall&#39;,
+ &#39;Hizdahr zo Loraq&#39;,
+ &#39;Yezzan zo Qaggaz&#39;,
+ &#39;Tycho Nestoris&#39;,
+ &#39;The Waif&#39;,
+ &#39;Septa Unella&#39;]
 </pre></div>
 
 
@@ -308,56 +328,67 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>Stark         8
-Tyrell        6
+<div class="highlight"><pre><span></span>Baratheon     8
+Stark         8
 Targaryen     6
 Greyjoy       6
-Baratheon     6
 Lannister     6
-Martell       5
-Tully         3
+Martell       6
+Tyrell        4
+Tully         4
 Arryn         3
-Payne         2
 Clegane       2
+Bolton        2
 Mormont       2
-Snow          2
-Bolton        1
-Aemon         1
-Val           1
-Frey          1
-Rivers        1
-Varys         1
-Bronn         1
-Hotah         1
-Tarly         1
-Osha          1
-Tall          1
-Yoren         1
-Rayder        1
-Snakes        1
-Myr           1
-Seaworth      1
-Qyburn        1
-Forel         1
-Baelish       1
-Poole         1
-H&#39;ghar        1
-Drogo         1
-Swann         1
-Selmy         1
-Gendry        1
-Tarth         1
-Slynt         1
-Westerling    1
-Hodor         1
-Mopatis       1
-Pycelle       1
-Ygritte       1
-Reed          1
-Dondarrion    1
-Connington    1
-Oakheart      1
+Payne         2
+Tarly         2
 Melisandre    1
+Giantsbane    1
+Ygritte       1
+Bronn         1
+Westerling    1
+Sand          1
+Osha          1
+Gendry        1
+Sparrow       1
+Drogo         1
+Qyburn        1
+Gilly         1
+Pycelle       1
+Craster       1
+H&#39;ghar        1
+Oakheart      1
+             ..
+Rivers        1
+Seaworth      1
+Marsh         1
+Connington    1
+Hodor         1
+Val           1
+Unella        1
+Aemon         1
+Myr           1
+Slynt         1
+Dondarrion    1
+Baelish       1
+Qaggaz        1
+Yoren         1
+Mopatis       1
+Worm          1
+Varys         1
+Royce         1
+Nestoris      1
+Tarth         1
+Naharis       1
+Snakes        1
+Reed          1
+Bones         1
+Tollett       1
+Rayder        1
+Tall          1
+Selmy         1
+Hotah         1
+Snow          1
 dtype: int64
 </pre></div>
     <aside>

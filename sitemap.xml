@@ -5,7 +5,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://chrisalbon.com/</loc>
-<lastmod>2016-06-01T16:30:46-00:00</lastmod>
+<lastmod>2016-06-02T11:10:49-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -116,13 +116,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://chrisalbon.com/python/applying_conditional_functions_to_list_items.html</loc>
-<lastmod>2016-05-01T12:00:00-07:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>http://chrisalbon.com/python/applying_functions_to_list_items.html</loc>
 <lastmod>2016-05-01T12:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
@@ -201,13 +194,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://chrisalbon.com/python/beautiful_soup_scrape_table.html</loc>
-<lastmod>2016-05-01T12:00:00-07:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://chrisalbon.com/python/beautiful_soup_scraping_into_pandas.html</loc>
 <lastmod>2016-05-01T12:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
@@ -494,13 +480,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://chrisalbon.com/python/dataset_war_of_five_kings.html</loc>
-<lastmod>2016-05-01T12:00:00-07:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>http://chrisalbon.com/r-stats/datasets.html</loc>
 <lastmod>2016-05-01T12:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
@@ -760,48 +739,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://chrisalbon.com/python/ggplot_area_plot.html</loc>
-<lastmod>2016-05-01T12:00:00-07:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://chrisalbon.com/python/ggplot_draw_line.html</loc>
-<lastmod>2016-05-01T12:00:00-07:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://chrisalbon.com/python/ggplot_histogram.html</loc>
-<lastmod>2016-05-01T12:00:00-07:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://chrisalbon.com/python/ggplot_line_plot.html</loc>
-<lastmod>2016-05-01T12:00:00-07:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://chrisalbon.com/python/ggplot_save_as_vector.html</loc>
-<lastmod>2016-05-01T12:00:00-07:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://chrisalbon.com/python/ggplot_scatterplot.html</loc>
-<lastmod>2016-05-01T12:00:00-07:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>http://chrisalbon.com/r-stats/heatmap-for-factors.html</loc>
 <lastmod>2016-05-01T12:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
@@ -838,13 +775,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://chrisalbon.com/python/if_and_if_else_statements.html</loc>
-<lastmod>2016-05-01T12:00:00-07:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://chrisalbon.com/python/if_statement.html</loc>
 <lastmod>2016-05-01T12:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
@@ -942,13 +872,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://chrisalbon.com/python/json_parse_file.html</loc>
-<lastmod>2016-05-01T12:00:00-07:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>http://chrisalbon.com/python/kolmogorov_smirnov_test.html</loc>
 <lastmod>2016-05-01T12:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
@@ -1013,13 +936,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://chrisalbon.com/command-line/list_all_files_and_folders_in_a_directory.html</loc>
-<lastmod>2016-05-01T12:00:00-07:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://chrisalbon.com/python/list_comprehension.html</loc>
 <lastmod>2016-05-01T12:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
@@ -1502,13 +1418,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://chrisalbon.com/python/pandas_data_wrangling.html</loc>
-<lastmod>2016-05-01T12:00:00-07:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>http://chrisalbon.com/python/pandas_dataframe_count_values.html</loc>
 <lastmod>2016-05-01T12:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
@@ -1517,6 +1426,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://chrisalbon.com/python/pandas_dataframe_descriptive_stats.html</loc>
+<lastmod>2016-05-01T12:00:00-07:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://chrisalbon.com/python/pandas_dataframe_examples.html</loc>
 <lastmod>2016-05-01T12:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
@@ -1572,13 +1488,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://chrisalbon.com/python/pandas_example_dataframes.html</loc>
-<lastmod>2016-05-01T12:00:00-07:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>http://chrisalbon.com/python/pandas_expand_cells_containing_lists.html</loc>
 <lastmod>2016-05-01T12:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
@@ -1600,6 +1509,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>http://chrisalbon.com/python/pandas_group_by_time.html</loc>
+<lastmod>2016-05-01T12:00:00-07:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>http://chrisalbon.com/python/pandas_group_rows_by.html</loc>
 <lastmod>2016-05-01T12:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
@@ -1614,13 +1530,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://chrisalbon.com/data-wrangling/pandas_import_html_table.html</loc>
-<lastmod>2016-05-01T12:00:00-07:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>http://chrisalbon.com/python/pandas_index_select_and_filter.html</loc>
 <lastmod>2016-05-01T12:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
@@ -1629,13 +1538,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://chrisalbon.com/python/pandas_indexing_selecting.html</loc>
-<lastmod>2016-05-01T12:00:00-07:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://chrisalbon.com/python/pandas_iterate_over_rows_of_multiple_columns.html</loc>
 <lastmod>2016-05-01T12:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
@@ -1705,13 +1607,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://chrisalbon.com/python/pandas_normalize_column.html</loc>
-<lastmod>2016-05-01T12:00:00-07:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>http://chrisalbon.com/python/pandas_outliers.html</loc>
 <lastmod>2016-05-01T12:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
@@ -1741,20 +1636,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://chrisalbon.com/python/pandas_replace_values.html</loc>
-<lastmod>2016-05-01T12:00:00-07:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://chrisalbon.com/python/pandas_resample_by_time.html</loc>
-<lastmod>2016-05-01T12:00:00-07:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://chrisalbon.com/python/pandas_sample_dataframe.html</loc>
 <lastmod>2016-05-01T12:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
@@ -1824,21 +1705,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://chrisalbon.com/python/pandas_string_munging.html</loc>
-<lastmod>2016-05-01T12:00:00-07:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>http://chrisalbon.com/python/pandas_time_series_basics.html</loc>
-<lastmod>2016-05-01T12:00:00-07:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://chrisalbon.com/python/pandas_transpose_dataframe.html</loc>
 <lastmod>2016-05-01T12:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
@@ -1874,13 +1741,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://chrisalbon.com/r-stats/plots-on-map.html</loc>
-<lastmod>2016-05-01T12:00:00-07:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://chrisalbon.com/python/polynomial_fitting.html</loc>
 <lastmod>2016-05-01T12:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
@@ -1937,20 +1797,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://chrisalbon.com/python/recursive_functions.html</loc>
-<lastmod>2016-05-01T12:00:00-07:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://chrisalbon.com/regex/regex_basics.html</loc>
-<lastmod>2016-05-01T12:00:00-07:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://chrisalbon.com/python/regex_by_example.html</loc>
 <lastmod>2016-05-01T12:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
@@ -2104,13 +1950,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://chrisalbon.com/python/scipy_fitting_trendline.html</loc>
-<lastmod>2016-05-01T12:00:00-07:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>http://chrisalbon.com/python/scipy_simple_clustering.html</loc>
 <lastmod>2016-05-01T12:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
@@ -2139,7 +1978,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://chrisalbon.com/python/seaborn_pretty_timeseries_plots.html</loc>
+<loc>http://chrisalbon.com/python/seaborn_pretty_timeseries_plot.html</loc>
 <lastmod>2016-05-01T12:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
@@ -2272,13 +2111,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://chrisalbon.com/python/standard_object_types.html</loc>
-<lastmod>2016-05-01T12:00:00-07:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>http://chrisalbon.com/python/string_formatting.html</loc>
 <lastmod>2016-05-01T12:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
@@ -2364,13 +2196,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://chrisalbon.com/r-stats/test-if-number-is-odd-or-even.html</loc>
-<lastmod>2016-05-01T12:00:00-07:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://chrisalbon.com/python/testing_the_stack.html</loc>
 <lastmod>2016-05-01T12:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>

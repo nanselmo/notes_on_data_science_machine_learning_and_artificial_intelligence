@@ -10,7 +10,7 @@
     <meta name="author" content="Chris Albon">
     <link rel="icon" href="../favicon.ico">
 
-    <title>Pivot Tables In Pandas - Python</title>
+    <title>Simple Example Dataframes In Pandas - Python</title>
 
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -120,7 +120,7 @@
 <section id="content" class="body">
     <header>
     <h1>
-      Pivot Tables In Pandas
+      Simple Example Dataframes In Pandas
     </h1>
 <ol class="breadcrumb">
     <li>
@@ -139,201 +139,196 @@
 
 
 <h3>Create dataframe</h3>
-<div class="highlight"><pre><span></span><span class="n">raw_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;regiment&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Nighthawks&#39;</span><span class="p">,</span> <span class="s1">&#39;Nighthawks&#39;</span><span class="p">,</span> <span class="s1">&#39;Nighthawks&#39;</span><span class="p">,</span> <span class="s1">&#39;Nighthawks&#39;</span><span class="p">,</span> <span class="s1">&#39;Dragoons&#39;</span><span class="p">,</span> <span class="s1">&#39;Dragoons&#39;</span><span class="p">,</span> <span class="s1">&#39;Dragoons&#39;</span><span class="p">,</span> <span class="s1">&#39;Dragoons&#39;</span><span class="p">,</span> <span class="s1">&#39;Scouts&#39;</span><span class="p">,</span> <span class="s1">&#39;Scouts&#39;</span><span class="p">,</span> <span class="s1">&#39;Scouts&#39;</span><span class="p">,</span> <span class="s1">&#39;Scouts&#39;</span><span class="p">],</span>
-        <span class="s1">&#39;company&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span> <span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span><span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">],</span>
-        <span class="s1">&#39;TestScore&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]}</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;regiment&#39;</span><span class="p">,</span> <span class="s1">&#39;company&#39;</span><span class="p">,</span> <span class="s1">&#39;TestScore&#39;</span><span class="p">])</span>
+<div class="highlight"><pre><span></span><span class="n">raw_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;first_name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Jason&#39;</span><span class="p">,</span> <span class="s1">&#39;Molly&#39;</span><span class="p">,</span> <span class="s1">&#39;Tina&#39;</span><span class="p">,</span> <span class="s1">&#39;Jake&#39;</span><span class="p">,</span> <span class="s1">&#39;Amy&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;last_name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Miller&#39;</span><span class="p">,</span> <span class="s1">&#39;Jacobson&#39;</span><span class="p">,</span> <span class="s1">&#39;Ali&#39;</span><span class="p">,</span> <span class="s1">&#39;Milner&#39;</span><span class="p">,</span> <span class="s1">&#39;Cooze&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">42</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">73</span><span class="p">],</span>
+        <span class="s1">&#39;preTestScore&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+        <span class="s1">&#39;postTestScore&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">94</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">70</span><span class="p">]}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;first_name&#39;</span><span class="p">,</span> <span class="s1">&#39;last_name&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;preTestScore&#39;</span><span class="p">,</span> <span class="s1">&#39;postTestScore&#39;</span><span class="p">])</span>
 <span class="n">df</span>
 </pre></div>
 
 
-<div>
+<div style="max-height:1000px;max-width:1500px;overflow:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>regiment</th>
-      <th>company</th>
-      <th>TestScore</th>
+      <th>first_name</th>
+      <th>last_name</th>
+      <th>age</th>
+      <th>preTestScore</th>
+      <th>postTestScore</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>Nighthawks</td>
-      <td>1st</td>
-      <td>4</td>
+      <td> Jason</td>
+      <td>   Miller</td>
+      <td> 42</td>
+      <td>  4</td>
+      <td> 25</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Nighthawks</td>
-      <td>1st</td>
-      <td>24</td>
+      <td> Molly</td>
+      <td> Jacobson</td>
+      <td> 52</td>
+      <td> 24</td>
+      <td> 94</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Nighthawks</td>
-      <td>2nd</td>
-      <td>31</td>
+      <td>  Tina</td>
+      <td>      Ali</td>
+      <td> 36</td>
+      <td> 31</td>
+      <td> 57</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Nighthawks</td>
-      <td>2nd</td>
-      <td>2</td>
+      <td>  Jake</td>
+      <td>   Milner</td>
+      <td> 24</td>
+      <td>  2</td>
+      <td> 62</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Dragoons</td>
-      <td>1st</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>Dragoons</td>
-      <td>1st</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>Dragoons</td>
-      <td>2nd</td>
-      <td>24</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>Dragoons</td>
-      <td>2nd</td>
-      <td>31</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>Scouts</td>
-      <td>1st</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>Scouts</td>
-      <td>1st</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>Scouts</td>
-      <td>2nd</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>Scouts</td>
-      <td>2nd</td>
-      <td>3</td>
+      <td>   Amy</td>
+      <td>    Cooze</td>
+      <td> 73</td>
+      <td>  3</td>
+      <td> 70</td>
     </tr>
   </tbody>
 </table>
+<p>5 rows × 5 columns</p>
 </div>
 
-<h3>Create a pivot table of group means, by company and regiment</h3>
-<div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;regiment&#39;</span><span class="p">,</span><span class="s1">&#39;company&#39;</span><span class="p">],</span> <span class="n">aggfunc</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
+<h3>Create 2nd dataframe</h3>
+<div class="highlight"><pre><span></span><span class="n">raw_data_2</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;first_name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Sarah&#39;</span><span class="p">,</span> <span class="s1">&#39;Gueniva&#39;</span><span class="p">,</span> <span class="s1">&#39;Know&#39;</span><span class="p">,</span> <span class="s1">&#39;Sara&#39;</span><span class="p">,</span> <span class="s1">&#39;Cat&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;last_name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Mornig&#39;</span><span class="p">,</span> <span class="s1">&#39;Jaker&#39;</span><span class="p">,</span> <span class="s1">&#39;Alom&#39;</span><span class="p">,</span> <span class="s1">&#39;Ormon&#39;</span><span class="p">,</span> <span class="s1">&#39;Koozer&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">53</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">73</span><span class="p">,</span> <span class="mi">24</span><span class="p">],</span>
+        <span class="s1">&#39;preTestScore&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">13</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">26</span><span class="p">],</span>
+        <span class="s1">&#39;postTestScore&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">82</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">234</span><span class="p">,</span> <span class="mi">254</span><span class="p">]}</span>
+<span class="n">df_2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">raw_data_2</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;first_name&#39;</span><span class="p">,</span> <span class="s1">&#39;last_name&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;preTestScore&#39;</span><span class="p">,</span> <span class="s1">&#39;postTestScore&#39;</span><span class="p">])</span>
+<span class="n">df_2</span>
 </pre></div>
 
 
-<div>
+<div style="max-height:1000px;max-width:1500px;overflow:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th></th>
-      <th>TestScore</th>
-    </tr>
-    <tr>
-      <th>regiment</th>
-      <th>company</th>
-      <th></th>
+      <th>first_name</th>
+      <th>last_name</th>
+      <th>age</th>
+      <th>preTestScore</th>
+      <th>postTestScore</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th rowspan="2" valign="top">Dragoons</th>
-      <th>1st</th>
-      <td>3.5</td>
+      <th>0</th>
+      <td>   Sarah</td>
+      <td> Mornig</td>
+      <td> 53</td>
+      <td> 13</td>
+      <td>  82</td>
     </tr>
     <tr>
-      <th>2nd</th>
-      <td>27.5</td>
+      <th>1</th>
+      <td> Gueniva</td>
+      <td>  Jaker</td>
+      <td> 26</td>
+      <td> 52</td>
+      <td>  52</td>
     </tr>
     <tr>
-      <th rowspan="2" valign="top">Nighthawks</th>
-      <th>1st</th>
-      <td>14.0</td>
+      <th>2</th>
+      <td>    Know</td>
+      <td>   Alom</td>
+      <td> 72</td>
+      <td> 72</td>
+      <td>  56</td>
     </tr>
     <tr>
-      <th>2nd</th>
-      <td>16.5</td>
+      <th>3</th>
+      <td>    Sara</td>
+      <td>  Ormon</td>
+      <td> 73</td>
+      <td> 26</td>
+      <td> 234</td>
     </tr>
     <tr>
-      <th rowspan="2" valign="top">Scouts</th>
-      <th>1st</th>
-      <td>2.5</td>
-    </tr>
-    <tr>
-      <th>2nd</th>
-      <td>2.5</td>
+      <th>4</th>
+      <td>     Cat</td>
+      <td> Koozer</td>
+      <td> 24</td>
+      <td> 26</td>
+      <td> 254</td>
     </tr>
   </tbody>
 </table>
+<p>5 rows × 5 columns</p>
 </div>
 
-<h3>Create a pivot table of group score counts, by company and regimensts</h3>
-<div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;regiment&#39;</span><span class="p">,</span><span class="s1">&#39;company&#39;</span><span class="p">],</span> <span class="n">aggfunc</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
+<h3>Create 3rd dataframe</h3>
+<div class="highlight"><pre><span></span><span class="n">raw_data_3</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;first_name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Sarah&#39;</span><span class="p">,</span> <span class="s1">&#39;Gueniva&#39;</span><span class="p">,</span> <span class="s1">&#39;Know&#39;</span><span class="p">,</span> <span class="s1">&#39;Sara&#39;</span><span class="p">,</span> <span class="s1">&#39;Cat&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;last_name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Mornig&#39;</span><span class="p">,</span> <span class="s1">&#39;Jaker&#39;</span><span class="p">,</span> <span class="s1">&#39;Alom&#39;</span><span class="p">,</span> <span class="s1">&#39;Ormon&#39;</span><span class="p">,</span> <span class="s1">&#39;Koozer&#39;</span><span class="p">],</span>
+         <span class="s1">&#39;postTestScore_2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">82</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">234</span><span class="p">,</span> <span class="mi">254</span><span class="p">]}</span>
+<span class="n">df_3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">raw_data_3</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;first_name&#39;</span><span class="p">,</span> <span class="s1">&#39;last_name&#39;</span><span class="p">,</span> <span class="s1">&#39;postTestScore_2&#39;</span><span class="p">])</span>
+<span class="n">df_3</span>
 </pre></div>
 
 
-<div>
+<div style="max-height:1000px;max-width:1500px;overflow:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th></th>
-      <th>TestScore</th>
-    </tr>
-    <tr>
-      <th>regiment</th>
-      <th>company</th>
-      <th></th>
+      <th>first_name</th>
+      <th>last_name</th>
+      <th>postTestScore_2</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th rowspan="2" valign="top">Dragoons</th>
-      <th>1st</th>
-      <td>2</td>
+      <th>0</th>
+      <td>   Sarah</td>
+      <td> Mornig</td>
+      <td>  82</td>
     </tr>
     <tr>
-      <th>2nd</th>
-      <td>2</td>
+      <th>1</th>
+      <td> Gueniva</td>
+      <td>  Jaker</td>
+      <td>  52</td>
     </tr>
     <tr>
-      <th rowspan="2" valign="top">Nighthawks</th>
-      <th>1st</th>
-      <td>2</td>
+      <th>2</th>
+      <td>    Know</td>
+      <td>   Alom</td>
+      <td>  56</td>
     </tr>
     <tr>
-      <th>2nd</th>
-      <td>2</td>
+      <th>3</th>
+      <td>    Sara</td>
+      <td>  Ormon</td>
+      <td> 234</td>
     </tr>
     <tr>
-      <th rowspan="2" valign="top">Scouts</th>
-      <th>1st</th>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>2nd</th>
-      <td>2</td>
+      <th>4</th>
+      <td>     Cat</td>
+      <td> Koozer</td>
+      <td> 254</td>
     </tr>
   </tbody>
 </table>
+<p>5 rows × 3 columns</p>
 </div>
     <aside>
     <div class="bug-reporting__panel">

@@ -133,7 +133,6 @@
 </ol>
 </header>
 
-<p><strong>Note:</strong> This snippet is based on: <a href="http://www.tutorialspoint.com/python/python_reg_expressions.htm">http://www.tutorialspoint.com/python/python_reg_expressions.htm</a></p>
 <h3>Import the regex (re) package</h3>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
 </pre></div>
@@ -221,96 +220,6 @@ For anything else, use re.search</p>
 
 <div class="highlight"><pre><span></span>ThE quick brown fox jumpEd ovEr the lazy black bear.
 </pre></div>
-
-
-<h3>Patterns</h3>
-<ul>
-<li>^   Matches beginning of line.</li>
-<li>$   Matches end of line.</li>
-<li>.   Matches any single character except newline.</li>
-<li>[...]   Matches any single character in brackets.</li>
-<li>[# ^...]  Matches any single character not in brackets</li>
-<li>re* Matches 0 or more occurrences of preceding expression.</li>
-<li>re+ Matches 1 or more occurrence of preceding expression.</li>
-<li>re? Matches 0 or 1 occurrence of preceding expression.</li>
-<li>re{ n}  Matches exactly n number of occurrences of preceding expression.</li>
-<li>re{ n,} Matches n or more occurrences of preceding expression.</li>
-<li>re{ n, m}   Matches at least n and at most m occurrences of preceding expression.</li>
-<li>a | b    Matches either a or b.</li>
-<li>(re)    Groups regular expressions and remembers matched text.</li>
-<li>(?imx)  Temporarily toggles on i, m, or x options within a regular expression. If in parentheses, only that area is affected.</li>
-<li>(?-imx) Temporarily toggles off i, m, or x options within a regular expression. If in parentheses, only that area is affected.</li>
-<li>(?: re) Groups regular expressions without remembering matched text.</li>
-<li>(?imx: re)  Temporarily toggles on i, m, or x options within parentheses.</li>
-<li>(?-imx: re) Temporarily toggles off i, m, or x options within parentheses.</li>
-<li>(?#...) Comment.</li>
-<li>(?= re) Specifies position using a pattern. Doesn't have a range.</li>
-<li>(?! re) Specifies position using pattern negation. Doesn't have a range.</li>
-<li>(?&gt; re) Matches independent pattern without backtracking.</li>
-<li>\w  Matches word characters.</li>
-<li>\W  Matches nonword characters.</li>
-<li>\s  Matches whitespace. Equivalent to [\t\n\r\f].</li>
-<li>\S  Matches nonwhitespace.</li>
-<li>\d  Matches digits. Equivalent to [0-9].</li>
-<li>\D  Matches nondigits.</li>
-<li>\A  Matches beginning of string.</li>
-<li>\Z  Matches end of string. If a newline exists, it matches just before newline.</li>
-<li>\z  Matches end of string.</li>
-<li>\G  Matches point where last match finished.</li>
-<li>\b  Matches word boundaries when outside brackets. Matches backspace (0x08) when inside brackets.</li>
-<li>\B  Matches nonword boundaries.</li>
-<li>\n, \t, etc.    Matches newlines, carriage returns, tabs, etc.</li>
-<li>\1...\9 Matches nth grouped subexpression.</li>
-<li>\10 Matches nth grouped subexpression if it matched already. Otherwise refers to the octal representation of a character code.</li>
-</ul>
-<h3>Examples</h3>
-<ul>
-<li>[Pp]ython   Match "Python" or "python"</li>
-<li>rub[ye] Match "ruby" or "rube"</li>
-<li>[aeiou] Match any one lowercase vowel</li>
-<li>[0-9]   Match any digit; same as [0123456789]</li>
-<li>[a-z]   Match any lowercase ASCII letter</li>
-<li>[A-Z]   Match any uppercase ASCII letter</li>
-<li>[a-zA-Z0-9] Match any of the above</li>
-<li>[^aeiou]    Match anything other than a lowercase vowel</li>
-<li>
-<p>[^0-9]  Match anything other than a digit</p>
-</li>
-<li>
-<p>ruby?   Match "rub" or "ruby": the y is optional</p>
-</li>
-<li>ruby*   Match "rub" plus 0 or more ys</li>
-<li>ruby+   Match "rub" plus 1 or more ys</li>
-<li>\d{3}   Match exactly 3 digits</li>
-<li>\d{3,}  Match 3 or more digits</li>
-<li>
-<p>\d{3,5} Match 3, 4, or 5 digits</p>
-</li>
-<li>
-<p>^Python Match "Python" at the start of a string or internal line</p>
-</li>
-<li>Python$     Match "Python" at the end of a string or line</li>
-<li>\APython    Match "Python" at the start of a string</li>
-<li>Python\Z    Match "Python" at the end of a string</li>
-<li>\bPython\b  Match "Python" at a word boundary</li>
-<li>\brub\B \B is nonword boundary: match "rub" in "rube" and "ruby" but not alone</li>
-<li>Python(?=!) Match "Python", if followed by an exclamation point</li>
-<li>Python(?!!) Match "Python", if not followed by an exclamation point</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>- python</th>
-<th>perl Match "python" or "perl"</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>- Python(!+</td>
-<td>\?)   "Python" followed by one or more ! or one ?</td>
-</tr>
-</tbody>
-</table>
     <aside>
     <div class="bug-reporting__panel">
         <h3>Find an error or bug? Have a suggestion?</h3>

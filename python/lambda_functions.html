@@ -133,7 +133,7 @@
 </ol>
 </header>
 
-<p>Lambda functions can ask as mini-functions, allowing you to create small bits of code into things like series.</p>
+<p>In Python it is possible to string lambda functions together.</p>
 <h3>Create a series, called pipeline, that contains three mini functions</h3>
 <div class="highlight"><pre><span></span><span class="n">pipeline</span> <span class="o">=</span> <span class="p">[</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">5</span><span class="p">,</span>
             <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">**</span><span class="mi">20</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span><span class="p">,</span>
@@ -144,6 +144,12 @@
 <h3>For each item in pipeline, run the lambda function with x = 3</h3>
 <div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">pipeline</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>13
+3486784402
+265613988875874769338781322035779626829233452653394495974574961739092490901302182994384699044004
 </pre></div>
     <aside>
     <div class="bug-reporting__panel">
