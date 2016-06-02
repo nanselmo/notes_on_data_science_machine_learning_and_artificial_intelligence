@@ -136,387 +136,125 @@
 <h2>Preliminaries</h2>
 <div class="highlight"><pre><span></span><span class="c1"># Import modules</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
-
-<span class="c1"># Set ipython&#39;s max row display</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_row&#39;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
-
-<span class="c1"># Set iPython&#39;s max column width to 50</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Load example dataset</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://www.dropbox.com/s/52cb7kcflr8qm2u/5kings_battles_v1.csv?dl=1&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="c1"># Create a dataframe</span>
+<span class="n">raw_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;first_name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Jason&#39;</span><span class="p">,</span> <span class="s1">&#39;Molly&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span>
+        <span class="s1">&#39;nationality&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;USA&#39;</span><span class="p">,</span> <span class="s1">&#39;USA&#39;</span><span class="p">,</span> <span class="s1">&#39;France&#39;</span><span class="p">,</span> <span class="s1">&#39;UK&#39;</span><span class="p">,</span> <span class="s1">&#39;UK&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">42</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">70</span><span class="p">]}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;first_name&#39;</span><span class="p">,</span> <span class="s1">&#39;nationality&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">])</span>
+<span class="n">df</span>
 </pre></div>
 
 
-<h2>Method 1: Using Boolean Variables</h2>
-<div class="highlight"><pre><span></span><span class="c1"># Create variable with TRUE if stark is the attacker</span>
-<span class="n">stark_attacker</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;attacker_king&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Robb Stark&quot;</span>
-
-<span class="c1"># Create variable with TRUE if the attacker wins</span>
-<span class="n">attacker_wins</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;attacker_outcome&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;win&quot;</span>
-
-<span class="c1"># Select all cases where stark is the attacker and the attacker wins</span>
-<span class="n">df</span><span class="p">[</span><span class="n">stark_attacker</span> <span class="o">&amp;</span> <span class="n">attacker_wins</span><span class="p">]</span>
-</pre></div>
-
-
-<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<div>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>name</th>
-      <th>year</th>
-      <th>battle_number</th>
-      <th>attacker_king</th>
-      <th>defender_king</th>
-      <th>attacker_1</th>
-      <th>attacker_2</th>
-      <th>attacker_3</th>
-      <th>attacker_4</th>
-      <th>defender_1</th>
-      <th>defender_2</th>
-      <th>defender_3</th>
-      <th>defender_4</th>
-      <th>attacker_outcome</th>
-      <th>battle_type</th>
-      <th>major_death</th>
-      <th>major_capture</th>
-      <th>attacker_size</th>
-      <th>defender_size</th>
-      <th>attacker_commander</th>
-      <th>defender_commander</th>
-      <th>summer</th>
-      <th>location</th>
-      <th>region</th>
-      <th>note</th>
+      <th>first_name</th>
+      <th>nationality</th>
+      <th>age</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>4 </th>
-      <td> Battle of the Whispering Wood</td>
-      <td> 298</td>
-      <td>  5</td>
-      <td> Robb Stark</td>
-      <td> Joffrey/Tommen Baratheon</td>
-      <td> Stark</td>
-      <td> Tully</td>
-      <td> NaN</td>
-      <td> NaN</td>
-      <td> Lannister</td>
-      <td> NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td> win</td>
-      <td>         ambush</td>
-      <td> 1</td>
-      <td> 1</td>
-      <td> 1875</td>
-      <td>  6000</td>
-      <td>                     Robb Stark, Brynden Tully</td>
-      <td>                                   Jaime Lannister</td>
-      <td> 1</td>
-      <td>  Whispering Wood</td>
-      <td>  The Riverlands</td>
-      <td>                                               NaN</td>
+      <th>0</th>
+      <td>Jason</td>
+      <td>USA</td>
+      <td>42</td>
     </tr>
     <tr>
-      <th>5 </th>
-      <td>           Battle of the Camps</td>
-      <td> 298</td>
-      <td>  6</td>
-      <td> Robb Stark</td>
-      <td> Joffrey/Tommen Baratheon</td>
-      <td> Stark</td>
-      <td> Tully</td>
-      <td> NaN</td>
-      <td> NaN</td>
-      <td> Lannister</td>
-      <td> NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td> win</td>
-      <td>         ambush</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 6000</td>
-      <td> 12625</td>
-      <td>    Robb Stark, Tytos Blackwood, Brynden Tully</td>
-      <td>                  Lord Andros Brax, Forley Prester</td>
-      <td> 1</td>
-      <td>         Riverrun</td>
-      <td>  The Riverlands</td>
-      <td>                                               NaN</td>
+      <th>1</th>
+      <td>Molly</td>
+      <td>USA</td>
+      <td>52</td>
     </tr>
     <tr>
-      <th>10</th>
-      <td>    Battle of Torrhen's Square</td>
-      <td> 299</td>
-      <td> 11</td>
-      <td> Robb Stark</td>
-      <td>      Balon/Euron Greyjoy</td>
-      <td> Stark</td>
-      <td>   NaN</td>
-      <td> NaN</td>
-      <td> NaN</td>
-      <td>   Greyjoy</td>
-      <td> NaN</td>
+      <th>2</th>
       <td>NaN</td>
-      <td>NaN</td>
-      <td> win</td>
-      <td> pitched battle</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td>  244</td>
-      <td>   900</td>
-      <td>                    Rodrik Cassel, Cley Cerwyn</td>
-      <td>                                   Dagmer Cleftjaw</td>
-      <td> 1</td>
-      <td> Torrhen's Square</td>
-      <td>       The North</td>
-      <td> Greyjoy's troop number comes from the 264 esti...</td>
+      <td>France</td>
+      <td>36</td>
     </tr>
     <tr>
-      <th>14</th>
-      <td>             Battle of Oxcross</td>
-      <td> 299</td>
-      <td> 15</td>
-      <td> Robb Stark</td>
-      <td> Joffrey/Tommen Baratheon</td>
-      <td> Stark</td>
-      <td> Tully</td>
-      <td> NaN</td>
-      <td> NaN</td>
-      <td> Lannister</td>
-      <td> NaN</td>
+      <th>3</th>
       <td>NaN</td>
-      <td>NaN</td>
-      <td> win</td>
-      <td>         ambush</td>
-      <td> 1</td>
-      <td> 1</td>
-      <td> 6000</td>
-      <td> 10000</td>
-      <td>                     Robb Stark, Brynden Tully</td>
-      <td> Stafford Lannister, Roland Crakehall, Antario ...</td>
-      <td> 1</td>
-      <td>          Oxcross</td>
-      <td> The Westerlands</td>
-      <td>                                               NaN</td>
+      <td>UK</td>
+      <td>24</td>
     </tr>
     <tr>
-      <th>17</th>
-      <td>             Sack of Harrenhal</td>
-      <td> 299</td>
-      <td> 18</td>
-      <td> Robb Stark</td>
-      <td> Joffrey/Tommen Baratheon</td>
-      <td> Stark</td>
-      <td>   NaN</td>
-      <td> NaN</td>
-      <td> NaN</td>
-      <td> Lannister</td>
-      <td> NaN</td>
+      <th>4</th>
       <td>NaN</td>
-      <td>NaN</td>
-      <td> win</td>
-      <td>         ambush</td>
-      <td> 1</td>
-      <td> 0</td>
-      <td>  100</td>
-      <td>   100</td>
-      <td>       Roose Bolton, Vargo Hoat, Robett Glover</td>
-      <td>                                       Amory Lorch</td>
-      <td> 1</td>
-      <td>        Harrenhal</td>
-      <td>  The Riverlands</td>
-      <td>                                               NaN</td>
+      <td>UK</td>
+      <td>70</td>
     </tr>
-    <tr>
-      <th>18</th>
-      <td>            Battle of the Crag</td>
-      <td> 299</td>
-      <td> 19</td>
-      <td> Robb Stark</td>
-      <td> Joffrey/Tommen Baratheon</td>
-      <td> Stark</td>
-      <td>   NaN</td>
-      <td> NaN</td>
-      <td> NaN</td>
-      <td> Lannister</td>
-      <td> NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td> win</td>
-      <td>         ambush</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 6000</td>
-      <td>   NaN</td>
-      <td> Robb Stark, Smalljon Umber, Black Walder Frey</td>
-      <td>                                      Rolph Spicer</td>
-      <td> 1</td>
-      <td>             Crag</td>
-      <td> The Westerlands</td>
-      <td>                                               NaN</td>
+  </tbody>
+</table>
+</div>
+
+<h2>Method 1: Using Boolean Variables</h2>
+<div class="highlight"><pre><span></span><span class="c1"># Create variable with TRUE if nationality is USA</span>
+<span class="n">american</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;nationality&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;USA&quot;</span>
+
+<span class="c1"># Create variable with TRUE if age is greater than 50</span>
+<span class="n">elderly</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">50</span>
+
+<span class="c1"># Select all casess where nationality is USA and age is greater than 50</span>
+<span class="n">df</span><span class="p">[</span><span class="n">american</span> <span class="o">&amp;</span> <span class="n">elderly</span><span class="p">]</span>
+</pre></div>
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>first_name</th>
+      <th>nationality</th>
+      <th>age</th>
     </tr>
+  </thead>
+  <tbody>
     <tr>
-      <th>20</th>
-      <td>                Siege of Darry</td>
-      <td> 299</td>
-      <td> 21</td>
-      <td> Robb Stark</td>
-      <td> Joffrey/Tommen Baratheon</td>
-      <td> Darry</td>
-      <td>   NaN</td>
-      <td> NaN</td>
-      <td> NaN</td>
-      <td> Lannister</td>
-      <td> NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td> win</td>
-      <td>          siege</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td>  NaN</td>
-      <td>   NaN</td>
-      <td>                               Helman Tallhart</td>
-      <td>                                               NaN</td>
-      <td> 1</td>
-      <td>            Darry</td>
-      <td>  The Riverlands</td>
-      <td>                                               NaN</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>              Siege of Seagard</td>
-      <td> 299</td>
-      <td> 27</td>
-      <td> Robb Stark</td>
-      <td> Joffrey/Tommen Baratheon</td>
-      <td>  Frey</td>
-      <td>   NaN</td>
-      <td> NaN</td>
-      <td> NaN</td>
-      <td> Mallister</td>
-      <td> NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td> win</td>
-      <td>          siege</td>
-      <td> 0</td>
-      <td> 1</td>
-      <td>  NaN</td>
-      <td>   NaN</td>
-      <td>                                   Walder Frey</td>
-      <td>                                   Jason Mallister</td>
-      <td> 1</td>
-      <td>          Seagard</td>
-      <td>  The Riverlands</td>
-      <td>                                               NaN</td>
+      <th>1</th>
+      <td>Molly</td>
+      <td>USA</td>
+      <td>52</td>
     </tr>
   </tbody>
 </table>
 </div>
 
 <h2>Method 2: Using variable attributes</h2>
-<div class="highlight"><pre><span></span><span class="c1"># Select the rows where attacker_2 is not missing, and defender_2 is not missing</span>
-<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;attacker_2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;defender_2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()]</span>
+<div class="highlight"><pre><span></span><span class="c1"># Select all cases where the first name is not missing and nationality is USA</span>
+<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;first_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;nationality&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;USA&quot;</span><span class="p">)]</span>
 </pre></div>
 
 
-<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<div>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>name</th>
-      <th>year</th>
-      <th>battle_number</th>
-      <th>attacker_king</th>
-      <th>defender_king</th>
-      <th>attacker_1</th>
-      <th>attacker_2</th>
-      <th>attacker_3</th>
-      <th>attacker_4</th>
-      <th>defender_1</th>
-      <th>defender_2</th>
-      <th>defender_3</th>
-      <th>defender_4</th>
-      <th>attacker_outcome</th>
-      <th>battle_type</th>
-      <th>major_death</th>
-      <th>major_capture</th>
-      <th>attacker_size</th>
-      <th>defender_size</th>
-      <th>attacker_commander</th>
-      <th>defender_commander</th>
-      <th>summer</th>
-      <th>location</th>
-      <th>region</th>
-      <th>note</th>
+      <th>first_name</th>
+      <th>nationality</th>
+      <th>age</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>27</th>
-      <td> Battle of Castle Black</td>
-      <td> 300</td>
-      <td> 28</td>
-      <td> Stannis Baratheon</td>
-      <td>             Mance Rayder</td>
-      <td> Free folk</td>
-      <td>   Thenns</td>
-      <td>  Giants</td>
-      <td>    NaN</td>
-      <td> Night's Watch</td>
-      <td> Baratheon</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td> loss</td>
-      <td> siege</td>
-      <td>  1</td>
-      <td>  1</td>
-      <td> 100000</td>
-      <td> 1240</td>
-      <td> Stannis Baratheon, Jon Snow, Donal Noye, Cotte...</td>
-      <td> Mance Rayder, Tormund Giantsbane, Harma Dogshe...</td>
-      <td> 0</td>
-      <td> Castle Black</td>
-      <td> Beyond the Wall</td>
-      <td> NaN</td>
+      <th>0</th>
+      <td>Jason</td>
+      <td>USA</td>
+      <td>42</td>
     </tr>
     <tr>
-      <th>37</th>
-      <td>    Siege of Winterfell</td>
-      <td> 300</td>
-      <td> 38</td>
-      <td> Stannis Baratheon</td>
-      <td> Joffrey/Tommen Baratheon</td>
-      <td> Baratheon</td>
-      <td> Karstark</td>
-      <td> Mormont</td>
-      <td> Glover</td>
-      <td>        Bolton</td>
-      <td>      Frey</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>  NaN</td>
-      <td>   NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>   5000</td>
-      <td> 8000</td>
-      <td>                                 Stannis Baratheon</td>
-      <td>                                      Roose Bolton</td>
-      <td> 0</td>
-      <td>   Winterfell</td>
-      <td>       The North</td>
-      <td> NaN</td>
+      <th>1</th>
+      <td>Molly</td>
+      <td>USA</td>
+      <td>52</td>
     </tr>
   </tbody>
 </table>
