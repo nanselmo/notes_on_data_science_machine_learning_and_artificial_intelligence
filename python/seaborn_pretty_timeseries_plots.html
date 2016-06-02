@@ -10,7 +10,7 @@
     <meta name="author" content="Chris Albon">
     <link rel="icon" href="../favicon.ico">
 
-    <title>Make Pretty Time Series Plots With Seaborn - Python</title>
+    <title>Pretty Time Series Plot With Seaborn - Python</title>
 
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -120,7 +120,7 @@
 <section id="content" class="body">
     <header>
     <h1>
-      Make Pretty Time Series Plots With Seaborn
+      Pretty Time Series Plot With Seaborn
     </h1>
 <ol class="breadcrumb">
     <li>
@@ -141,7 +141,7 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2001</span><span class="p">,</span> <span class="mi">2002</span><span class="p">,</span> <span class="mi">2003</span><span class="p">,</span> <span class="mi">2004</span><span class="p">,</span> <span class="mi">2005</span><span class="p">,</span> <span class="mi">2006</span><span class="p">,</span> <span class="mi">2007</span><span class="p">,</span> <span class="mi">2008</span><span class="p">,</span> <span class="mi">2009</span><span class="p">,</span> <span class="mi">2010</span><span class="p">],</span> 
+<div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2001</span><span class="p">,</span> <span class="mi">2002</span><span class="p">,</span> <span class="mi">2003</span><span class="p">,</span> <span class="mi">2004</span><span class="p">,</span> <span class="mi">2005</span><span class="p">,</span> <span class="mi">2006</span><span class="p">,</span> <span class="mi">2007</span><span class="p">,</span> <span class="mi">2008</span><span class="p">,</span> <span class="mi">2009</span><span class="p">,</span> <span class="mi">2010</span><span class="p">],</span>
         <span class="s1">&#39;deaths_regiment_1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">34</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">41</span><span class="p">],</span>
         <span class="s1">&#39;deaths_regiment_2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">52</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">86</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
         <span class="s1">&#39;deaths_regiment_3&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">13</span><span class="p">,</span> <span class="mi">73</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">58</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">75</span><span class="p">],</span>
@@ -162,11 +162,11 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x104b225d0&gt;
+<div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x11408d780&gt;
 </pre></div>
 
 
-<p><img alt="png" src="../images/seaborn_pretty_timeseries_plots/output_5_1.png" /></p>
+<p><img alt="png" src="output_5_1.png" /></p>
 <div class="highlight"><pre><span></span><span class="n">custom_style</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;axes.axisbelow&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
                 <span class="s1">&#39;axes.edgecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;#FFFFFF&#39;</span><span class="p">,</span>
                 <span class="s1">&#39;axes.facecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;#F4F4F4&#39;</span><span class="p">,</span>
@@ -199,23 +199,22 @@
 <span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="n">custom_style</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">()</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">tsplot</span><span class="p">([</span><span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_1</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_2</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_3</span><span class="p">,</span> 
-            <span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_4</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_5</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_6</span><span class="p">,</span> 
+<span class="n">sns</span><span class="o">.</span><span class="n">tsplot</span><span class="p">([</span><span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_1</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_2</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_3</span><span class="p">,</span>
+            <span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_4</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_5</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_6</span><span class="p">,</span>
             <span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_7</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#34495e&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histogram of IQ&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Deaths&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;Battle of Two Bridges&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">26</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span>
-             <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;indianred&#39;</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">headwidth</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> 
-                             <span class="n">frac</span><span class="o">=.</span><span class="mi">2</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">7</span><span class="p">))</span>
+             <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;indianred&#39;</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">headwidth</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">7</span><span class="p">))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>&lt;matplotlib.text.Annotation at 0x10a792450&gt;
+<div class="highlight"><pre><span></span>&lt;matplotlib.text.Annotation at 0x116a94eb8&gt;
 </pre></div>
 
 
-<p><img alt="png" src="../images/seaborn_pretty_timeseries_plots/output_6_1.png" /></p>
+<p><img alt="png" src="output_6_1.png" /></p>
     <aside>
     <div class="bug-reporting__panel">
         <h3>Find an error or bug? Have a suggestion?</h3>
