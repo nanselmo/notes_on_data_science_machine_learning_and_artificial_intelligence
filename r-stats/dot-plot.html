@@ -134,7 +134,7 @@
 </header>
 
 <p>Original source: r graphics cookbook</p>
-<div class="highlight"><pre><span></span><span class="c1"># load the gcookbook package for the data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># load the gcookbook package for the data</span>
 <span class="kn">library</span><span class="p">(</span>gcookbook<span class="p">)</span>
 
 <span class="c1"># load the ggplot2 package</span>
@@ -145,22 +145,22 @@ dev.off<span class="p">()</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>null device
+<div class="codehilite"><pre><span></span>null device
           1
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a subset of countries</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a subset of countries</span>
 countries2009 <span class="o">&lt;-</span> <span class="kp">subset</span><span class="p">(</span>countries<span class="p">,</span> Year<span class="o">==</span><span class="m">2009</span> <span class="o">&amp;</span> healthexp<span class="o">&gt;</span><span class="m">2000</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create the ggplot2 data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create the ggplot2 data</span>
 p <span class="o">&lt;-</span> ggplot<span class="p">(</span>countries2009<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> infmortality<span class="p">))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create the dotplot layer</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create the dotplot layer</span>
 p <span class="o">+</span> geom_dotplot<span class="p">(</span>binwidth<span class="o">=</span><span class="m">.25</span><span class="p">)</span> <span class="o">+</span>
   <span class="c1"># rescale the y axis and remove tic marks</span>
   scale_y_continuous<span class="p">(</span>breaks<span class="o">=</span><span class="kc">NULL</span><span class="p">)</span> <span class="o">+</span>

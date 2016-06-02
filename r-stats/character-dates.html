@@ -133,7 +133,7 @@
 </ol>
 </header>
 
-<div class="highlight"><pre><span></span><span class="c1"># create a dates2 variable with simulated data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a dates2 variable with simulated data</span>
 dates2 <span class="o">&lt;-</span> <span class="kp">as.data.frame</span><span class="p">(</span>
   <span class="kp">cbind</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">),</span>
   <span class="kt">c</span><span class="p">(</span><span class="s">&quot;8/31/70&quot;</span><span class="p">,</span> <span class="s">&quot;NA&quot;</span><span class="p">,</span> <span class="s">&quot;10/12/60&quot;</span><span class="p">,</span> <span class="s">&quot;1/1/66&quot;</span><span class="p">,</span> <span class="s">&quot;12/31/80&quot;</span><span class="p">),</span>
@@ -141,7 +141,7 @@ dates2 <span class="o">&lt;-</span> <span class="kp">as.data.frame</span><span c
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># add column names</span>
+<div class="codehilite"><pre><span></span><span class="c1"># add column names</span>
 <span class="kp">colnames</span><span class="p">(</span>dates2<span class="p">)</span> <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;ID&quot;</span><span class="p">,</span> <span class="s">&quot;date_factor&quot;</span><span class="p">,</span> <span class="s">&quot;date_horrible&quot;</span><span class="p">)</span>
 
 <span class="c1"># view the dataframe</span>
@@ -149,7 +149,7 @@ dates2
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>  ID date_factor date_horrible
+<div class="codehilite"><pre><span></span>  ID date_factor date_horrible
 1  1     8/31/70       8/31/56
 2  2          NA    12-31-1977
 3  3    10/12/60       12Aug55
@@ -158,12 +158,12 @@ dates2
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># load the chron packaage</span>
+<div class="codehilite"><pre><span></span><span class="c1"># load the chron packaage</span>
 <span class="kn">library</span><span class="p">(</span>chron<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># convert date_factor into characters and the translate it into date format using format =</span>
+<div class="codehilite"><pre><span></span><span class="c1"># convert date_factor into characters and the translate it into date format using format =</span>
 dates2<span class="o">$</span>date.fmt <span class="o">&lt;-</span> chron<span class="p">(</span><span class="kp">as.character</span><span class="p">(</span>dates2<span class="o">$</span>date_factor<span class="p">),</span> format <span class="o">=</span> <span class="s">&quot;m/d/y&quot;</span><span class="p">)</span>
 
 <span class="c1"># same as above but change the output format</span>
@@ -180,36 +180,36 @@ dates2<span class="o">$</span>date.fmt <span class="o">&lt;</span> chron<span cl
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="x">Warning message:</span>
-<span class="x">In unpaste(dates., sep = fmt</span><span class="p">$</span><span class="nv">sep</span><span class="x">, fnames = fmt</span><span class="p">$</span><span class="nv">periods</span><span class="x">, nfields = 3): wrong number of fields in entry(ies) 2Warning message:</span>
-<span class="x">In unpaste(dates., sep = fmt</span><span class="p">$</span><span class="nv">sep</span><span class="x">, fnames = fmt</span><span class="p">$</span><span class="nv">periods</span><span class="x">, nfields = 3): wrong number of fields in entry(ies) 2</span>
+<div class="codehilite"><pre><span></span>Warning message:
+In unpaste(dates., sep = fmt$sep, fnames = fmt$periods, nfields = 3): wrong number of fields in entry(ies) 2Warning message:
+In unpaste(dates., sep = fmt$sep, fnames = fmt$periods, nfields = 3): wrong number of fields in entry(ies) 2
 
 
 
 
-<span class="x">[1] September 01 1970 &lt;NA&gt;              October 13 1960   January 02 1966  </span>
-<span class="x">[5] January 01 1981</span>
+[1] September 01 1970 &lt;NA&gt;              October 13 1960   January 02 1966  
+[5] January 01 1981
 
 
 
 
 
 
-<span class="x">[1] FALSE    NA  TRUE FALSE FALSE</span>
+[1] FALSE    NA  TRUE FALSE FALSE
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># load the date package</span>
+<div class="codehilite"><pre><span></span><span class="c1"># load the date package</span>
 <span class="kn">library</span><span class="p">(</span><span class="kp">date</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>dates2<span class="o">$</span>date_autofmt <span class="o">&lt;-</span> as.date<span class="p">(</span><span class="kp">as.character</span><span class="p">(</span>dates2<span class="o">$</span>date_horrible<span class="p">))</span>
+<div class="codehilite"><pre><span></span>dates2<span class="o">$</span>date_autofmt <span class="o">&lt;-</span> as.date<span class="p">(</span><span class="kp">as.character</span><span class="p">(</span>dates2<span class="o">$</span>date_horrible<span class="p">))</span>
 dates2<span class="p">[,</span> <span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">6</span><span class="p">)]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>  ID date_horrible date_autofmt
+<div class="codehilite"><pre><span></span>  ID date_horrible date_autofmt
 1  1       8/31/56        -1218
 2  2    12-31-1977         6574
 3  3       12Aug55        -1603
@@ -218,14 +218,14 @@ dates2<span class="p">[,</span> <span class="kt">c</span><span class="p">(</span
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># take the horribly formatted dates, convert them into characters, auto convert the messy dates into clean dates (using as.date) then convert it into R&#39;s date class (as.Date). Notice the capitalization of as.date and as.Date.</span>
+<div class="codehilite"><pre><span></span><span class="c1"># take the horribly formatted dates, convert them into characters, auto convert the messy dates into clean dates (using as.date) then convert it into R&#39;s date class (as.Date). Notice the capitalization of as.date and as.Date.</span>
 dates2<span class="o">$</span>date_amazing <span class="o">&lt;-</span> <span class="kp">as.Date</span><span class="p">(</span>as.date<span class="p">(</span><span class="kp">as.character</span><span class="p">(</span>dates2<span class="o">$</span>date_horrible<span class="p">)))</span>
 
 dates2<span class="p">[,</span> <span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">7</span><span class="p">)]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>  ID date_horrible date_amazing
+<div class="codehilite"><pre><span></span>  ID date_horrible date_amazing
 1  1       8/31/56   1956-08-31
 2  2    12-31-1977   1977-12-31
 3  3       12Aug55   1955-08-12

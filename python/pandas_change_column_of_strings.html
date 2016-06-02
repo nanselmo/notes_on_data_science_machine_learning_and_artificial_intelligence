@@ -134,7 +134,7 @@
 </header>
 
 <p>Often I need or want to change the case of all items in a column of strings (e.g. BRAZIL to Brazil, etc.). There are many ways to accomplish this but I have settled on this one as the easiest and quickest.</p>
-<div class="highlight"><pre><span></span><span class="c1"># Import pandas</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Import pandas</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 
 <span class="c1"># Create a list of first names</span>
@@ -142,12 +142,12 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># print the column</span>
+<div class="codehilite"><pre><span></span><span class="c1"># print the column</span>
 <span class="n">first_names</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>0    Steve Murrey
+<div class="codehilite"><pre><span></span>0    Steve Murrey
 1      Jane Fonda
 2    Sara McGully
 3       Mary Jane
@@ -155,12 +155,12 @@ dtype: object
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># print the column with lower case</span>
+<div class="codehilite"><pre><span></span><span class="c1"># print the column with lower case</span>
 <span class="n">first_names</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>0    steve murrey
+<div class="codehilite"><pre><span></span>0    steve murrey
 1      jane fonda
 2    sara mcgully
 3       mary jane
@@ -168,12 +168,12 @@ dtype: object
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># print the column with upper case</span>
+<div class="codehilite"><pre><span></span><span class="c1"># print the column with upper case</span>
 <span class="n">first_names</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>0    STEVE MURREY
+<div class="codehilite"><pre><span></span>0    STEVE MURREY
 1      JANE FONDA
 2    SARA MCGULLY
 3       MARY JANE
@@ -181,12 +181,12 @@ dtype: object
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># print the column with title case</span>
+<div class="codehilite"><pre><span></span><span class="c1"># print the column with title case</span>
 <span class="n">first_names</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>0    Steve Murrey
+<div class="codehilite"><pre><span></span>0    Steve Murrey
 1      Jane Fonda
 2    Sara Mcgully
 3       Mary Jane
@@ -194,12 +194,12 @@ dtype: object
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># print the column split across spaces</span>
+<div class="codehilite"><pre><span></span><span class="c1"># print the column split across spaces</span>
 <span class="n">first_names</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>0    [Steve, Murrey]
+<div class="codehilite"><pre><span></span>0    [Steve, Murrey]
 1      [Jane, Fonda]
 2    [Sara, McGully]
 3       [Mary, Jane]
@@ -207,12 +207,12 @@ dtype: object
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># print the column with capitalized case</span>
+<div class="codehilite"><pre><span></span><span class="c1"># print the column with capitalized case</span>
 <span class="n">first_names</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>0    Steve murrey
+<div class="codehilite"><pre><span></span>0    Steve murrey
 1      Jane fonda
 2    Sara mcgully
 3       Mary jane

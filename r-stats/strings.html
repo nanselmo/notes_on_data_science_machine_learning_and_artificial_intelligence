@@ -135,25 +135,25 @@
 
 <p>Strings are text data stored in character vectors.</p>
 <p>Paste function can "paste" text into string elements</p>
-<div class="highlight"><pre><span></span><span class="c1"># Create a character vector with three strings</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a character vector with three strings</span>
 meals <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;cheeseburger&quot;</span><span class="p">,</span> <span class="s">&quot;soup&quot;</span><span class="p">,</span> <span class="s">&quot;sandwich&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Paste &quot;bacon&quot; onto the end of each string element</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Paste &quot;bacon&quot; onto the end of each string element</span>
 bacon.meals <span class="o">&lt;-</span> <span class="kp">paste</span><span class="p">(</span>meals<span class="p">,</span> <span class="s">&quot;bacon&quot;</span><span class="p">);</span> bacon.meals
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] &quot;cheeseburger bacon&quot; &quot;soup bacon&quot;         &quot;sandwich bacon&quot;
+<div class="codehilite"><pre><span></span>[1] &quot;cheeseburger bacon&quot; &quot;soup bacon&quot;         &quot;sandwich bacon&quot;
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>bacon.meals.dash <span class="o">&lt;-</span> <span class="kp">paste</span><span class="p">(</span>meals<span class="p">,</span> <span class="s">&quot;bacon&quot;</span><span class="p">,</span> sep<span class="o">=</span><span class="s">&quot;-&quot;</span><span class="p">);</span> bacon.meals.dash<span class="p">;</span> bacon.meals.dash
+<div class="codehilite"><pre><span></span>bacon.meals.dash <span class="o">&lt;-</span> <span class="kp">paste</span><span class="p">(</span>meals<span class="p">,</span> <span class="s">&quot;bacon&quot;</span><span class="p">,</span> sep<span class="o">=</span><span class="s">&quot;-&quot;</span><span class="p">);</span> bacon.meals.dash<span class="p">;</span> bacon.meals.dash
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] &quot;cheeseburger-bacon&quot; &quot;soup-bacon&quot;         &quot;sandwich-bacon&quot;
+<div class="codehilite"><pre><span></span>[1] &quot;cheeseburger-bacon&quot; &quot;soup-bacon&quot;         &quot;sandwich-bacon&quot;
 
 
 
@@ -164,12 +164,12 @@ bacon.meals <span class="o">&lt;-</span> <span class="kp">paste</span><span clas
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># We can also collapse the whole vector into a single string</span>
+<div class="codehilite"><pre><span></span><span class="c1"># We can also collapse the whole vector into a single string</span>
 mouthful <span class="o">&lt;-</span> <span class="kp">paste</span><span class="p">(</span>meals<span class="p">,</span> collapse<span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">);</span> mouthful
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] &quot;cheeseburgersoupsandwich&quot;
+<div class="codehilite"><pre><span></span>[1] &quot;cheeseburgersoupsandwich&quot;
 </pre></div>
     <aside>
     <div class="bug-reporting__panel">

@@ -133,7 +133,7 @@
 </ol>
 </header>
 
-<div class="highlight"><pre><span></span><span class="c1"># load the gcookbook package for the data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># load the gcookbook package for the data</span>
 <span class="kn">library</span><span class="p">(</span>gcookbook<span class="p">)</span>
 
 <span class="c1"># load the ggplot2 package</span>
@@ -144,12 +144,12 @@ dev.off<span class="p">()</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>null device
+<div class="codehilite"><pre><span></span>null device
           1
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a plot with both lines and dots</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a plot with both lines and dots</span>
 ggplot<span class="p">(</span>BOD<span class="p">,</span> aes<span class="p">(</span>x<span class="o">=</span>Time<span class="p">,</span> y<span class="o">=</span>demand<span class="p">))</span> <span class="o">+</span>
   geom_line<span class="p">()</span> <span class="o">+</span>
   geom_point<span class="p">()</span>

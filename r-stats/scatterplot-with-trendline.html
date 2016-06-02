@@ -134,7 +134,7 @@
 </header>
 
 <p>Original source: r graphics cookbook</p>
-<div class="highlight"><pre><span></span><span class="c1"># load the gcookbook package for the data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># load the gcookbook package for the data</span>
 <span class="kn">library</span><span class="p">(</span>gcookbook<span class="p">)</span>
 
 <span class="c1"># load the ggplot2 package</span>
@@ -148,29 +148,29 @@ dev.off<span class="p">()</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>null device
+<div class="codehilite"><pre><span></span>null device
           1
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create the scatterplot</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create the scatterplot</span>
 sps <span class="o">&lt;-</span> ggplot<span class="p">(</span>heightweight<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> ageYear<span class="p">,</span> y <span class="o">=</span> heightIn<span class="p">,</span> colour <span class="o">=</span> sex<span class="p">))</span> <span class="o">+</span>
   geom_point<span class="p">()</span> <span class="o">+</span>
   scale_colour_brewer<span class="p">(</span>palette <span class="o">=</span> <span class="s">&quot;Set1&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a scatterplot with loess smoothing</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a scatterplot with loess smoothing</span>
 sps <span class="o">+</span> geom_smooth<span class="p">()</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="n">geom_smooth</span><span class="o">:</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span> <span class="n">and</span> <span class="n">size</span> <span class="n">of</span> <span class="n">largest</span> <span class="n">group</span> <span class="k">is</span> <span class="o">&lt;</span><span class="mi">1000</span><span class="o">,</span> <span class="n">so</span> <span class="n">using</span> <span class="n">loess</span><span class="o">.</span> <span class="n">Use</span> <span class="s1">&#39;method = x&#39;</span> <span class="n">to</span> <span class="n">change</span> <span class="n">the</span> <span class="n">smoothing</span> <span class="n">method</span><span class="o">.</span>
+<div class="codehilite"><pre><span></span>geom_smooth: method=&quot;auto&quot; and size of largest group is &lt;1000, so using loess. Use &#39;method = x&#39; to change the smoothing method.
 </pre></div>
 
 
 <p><img alt="png" src="../images/scatterplot-with-trendline_files/scatterplot-with-trendline_3_2.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># create a scatterplot with lm (straight line) trend line</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a scatterplot with lm (straight line) trend line</span>
 sps <span class="o">+</span> geom_smooth<span class="p">(</span>method<span class="o">=</span>lm<span class="p">,</span> se<span class="o">=</span><span class="kc">FALSE</span><span class="p">,</span> fullrange<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
 </pre></div>
 

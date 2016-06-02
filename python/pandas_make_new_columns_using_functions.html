@@ -133,12 +133,12 @@
 </ol>
 </header>
 
-<div class="highlight"><pre><span></span><span class="c1"># Import modules</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Import modules</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Example dataframe</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Example dataframe</span>
 <span class="n">raw_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;regiment&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Nighthawks&#39;</span><span class="p">,</span> <span class="s1">&#39;Nighthawks&#39;</span><span class="p">,</span> <span class="s1">&#39;Nighthawks&#39;</span><span class="p">,</span> <span class="s1">&#39;Nighthawks&#39;</span><span class="p">,</span> <span class="s1">&#39;Dragoons&#39;</span><span class="p">,</span> <span class="s1">&#39;Dragoons&#39;</span><span class="p">,</span> <span class="s1">&#39;Dragoons&#39;</span><span class="p">,</span> <span class="s1">&#39;Dragoons&#39;</span><span class="p">,</span> <span class="s1">&#39;Scouts&#39;</span><span class="p">,</span> <span class="s1">&#39;Scouts&#39;</span><span class="p">,</span> <span class="s1">&#39;Scouts&#39;</span><span class="p">,</span> <span class="s1">&#39;Scouts&#39;</span><span class="p">],</span> 
         <span class="s1">&#39;company&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span> <span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span><span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">],</span> 
         <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Miller&#39;</span><span class="p">,</span> <span class="s1">&#39;Jacobson&#39;</span><span class="p">,</span> <span class="s1">&#39;Ali&#39;</span><span class="p">,</span> <span class="s1">&#39;Milner&#39;</span><span class="p">,</span> <span class="s1">&#39;Cooze&#39;</span><span class="p">,</span> <span class="s1">&#39;Jacon&#39;</span><span class="p">,</span> <span class="s1">&#39;Ryaner&#39;</span><span class="p">,</span> <span class="s1">&#39;Sone&#39;</span><span class="p">,</span> <span class="s1">&#39;Sloan&#39;</span><span class="p">,</span> <span class="s1">&#39;Piger&#39;</span><span class="p">,</span> <span class="s1">&#39;Riani&#39;</span><span class="p">,</span> <span class="s1">&#39;Ali&#39;</span><span class="p">],</span> 
@@ -263,14 +263,14 @@
 </div>
 
 <h2>Create one column as a function of two columns</h2>
-<div class="highlight"><pre><span></span><span class="c1"># Create a function that takes two inputs, pre and post</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a function that takes two inputs, pre and post</span>
 <span class="k">def</span> <span class="nf">pre_post_difference</span><span class="p">(</span><span class="n">pre</span><span class="p">,</span> <span class="n">post</span><span class="p">):</span>
     <span class="c1"># returns the difference between post and pre</span>
     <span class="k">return</span> <span class="n">post</span> <span class="o">-</span> <span class="n">pre</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create a variable that is the output of the function</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a variable that is the output of the function</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;score_change&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pre_post_difference</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;preTestScore&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;postTestScore&#39;</span><span class="p">])</span>
 
 <span class="c1"># View the dataframe</span>
@@ -405,14 +405,14 @@
 </div>
 
 <h2>Create two columns as a function of one column</h2>
-<div class="highlight"><pre><span></span><span class="c1"># Create a function that takes one input, x</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a function that takes one input, x</span>
 <span class="k">def</span> <span class="nf">score_multipler_2x_and_3x</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="c1"># returns two things, x multiplied by 2 and x multiplied by 3</span>
     <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="n">x</span><span class="o">*</span><span class="mi">3</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create two new variables that take the two outputs of the function</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create two new variables that take the two outputs of the function</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;post_score_x2&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;post_score_x3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;postTestScore&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">score_multipler_2x_and_3x</span><span class="p">))</span>
 <span class="n">df</span>
 </pre></div>
@@ -570,7 +570,7 @@
 </table>
 </div>
 
-<div class="highlight"><pre><span></span>
+<div class="codehilite"><pre><span></span>
 </pre></div>
     <aside>
     <div class="bug-reporting__panel">

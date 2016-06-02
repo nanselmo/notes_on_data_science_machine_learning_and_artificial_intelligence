@@ -134,7 +134,7 @@
 </header>
 
 <p>Original source: the r book</p>
-<div class="highlight"><pre><span></span><span class="c1"># create a dataframe with simulated values</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a dataframe with simulated values</span>
 x <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">100</span><span class="p">)</span>
 y <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">100</span><span class="p">)</span>
 z <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">100</span><span class="p">)</span>
@@ -144,12 +144,12 @@ data <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class=
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Add 10 to the first column, 20 to the second column, 30 to the third column, 40 to the fourth column. Columns are denoted with the &quot;2&quot;</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Add 10 to the first column, 20 to the second column, 30 to the third column, 40 to the fourth column. Columns are denoted with the &quot;2&quot;</span>
 <span class="kp">sweep</span><span class="p">(</span>data<span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="kt">c</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">20</span><span class="p">,</span> <span class="m">30</span><span class="p">,</span> <span class="m">40</span><span class="p">),</span> <span class="s">&quot;+&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>           x        y        z        a
+<div class="codehilite"><pre><span></span>           x        y        z        a
 1   10.32730 20.32033 30.25435 40.35822
 2   10.25235 20.01114 30.92937 40.41954
 3   10.35791 20.53621 30.51055 40.05875

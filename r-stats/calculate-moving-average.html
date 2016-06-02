@@ -134,16 +134,16 @@
 </header>
 
 <p>original source: http://stackoverflow.com/questions/743812/calculating-moving-average-in-r</p>
-<div class="highlight"><pre><span></span><span class="c1"># create some simulated data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create some simulated data</span>
 x <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="kn">library</span><span class="p">(</span>forecast<span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="kn">library</span><span class="p">(</span>forecast<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>Warning message:
+<div class="codehilite"><pre><span></span>Warning message:
 : package ‘forecast’ was built under R version 3.1.3Loading required package: zoo
 
 Attaching package: ‘zoo’
@@ -157,11 +157,11 @@ This is forecast 5.9
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>ma<span class="p">(</span>x<span class="p">,</span> order <span class="o">=</span> <span class="m">5</span><span class="p">,</span> centre<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span>ma<span class="p">(</span>x<span class="p">,</span> order <span class="o">=</span> <span class="m">5</span><span class="p">,</span> centre<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span> [1] NA NA  3  4  5  6  7  8 NA NA
+<div class="codehilite"><pre><span></span> [1] NA NA  3  4  5  6  7  8 NA NA
 </pre></div>
     <aside>
     <div class="bug-reporting__panel">

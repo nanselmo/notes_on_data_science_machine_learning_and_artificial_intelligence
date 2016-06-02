@@ -134,22 +134,22 @@
 </header>
 
 <p>Original source: http://onertipaday.blogspot.com/2007/06/back-to-back-historgram.html</p>
-<div class="highlight"><pre><span></span><span class="c1"># Load the Hmisc package (install it if necessary)</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Load the Hmisc package (install it if necessary)</span>
 <span class="kn">library</span><span class="p">(</span>Hmisc<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create 1000  observations, with mean 300</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create 1000  observations, with mean 300</span>
 data <span class="o">&lt;-</span> rnorm<span class="p">(</span><span class="m">1000</span><span class="p">,</span><span class="m">300</span><span class="p">,</span><span class="m">10</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create 1000 sex observations of male and female</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create 1000 sex observations of male and female</span>
 sex <span class="o">&lt;-</span> <span class="kp">sample</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&#39;female&#39;</span><span class="p">,</span><span class="s">&#39;male&#39;</span><span class="p">),</span><span class="m">1000</span><span class="p">,</span><span class="kc">TRUE</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create a back to back histogram of the data divided up by sex</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a back to back histogram of the data divided up by sex</span>
 out <span class="o">&lt;-</span> histbackback<span class="p">(</span><span class="kp">split</span><span class="p">(</span>data<span class="p">,</span> sex<span class="p">),</span> probability<span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span> xlim<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="m">-.06</span><span class="p">,</span><span class="m">.06</span><span class="p">),</span> main <span class="o">=</span> <span class="s">&#39;Back to Back Histogram&#39;</span><span class="p">)</span>
 
 <span class="c1"># Add color to the left histogram</span>

@@ -134,7 +134,7 @@
 </header>
 
 <p>Original source: http://stackoverflow.com/questions/3550341/gantt-charts-with-r</p>
-<div class="highlight"><pre><span></span><span class="c1"># load the reshape package</span>
+<div class="codehilite"><pre><span></span><span class="c1"># load the reshape package</span>
 <span class="kn">library</span><span class="p">(</span>reshape<span class="p">)</span>
 
 <span class="c1"># load the ggplot2 package</span>
@@ -142,12 +142,12 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create some labels</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create some labels</span>
 tasks <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;Review literature&quot;</span><span class="p">,</span> <span class="s">&quot;Mung data&quot;</span><span class="p">,</span> <span class="s">&quot;Stats analysis&quot;</span><span class="p">,</span> <span class="s">&quot;Write Report&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a data frame with some simulated data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a data frame with some simulated data</span>
 dfr <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>
   name        <span class="o">=</span> <span class="kp">factor</span><span class="p">(</span>tasks<span class="p">,</span> levels <span class="o">=</span> tasks<span class="p">),</span>
   start.date  <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;24/08/2010&quot;</span><span class="p">,</span> <span class="s">&quot;01/10/2010&quot;</span><span class="p">,</span> <span class="s">&quot;01/11/2010&quot;</span><span class="p">,</span> <span class="s">&quot;14/02/2011&quot;</span><span class="p">),</span>
@@ -157,12 +157,12 @@ dfr <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># melt the data so every date, whether start or end, has it&#39;s own row</span>
+<div class="codehilite"><pre><span></span><span class="c1"># melt the data so every date, whether start or end, has it&#39;s own row</span>
 mdfr <span class="o">&lt;-</span> melt<span class="p">(</span>dfr<span class="p">,</span> measure.vars <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;start.date&quot;</span><span class="p">,</span> <span class="s">&quot;end.date&quot;</span><span class="p">))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a ggplot of mdfr with x value being dates in a certain date format, y value being names, and the color being determined by critical</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a ggplot of mdfr with x value being dates in a certain date format, y value being names, and the color being determined by critical</span>
 ggplot<span class="p">(</span>mdfr<span class="p">,</span> aes<span class="p">(</span><span class="kp">as.Date</span><span class="p">(</span>value<span class="p">,</span> <span class="s">&quot;%d/%m/%Y&quot;</span><span class="p">),</span> name<span class="p">,</span> colour <span class="o">=</span> is.critical<span class="p">))</span> <span class="o">+</span>
   <span class="c1"># draw the lines</span>
   geom_line<span class="p">(</span>size <span class="o">=</span> <span class="m">6</span><span class="p">)</span> <span class="o">+</span>

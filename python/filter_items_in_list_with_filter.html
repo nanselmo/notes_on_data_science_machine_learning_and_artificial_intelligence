@@ -133,52 +133,52 @@
 </ol>
 </header>
 
-<div class="highlight"><pre><span></span><span class="c1"># Create an list of items denoting the number of soldiers in each regiment, view the list</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create an list of items denoting the number of soldiers in each regiment, view the list</span>
 <span class="n">regimentSize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5345</span><span class="p">,</span> <span class="mi">6436</span><span class="p">,</span> <span class="mi">3453</span><span class="p">,</span> <span class="mi">2352</span><span class="p">,</span> <span class="mi">5212</span><span class="p">,</span> <span class="mi">6232</span><span class="p">,</span> <span class="mi">2124</span><span class="p">,</span> <span class="mi">3425</span><span class="p">,</span> <span class="mi">1200</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">1211</span><span class="p">);</span> <span class="n">regimentSize</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>(5345, 6436, 3453, 2352, 5212, 6232, 2124, 3425, 1200, 1000, 1211)
+<div class="codehilite"><pre><span></span>(5345, 6436, 3453, 2352, 5212, 6232, 2124, 3425, 1200, 1000, 1211)
 </pre></div>
 
 
 <h2>One-line Method</h2>
 <p>This line of code does the same thing as the multiline method below, it is just more compact (but also more complicated to understand.</p>
-<div class="highlight"><pre><span></span><span class="c1"># Create a list called smallRegiments that filters regimentSize to </span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a list called smallRegiments that filters regimentSize to</span>
 <span class="c1"># find all items that fulfill the lambda function (which looks for all items under 2500).</span>
 <span class="n">smallRegiments</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">((</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">2500</span><span class="p">),</span> <span class="n">regimentSize</span><span class="p">));</span> <span class="n">smallRegiments</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[2352, 2124, 1200, 1000, 1211]
+<div class="codehilite"><pre><span></span>[2352, 2124, 1200, 1000, 1211]
 </pre></div>
 
 
 <h2>Multi-line Method</h2>
 <p>The ease with interpreting what is happening, I've broken down the one-line filter method into multiple steps, one per line of code. This appears below.</p>
-<div class="highlight"><pre><span></span><span class="c1"># Create a lambda function that looks for things under 2500</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a lambda function that looks for things under 2500</span>
 <span class="n">lessThan2500Filter</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">2500</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Filter regimentSize by the lambda function filter</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Filter regimentSize by the lambda function filter</span>
 <span class="n">filteredRegiments</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="n">lessThan2500Filter</span><span class="p">,</span> <span class="n">regimentSize</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Convert the filter results into a list</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Convert the filter results into a list</span>
 <span class="n">smallRegiments</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">filteredRegiments</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[2352, 2124, 1200, 1000, 1211]
+<div class="codehilite"><pre><span></span>[2352, 2124, 1200, 1000, 1211]
 </pre></div>
 
 
-<h2>For Loop Equilvant</h2>
+<h2>For Loop Equivalent</h2>
 <p>This for loop does the same as both methods above, except it uses a for loop.</p>
 <h3>Create a for loop that go through each item of a list and finds items under 2500</h3>
-<div class="highlight"><pre><span></span><span class="c1"># Create a variable for the results of the loop to be placed</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a variable for the results of the loop to be placed</span>
 <span class="n">smallRegiments_2</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="c1"># for each item in regimentSize,</span>
@@ -190,12 +190,12 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># View the smallRegiment_2 variable</span>
+<div class="codehilite"><pre><span></span><span class="c1"># View the smallRegiment_2 variable</span>
 <span class="n">smallRegiments_2</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[2352, 2124, 1200, 1000, 1211]
+<div class="codehilite"><pre><span></span>[2352, 2124, 1200, 1000, 1211]
 </pre></div>
     <aside>
     <div class="bug-reporting__panel">

@@ -134,7 +134,7 @@
 </header>
 
 <p>Original source: r graphics cookbook</p>
-<div class="highlight"><pre><span></span><span class="c1"># load the ggplot2 library</span>
+<div class="codehilite"><pre><span></span><span class="c1"># load the ggplot2 library</span>
 <span class="kn">library</span><span class="p">(</span>ggplot2<span class="p">)</span>
 
 <span class="c1"># load the gcookbook library</span>
@@ -142,7 +142,7 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create the ggplot2 data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create the ggplot2 data</span>
 ggplot<span class="p">(</span>BOD<span class="p">,</span> aes<span class="p">(</span>x<span class="o">=</span>Time<span class="p">,</span> y<span class="o">=</span>demand<span class="p">))</span> <span class="o">+</span>
   <span class="c1"># draw the line</span>
   geom_line<span class="p">()</span> <span class="o">+</span>
@@ -155,31 +155,31 @@ ggplot<span class="p">(</span>BOD<span class="p">,</span> aes<span class="p">(</
 
 <p><img alt="png" src="../images/line-plot_files/line-plot_2_1.png" /></p>
 <h2>Line plot with multiple lines</h2>
-<div class="highlight"><pre><span></span><span class="c1"># load plyr package</span>
+<div class="codehilite"><pre><span></span><span class="c1"># load plyr package</span>
 <span class="kn">library</span><span class="p">(</span>plyr<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># summarize ToothGrowth</span>
+<div class="codehilite"><pre><span></span><span class="c1"># summarize ToothGrowth</span>
 tg <span class="o">&lt;-</span> ddply<span class="p">(</span>ToothGrowth<span class="p">,</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;supp&quot;</span><span class="p">,</span> <span class="s">&quot;dose&quot;</span><span class="p">),</span> summarise<span class="p">,</span> length<span class="o">=</span><span class="kp">mean</span><span class="p">(</span>len<span class="p">))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># by assigning supp to color, we tell ggplot2 to draw these as two different lines</span>
+<div class="codehilite"><pre><span></span><span class="c1"># by assigning supp to color, we tell ggplot2 to draw these as two different lines</span>
 ggplot<span class="p">(</span>tg<span class="p">,</span> aes<span class="p">(</span>x<span class="o">=</span>dose<span class="p">,</span> y<span class="o">=</span><span class="kp">length</span><span class="p">,</span> colour<span class="o">=</span>supp<span class="p">))</span> <span class="o">+</span>
   geom_line<span class="p">()</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/line-plot_files/line-plot_6_1.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># map supp to linetype to draw two different lines (this line with different line types)</span>
+<div class="codehilite"><pre><span></span><span class="c1"># map supp to linetype to draw two different lines (this line with different line types)</span>
 ggplot<span class="p">(</span>tg<span class="p">,</span> aes<span class="p">(</span>x<span class="o">=</span>dose<span class="p">,</span> y<span class="o">=</span><span class="kp">length</span><span class="p">,</span> linetype<span class="o">=</span>supp<span class="p">))</span> <span class="o">+</span>
   geom_line<span class="p">()</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/line-plot_files/line-plot_7_1.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># same as above, but this time since x is a factor, we have to specify to ggplot how to group the data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># same as above, but this time since x is a factor, we have to specify to ggplot how to group the data</span>
 ggplot<span class="p">(</span>tg<span class="p">,</span> aes<span class="p">(</span>x<span class="o">=</span><span class="kp">factor</span><span class="p">(</span>dose<span class="p">),</span> y<span class="o">=</span><span class="kp">length</span><span class="p">,</span> colour<span class="o">=</span>supp<span class="p">,</span> group<span class="o">=</span>supp<span class="p">))</span> <span class="o">+</span>
   geom_line<span class="p">()</span>
 </pre></div>

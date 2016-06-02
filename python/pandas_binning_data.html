@@ -134,12 +134,12 @@
 </header>
 
 <h3>import modules</h3>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 </pre></div>
 
 
 <h3>Create dataframe</h3>
-<div class="highlight"><pre><span></span><span class="n">raw_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;regiment&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Nighthawks&#39;</span><span class="p">,</span> <span class="s1">&#39;Nighthawks&#39;</span><span class="p">,</span> <span class="s1">&#39;Nighthawks&#39;</span><span class="p">,</span> <span class="s1">&#39;Nighthawks&#39;</span><span class="p">,</span> <span class="s1">&#39;Dragoons&#39;</span><span class="p">,</span> <span class="s1">&#39;Dragoons&#39;</span><span class="p">,</span> <span class="s1">&#39;Dragoons&#39;</span><span class="p">,</span> <span class="s1">&#39;Dragoons&#39;</span><span class="p">,</span> <span class="s1">&#39;Scouts&#39;</span><span class="p">,</span> <span class="s1">&#39;Scouts&#39;</span><span class="p">,</span> <span class="s1">&#39;Scouts&#39;</span><span class="p">,</span> <span class="s1">&#39;Scouts&#39;</span><span class="p">],</span> 
+<div class="codehilite"><pre><span></span><span class="n">raw_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;regiment&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Nighthawks&#39;</span><span class="p">,</span> <span class="s1">&#39;Nighthawks&#39;</span><span class="p">,</span> <span class="s1">&#39;Nighthawks&#39;</span><span class="p">,</span> <span class="s1">&#39;Nighthawks&#39;</span><span class="p">,</span> <span class="s1">&#39;Dragoons&#39;</span><span class="p">,</span> <span class="s1">&#39;Dragoons&#39;</span><span class="p">,</span> <span class="s1">&#39;Dragoons&#39;</span><span class="p">,</span> <span class="s1">&#39;Dragoons&#39;</span><span class="p">,</span> <span class="s1">&#39;Scouts&#39;</span><span class="p">,</span> <span class="s1">&#39;Scouts&#39;</span><span class="p">,</span> <span class="s1">&#39;Scouts&#39;</span><span class="p">,</span> <span class="s1">&#39;Scouts&#39;</span><span class="p">],</span> 
         <span class="s1">&#39;company&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span> <span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span><span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">],</span> 
         <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Miller&#39;</span><span class="p">,</span> <span class="s1">&#39;Jacobson&#39;</span><span class="p">,</span> <span class="s1">&#39;Ali&#39;</span><span class="p">,</span> <span class="s1">&#39;Milner&#39;</span><span class="p">,</span> <span class="s1">&#39;Cooze&#39;</span><span class="p">,</span> <span class="s1">&#39;Jacon&#39;</span><span class="p">,</span> <span class="s1">&#39;Ryaner&#39;</span><span class="p">,</span> <span class="s1">&#39;Sone&#39;</span><span class="p">,</span> <span class="s1">&#39;Sloan&#39;</span><span class="p">,</span> <span class="s1">&#39;Piger&#39;</span><span class="p">,</span> <span class="s1">&#39;Riani&#39;</span><span class="p">,</span> <span class="s1">&#39;Ali&#39;</span><span class="p">],</span> 
         <span class="s1">&#39;preTestScore&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
@@ -264,23 +264,23 @@
 </div>
 
 <h3>Define bins as 0 to 25, 25 to 50, 60 to 75, 75 to 100</h3>
-<div class="highlight"><pre><span></span><span class="n">bins</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+<div class="codehilite"><pre><span></span><span class="n">bins</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
 </pre></div>
 
 
 <h3>Create names for the four groups</h3>
-<div class="highlight"><pre><span></span><span class="n">group_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Low&#39;</span><span class="p">,</span> <span class="s1">&#39;Okay&#39;</span><span class="p">,</span> <span class="s1">&#39;Good&#39;</span><span class="p">,</span> <span class="s1">&#39;Great&#39;</span><span class="p">]</span>
+<div class="codehilite"><pre><span></span><span class="n">group_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Low&#39;</span><span class="p">,</span> <span class="s1">&#39;Okay&#39;</span><span class="p">,</span> <span class="s1">&#39;Good&#39;</span><span class="p">,</span> <span class="s1">&#39;Great&#39;</span><span class="p">]</span>
 </pre></div>
 
 
 <h3>Cut postTestScore</h3>
-<div class="highlight"><pre><span></span><span class="n">categories</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;postTestScore&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">group_names</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">categories</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;postTestScore&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">group_names</span><span class="p">)</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;categories&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;postTestScore&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">group_names</span><span class="p">)</span>
 <span class="n">categories</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>   Low
+<div class="codehilite"><pre><span></span>   Low
  Great
   Good
   Good
@@ -297,12 +297,12 @@ Name: postTestScore, Levels (4): Index([&#39;Low&#39;, &#39;Okay&#39;, &#39;Good
 
 
 <h3>Count the number of observations which each value</h3>
-<div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;categories&#39;</span><span class="p">])</span>
+<div class="codehilite"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;categories&#39;</span><span class="p">])</span>
 </pre></div>
 
 
 <h3>View the dataframe</h3>
-<div class="highlight"><pre><span></span><span class="n">df</span>
+<div class="codehilite"><pre><span></span><span class="n">df</span>
 </pre></div>
 
 

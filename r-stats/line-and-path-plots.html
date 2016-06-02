@@ -135,7 +135,7 @@
 
 <p>Original source: ggplot2 book</p>
 <p>Line plots is a path plot sorted by the x value</p>
-<div class="highlight"><pre><span></span><span class="c1"># load the ggplot2 library</span>
+<div class="codehilite"><pre><span></span><span class="c1"># load the ggplot2 library</span>
 <span class="kn">library</span><span class="p">(</span>ggplot2<span class="p">)</span>
 
 <span class="c1"># set the seed so we can reproduce the results</span>
@@ -143,13 +143,13 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># plot a line plot with the date on the x axis and unemployment rate</span>
+<div class="codehilite"><pre><span></span><span class="c1"># plot a line plot with the date on the x axis and unemployment rate</span>
 qplot<span class="p">(</span><span class="kp">date</span><span class="p">,</span> unemploy <span class="o">/</span> pop<span class="p">,</span> data <span class="o">=</span> economics<span class="p">,</span> geom <span class="o">=</span> <span class="s">&quot;line&quot;</span><span class="p">)</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/line-and-path-plots_files/line-and-path-plots_3_1.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># plot a line plot with the date being the x axis and the avg number of weeks unemployed on the y axis</span>
+<div class="codehilite"><pre><span></span><span class="c1"># plot a line plot with the date being the x axis and the avg number of weeks unemployed on the y axis</span>
 qplot<span class="p">(</span><span class="kp">date</span><span class="p">,</span> uempmed<span class="p">,</span> data <span class="o">=</span> economics<span class="p">,</span> geom <span class="o">=</span> <span class="s">&quot;line&quot;</span><span class="p">)</span>
 </pre></div>
 

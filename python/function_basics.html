@@ -135,7 +135,7 @@
 
 <p>Based on Byte of Python</p>
 <h3>Create a function called printMax with the paramaters x and y.</h3>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">printMax</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">printMax</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="c1"># if a is larger than b</span>
     <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">:</span>
         <span class="c1"># then print this</span>
@@ -151,27 +151,27 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>4 is maximum
+<div class="codehilite"><pre><span></span>4 is maximum
 </pre></div>
 
 
 <h3>Run the function with two arguments</h3>
-<div class="highlight"><pre><span></span><span class="n">printMax</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">printMax</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>4 is maximum
+<div class="codehilite"><pre><span></span>4 is maximum
 </pre></div>
 
 
 <p>Note: By default, variables created within functions are local to the function. But you can create a global function that IS defined outside the function.</p>
 <h3>Create a variable called x</h3>
-<div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">50</span>
+<div class="codehilite"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">50</span>
 </pre></div>
 
 
 <h3>Create a function called func()</h3>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">():</span>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">():</span>
     <span class="c1"># Create a global variable called x</span>
     <span class="k">global</span> <span class="n">x</span>
 
@@ -185,27 +185,27 @@
 
 
 <h3>Run the func() function</h3>
-<div class="highlight"><pre><span></span><span class="n">func</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><span class="n">func</span><span class="p">()</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>x is 2
+<div class="codehilite"><pre><span></span>x is 2
 Changed global x to 2
 </pre></div>
 
 
 <h3>Print x</h3>
-<div class="highlight"><pre><span></span><span class="n">x</span>
+<div class="codehilite"><pre><span></span><span class="n">x</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>2
+<div class="codehilite"><pre><span></span>2
 </pre></div>
 
 
 <h2>Default Argument Values</h2>
 <h3>Create a function called say() that displays x with the default value of 1</h3>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">say</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">times</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">times2</span> <span class="o">=</span> <span class="mi">3</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">say</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">times</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">times2</span> <span class="o">=</span> <span class="mi">3</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">times</span><span class="p">,</span> <span class="n">x</span> <span class="o">*</span> <span class="n">times2</span><span class="p">)</span>
 
 <span class="c1"># Run the function say() with the default values</span>
@@ -216,7 +216,7 @@ Changed global x to 2
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>! !!!
+<div class="codehilite"><pre><span></span>! !!!
 !!!!! !!!!!!!!!!
 </pre></div>
 
@@ -227,7 +227,7 @@ Changed global x to 2
 <li>** dnotes that all keyword arguments from that point to the next arg are used</li>
 </ul>
 <h3>Create a function called total() with three parameters</h3>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">total</span><span class="p">(</span><span class="n">initial</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="o">*</span><span class="n">numbers</span><span class="p">,</span> <span class="o">**</span><span class="n">keywords</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">total</span><span class="p">(</span><span class="n">initial</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="o">*</span><span class="n">numbers</span><span class="p">,</span> <span class="o">**</span><span class="n">keywords</span><span class="p">):</span>
     <span class="c1"># Create a variable called count that takes it&#39;s value from initial</span>
     <span class="n">count</span> <span class="o">=</span> <span class="n">initial</span>
     <span class="c1"># for each item in numbers</span>
@@ -249,17 +249,17 @@ Changed global x to 2
 <li>1,2,3 are for *numbers.</li>
 <li>vegetables and fruit is for **keywords.</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="n">total</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">vegetables</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">fruits</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">total</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">vegetables</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">fruits</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>166
+<div class="codehilite"><pre><span></span>166
 </pre></div>
 
 
 <h2>DocStrings (outputs documentation about a function)</h2>
 <h3>Create a function called printMax with the paramaters x and y</h3>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">printMax</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">printMax</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="c1"># Create the docstring</span>
     <span class="sd">&#39;&#39;&#39;Prints out the maximum of two values&#39;&#39;&#39;</span>
     <span class="c1"># if a is larger than b</span>
@@ -278,20 +278,20 @@ Changed global x to 2
 
 
 <h3>Run the function with two arguments</h3>
-<div class="highlight"><pre><span></span><span class="n">printMax</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">printMax</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>4 is maximum
+<div class="codehilite"><pre><span></span>4 is maximum
 </pre></div>
 
 
 <h3>View the docstring</h3>
-<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">printMax</span><span class="o">.</span><span class="n">__doc__</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">printMax</span><span class="o">.</span><span class="n">__doc__</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>Prints out the maximum of two values
+<div class="codehilite"><pre><span></span>Prints out the maximum of two values
 </pre></div>
     <aside>
     <div class="bug-reporting__panel">

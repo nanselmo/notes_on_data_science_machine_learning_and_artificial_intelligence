@@ -136,55 +136,55 @@
 <h2>Slicing Arrays</h2>
 <h3>Explanation Of Broadcasting</h3>
 <p>Unlike many other data types, slicing an array into a new variable means that any chances to that new variable are broadcasted to the original variable. Put other way, a slice is a hotlink to the original array variable, not a seperate and independent copy of it.</p>
-<div class="highlight"><pre><span></span><span class="c1"># Import Modules</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Import Modules</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create an array of battle casualties from the first to the last battle</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create an array of battle casualties from the first to the last battle</span>
 <span class="n">battleDeaths</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1245</span><span class="p">,</span> <span class="mi">2732</span><span class="p">,</span> <span class="mi">3853</span><span class="p">,</span> <span class="mi">4824</span><span class="p">,</span> <span class="mi">5292</span><span class="p">,</span> <span class="mi">6184</span><span class="p">,</span> <span class="mi">7282</span><span class="p">,</span> <span class="mi">81393</span><span class="p">,</span> <span class="mi">932</span><span class="p">,</span> <span class="mi">10834</span><span class="p">])</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Divide the array of battle deaths into start, middle, and end of the war</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Divide the array of battle deaths into start, middle, and end of the war</span>
 <span class="n">warStart</span> <span class="o">=</span> <span class="n">battleDeaths</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">];</span> <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Death from battles at the start of war:&#39;</span><span class="p">,</span> <span class="n">warStart</span><span class="p">)</span>
 <span class="n">warMiddle</span> <span class="o">=</span> <span class="n">battleDeaths</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">7</span><span class="p">];</span> <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Death from battles at the middle of war:&#39;</span><span class="p">,</span> <span class="n">warMiddle</span><span class="p">)</span>
 <span class="n">warEnd</span> <span class="o">=</span> <span class="n">battleDeaths</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">10</span><span class="p">];</span> <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Death from battles at the end of war:&#39;</span><span class="p">,</span> <span class="n">warEnd</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>Death from battles at the start of war: [1245 2732 3853]
+<div class="codehilite"><pre><span></span>Death from battles at the start of war: [1245 2732 3853]
 Death from battles at the middle of war: [4824 5292 6184 7282]
 Death from battles at the end of war: [81393   932 10834]
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Change the battle death numbers from the first battle</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Change the battle death numbers from the first battle</span>
 <span class="n">warStart</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">11101</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># View that change reflected in the warStart slice of the battleDeaths array</span>
+<div class="codehilite"><pre><span></span><span class="c1"># View that change reflected in the warStart slice of the battleDeaths array</span>
 <span class="n">warStart</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>array([11101,  2732,  3853])
+<div class="codehilite"><pre><span></span>array([11101,  2732,  3853])
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># View that change reflected in (i.e. &quot;broadcasted to) the original battleDeaths array</span>
+<div class="codehilite"><pre><span></span><span class="c1"># View that change reflected in (i.e. &quot;broadcasted to) the original battleDeaths array</span>
 <span class="n">battleDeaths</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>array([11101,  2732,  3853,  4824,  5292,  6184,  7282, 81393,   932, 10834])
+<div class="codehilite"><pre><span></span>array([11101,  2732,  3853,  4824,  5292,  6184,  7282, 81393,   932, 10834])
 </pre></div>
 
 
 <h2>Indexing Arrays</h2>
 <p>Note: This multidimensional array behaves like a dataframe or matrix (i.e. columns and rows)</p>
-<div class="highlight"><pre><span></span><span class="c1"># Create an array of regiment information</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create an array of regiment information</span>
 <span class="n">regimentNames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Nighthawks&#39;</span><span class="p">,</span> <span class="s1">&#39;Sky Warriors&#39;</span><span class="p">,</span> <span class="s1">&#39;Rough Riders&#39;</span><span class="p">,</span> <span class="s1">&#39;New Birds&#39;</span><span class="p">]</span>
 <span class="n">regimentNumber</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 <span class="n">regimentSize</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1092</span><span class="p">,</span> <span class="mi">2039</span><span class="p">,</span> <span class="mi">3011</span><span class="p">,</span> <span class="mi">4099</span><span class="p">]</span>
@@ -195,7 +195,7 @@ Death from battles at the end of war: [81393   932 10834]
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>array([[&#39;Nighthawks&#39;, &#39;Sky Warriors&#39;, &#39;Rough Riders&#39;, &#39;New Birds&#39;],
+<div class="codehilite"><pre><span></span>array([[&#39;Nighthawks&#39;, &#39;Sky Warriors&#39;, &#39;Rough Riders&#39;, &#39;New Birds&#39;],
        [&#39;1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;],
        [&#39;1092&#39;, &#39;2039&#39;, &#39;3011&#39;, &#39;4099&#39;],
        [&#39;Mitchell&#39;, &#39;Blackthorn&#39;, &#39;Baker&#39;, &#39;Miller&#39;]], 
@@ -203,32 +203,32 @@ Death from battles at the end of war: [81393   932 10834]
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># View the first column of the matrix</span>
+<div class="codehilite"><pre><span></span><span class="c1"># View the first column of the matrix</span>
 <span class="n">regiments</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>array([&#39;Nighthawks&#39;, &#39;1&#39;, &#39;1092&#39;, &#39;Mitchell&#39;], 
+<div class="codehilite"><pre><span></span>array([&#39;Nighthawks&#39;, &#39;1&#39;, &#39;1092&#39;, &#39;Mitchell&#39;], 
       dtype=&#39;&lt;U12&#39;)
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># View the second row of the matrix</span>
+<div class="codehilite"><pre><span></span><span class="c1"># View the second row of the matrix</span>
 <span class="n">regiments</span><span class="p">[</span><span class="mi">1</span><span class="p">,]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>array([&#39;1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;], 
+<div class="codehilite"><pre><span></span>array([&#39;1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;], 
       dtype=&#39;&lt;U12&#39;)
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># View the top-right quarter of the matrix</span>
+<div class="codehilite"><pre><span></span><span class="c1"># View the top-right quarter of the matrix</span>
 <span class="n">regiments</span><span class="p">[:</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">:]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>array([[&#39;Rough Riders&#39;, &#39;New Birds&#39;],
+<div class="codehilite"><pre><span></span>array([[&#39;Rough Riders&#39;, &#39;New Birds&#39;],
        [&#39;3&#39;, &#39;4&#39;]], 
       dtype=&#39;&lt;U12&#39;)
 </pre></div>

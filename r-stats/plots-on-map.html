@@ -134,17 +134,17 @@
 </header>
 
 <p>Original source: http://stackoverflow.com/questions/11056738/plotting-points-from-a-data-frame-using-openstreetmap</p>
-<div class="highlight"><pre><span></span><span class="c1"># load the ggmap package</span>
+<div class="codehilite"><pre><span></span><span class="c1"># load the ggmap package</span>
 <span class="kn">library</span><span class="p">(</span>ggmap<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>Warning message:
+<div class="codehilite"><pre><span></span>Warning message:
 : package ‘ggmap’ was built under R version 3.1.3Loading required package: ggplot2
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># make a data frame with the long/lat of three stores and their names</span>
+<div class="codehilite"><pre><span></span><span class="c1"># make a data frame with the long/lat of three stores and their names</span>
 stores <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>
   name<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;Commercial&quot;</span><span class="p">,</span><span class="s">&quot;Union&quot;</span><span class="p">,</span><span class="s">&quot;Bedford&quot;</span><span class="p">),</span>
   longitude<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="m">-70.25042295455933</span><span class="p">,</span><span class="m">-70.26050806045532</span><span class="p">,</span><span class="m">-70.27726650238037</span><span class="p">),</span>
@@ -153,17 +153,17 @@ stores <span class="o">&lt;-</span> <span class="kt">data.frame</span><span clas
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create vector with the long/lat with two opposite corner of the map to mark the zoom level. Specifically, the first value is the bottom left of the map and the second value is the top right</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create vector with the long/lat with two opposite corner of the map to mark the zoom level. Specifically, the first value is the bottom left of the map and the second value is the top right</span>
 downtown.pdx <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">-70.2954</span><span class="p">,</span> <span class="m">43.64278</span><span class="p">,</span> <span class="m">-70.2350</span><span class="p">,</span> <span class="m">43.68093</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Fetch map from stamen (use source = &quot;osm&quot; for open street maps)</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Fetch map from stamen (use source = &quot;osm&quot; for open street maps)</span>
 portland <span class="o">&lt;-</span> get_map<span class="p">(</span>location <span class="o">=</span> downtown.pdx<span class="p">,</span> <span class="kn">source</span> <span class="o">=</span> <span class="s">&quot;stamen&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>Map from URL : http://tile.stamen.com/terrain/14/4992/5977.jpg
+<div class="codehilite"><pre><span></span>Map from URL : http://tile.stamen.com/terrain/14/4992/5977.jpg
 Map from URL : http://tile.stamen.com/terrain/14/4993/5977.jpg
 Map from URL : http://tile.stamen.com/terrain/14/4994/5977.jpg
 Map from URL : http://tile.stamen.com/terrain/14/4995/5977.jpg
@@ -182,17 +182,17 @@ Map from URL : http://tile.stamen.com/terrain/14/4995/5980.jpg
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># view the map</span>
+<div class="codehilite"><pre><span></span><span class="c1"># view the map</span>
 portlandMap <span class="o">&lt;-</span> ggmap<span class="p">(</span>portland<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># add the points to the map</span>
+<div class="codehilite"><pre><span></span><span class="c1"># add the points to the map</span>
 portlandMap <span class="o">&lt;-</span> portlandMap <span class="o">+</span> geom_point<span class="p">(</span>data <span class="o">=</span> stores<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> longitude<span class="p">,</span> y <span class="o">=</span> latitude<span class="p">),</span> size <span class="o">=</span> <span class="m">5</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Add lavels for the points</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Add lavels for the points</span>
 portlandMap <span class="o">+</span> geom_text<span class="p">(</span>data <span class="o">=</span> stores<span class="p">,</span> aes<span class="p">(</span>label <span class="o">=</span> name<span class="p">,</span> x <span class="o">=</span> longitude<span class="m">+.001</span><span class="p">,</span> y <span class="o">=</span> latitude<span class="p">),</span> hjust <span class="o">=</span> <span class="m">0</span><span class="p">)</span>
 </pre></div>
 

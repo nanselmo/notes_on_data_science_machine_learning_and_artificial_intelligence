@@ -135,7 +135,7 @@
 
 <p>Original source: ggplot2 book</p>
 <p>Histograms and density plots show the distribution of a single variable across it's values</p>
-<div class="highlight"><pre><span></span><span class="c1"># load the ggplot2 library</span>
+<div class="codehilite"><pre><span></span><span class="c1"># load the ggplot2 library</span>
 <span class="kn">library</span><span class="p">(</span>ggplot2<span class="p">)</span>
 
 <span class="c1"># set the seed so we can reproduce the results</span>
@@ -143,46 +143,46 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># plot a histogram</span>
+<div class="codehilite"><pre><span></span><span class="c1"># plot a histogram</span>
 qplot<span class="p">(</span>carat<span class="p">,</span> data <span class="o">=</span> diamonds<span class="p">,</span> geom <span class="o">=</span> <span class="s">&quot;histogram&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="n">stat_bin</span><span class="o">:</span> <span class="n">binwidth</span> <span class="n">defaulted</span> <span class="n">to</span> <span class="n">range</span><span class="o">/</span><span class="mi">30</span><span class="o">.</span> <span class="n">Use</span> <span class="s1">&#39;binwidth = x&#39;</span> <span class="n">to</span> <span class="n">adjust</span> <span class="k">this</span><span class="o">.</span>
+<div class="codehilite"><pre><span></span>stat_bin: binwidth defaulted to range/30. Use &#39;binwidth = x&#39; to adjust this.
 </pre></div>
 
 
 <p><img alt="png" src="../images/histograms-and-density-plots_files/histograms-and-density-plots_2_2.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># plot a histogram with more smoothness (by increasing bin size)</span>
+<div class="codehilite"><pre><span></span><span class="c1"># plot a histogram with more smoothness (by increasing bin size)</span>
 qplot<span class="p">(</span>carat<span class="p">,</span> data <span class="o">=</span> diamonds<span class="p">,</span> geom <span class="o">=</span> <span class="s">&quot;histogram&quot;</span><span class="p">,</span> binwidth <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/histograms-and-density-plots_files/histograms-and-density-plots_3_1.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># plot a density plot</span>
+<div class="codehilite"><pre><span></span><span class="c1"># plot a density plot</span>
 qplot<span class="p">(</span>carat<span class="p">,</span> data <span class="o">=</span> diamonds<span class="p">,</span> geom <span class="o">=</span> <span class="s">&quot;density&quot;</span><span class="p">)</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/histograms-and-density-plots_files/histograms-and-density-plots_4_1.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># plot a density plot with a smoother line</span>
+<div class="codehilite"><pre><span></span><span class="c1"># plot a density plot with a smoother line</span>
 qplot<span class="p">(</span>carat<span class="p">,</span> data <span class="o">=</span> diamonds<span class="p">,</span> adjust <span class="o">=</span> <span class="m">4</span><span class="p">,</span> geom <span class="o">=</span> <span class="s">&quot;density&quot;</span><span class="p">)</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/histograms-and-density-plots_files/histograms-and-density-plots_5_1.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># plot a density plot with the color of the lines determined by the diamond&#39;s color (the &quot;color&quot; variable)</span>
+<div class="codehilite"><pre><span></span><span class="c1"># plot a density plot with the color of the lines determined by the diamond&#39;s color (the &quot;color&quot; variable)</span>
 qplot<span class="p">(</span>carat<span class="p">,</span> data <span class="o">=</span> diamonds<span class="p">,</span> geom <span class="o">=</span> <span class="s">&quot;density&quot;</span><span class="p">,</span> colour <span class="o">=</span> color<span class="p">)</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/histograms-and-density-plots_files/histograms-and-density-plots_6_1.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># plot a histogram plot with the color of the lines determined by the diamond&#39;s color (the &quot;color&quot; variable)</span>
+<div class="codehilite"><pre><span></span><span class="c1"># plot a histogram plot with the color of the lines determined by the diamond&#39;s color (the &quot;color&quot; variable)</span>
 qplot<span class="p">(</span>carat<span class="p">,</span> data <span class="o">=</span> diamonds<span class="p">,</span> geom <span class="o">=</span> <span class="s">&quot;histogram&quot;</span><span class="p">,</span> fill <span class="o">=</span> color<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="n">stat_bin</span><span class="o">:</span> <span class="n">binwidth</span> <span class="n">defaulted</span> <span class="n">to</span> <span class="n">range</span><span class="o">/</span><span class="mi">30</span><span class="o">.</span> <span class="n">Use</span> <span class="s1">&#39;binwidth = x&#39;</span> <span class="n">to</span> <span class="n">adjust</span> <span class="k">this</span><span class="o">.</span>
+<div class="codehilite"><pre><span></span>stat_bin: binwidth defaulted to range/30. Use &#39;binwidth = x&#39; to adjust this.
 </pre></div>
 
 

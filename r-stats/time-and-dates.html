@@ -134,7 +134,7 @@
 </header>
 
 <p>Original source: http://rforpublichealth.blogspot.com/2013/07/lets-make-date-date-and-time-classes-in.html</p>
-<div class="highlight"><pre><span></span><span class="c1"># create some simulated date data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create some simulated date data</span>
 dates<span class="o">&lt;-</span><span class="kp">as.data.frame</span><span class="p">(</span><span class="kp">cbind</span><span class="p">(</span>
   <span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">11</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">12</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">3</span><span class="p">),</span>
   <span class="kt">c</span><span class="p">(</span><span class="m">30</span><span class="p">,</span><span class="m">14</span><span class="p">,</span><span class="kc">NA</span><span class="p">,</span><span class="kc">NA</span><span class="p">,</span><span class="m">16</span><span class="p">,</span><span class="kc">NA</span><span class="p">,</span><span class="m">20</span><span class="p">,</span><span class="m">31</span><span class="p">),</span>
@@ -145,24 +145,24 @@ dates<span class="o">&lt;-</span><span class="kp">as.data.frame</span><span clas
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># add column names to the data frame</span>
+<div class="codehilite"><pre><span></span><span class="c1"># add column names to the data frame</span>
 <span class="kp">colnames</span><span class="p">(</span>dates<span class="p">)</span><span class="o">&lt;-</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;birth_month&quot;</span><span class="p">,</span> <span class="s">&quot;birth_day&quot;</span><span class="p">,</span> <span class="s">&quot;birth_year&quot;</span><span class="p">,</span> <span class="s">&quot;death_month&quot;</span><span class="p">,</span> <span class="s">&quot;death_day&quot;</span><span class="p">,</span> <span class="s">&quot;death_year&quot;</span><span class="p">)</span>
 </pre></div>
 
 
 <p>Dates can be easily manipulated if they are converted into ISO format</p>
 <p>ISO format uses the function: ISOdate(year, month, day, hour = 12, min = 0, sec = 0, tz = “GMT”)</p>
-<div class="highlight"><pre><span></span><span class="c1"># create a new variable called DOB that converts the birth date data into ISO</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a new variable called DOB that converts the birth date data into ISO</span>
 dates<span class="o">$</span>DOB <span class="o">&lt;-</span> <span class="kp">ISOdate</span><span class="p">(</span>dates<span class="o">$</span>birth_year<span class="p">,</span> dates<span class="o">$</span>birth_month<span class="p">,</span> dates<span class="o">$</span>birth_day<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># ISOdate includes time by default, we can strip time from the DOB data using strptime()</span>
+<div class="codehilite"><pre><span></span><span class="c1"># ISOdate includes time by default, we can strip time from the DOB data using strptime()</span>
 dates<span class="o">$</span>DOB <span class="o">&lt;-</span> <span class="kp">strptime</span><span class="p">(</span>dates<span class="o">$</span>DOB<span class="p">,</span> format <span class="o">=</span> <span class="s">&quot;%Y-%m-%d&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create date of death data combining the two commands we ran above</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create date of death data combining the two commands we ran above</span>
 dates<span class="o">$</span>DOD <span class="o">&lt;-</span> <span class="kp">strptime</span><span class="p">(</span><span class="kp">ISOdate</span><span class="p">(</span>dates<span class="o">$</span>death_year<span class="p">,</span> dates<span class="o">$</span>death_month<span class="p">,</span> dates<span class="o">$</span>death_day<span class="p">),</span> format <span class="o">=</span> <span class="s">&quot;%Y-%m-%d&quot;</span><span class="p">)</span>
 </pre></div>
 
@@ -172,22 +172,22 @@ dates<span class="o">$</span>DOD <span class="o">&lt;-</span> <span class="kp">s
 <ul>
 <li>difftime(time1, time2, tz,units = c(“auto”, “secs”, “mins”, “hours”,“days”, “weeks”))</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="c1"># create a variable that is the difference between the birth and death date, ie their age (in days)</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a variable that is the difference between the birth and death date, ie their age (in days)</span>
 dates<span class="o">$</span>Age.atdeath <span class="o">&lt;-</span> <span class="kp">difftime</span><span class="p">(</span>dates<span class="o">$</span>DOD<span class="p">,</span> dates<span class="o">$</span>DOB<span class="p">,</span> unit <span class="o">=</span> <span class="s">&quot;days&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># check if there were an infant mortalities</span>
+<div class="codehilite"><pre><span></span><span class="c1"># check if there were an infant mortalities</span>
 dates<span class="o">$</span>Age.atdeath <span class="o">&lt;</span> <span class="m">365</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] TRUE   NA   NA   NA   NA   NA TRUE   NA
+<div class="codehilite"><pre><span></span>[1] TRUE   NA   NA   NA   NA   NA TRUE   NA
 </pre></div>
 
 
 <p>Clever trick: if day/time data is missing, you can set the missing date/time data to fixed numbers. Comments inline.</p>
-<div class="highlight"><pre><span></span><span class="c1"># create a variable DOB2, strip the time off</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a variable DOB2, strip the time off</span>
 dates<span class="o">$</span>DOB2<span class="o">&lt;-</span><span class="kp">strptime</span><span class="p">(</span>
   <span class="c1"># convert the data into ISO format</span>
   <span class="kp">ISOdate</span><span class="p">(</span>year<span class="o">=</span>dates<span class="o">$</span>birth_year<span class="p">,</span>
@@ -200,7 +200,7 @@ dates<span class="o">$</span>DOB2<span class="o">&lt;-</span><span class="kp">st
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a variable DOD2, strip the time off</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a variable DOD2, strip the time off</span>
 dates<span class="o">$</span>DOD2<span class="o">&lt;-</span><span class="kp">strptime</span><span class="p">(</span>
   <span class="c1"># convert the data into ISO format</span>
   <span class="kp">ISOdate</span><span class="p">(</span>year<span class="o">=</span>dates<span class="o">$</span>death_year<span class="p">,</span>
@@ -213,18 +213,18 @@ dates<span class="o">$</span>DOD2<span class="o">&lt;-</span><span class="kp">st
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a new variable that converts the differnce in time to numeric</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a new variable that converts the differnce in time to numeric</span>
 dates<span class="o">$</span>Ageatdeath_2<span class="o">&lt;-</span><span class="kp">as.numeric</span><span class="p">(</span>
   <span class="kp">difftime</span><span class="p">(</span>dates<span class="o">$</span>DOD2<span class="p">,</span>dates<span class="o">$</span>DOB2<span class="p">,</span>unit<span class="o">=</span><span class="s">&quot;days&quot;</span><span class="p">))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># view columns 1 through 6, and 10 through 12</span>
+<div class="codehilite"><pre><span></span><span class="c1"># view columns 1 through 6, and 10 through 12</span>
 dates<span class="p">[,</span><span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">6</span><span class="p">,</span><span class="m">10</span><span class="o">:</span><span class="m">12</span><span class="p">)]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>  birth_month birth_day birth_year death_month death_day death_year       DOB2
+<div class="codehilite"><pre><span></span>  birth_month birth_day birth_year death_month death_day death_year       DOB2
 1           1        30       1980           2         2       1980 1980-01-30
 2           3        14       1980          NA        NA         NA 1980-03-14
 3           6        NA       1980          NA        NA         NA 1980-06-01

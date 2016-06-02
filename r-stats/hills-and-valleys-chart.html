@@ -133,7 +133,7 @@
 </ol>
 </header>
 
-<div class="highlight"><pre><span></span><span class="c1"># load the ggplot2 package</span>
+<div class="codehilite"><pre><span></span><span class="c1"># load the ggplot2 package</span>
 <span class="kn">library</span><span class="p">(</span>ggplot2<span class="p">)</span>
 
 <span class="c1"># load the gcookbook package</span>
@@ -141,24 +141,24 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a subset of data from the Berkeley data and year after 1900</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a subset of data from the Berkeley data and year after 1900</span>
 csub <span class="o">&lt;-</span> <span class="kp">subset</span><span class="p">(</span>climate<span class="p">,</span> Source<span class="o">==</span><span class="s">&quot;Berkeley&quot;</span> <span class="o">&amp;</span> Year <span class="o">&gt;=</span> <span class="m">1900</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a logical variable that says if the value is above or below 0</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a logical variable that says if the value is above or below 0</span>
 csub<span class="o">$</span>pos <span class="o">&lt;-</span> csub<span class="o">$</span>Anomaly10y <span class="o">&gt;=</span> <span class="m">0</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a ggplot of Year and Temperature, visualuzed with a bar those filled by csub$pos</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a ggplot of Year and Temperature, visualuzed with a bar those filled by csub$pos</span>
 ggplot<span class="p">(</span>csub<span class="p">,</span> aes<span class="p">(</span>x<span class="o">=</span>Year<span class="p">,</span> y<span class="o">=</span>Anomaly10y<span class="p">,</span> fill<span class="o">=</span>pos<span class="p">))</span> <span class="o">+</span>
   geom_bar<span class="p">(</span>stat<span class="o">=</span><span class="s">&quot;identity&quot;</span><span class="p">,</span> position<span class="o">=</span><span class="s">&quot;identity&quot;</span><span class="p">)</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/hills-and-valleys-chart_files/hills-and-valleys-chart_4_1.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># same chart above but with more features defeind</span>
+<div class="codehilite"><pre><span></span><span class="c1"># same chart above but with more features defeind</span>
 ggplot<span class="p">(</span>csub<span class="p">,</span> aes<span class="p">(</span>x<span class="o">=</span>Year<span class="p">,</span> y<span class="o">=</span>Anomaly10y<span class="p">,</span> fill<span class="o">=</span>pos<span class="p">))</span> <span class="o">+</span>
   geom_bar<span class="p">(</span>stat<span class="o">=</span><span class="s">&quot;identity&quot;</span><span class="p">,</span> position<span class="o">=</span><span class="s">&quot;identity&quot;</span><span class="p">,</span> colour<span class="o">=</span><span class="s">&quot;black&quot;</span><span class="p">,</span> size<span class="o">=</span><span class="m">0.25</span><span class="p">)</span> <span class="o">+</span> scale_fill_manual<span class="p">(</span>values<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;#CCEEFF&quot;</span><span class="p">,</span> <span class="s">&quot;#FFDDDD&quot;</span><span class="p">),</span> guide<span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span>
 </pre></div>

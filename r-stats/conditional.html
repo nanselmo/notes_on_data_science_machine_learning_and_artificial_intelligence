@@ -133,13 +133,13 @@
 </ol>
 </header>
 
-<div class="highlight"><pre><span></span><span class="c1"># Make some data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Make some data</span>
 my.age <span class="o">&lt;-</span> <span class="m">20</span>
 our.ages <span class="o">&lt;-</span> <span class="kp">cbind</span><span class="p">(</span><span class="m">20</span><span class="p">,</span><span class="m">30</span><span class="p">,</span><span class="m">40</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Sometimes we might only want R to do one thing under certain conditions and another thing under other conditions. Conditional execution let&#39;s us do that.</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Sometimes we might only want R to do one thing under certain conditions and another thing under other conditions. Conditional execution let&#39;s us do that.</span>
 <span class="kr">if</span> <span class="p">(</span>my.age <span class="o">&lt;</span> <span class="m">30</span><span class="p">)</span> <span class="p">{</span> <span class="c1"># if my.age is greater than 30</span>
   under.30 <span class="o">&lt;-</span> <span class="kc">TRUE</span> <span class="c1"># then set under.30 as TRUE</span>
 <span class="p">}</span> <span class="kr">else</span> <span class="p">{</span> <span class="c1"># if my.age is not greater than 30</span>
@@ -149,20 +149,20 @@ under.30 <span class="c1"># display under.30</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] TRUE
+<div class="codehilite"><pre><span></span>[1] TRUE
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># If we want to run a conditional execution on all values in a vector, we can use the ifelse function</span>
+<div class="codehilite"><pre><span></span><span class="c1"># If we want to run a conditional execution on all values in a vector, we can use the ifelse function</span>
 old.or.young <span class="o">&lt;-</span> <span class="kp">ifelse</span><span class="p">(</span>our.ages <span class="o">&lt;</span> <span class="kp">mean</span><span class="p">(</span>our.ages<span class="p">),</span> <span class="s">&quot;OLDER&quot;</span><span class="p">,</span> <span class="s">&quot;YOUNGER&quot;</span><span class="p">)</span> <span class="c1"># create an object old.or.young and add to label a value as older if the age of someone in our.age is older than the average (mean) age of the vector and &quot;younger&quot; if they are younger than the average age.</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>old.or.young <span class="c1"># display old.or.young</span>
+<div class="codehilite"><pre><span></span>old.or.young <span class="c1"># display old.or.young</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>     [,1]    [,2]      [,3]     
+<div class="codehilite"><pre><span></span>     [,1]    [,2]      [,3]     
 [1,] &quot;OLDER&quot; &quot;YOUNGER&quot; &quot;YOUNGER&quot;
 </pre></div>
     <aside>

@@ -133,12 +133,12 @@
 </ol>
 </header>
 
-<div class="highlight"><pre><span></span><span class="c1"># Import Preliminaries</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Import Preliminaries</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create a dataset with the index being a set of names</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a dataset with the index being a set of names</span>
 <span class="n">raw_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;2014-06-01T01:21:38.004053&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-06-02T01:21:38.004053&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-06-03T01:21:38.004053&#39;</span><span class="p">],</span>
         <span class="s1">&#39;score&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">94</span><span class="p">,</span> <span class="mi">57</span><span class="p">]}</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;score&#39;</span><span class="p">])</span>
@@ -175,16 +175,16 @@
 </table>
 </div>
 
-<div class="highlight"><pre><span></span><span class="c1"># Transpose the dataset, so that the index (in this case the names) are columns</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Transpose the dataset, so that the index (in this case the names) are columns</span>
 <span class="n">df</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">])</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">])</span>
+<div class="codehilite"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">])</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="n">df</span>
+<div class="codehilite"><pre><span></span><span class="n">df</span>
 </pre></div>
 
 

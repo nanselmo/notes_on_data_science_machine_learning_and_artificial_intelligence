@@ -135,58 +135,58 @@
 
 <p>R can handle a number of types of data, including numbers and text. In R, the text is refered to as character strings and is always wrapped in double quotation marks. In other words, if something is inside quotation marks, it is treated as text.</p>
 <p>R has a number of functions avaliable for manipulating text.</p>
-<div class="highlight"><pre><span></span><span class="c1"># create simulated district crime name</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create simulated district crime name</span>
 district <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;NORTH&quot;</span><span class="p">,</span> <span class="s">&quot;NORTHWEST&quot;</span><span class="p">,</span> <span class="s">&quot;CENTRAL&quot;</span><span class="p">,</span> <span class="s">&quot;SOUTH&quot;</span><span class="p">,</span> <span class="s">&quot;SOUTHWEST&quot;</span><span class="p">,</span> <span class="s">&quot;WESTERN&quot;</span><span class="p">))</span>
 </pre></div>
 
 
 <h2>Count the number of characters in each individual character string in an object</h2>
-<div class="highlight"><pre><span></span><span class="c1"># display each district&#39;s name</span>
+<div class="codehilite"><pre><span></span><span class="c1"># display each district&#39;s name</span>
 <span class="kp">levels</span><span class="p">(</span>district<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] &quot;CENTRAL&quot;   &quot;NORTH&quot;     &quot;NORTHWEST&quot; &quot;SOUTH&quot;     &quot;SOUTHWEST&quot; &quot;WESTERN&quot;
+<div class="codehilite"><pre><span></span>[1] &quot;CENTRAL&quot;   &quot;NORTH&quot;     &quot;NORTHWEST&quot; &quot;SOUTH&quot;     &quot;SOUTHWEST&quot; &quot;WESTERN&quot;
 </pre></div>
 
 
 <h2>You can also display text without quotes, although it is rare you would want to do so.</h2>
-<div class="highlight"><pre><span></span><span class="c1"># display each police district&#39;s name</span>
+<div class="codehilite"><pre><span></span><span class="c1"># display each police district&#39;s name</span>
 <span class="kp">levels</span><span class="p">(</span>district<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] &quot;CENTRAL&quot;   &quot;NORTH&quot;     &quot;NORTHWEST&quot; &quot;SOUTH&quot;     &quot;SOUTHWEST&quot; &quot;WESTERN&quot;
+<div class="codehilite"><pre><span></span>[1] &quot;CENTRAL&quot;   &quot;NORTH&quot;     &quot;NORTHWEST&quot; &quot;SOUTH&quot;     &quot;SOUTHWEST&quot; &quot;WESTERN&quot;
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># display each police district&#39;s name without quotes</span>
+<div class="codehilite"><pre><span></span><span class="c1"># display each police district&#39;s name without quotes</span>
 <span class="kp">noquote</span><span class="p">(</span><span class="kp">levels</span><span class="p">(</span>district<span class="p">))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] CENTRAL   NORTH     NORTHWEST SOUTH     SOUTHWEST WESTERN
+<div class="codehilite"><pre><span></span>[1] CENTRAL   NORTH     NORTHWEST SOUTH     SOUTHWEST WESTERN
 </pre></div>
 
 
 <h2>R can add characters to a vector of character strings using the paste function</h2>
-<div class="highlight"><pre><span></span><span class="c1"># Add &quot;DISTRICT&quot; to the name of each police district</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Add &quot;DISTRICT&quot; to the name of each police district</span>
 <span class="kp">paste</span><span class="p">(</span><span class="kp">levels</span><span class="p">(</span>district<span class="p">),</span> <span class="s">&quot;DISTRICT&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] &quot;CENTRAL DISTRICT&quot;   &quot;NORTH DISTRICT&quot;     &quot;NORTHWEST DISTRICT&quot;
+<div class="codehilite"><pre><span></span>[1] &quot;CENTRAL DISTRICT&quot;   &quot;NORTH DISTRICT&quot;     &quot;NORTHWEST DISTRICT&quot;
 [4] &quot;SOUTH DISTRICT&quot;     &quot;SOUTHWEST DISTRICT&quot; &quot;WESTERN DISTRICT&quot;
 </pre></div>
 
 
 <h2>Extracting Segments Of Character Strings using Substring Function</h2>
-<div class="highlight"><pre><span></span><span class="c1"># Extract characters from district names, starting at the 1st character and ending at the 5th character</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Extract characters from district names, starting at the 1st character and ending at the 5th character</span>
 <span class="kp">substr</span><span class="p">(</span>district<span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">5</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] &quot;NORTH&quot; &quot;NORTH&quot; &quot;CENTR&quot; &quot;SOUTH&quot; &quot;SOUTH&quot; &quot;WESTE&quot;
+<div class="codehilite"><pre><span></span>[1] &quot;NORTH&quot; &quot;NORTH&quot; &quot;CENTR&quot; &quot;SOUTH&quot; &quot;SOUTH&quot; &quot;WESTE&quot;
 </pre></div>
     <aside>
     <div class="bug-reporting__panel">

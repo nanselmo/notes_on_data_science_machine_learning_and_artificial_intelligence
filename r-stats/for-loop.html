@@ -134,7 +134,7 @@
 </header>
 
 <p>Original source: the r book</p>
-<div class="highlight"><pre><span></span><span class="c1"># create a dataframe with simulated values</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a dataframe with simulated values</span>
 x <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">1000</span><span class="p">)</span>
 y <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">1000</span><span class="p">)</span>
 z <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">1000</span><span class="p">)</span>
@@ -144,12 +144,12 @@ data <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class=
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a variable to place the results of the for loop in</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a variable to place the results of the for loop in</span>
 data.altered <span class="o">&lt;-</span> <span class="kc">NULL</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># for each element in data, square x and put the value in data.altered</span>
+<div class="codehilite"><pre><span></span><span class="c1"># for each element in data, square x and put the value in data.altered</span>
 <span class="kr">for</span> <span class="p">(</span>i <span class="kr">in</span> data<span class="p">)</span> <span class="p">{</span>
   data.altered <span class="o">&lt;-</span> data<span class="o">$</span>x<span class="o">^</span><span class="m">2</span>
 <span class="p">}</span>

@@ -137,31 +137,31 @@
 <h2>Lists</h2>
 <p>"A list is a data structure that holds an ordered collection of items i.e. you can store a sequence of items in a list." - A Byte Of Python</p>
 <p>Lists are mutable.</p>
-<div class="highlight"><pre><span></span><span class="c1"># Create a list of countries, then print the results</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a list of countries, then print the results</span>
 <span class="n">allies</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;USA&#39;</span><span class="p">,</span><span class="s1">&#39;UK&#39;</span><span class="p">,</span><span class="s1">&#39;France&#39;</span><span class="p">,</span><span class="s1">&#39;New Zealand&#39;</span><span class="p">,</span>
           <span class="s1">&#39;Australia&#39;</span><span class="p">,</span><span class="s1">&#39;Canada&#39;</span><span class="p">,</span><span class="s1">&#39;Poland&#39;</span><span class="p">];</span> <span class="n">allies</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[&#39;USA&#39;, &#39;UK&#39;, &#39;France&#39;, &#39;New Zealand&#39;, &#39;Australia&#39;, &#39;Canada&#39;, &#39;Poland&#39;]
+<div class="codehilite"><pre><span></span>[&#39;USA&#39;, &#39;UK&#39;, &#39;France&#39;, &#39;New Zealand&#39;, &#39;Australia&#39;, &#39;Canada&#39;, &#39;Poland&#39;]
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Print the length of the list</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Print the length of the list</span>
 <span class="nb">len</span><span class="p">(</span><span class="n">allies</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>7
+<div class="codehilite"><pre><span></span>7
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Add an item to the list, then print the results</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Add an item to the list, then print the results</span>
 <span class="n">allies</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;China&#39;</span><span class="p">);</span> <span class="n">allies</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[&#39;USA&#39;,
+<div class="codehilite"><pre><span></span>[&#39;USA&#39;,
  &#39;UK&#39;,
  &#39;France&#39;,
  &#39;New Zealand&#39;,
@@ -172,12 +172,12 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Sort list, then print the results</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Sort list, then print the results</span>
 <span class="n">allies</span><span class="o">.</span><span class="n">sort</span><span class="p">();</span> <span class="n">allies</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[&#39;Australia&#39;,
+<div class="codehilite"><pre><span></span>[&#39;Australia&#39;,
  &#39;Canada&#39;,
  &#39;China&#39;,
  &#39;France&#39;,
@@ -188,12 +188,12 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Reverse sort list, then print the results</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Reverse sort list, then print the results</span>
 <span class="n">allies</span><span class="o">.</span><span class="n">sort</span><span class="p">();</span> <span class="n">allies</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[&#39;Australia&#39;,
+<div class="codehilite"><pre><span></span>[&#39;Australia&#39;,
  &#39;Canada&#39;,
  &#39;China&#39;,
  &#39;France&#39;,
@@ -204,39 +204,39 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># View the first item of the list</span>
+<div class="codehilite"><pre><span></span><span class="c1"># View the first item of the list</span>
 <span class="n">allies</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>&#39;Australia&#39;
+<div class="codehilite"><pre><span></span>&#39;Australia&#39;
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># View the last item of the list</span>
+<div class="codehilite"><pre><span></span><span class="c1"># View the last item of the list</span>
 <span class="n">allies</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>&#39;USA&#39;
+<div class="codehilite"><pre><span></span>&#39;USA&#39;
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Delete the item in the list</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Delete the item in the list</span>
 <span class="k">del</span> <span class="n">allies</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span> <span class="n">allies</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[&#39;Canada&#39;, &#39;China&#39;, &#39;France&#39;, &#39;New Zealand&#39;, &#39;Poland&#39;, &#39;UK&#39;, &#39;USA&#39;]
+<div class="codehilite"><pre><span></span>[&#39;Canada&#39;, &#39;China&#39;, &#39;France&#39;, &#39;New Zealand&#39;, &#39;Poland&#39;, &#39;UK&#39;, &#39;USA&#39;]
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Add a numeric value to a list of strings</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Add a numeric value to a list of strings</span>
 <span class="n">allies</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">3442</span><span class="p">);</span> <span class="n">allies</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[&#39;Canada&#39;, &#39;China&#39;, &#39;France&#39;, &#39;New Zealand&#39;, &#39;Poland&#39;, &#39;UK&#39;, &#39;USA&#39;, 3442]
+<div class="codehilite"><pre><span></span>[&#39;Canada&#39;, &#39;China&#39;, &#39;France&#39;, &#39;New Zealand&#39;, &#39;Poland&#39;, &#39;UK&#39;, &#39;USA&#39;, 3442]
 </pre></div>
 
 
@@ -244,46 +244,46 @@
 <p>"Though tuples may seem similar to lists, they are often used in different situations and for different purposes. Tuples are immutable, and usually contain an heterogeneous sequence of elements that are accessed via unpacking (or indexing (or even by attribute in the case of namedtuples). Lists are mutable, and their elements are usually homogeneous and are accessed by iterating over the list." - Python Documentation</p>
 <p>"Tuples are heterogeneous data structures (i.e., their entries have different meanings), while lists are homogeneous sequences." - StackOverflow</p>
 <p>Parentheses are optional, but useful.</p>
-<div class="highlight"><pre><span></span><span class="c1"># Create a tuple of state names</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a tuple of state names</span>
 <span class="n">usa</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Texas&#39;</span><span class="p">,</span> <span class="s1">&#39;California&#39;</span><span class="p">,</span> <span class="s1">&#39;Maryland&#39;</span><span class="p">);</span> <span class="n">usa</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>(&#39;Texas&#39;, &#39;California&#39;, &#39;Maryland&#39;)
+<div class="codehilite"><pre><span></span>(&#39;Texas&#39;, &#39;California&#39;, &#39;Maryland&#39;)
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create a tuple of countries</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a tuple of countries</span>
 <span class="c1"># (notice the USA has a state names in the nested tuple)</span>
 <span class="n">countries</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;canada&#39;</span><span class="p">,</span> <span class="s1">&#39;mexico&#39;</span><span class="p">,</span> <span class="n">usa</span><span class="p">);</span> <span class="n">countries</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>(&#39;canada&#39;, &#39;mexico&#39;, (&#39;Texas&#39;, &#39;California&#39;, &#39;Maryland&#39;))
+<div class="codehilite"><pre><span></span>(&#39;canada&#39;, &#39;mexico&#39;, (&#39;Texas&#39;, &#39;California&#39;, &#39;Maryland&#39;))
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># View the third item of the top tuple</span>
+<div class="codehilite"><pre><span></span><span class="c1"># View the third item of the top tuple</span>
 <span class="n">countries</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>(&#39;Texas&#39;, &#39;California&#39;, &#39;Maryland&#39;)
+<div class="codehilite"><pre><span></span>(&#39;Texas&#39;, &#39;California&#39;, &#39;Maryland&#39;)
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># View the third item of the third tuple</span>
+<div class="codehilite"><pre><span></span><span class="c1"># View the third item of the third tuple</span>
 <span class="n">countries</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>&#39;Maryland&#39;
+<div class="codehilite"><pre><span></span>&#39;Maryland&#39;
 </pre></div>
 
 
 <h2>Dictionaries</h2>
 <p>"A dictionary is like an address-book where you can find the address or contact details of a person by knowing only his/her name i.e. we associate keys (name) with values (details). Note that the key must be unique just like you cannot find out the correct information if you have two persons with the exact same name." - A Byte Of Python</p>
-<div class="highlight"><pre><span></span><span class="c1"># Create a dictionary with key:value combos</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a dictionary with key:value combos</span>
 <span class="n">staff</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Chris&#39;</span> <span class="p">:</span> <span class="s1">&#39;chris@stater.org&#39;</span><span class="p">,</span>
          <span class="s1">&#39;Jake&#39;</span> <span class="p">:</span> <span class="s1">&#39;jake@stater.org&#39;</span><span class="p">,</span>
          <span class="s1">&#39;Ashley&#39;</span> <span class="p">:</span> <span class="s1">&#39;ashley@stater.org&#39;</span><span class="p">,</span>
@@ -292,32 +292,32 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Print the value using the key</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Print the value using the key</span>
 <span class="n">staff</span><span class="p">[</span><span class="s1">&#39;Chris&#39;</span><span class="p">]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>&#39;chris@stater.org&#39;
+<div class="codehilite"><pre><span></span>&#39;chris@stater.org&#39;
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Delete a dictionary entry based on the key</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Delete a dictionary entry based on the key</span>
 <span class="k">del</span> <span class="n">staff</span><span class="p">[</span><span class="s1">&#39;Chris&#39;</span><span class="p">];</span> <span class="n">staff</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>{&#39;Jake&#39;: &#39;jake@stater.org&#39;,
+<div class="codehilite"><pre><span></span>{&#39;Jake&#39;: &#39;jake@stater.org&#39;,
  &#39;Ashley&#39;: &#39;ashley@stater.org&#39;,
  &#39;Shelly&#39;: &#39;shelly@stater.org&#39;}
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Add an item to the dictionary</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Add an item to the dictionary</span>
 <span class="n">staff</span><span class="p">[</span><span class="s1">&#39;Guido&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;guido@python.org&#39;</span><span class="p">;</span> <span class="n">staff</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>{&#39;Jake&#39;: &#39;jake@stater.org&#39;,
+<div class="codehilite"><pre><span></span>{&#39;Jake&#39;: &#39;jake@stater.org&#39;,
  &#39;Ashley&#39;: &#39;ashley@stater.org&#39;,
  &#39;Guido&#39;: &#39;guido@python.org&#39;,
  &#39;Shelly&#39;: &#39;shelly@stater.org&#39;}
@@ -326,59 +326,59 @@
 
 <h2>Sets</h2>
 <p>Sets are unordered collections of simple objects.</p>
-<div class="highlight"><pre><span></span><span class="c1"># Create a set of BRI countries</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a set of BRI countries</span>
 <span class="n">BRI</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s1">&#39;brazil&#39;</span><span class="p">,</span> <span class="s1">&#39;russia&#39;</span><span class="p">,</span> <span class="s1">&#39;india&#39;</span><span class="p">])</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Is India in the set BRI?</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Is India in the set BRI?</span>
 <span class="s1">&#39;india&#39;</span> <span class="ow">in</span> <span class="n">BRI</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>True
+<div class="codehilite"><pre><span></span>True
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Is the US in the set BRI?</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Is the US in the set BRI?</span>
 <span class="s1">&#39;usa&#39;</span> <span class="ow">in</span> <span class="n">BRI</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>False
+<div class="codehilite"><pre><span></span>False
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create a copy of BRI called BRIC</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a copy of BRI called BRIC</span>
 <span class="n">BRIC</span> <span class="o">=</span> <span class="n">BRI</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Add China to BRIC</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Add China to BRIC</span>
 <span class="n">BRIC</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;china&#39;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Is BRIC a super-set of BRI?</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Is BRIC a super-set of BRI?</span>
 <span class="n">BRIC</span><span class="o">.</span><span class="n">issuperset</span><span class="p">(</span><span class="n">BRI</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>True
+<div class="codehilite"><pre><span></span>True
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Remove Russia from BRI</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Remove Russia from BRI</span>
 <span class="n">BRI</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;russia&#39;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># What items are the union of BRI and BRIC?</span>
+<div class="codehilite"><pre><span></span><span class="c1"># What items are the union of BRI and BRIC?</span>
 <span class="n">BRI</span> <span class="o">&amp;</span> <span class="n">BRIC</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>{&#39;brazil&#39;, &#39;india&#39;}
+<div class="codehilite"><pre><span></span>{&#39;brazil&#39;, &#39;india&#39;}
 </pre></div>
     <aside>
     <div class="bug-reporting__panel">

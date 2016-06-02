@@ -134,7 +134,7 @@
 </header>
 
 <p>Original source: http://bcb.dfci.harvard.edu/~aedin/courses/R/CDC/maps.html</p>
-<div class="highlight"><pre><span></span><span class="c1"># load the maps package</span>
+<div class="codehilite"><pre><span></span><span class="c1"># load the maps package</span>
 <span class="kn">library</span><span class="p">(</span>maps<span class="p">)</span>
 
 <span class="c1"># load the ggmap package</span>
@@ -142,43 +142,43 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a graphic &quot;grid&quot; for layout purposes of 2 rows and 1 column</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a graphic &quot;grid&quot; for layout purposes of 2 rows and 1 column</span>
 par<span class="p">(</span>mfrow <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">1</span><span class="p">))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># load the US county map</span>
+<div class="codehilite"><pre><span></span><span class="c1"># load the US county map</span>
 map<span class="p">(</span><span class="s">&quot;county&quot;</span><span class="p">)</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/thematic-maps_files/thematic-maps_3_0.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># load national unemployment data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># load national unemployment data</span>
 data<span class="p">(</span>unemp<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># load national FIPS county codes</span>
+<div class="codehilite"><pre><span></span><span class="c1"># load national FIPS county codes</span>
 data<span class="p">(</span>county.fips<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a range of colors for the map fill</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a range of colors for the map fill</span>
 colors <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;#F1EEF6&quot;</span><span class="p">,</span> <span class="s">&quot;#D4B9DA&quot;</span><span class="p">,</span> <span class="s">&quot;#C994C7&quot;</span><span class="p">,</span> <span class="s">&quot;#DF65B0&quot;</span><span class="p">,</span> <span class="s">&quot;#DD1C77&quot;</span><span class="p">,</span> <span class="s">&quot;#980043&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a colorBuckets object cutting up unemp&#39;s values into buckets according to a vector of cutpoints</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a colorBuckets object cutting up unemp&#39;s values into buckets according to a vector of cutpoints</span>
 unemp<span class="o">$</span>colorBuckets <span class="o">&lt;-</span> <span class="kp">as.numeric</span><span class="p">(</span><span class="kp">cut</span><span class="p">(</span>unemp<span class="o">$</span>unemp<span class="p">,</span> <span class="kt">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="m">100</span><span class="p">)))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># match the colors in &quot;colors&quot; with those buckets</span>
+<div class="codehilite"><pre><span></span><span class="c1"># match the colors in &quot;colors&quot; with those buckets</span>
 colorsmatched <span class="o">&lt;-</span> unemp<span class="o">$</span>colorBuckets<span class="p">[</span><span class="kp">match</span><span class="p">(</span>county.fips<span class="o">$</span>fips<span class="p">,</span> unemp<span class="o">$</span>fips<span class="p">)]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a map with colors according to the bucket colors</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a map with colors according to the bucket colors</span>
 map<span class="p">(</span><span class="s">&quot;county&quot;</span><span class="p">,</span>
     col <span class="o">=</span> colors<span class="p">[</span>colorsmatched<span class="p">],</span>
     fill <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span>

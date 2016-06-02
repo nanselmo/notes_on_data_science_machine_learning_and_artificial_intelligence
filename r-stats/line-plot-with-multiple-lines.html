@@ -134,7 +134,7 @@
 </header>
 
 <p>Original source: r graphics cookbook</p>
-<div class="highlight"><pre><span></span><span class="c1"># load the gcookbook package for the data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># load the gcookbook package for the data</span>
 <span class="kn">library</span><span class="p">(</span>gcookbook<span class="p">)</span>
 
 <span class="c1"># load the ggplot2 package</span>
@@ -148,24 +148,24 @@ dev.off<span class="p">()</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>null device
+<div class="codehilite"><pre><span></span>null device
           1
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># summarize the ToothGrowth data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># summarize the ToothGrowth data</span>
 tg <span class="o">&lt;-</span> ddply<span class="p">(</span>ToothGrowth<span class="p">,</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;supp&quot;</span><span class="p">,</span> <span class="s">&quot;dose&quot;</span><span class="p">),</span> summarise<span class="p">,</span> length<span class="o">=</span><span class="kp">mean</span><span class="p">(</span>len<span class="p">))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a ggplot with lines colored by the tg$supp variable</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a ggplot with lines colored by the tg$supp variable</span>
 ggplot<span class="p">(</span>tg<span class="p">,</span> aes<span class="p">(</span>x<span class="o">=</span>dose<span class="p">,</span> y<span class="o">=</span><span class="kp">length</span><span class="p">,</span> colour<span class="o">=</span>supp<span class="p">))</span> <span class="o">+</span>
   geom_line<span class="p">()</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/line-plot-with-multiple-lines_files/line-plot-with-multiple-lines_3_1.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># create a ggplot with line-types determined by the tg$supp variable</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a ggplot with line-types determined by the tg$supp variable</span>
 ggplot<span class="p">(</span>tg<span class="p">,</span> aes<span class="p">(</span>x<span class="o">=</span>dose<span class="p">,</span> y<span class="o">=</span><span class="kp">length</span><span class="p">,</span> linetype<span class="o">=</span>supp<span class="p">))</span> <span class="o">+</span>
   geom_line<span class="p">()</span>
 </pre></div>

@@ -134,12 +134,12 @@
 </header>
 
 <h2>Preliminaries</h2>
-<div class="highlight"><pre><span></span><span class="c1"># import modules</span>
+<div class="codehilite"><pre><span></span><span class="c1"># import modules</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create dataframe</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create dataframe</span>
 <span class="n">raw_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;regiment&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Nighthawks&#39;</span><span class="p">,</span> <span class="s1">&#39;Nighthawks&#39;</span><span class="p">,</span> <span class="s1">&#39;Nighthawks&#39;</span><span class="p">,</span> <span class="s1">&#39;Nighthawks&#39;</span><span class="p">,</span> <span class="s1">&#39;Dragoons&#39;</span><span class="p">,</span> <span class="s1">&#39;Dragoons&#39;</span><span class="p">,</span> <span class="s1">&#39;Dragoons&#39;</span><span class="p">,</span> <span class="s1">&#39;Dragoons&#39;</span><span class="p">,</span> <span class="s1">&#39;Scouts&#39;</span><span class="p">,</span> <span class="s1">&#39;Scouts&#39;</span><span class="p">,</span> <span class="s1">&#39;Scouts&#39;</span><span class="p">,</span> <span class="s1">&#39;Scouts&#39;</span><span class="p">],</span> 
         <span class="s1">&#39;company&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span> <span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span><span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">],</span> 
         <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Miller&#39;</span><span class="p">,</span> <span class="s1">&#39;Jacobson&#39;</span><span class="p">,</span> <span class="s1">&#39;Ali&#39;</span><span class="p">,</span> <span class="s1">&#39;Milner&#39;</span><span class="p">,</span> <span class="s1">&#39;Cooze&#39;</span><span class="p">,</span> <span class="s1">&#39;Jacon&#39;</span><span class="p">,</span> <span class="s1">&#39;Ryaner&#39;</span><span class="p">,</span> <span class="s1">&#39;Sone&#39;</span><span class="p">,</span> <span class="s1">&#39;Sloan&#39;</span><span class="p">,</span> <span class="s1">&#39;Piger&#39;</span><span class="p">,</span> <span class="s1">&#39;Riani&#39;</span><span class="p">,</span> <span class="s1">&#39;Ali&#39;</span><span class="p">],</span> 
@@ -264,24 +264,24 @@
 <p>12 rows × 5 columns</p>
 </div>
 
-<div class="highlight"><pre><span></span><span class="c1"># Create a groupby variable that groups preTestScores by regiment</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a groupby variable that groups preTestScores by regiment</span>
 <span class="n">groupby_regiment</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;preTestScore&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;company&#39;</span><span class="p">])</span>
 <span class="n">groupby_regiment</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>&lt;pandas.core.groupby.SeriesGroupBy object at 0x1075fb610&gt;
+<div class="codehilite"><pre><span></span>&lt;pandas.core.groupby.SeriesGroupBy object at 0x1075fb610&gt;
 </pre></div>
 
 
 <p>"This grouped variable is now a GroupBy object. It has not actually computed anything yet except for some intermediate data about the group key df['key1']. The idea is that this object has all of the information needed to then apply some operation to each of the groups." - Python for Data Analysis</p>
 <h2>View a grouping</h2>
 <p>Use list() to show what a grouping looks like</p>
-<div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;preTestScore&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;company&#39;</span><span class="p">]))</span>
+<div class="codehilite"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;preTestScore&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;company&#39;</span><span class="p">]))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[(&#39;1st&#39;, 0     4
+<div class="codehilite"><pre><span></span>[(&#39;1st&#39;, 0     4
   1    24
   4     3
   5     4
@@ -298,11 +298,11 @@
 
 
 <h2>Descriptive statistics by group</h2>
-<div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;preTestScore&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;company&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;preTestScore&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;company&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>company       
+<div class="codehilite"><pre><span></span>company       
 1st      count     6.000000
          mean      6.666667
          std       8.524475
@@ -324,11 +324,11 @@ dtype: float64
 
 
 <h3>Mean of each regiment's preTestScore</h3>
-<div class="highlight"><pre><span></span><span class="n">groupby_regiment</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><span class="n">groupby_regiment</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>company
+<div class="codehilite"><pre><span></span>company
 1st         6.666667
 2nd        15.500000
 dtype: float64
@@ -336,11 +336,11 @@ dtype: float64
 
 
 <h3>Mean preTestScores grouped by regiment and company</h3>
-<div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;preTestScore&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;regiment&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;company&#39;</span><span class="p">]])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;preTestScore&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;regiment&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;company&#39;</span><span class="p">]])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>regiment    company
+<div class="codehilite"><pre><span></span>regiment    company
 Dragoons    1st         3.5
             2nd        27.5
 Nighthawks  1st        14.0
@@ -352,7 +352,7 @@ dtype: float64
 
 
 <h3>Mean preTestScores grouped by regiment and company without heirarchical indexing</h3>
-<div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;preTestScore&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;regiment&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;company&#39;</span><span class="p">]])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;preTestScore&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;regiment&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;company&#39;</span><span class="p">]])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
 </pre></div>
 
 
@@ -392,7 +392,7 @@ dtype: float64
 </div>
 
 <h3>Group the entire dataframe by regiment and company</h3>
-<div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;regiment&#39;</span><span class="p">,</span> <span class="s1">&#39;company&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;regiment&#39;</span><span class="p">,</span> <span class="s1">&#39;company&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 
 
@@ -452,11 +452,11 @@ dtype: float64
 </div>
 
 <h3>Number of observations in each regiment and company</h3>
-<div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;regiment&#39;</span><span class="p">,</span> <span class="s1">&#39;company&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;regiment&#39;</span><span class="p">,</span> <span class="s1">&#39;company&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>regiment    company
+<div class="codehilite"><pre><span></span>regiment    company
 Dragoons    1st        2
             2nd        2
 Nighthawks  1st        2
@@ -468,7 +468,7 @@ dtype: int64
 
 
 <h2>Iterate an operations over groups</h2>
-<div class="highlight"><pre><span></span><span class="c1"># Group the dataframe by regiment, and for each regiment,</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Group the dataframe by regiment, and for each regiment,</span>
 <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;regiment&#39;</span><span class="p">):</span> 
     <span class="c1"># print the name of the regiment</span>
     <span class="k">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
@@ -477,7 +477,7 @@ dtype: int64
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>Dragoons
+<div class="codehilite"><pre><span></span>Dragoons
    regiment company    name  preTestScore  postTestScore
 4  Dragoons     1st   Cooze             3             70
 5  Dragoons     1st   Jacon             4             25
@@ -506,11 +506,11 @@ Scouts
 
 <h3>Group by columns</h3>
 <p>Specifically in this case: group by the data types of the columns (i.e. axis=1) and then use list() to view what that grouping looks like</p>
-<div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<div class="codehilite"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[(dtype(&#39;int64&#39;),     preTestScore  postTestScore
+<div class="codehilite"><pre><span></span>[(dtype(&#39;int64&#39;),     preTestScore  postTestScore
   0              4             25
   1             24             94
   2             31             57
@@ -543,7 +543,7 @@ Scouts
 
 
 <h3>In the dataframe "df", group by "regiments, take the mean values of the other variables for those groups, then display them with the prefix_mean</h3>
-<div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;regiment&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">add_prefix</span><span class="p">(</span><span class="s1">&#39;mean_&#39;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;regiment&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">add_prefix</span><span class="p">(</span><span class="s1">&#39;mean_&#39;</span><span class="p">)</span>
 </pre></div>
 
 
@@ -583,20 +583,20 @@ Scouts
 </div>
 
 <h3>Create a function to get the stats of a group</h3>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_stats</span><span class="p">(</span><span class="n">group</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">get_stats</span><span class="p">(</span><span class="n">group</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;min&#39;</span><span class="p">:</span> <span class="n">group</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="n">group</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="s1">&#39;count&#39;</span><span class="p">:</span> <span class="n">group</span><span class="o">.</span><span class="n">count</span><span class="p">(),</span> <span class="s1">&#39;mean&#39;</span><span class="p">:</span> <span class="n">group</span><span class="o">.</span><span class="n">mean</span><span class="p">()}</span>
 </pre></div>
 
 
 <h3>Create bins and bin up postTestScore by those pins</h3>
-<div class="highlight"><pre><span></span><span class="n">bins</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+<div class="codehilite"><pre><span></span><span class="n">bins</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
 <span class="n">group_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Low&#39;</span><span class="p">,</span> <span class="s1">&#39;Okay&#39;</span><span class="p">,</span> <span class="s1">&#39;Good&#39;</span><span class="p">,</span> <span class="s1">&#39;Great&#39;</span><span class="p">]</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;categories&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;postTestScore&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">group_names</span><span class="p">)</span>
 </pre></div>
 
 
 <h3>Apply the get_stats() function to each postTestScore bin</h3>
-<div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;postTestScore&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;categories&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">get_stats</span><span class="p">)</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;postTestScore&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;categories&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">get_stats</span><span class="p">)</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
 </pre></div>
 
 

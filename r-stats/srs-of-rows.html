@@ -133,7 +133,7 @@
 </ol>
 </header>
 
-<div class="highlight"><pre><span></span><span class="c1"># create a dataframe with simulated values</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a dataframe with simulated values</span>
 x <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">1000</span><span class="p">)</span>
 y <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">1000</span><span class="p">)</span>
 z <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">1000</span><span class="p">)</span>
@@ -142,21 +142,21 @@ df <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a vector of weighs</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a vector of weighs</span>
 w <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">1000</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># sample 10 rows of the dataframe at pseudorandom, without replacement</span>
+<div class="codehilite"><pre><span></span><span class="c1"># sample 10 rows of the dataframe at pseudorandom, without replacement</span>
 sample <span class="o">&lt;-</span> df<span class="p">[</span><span class="kp">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="kp">nrow</span><span class="p">(</span>df<span class="p">),</span> <span class="m">10</span><span class="p">,</span> replace <span class="o">=</span> <span class="bp">F</span><span class="p">),]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="kp">sample</span>
+<div class="codehilite"><pre><span></span><span class="kp">sample</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>             x         y          z           a
+<div class="codehilite"><pre><span></span>             x         y          z           a
 500 0.44885287 0.7228785 0.11504159 0.054208551
 980 0.08392782 0.4568137 0.04393736 0.639204705
 445 0.48527409 0.9822628 0.37823768 0.410292231
@@ -170,16 +170,16 @@ sample <span class="o">&lt;-</span> df<span class="p">[</span><span class="kp">s
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># sample 10 rows of the dataframe at pseudorandom, without replacement, with the selection of reach row weighted by w (note w doesn&#39;t need to add up to 1)</span>
+<div class="codehilite"><pre><span></span><span class="c1"># sample 10 rows of the dataframe at pseudorandom, without replacement, with the selection of reach row weighted by w (note w doesn&#39;t need to add up to 1)</span>
 sample.weighted <span class="o">&lt;-</span> df<span class="p">[</span><span class="kp">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="kp">nrow</span><span class="p">(</span>df<span class="p">),</span> <span class="m">10</span><span class="p">,</span> replace <span class="o">=</span> <span class="bp">F</span><span class="p">,</span> prob <span class="o">=</span> w<span class="p">),]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>sample.weighted
+<div class="codehilite"><pre><span></span>sample.weighted
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>             x         y         z         a
+<div class="codehilite"><pre><span></span>             x         y         z         a
 588 0.42359291 0.7747600 0.3443440 0.7502456
 417 0.23503932 0.2448383 0.8961582 0.2380380
 997 0.05755856 0.1587866 0.8144725 0.3183274

@@ -134,7 +134,7 @@
 </header>
 
 <h2>Preliminaries</h2>
-<div class="highlight"><pre><span></span><span class="c1"># Import modules</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Import modules</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 
 <span class="c1"># Set ipython&#39;s max row display</span>
@@ -146,7 +146,7 @@
 
 
 <h2>Create an example dataframe</h2>
-<div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Jason&#39;</span><span class="p">,</span> <span class="s1">&#39;Molly&#39;</span><span class="p">,</span> <span class="s1">&#39;Tina&#39;</span><span class="p">,</span> <span class="s1">&#39;Jake&#39;</span><span class="p">,</span> <span class="s1">&#39;Amy&#39;</span><span class="p">],</span> 
+<div class="codehilite"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Jason&#39;</span><span class="p">,</span> <span class="s1">&#39;Molly&#39;</span><span class="p">,</span> <span class="s1">&#39;Tina&#39;</span><span class="p">,</span> <span class="s1">&#39;Jake&#39;</span><span class="p">,</span> <span class="s1">&#39;Amy&#39;</span><span class="p">],</span> 
         <span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">2012</span><span class="p">,</span> <span class="mi">2013</span><span class="p">,</span> <span class="mi">2014</span><span class="p">,</span> <span class="mi">2014</span><span class="p">],</span> 
         <span class="s1">&#39;reports&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]}</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Cochice&#39;</span><span class="p">,</span> <span class="s1">&#39;Pima&#39;</span><span class="p">,</span> <span class="s1">&#39;Santa Cruz&#39;</span><span class="p">,</span> <span class="s1">&#39;Maricopa&#39;</span><span class="p">,</span> <span class="s1">&#39;Yuma&#39;</span><span class="p">])</span>
@@ -201,7 +201,7 @@
 
 <h2>List Comprehensions</h2>
 <h3>As a loop</h3>
-<div class="highlight"><pre><span></span><span class="c1"># Create a variable</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a variable</span>
 <span class="n">next_year</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="c1"># For each row in df.years,</span>
@@ -275,12 +275,12 @@
 </div>
 
 <h3>As list comprehension</h3>
-<div class="highlight"><pre><span></span><span class="c1"># Subtract 1 from row, for each row in df.year</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Subtract 1 from row, for each row in df.year</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;previous_year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">row</span><span class="o">-</span><span class="mi">1</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="n">df</span>
+<div class="codehilite"><pre><span></span><span class="n">df</span>
 </pre></div>
 
 

@@ -133,24 +133,24 @@
 </ol>
 </header>
 
-<div class="highlight"><pre><span></span><span class="c1">## Generate 100,000 normally distributed observations</span>
+<div class="codehilite"><pre><span></span><span class="c1">## Generate 100,000 normally distributed observations</span>
 x <span class="o">&lt;-</span> rnorm<span class="p">(</span><span class="m">100000</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create a 1600x1600 png at 300px/in</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a 1600x1600 png at 300px/in</span>
 png<span class="p">(</span><span class="s">&quot;100kPoints300dpi.png&quot;</span><span class="p">,</span> units <span class="o">=</span> <span class="s">&quot;px&quot;</span><span class="p">,</span> width<span class="o">=</span><span class="m">1600</span><span class="p">,</span> height<span class="o">=</span><span class="m">1600</span><span class="p">,</span> res<span class="o">=</span><span class="m">300</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Plot the 100 points on the png</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Plot the 100 points on the png</span>
 plot<span class="p">(</span>x<span class="p">,</span> main<span class="o">=</span><span class="s">&quot;100,000 points&quot;</span><span class="p">,</span> col<span class="o">=</span>adjustcolor<span class="p">(</span><span class="s">&quot;black&quot;</span><span class="p">,</span> alpha<span class="o">=</span><span class="m">0.2</span><span class="p">))</span>
 dev.off<span class="p">()</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/high-res-plots_files/high-res-plots_3_0.png" /></p>
-<div class="highlight"><pre><span></span>quartz_off_screen
+<div class="codehilite"><pre><span></span>quartz_off_screen
                 3
 </pre></div>
     <aside>

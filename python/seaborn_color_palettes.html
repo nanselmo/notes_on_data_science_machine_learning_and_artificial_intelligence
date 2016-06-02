@@ -134,14 +134,14 @@
 </header>
 
 <h2>Preliminaries</h2>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;2014-05-01 18:47:05.069722&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-01 18:47:05.119994&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-02 18:47:05.178768&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-02 18:47:05.230071&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-02 18:47:05.230071&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-02 18:47:05.280592&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-03 18:47:05.332662&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-03 18:47:05.385109&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-04 18:47:05.436523&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-04 18:47:05.486877&#39;</span><span class="p">],</span> 
+<div class="codehilite"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;2014-05-01 18:47:05.069722&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-01 18:47:05.119994&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-02 18:47:05.178768&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-02 18:47:05.230071&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-02 18:47:05.230071&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-02 18:47:05.280592&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-03 18:47:05.332662&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-03 18:47:05.385109&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-04 18:47:05.436523&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-04 18:47:05.486877&#39;</span><span class="p">],</span> 
         <span class="s1">&#39;deaths_regiment_1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">34</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">41</span><span class="p">],</span>
         <span class="s1">&#39;deaths_regiment_2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">52</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">86</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
         <span class="s1">&#39;deaths_regiment_3&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">13</span><span class="p">,</span> <span class="mi">73</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">58</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">75</span><span class="p">],</span>
@@ -157,123 +157,123 @@
 
 
 <h2>View some color palettes</h2>
-<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;deep&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<div class="codehilite"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;deep&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/seaborn_color_palettes/output_5_0.png" /></p>
-<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;muted&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<div class="codehilite"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;muted&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/seaborn_color_palettes/output_6_0.png" /></p>
-<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;bright&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<div class="codehilite"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;bright&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/seaborn_color_palettes/output_7_0.png" /></p>
-<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;dark&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<div class="codehilite"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;dark&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/seaborn_color_palettes/output_8_0.png" /></p>
-<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;colorblind&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<div class="codehilite"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;colorblind&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/seaborn_color_palettes/output_9_0.png" /></p>
-<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;Paired&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<div class="codehilite"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;Paired&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/seaborn_color_palettes/output_10_0.png" /></p>
-<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;BuGn&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<div class="codehilite"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;BuGn&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/seaborn_color_palettes/output_11_0.png" /></p>
-<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;GnBu&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<div class="codehilite"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;GnBu&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/seaborn_color_palettes/output_12_0.png" /></p>
-<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;OrRd&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<div class="codehilite"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;OrRd&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/seaborn_color_palettes/output_13_0.png" /></p>
-<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;PuBu&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<div class="codehilite"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;PuBu&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/seaborn_color_palettes/output_14_0.png" /></p>
-<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;YlGn&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<div class="codehilite"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;YlGn&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/seaborn_color_palettes/output_15_0.png" /></p>
-<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;YlGnBu&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<div class="codehilite"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;YlGnBu&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/seaborn_color_palettes/output_16_0.png" /></p>
-<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;YlOrBr&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<div class="codehilite"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;YlOrBr&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/seaborn_color_palettes/output_17_0.png" /></p>
-<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;YlOrRd&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<div class="codehilite"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;YlOrRd&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/seaborn_color_palettes/output_18_0.png" /></p>
-<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;BrBG&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<div class="codehilite"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;BrBG&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/seaborn_color_palettes/output_19_0.png" /></p>
-<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;PiYG&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<div class="codehilite"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;PiYG&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/seaborn_color_palettes/output_20_0.png" /></p>
-<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;PRGn&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<div class="codehilite"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;PRGn&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/seaborn_color_palettes/output_21_0.png" /></p>
-<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;PuOr&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<div class="codehilite"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;PuOr&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/seaborn_color_palettes/output_22_0.png" /></p>
-<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;RdBu&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<div class="codehilite"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;RdBu&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/seaborn_color_palettes/output_23_0.png" /></p>
-<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;RdGy&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<div class="codehilite"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;RdGy&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/seaborn_color_palettes/output_24_0.png" /></p>
-<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;RdYlBu&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<div class="codehilite"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;RdYlBu&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/seaborn_color_palettes/output_25_0.png" /></p>
-<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;RdYlGn&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<div class="codehilite"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;RdYlGn&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/seaborn_color_palettes/output_26_0.png" /></p>
-<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;Spectral&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<div class="codehilite"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;Spectral&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/seaborn_color_palettes/output_27_0.png" /></p>
 <h2>Create a color palette and set it as the current color palette</h2>
-<div class="highlight"><pre><span></span><span class="n">flatui</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;#9b59b6&quot;</span><span class="p">,</span> <span class="s2">&quot;#3498db&quot;</span><span class="p">,</span> <span class="s2">&quot;#95a5a6&quot;</span><span class="p">,</span> <span class="s2">&quot;#e74c3c&quot;</span><span class="p">,</span> <span class="s2">&quot;#34495e&quot;</span><span class="p">,</span> <span class="s2">&quot;#2ecc71&quot;</span><span class="p">]</span>
+<div class="codehilite"><pre><span></span><span class="n">flatui</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;#9b59b6&quot;</span><span class="p">,</span> <span class="s2">&quot;#3498db&quot;</span><span class="p">,</span> <span class="s2">&quot;#95a5a6&quot;</span><span class="p">,</span> <span class="s2">&quot;#e74c3c&quot;</span><span class="p">,</span> <span class="s2">&quot;#34495e&quot;</span><span class="p">,</span> <span class="s2">&quot;#2ecc71&quot;</span><span class="p">]</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set_palette</span><span class="p">(</span><span class="n">flatui</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">palplot</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">())</span>
 </pre></div>
@@ -281,12 +281,12 @@
 
 <p><img alt="png" src="../images/seaborn_color_palettes/output_29_0.png" /></p>
 <h2>Set the color of a plot</h2>
-<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">tsplot</span><span class="p">([</span><span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_1</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_2</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_3</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_4</span><span class="p">,</span>
+<div class="codehilite"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">tsplot</span><span class="p">([</span><span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_1</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_2</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_3</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_4</span><span class="p">,</span>
             <span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_5</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_6</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_7</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#34495e&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x10aa2c650&gt;
+<div class="codehilite"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x10aa2c650&gt;
 </pre></div>
 
 

@@ -134,7 +134,7 @@
 </header>
 
 <p>Original source: the r book</p>
-<div class="highlight"><pre><span></span><span class="c1"># create a dataframe with simulated values</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a dataframe with simulated values</span>
 x <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">1000</span><span class="p">)</span>
 y <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">1000</span><span class="p">)</span>
 z <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">1000</span><span class="p">)</span>
@@ -146,32 +146,32 @@ k <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">1000
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>data <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>x<span class="p">,</span> y<span class="p">,</span> z<span class="p">,</span> a<span class="p">,</span> m<span class="p">,</span> i<span class="p">,</span> j<span class="p">,</span> k<span class="p">)</span>
+<div class="codehilite"><pre><span></span>data <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>x<span class="p">,</span> y<span class="p">,</span> z<span class="p">,</span> a<span class="p">,</span> m<span class="p">,</span> i<span class="p">,</span> j<span class="p">,</span> k<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="kp">rm</span><span class="p">(</span>x<span class="p">,</span> y<span class="p">,</span> z<span class="p">,</span> a<span class="p">,</span> m<span class="p">,</span> i<span class="p">,</span> j<span class="p">,</span> k<span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="kp">rm</span><span class="p">(</span>x<span class="p">,</span> y<span class="p">,</span> z<span class="p">,</span> a<span class="p">,</span> m<span class="p">,</span> i<span class="p">,</span> j<span class="p">,</span> k<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># select all of the columns from row 3 of the dataframe</span>
+<div class="codehilite"><pre><span></span><span class="c1"># select all of the columns from row 3 of the dataframe</span>
 data<span class="p">[</span><span class="m">3</span><span class="p">,]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>          x         y         z         a         m        i         j
+<div class="codehilite"><pre><span></span>          x         y         z         a         m        i         j
 3 0.6313948 0.5873463 0.4276207 0.4490631 0.2161926 0.382726 0.5897734
           k
 3 0.1803608
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># drop the whole of row 4 from the dataframe</span>
+<div class="codehilite"><pre><span></span><span class="c1"># drop the whole of row 4 from the dataframe</span>
 data<span class="p">[</span><span class="m">-4</span><span class="p">,]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>                x            y            z           a            m
+<div class="codehilite"><pre><span></span>                x            y            z           a            m
 1    0.9370949692 0.3904391259 0.2530045395 0.577547544 3.311816e-01
 2    0.8169912936 0.7717700286 0.1949706976 0.431474575 4.468994e-01
 3    0.6313947993 0.5873462579 0.4276207259 0.449063063 2.161926e-01
@@ -2174,12 +2174,12 @@ data<span class="p">[</span><span class="m">-4</span><span class="p">,]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># select all of the columns from rows 1 to 2 of the dataframe</span>
+<div class="codehilite"><pre><span></span><span class="c1"># select all of the columns from rows 1 to 2 of the dataframe</span>
 data<span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>          x         y         z         a         m         i         j
+<div class="codehilite"><pre><span></span>          x         y         z         a         m         i         j
 1 0.9370950 0.3904391 0.2530045 0.5775475 0.3311816 0.9087632 0.5128350
 2 0.8169913 0.7717700 0.1949707 0.4314746 0.4468994 0.5681275 0.7094579
           k
@@ -2188,12 +2188,12 @@ data<span class="p">[</span><span class="m">1</span><span class="o">:</span><spa
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># drop all of the columns from rows 8 to 10 of the dataframe</span>
+<div class="codehilite"><pre><span></span><span class="c1"># drop all of the columns from rows 8 to 10 of the dataframe</span>
 data<span class="p">[</span><span class="o">-</span><span class="p">(</span><span class="m">8</span><span class="o">:</span><span class="m">10</span><span class="p">),]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>                x            y            z           a            m
+<div class="codehilite"><pre><span></span>                x            y            z           a            m
 1    0.9370949692 0.3904391259 0.2530045395 0.577547544 3.311816e-01
 2    0.8169912936 0.7717700286 0.1949706976 0.431474575 4.468994e-01
 3    0.6313947993 0.5873462579 0.4276207259 0.449063063 2.161926e-01
@@ -4192,12 +4192,12 @@ data<span class="p">[</span><span class="o">-</span><span class="p">(</span><spa
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># select all of the columns from rows 5, 11, and 12 of the dataframe</span>
+<div class="codehilite"><pre><span></span><span class="c1"># select all of the columns from rows 5, 11, and 12 of the dataframe</span>
 data<span class="p">[</span><span class="kt">c</span><span class="p">(</span><span class="m">5</span><span class="p">,</span><span class="m">11</span><span class="p">,</span><span class="m">12</span><span class="p">),]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>           x         y         z          a         m         i         j
+<div class="codehilite"><pre><span></span>           x         y         z          a         m         i         j
 5  0.4706880 0.2900230 0.8256190 0.04703202 0.8461648 0.8411586 0.3029567
 11 0.7780771 0.4888598 0.4218451 0.54172635 0.3588103 0.5606056 0.5415306
 12 0.8549661 0.6202295 0.1322223 0.37803832 0.6000676 0.1668717 0.3277201
@@ -4208,12 +4208,12 @@ data<span class="p">[</span><span class="kt">c</span><span class="p">(</span><sp
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># use a logical test (675 &gt; 54) to select all columns from certain rows</span>
+<div class="codehilite"><pre><span></span><span class="c1"># use a logical test (675 &gt; 54) to select all columns from certain rows</span>
 data<span class="p">[</span><span class="m">675</span> <span class="o">&gt;</span> <span class="m">54</span><span class="p">,]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>                x            y            z           a            m
+<div class="codehilite"><pre><span></span>                x            y            z           a            m
 1    0.9370949692 0.3904391259 0.2530045395 0.577547544 3.311816e-01
 2    0.8169912936 0.7717700286 0.1949706976 0.431474575 4.468994e-01
 3    0.6313947993 0.5873462579 0.4276207259 0.449063063 2.161926e-01

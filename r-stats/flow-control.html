@@ -136,21 +136,21 @@
 <p>This is the same as conditional statements.</p>
 <h2>If</h2>
 <p>If always needs a logical statement in its brackets.</p>
-<div class="highlight"><pre><span></span><span class="c1"># If TRUE, say so.</span>
+<div class="codehilite"><pre><span></span><span class="c1"># If TRUE, say so.</span>
 <span class="kr">if</span><span class="p">(</span><span class="kc">TRUE</span><span class="p">)</span> <span class="kp">message</span><span class="p">(</span><span class="s">&quot;This is true.&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>This is true.
+<div class="codehilite"><pre><span></span>This is true.
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># If FALSE, say so.</span>
+<div class="codehilite"><pre><span></span><span class="c1"># If FALSE, say so.</span>
 <span class="kr">if</span><span class="p">(</span><span class="kc">FALSE</span><span class="p">)</span> <span class="kp">message</span><span class="p">(</span><span class="s">&quot;Wrong.&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># If the random number generated is over .5, execute what is inside the top brackets, else execute what is inside the bottom brackets</span>
+<div class="codehilite"><pre><span></span><span class="c1"># If the random number generated is over .5, execute what is inside the top brackets, else execute what is inside the bottom brackets</span>
 <span class="kr">if</span><span class="p">(</span>runif<span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="m">0.5</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="kp">message</span><span class="p">(</span><span class="s">&quot;The number is over .5&quot;</span><span class="p">)</span>
@@ -161,17 +161,17 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>The number is under .5
+<div class="codehilite"><pre><span></span>The number is under .5
 </pre></div>
 
 
 <h2>ELSE IF</h2>
-<div class="highlight"><pre><span></span><span class="c1"># Generate a random number between 0 and 1</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Generate a random number between 0 and 1</span>
 x <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">1</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Execute different message commands depending on the value of the number.</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Execute different message commands depending on the value of the number.</span>
 <span class="kr">if</span><span class="p">(</span>x <span class="o">&gt;</span> <span class="m">0.25</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="kp">message</span><span class="p">(</span><span class="s">&quot;x is greater than 0.25&quot;</span><span class="p">)</span>
@@ -188,23 +188,23 @@ x <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">1</s
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>x is greater than 0.25
+<div class="codehilite"><pre><span></span>x is greater than 0.25
 </pre></div>
 
 
 <h2>IFELSE On Every Element In A Vector</h2>
 <p>IFELSE is for the flow control of entire vectors</p>
-<div class="highlight"><pre><span></span><span class="c1"># Generate 10 random elements between 0 and 1</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Generate 10 random elements between 0 and 1</span>
 y <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">10</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># If an element is above .5, mark as &quot;high&quot;, else, mark as &quot;low&quot;</span>
+<div class="codehilite"><pre><span></span><span class="c1"># If an element is above .5, mark as &quot;high&quot;, else, mark as &quot;low&quot;</span>
 <span class="kp">ifelse</span><span class="p">(</span>y <span class="o">&gt;</span> <span class="m">0.5</span><span class="p">,</span> <span class="s">&quot;High&quot;</span><span class="p">,</span> <span class="s">&quot;Low&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span> [1] &quot;Low&quot;  &quot;Low&quot;  &quot;High&quot; &quot;Low&quot;  &quot;Low&quot;  &quot;High&quot; &quot;Low&quot;  &quot;Low&quot;  &quot;Low&quot;  &quot;High&quot;
+<div class="codehilite"><pre><span></span> [1] &quot;Low&quot;  &quot;Low&quot;  &quot;High&quot; &quot;Low&quot;  &quot;Low&quot;  &quot;High&quot; &quot;Low&quot;  &quot;Low&quot;  &quot;Low&quot;  &quot;High&quot;
 </pre></div>
     <aside>
     <div class="bug-reporting__panel">

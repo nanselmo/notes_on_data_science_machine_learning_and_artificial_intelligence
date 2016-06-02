@@ -134,12 +134,12 @@
 </header>
 
 <p>Original source: The R Book</p>
-<div class="highlight"><pre><span></span><span class="c1"># create a matrix of simulated count data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a matrix of simulated count data</span>
 counts <span class="o">&lt;-</span> <span class="kt">matrix</span><span class="p">(</span><span class="kp">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">,</span> <span class="m">20</span><span class="p">,</span> replace<span class="o">=</span><span class="bp">T</span><span class="p">),</span> nrow<span class="o">=</span><span class="m">4</span><span class="p">);</span> counts
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>     [,1] [,2] [,3] [,4] [,5]
+<div class="codehilite"><pre><span></span>     [,1] [,2] [,3] [,4] [,5]
 [1,]   77   79   14   94    7
 [2,]  100   54   86   28   60
 [3,]   38   99   77   84   81
@@ -147,12 +147,12 @@ counts <span class="o">&lt;-</span> <span class="kt">matrix</span><span class="p
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># calculate each cell&#39;s proportion of the entire row&#39;s total counts</span>
+<div class="codehilite"><pre><span></span><span class="c1"># calculate each cell&#39;s proportion of the entire row&#39;s total counts</span>
 <span class="kp">prop.table</span><span class="p">(</span>counts<span class="p">,</span><span class="m">1</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>          [,1]      [,2]       [,3]       [,4]       [,5]
+<div class="codehilite"><pre><span></span>          [,1]      [,2]       [,3]       [,4]       [,5]
 [1,] 0.2841328 0.2915129 0.05166052 0.34686347 0.02583026
 [2,] 0.3048780 0.1646341 0.26219512 0.08536585 0.18292683
 [3,] 0.1002639 0.2612137 0.20316623 0.22163588 0.21372032
@@ -160,12 +160,12 @@ counts <span class="o">&lt;-</span> <span class="kt">matrix</span><span class="p
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># calculate each cell&#39;s proportion of the entire columns&#39;s total counts</span>
+<div class="codehilite"><pre><span></span><span class="c1"># calculate each cell&#39;s proportion of the entire columns&#39;s total counts</span>
 <span class="kp">prop.table</span><span class="p">(</span>counts<span class="p">,</span><span class="m">2</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>          [,1]      [,2]       [,3]       [,4]       [,5]
+<div class="codehilite"><pre><span></span>          [,1]      [,2]       [,3]       [,4]       [,5]
 [1,] 0.2655172 0.2430769 0.07142857 0.41409692 0.03743316
 [2,] 0.3448276 0.1661538 0.43877551 0.12334802 0.32085561
 [3,] 0.1310345 0.3046154 0.39285714 0.37004405 0.43315508

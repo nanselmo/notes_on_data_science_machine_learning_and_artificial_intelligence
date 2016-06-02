@@ -133,7 +133,7 @@
 </ol>
 </header>
 
-<div class="highlight"><pre><span></span><span class="c1"># create list object of fake data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create list object of fake data</span>
 names <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;John&quot;</span><span class="p">,</span> <span class="s">&quot;Jack&quot;</span><span class="p">,</span> <span class="s">&quot;John&quot;</span><span class="p">,</span> <span class="s">&quot;Jack&quot;</span><span class="p">,</span> <span class="s">&quot;Jack&quot;</span><span class="p">)</span>
 numbers <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">3434</span><span class="p">,</span> <span class="m">4352</span><span class="p">,</span> <span class="m">3452</span><span class="p">,</span> <span class="m">3452</span><span class="p">,</span> <span class="m">2345</span><span class="p">)</span>
 numbers2 <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">3434</span><span class="p">,</span> <span class="m">4352</span><span class="p">,</span> <span class="m">3452</span><span class="p">,</span> <span class="m">3452</span><span class="p">,</span> <span class="m">2345</span><span class="p">)</span>
@@ -143,29 +143,29 @@ data.list.numbers <span class="o">&lt;-</span> <span class="kt">list</span><span
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># apply (via list apply) the unique() function to every element in the list</span>
+<div class="codehilite"><pre><span></span><span class="c1"># apply (via list apply) the unique() function to every element in the list</span>
 <span class="kp">lapply</span><span class="p">(</span>data.list<span class="p">,</span> <span class="kp">unique</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="k">[[1]]</span>
-<span class="err">[1]</span> <span class="err">&quot;John&quot;</span> <span class="err">&quot;Jack&quot;</span>
+<div class="codehilite"><pre><span></span>[[1]]
+[1] &quot;John&quot; &quot;Jack&quot;
 
-<span class="k">[[2]]</span>
-<span class="err">[1]</span> <span class="err">3434</span> <span class="err">4352</span> <span class="err">3452</span> <span class="err">2345</span>
+[[2]]
+[1] 3434 4352 3452 2345
 
-<span class="k">[[3]]</span>
-<span class="err">[1]</span>  <span class="err">TRUE</span> <span class="err">FALSE</span>
+[[3]]
+[1]  TRUE FALSE
 </pre></div>
 
 
 <h2>vapply is like lapply, but it returns a vector</h2>
-<div class="highlight"><pre><span></span><span class="c1"># apply (via list apply) the unique() function to every element in the list</span>
+<div class="codehilite"><pre><span></span><span class="c1"># apply (via list apply) the unique() function to every element in the list</span>
 <span class="kp">vapply</span><span class="p">(</span>data.list.numbers<span class="p">,</span> <span class="kp">unique</span><span class="p">,</span> <span class="kt">numeric</span><span class="p">(</span><span class="m">4</span><span class="p">))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>     [,1] [,2]
+<div class="codehilite"><pre><span></span>     [,1] [,2]
 [1,] 3434 3434
 [2,] 4352 4352
 [3,] 3452 3452

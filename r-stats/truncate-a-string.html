@@ -134,18 +134,18 @@
 </header>
 
 <p>Source: http://www.r-bloggers.com/truncate-by-delimiter-in-r/</p>
-<div class="highlight"><pre><span></span><span class="c1"># create some simulated data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create some simulated data</span>
 patients <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>
   uid <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">,</span>
   fullname <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;Smith/John&quot;</span><span class="p">,</span> <span class="s">&quot;Jackson/Smith&quot;</span><span class="p">,</span> <span class="s">&quot;Joel/Billy&quot;</span><span class="p">))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>patients<span class="o">$</span>lastname <span class="o">&lt;-</span> <span class="kp">sub</span><span class="p">(</span><span class="s">&quot;/.*&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">,</span> patients<span class="o">$</span>fullname<span class="p">);</span> patients<span class="o">$</span>lastname
+<div class="codehilite"><pre><span></span>patients<span class="o">$</span>lastname <span class="o">&lt;-</span> <span class="kp">sub</span><span class="p">(</span><span class="s">&quot;/.*&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">,</span> patients<span class="o">$</span>fullname<span class="p">);</span> patients<span class="o">$</span>lastname
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] &quot;Smith&quot;   &quot;Jackson&quot; &quot;Joel&quot;
+<div class="codehilite"><pre><span></span>[1] &quot;Smith&quot;   &quot;Jackson&quot; &quot;Joel&quot;
 </pre></div>
     <aside>
     <div class="bug-reporting__panel">

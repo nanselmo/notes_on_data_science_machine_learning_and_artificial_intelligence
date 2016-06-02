@@ -134,7 +134,7 @@
 </header>
 
 <p>Original source: http://rforpublichealth.blogspot.com/2013/11/ggplot2-cheatsheet-for-scatterplots.html</p>
-<div class="highlight"><pre><span></span><span class="c1"># load the ggplot2 package</span>
+<div class="codehilite"><pre><span></span><span class="c1"># load the ggplot2 package</span>
 <span class="kn">library</span><span class="p">(</span>ggplot2<span class="p">)</span>
 
 <span class="c1"># load the gridExtra package</span>
@@ -142,50 +142,50 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># load the mt cars dataset</span>
+<div class="codehilite"><pre><span></span><span class="c1"># load the mt cars dataset</span>
 mtc <span class="o">&lt;-</span> mtcars
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a basic scatterplot base layer, p1</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a basic scatterplot base layer, p1</span>
 p1 <span class="o">&lt;-</span> ggplot<span class="p">(</span>mtc<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> hp<span class="p">,</span> y <span class="o">=</span> mpg<span class="p">))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># print the scatter plot with points</span>
+<div class="codehilite"><pre><span></span><span class="c1"># print the scatter plot with points</span>
 p1 <span class="o">+</span> geom_point<span class="p">()</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/scatterplots-ggplot2_files/scatterplots-ggplot2_4_1.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># print the scatter plot is red points</span>
+<div class="codehilite"><pre><span></span><span class="c1"># print the scatter plot is red points</span>
 p2 <span class="o">&lt;-</span> p1 <span class="o">+</span> geom_point<span class="p">(</span>color<span class="o">=</span><span class="s">&quot;red&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># print the scatter plot with point colors determined by a continuous variable</span>
+<div class="codehilite"><pre><span></span><span class="c1"># print the scatter plot with point colors determined by a continuous variable</span>
 p3 <span class="o">&lt;-</span> p1 <span class="o">+</span> geom_point<span class="p">(</span>aes<span class="p">(</span>color <span class="o">=</span> wt<span class="p">))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># print the scatter plot with point colors determined by a factor variable</span>
+<div class="codehilite"><pre><span></span><span class="c1"># print the scatter plot with point colors determined by a factor variable</span>
 p4 <span class="o">&lt;-</span> p1 <span class="o">+</span> geom_point<span class="p">(</span>aes<span class="p">(</span>color<span class="o">=</span><span class="kp">factor</span><span class="p">(</span>am<span class="p">)))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># print the scatter plot with point with custom colors for a factor variable</span>
+<div class="codehilite"><pre><span></span><span class="c1"># print the scatter plot with point with custom colors for a factor variable</span>
 p1 <span class="o">+</span> geom_point<span class="p">(</span>aes<span class="p">(</span>color<span class="o">=</span><span class="kp">factor</span><span class="p">(</span>am<span class="p">)))</span> <span class="o">+</span> scale_color_manual<span class="p">(</span>values <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;orange&quot;</span><span class="p">,</span> <span class="s">&quot;purple&quot;</span><span class="p">))</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/scatterplots-ggplot2_files/scatterplots-ggplot2_8_1.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># print scatterplots p2, p3, and p4 in a single row</span>
+<div class="codehilite"><pre><span></span><span class="c1"># print scatterplots p2, p3, and p4 in a single row</span>
 grid.arrange<span class="p">(</span>p2<span class="p">,</span> p3<span class="p">,</span> p4<span class="p">,</span> nrow<span class="o">=</span><span class="m">1</span><span class="p">)</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/scatterplots-ggplot2_files/scatterplots-ggplot2_9_0.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># create a scatter plot, p2, with large point sizes</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a scatter plot, p2, with large point sizes</span>
 p2 <span class="o">&lt;-</span> p1 <span class="o">+</span> geom_point<span class="p">(</span>size <span class="o">=</span> <span class="m">5</span><span class="p">)</span>      
 
 <span class="c1"># print the scatter plot with large point sizes</span>
@@ -194,7 +194,7 @@ p2 <span class="o">+</span> geom_point<span class="p">(</span>size <span class="
 
 
 <p><img alt="png" src="../images/scatterplots-ggplot2_files/scatterplots-ggplot2_10_1.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># create a scatter plot, p3, with large point sizes</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a scatter plot, p3, with large point sizes</span>
 p3 <span class="o">&lt;-</span> p1 <span class="o">+</span> geom_point<span class="p">(</span>aes<span class="p">(</span>size <span class="o">=</span> wt<span class="p">))</span>
 
 <span class="c1"># print the scatter plot with point sizes determined by a continous variable</span>
@@ -203,7 +203,7 @@ p3 <span class="o">+</span> geom_point<span class="p">(</span>aes<span class="p"
 
 
 <p><img alt="png" src="../images/scatterplots-ggplot2_files/scatterplots-ggplot2_11_1.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># create a scatter plot, p4, with large point sizes</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a scatter plot, p4, with large point sizes</span>
 p4 <span class="o">&lt;-</span> p1 <span class="o">+</span> geom_point<span class="p">(</span>aes<span class="p">(</span>shape <span class="o">=</span> <span class="kp">factor</span><span class="p">(</span>am<span class="p">)))</span>
 
 <span class="c1"># print the scatter plot with point shape determined by a factor variable</span>
@@ -212,13 +212,13 @@ p4 <span class="o">+</span> geom_point<span class="p">(</span>aes<span class="p"
 
 
 <p><img alt="png" src="../images/scatterplots-ggplot2_files/scatterplots-ggplot2_12_1.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># print scatterplots p2, p3, and p4 in a single row</span>
+<div class="codehilite"><pre><span></span><span class="c1"># print scatterplots p2, p3, and p4 in a single row</span>
 grid.arrange<span class="p">(</span>p2<span class="p">,</span> p3<span class="p">,</span> p4<span class="p">,</span> nrow<span class="o">=</span><span class="m">1</span><span class="p">)</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/scatterplots-ggplot2_files/scatterplots-ggplot2_13_0.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># create a scatter plot with blue points, connected by a line</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a scatter plot with blue points, connected by a line</span>
 p2 <span class="o">&lt;-</span> p1 <span class="o">+</span> geom_point<span class="p">(</span>color<span class="o">=</span><span class="s">&quot;blue&quot;</span><span class="p">)</span> <span class="o">+</span> geom_line<span class="p">()</span>
 
 <span class="c1"># create a scatter plot with red points, and a regression line</span>
@@ -233,36 +233,36 @@ grid.arrange<span class="p">(</span>p2<span class="p">,</span> p3<span class="p"
 
 
 <p><img alt="png" src="../images/scatterplots-ggplot2_files/scatterplots-ggplot2_14_0.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># print scatterplot with no points, just a line, colored by a factor</span>
+<div class="codehilite"><pre><span></span><span class="c1"># print scatterplot with no points, just a line, colored by a factor</span>
 ggplot<span class="p">(</span>mtc<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> wt<span class="p">,</span> y <span class="o">=</span> qsec<span class="p">))</span> <span class="o">+</span> geom_line<span class="p">(</span>size<span class="o">=</span><span class="m">2</span><span class="p">,</span> aes<span class="p">(</span>color<span class="o">=</span><span class="kp">factor</span><span class="p">(</span>vs<span class="p">)))</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/scatterplots-ggplot2_files/scatterplots-ggplot2_15_1.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># create a scatter plot of hp and mpg</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a scatter plot of hp and mpg</span>
 p2 <span class="o">&lt;-</span> ggplot<span class="p">(</span>mtc<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> hp<span class="p">,</span> y <span class="o">=</span> mpg<span class="p">))</span> <span class="o">+</span> geom_point<span class="p">()</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a scatter plot with x and y labels</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a scatter plot with x and y labels</span>
 p2 <span class="o">+</span> labs<span class="p">(</span>x<span class="o">=</span><span class="s">&quot;Horsepower&quot;</span><span class="p">,</span> y <span class="o">=</span> <span class="s">&quot;Miles per Gallon&quot;</span><span class="p">)</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/scatterplots-ggplot2_files/scatterplots-ggplot2_17_1.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># create a scatter plot with a bold, large x label</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a scatter plot with a bold, large x label</span>
 p2 <span class="o">+</span> theme<span class="p">(</span>axis.title.x <span class="o">=</span> element_text<span class="p">(</span>face<span class="o">=</span><span class="s">&quot;bold&quot;</span><span class="p">,</span> size<span class="o">=</span><span class="m">20</span><span class="p">))</span> <span class="o">+</span> labs<span class="p">(</span>x<span class="o">=</span><span class="s">&quot;Horsepower&quot;</span><span class="p">)</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/scatterplots-ggplot2_files/scatterplots-ggplot2_18_1.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># print a scatter plot with a longer x axis (limits at 0 and 400) and more vertical lines (breaks start a 0, end at 400, draw a line every 50)</span>
+<div class="codehilite"><pre><span></span><span class="c1"># print a scatter plot with a longer x axis (limits at 0 and 400) and more vertical lines (breaks start a 0, end at 400, draw a line every 50)</span>
 p2 <span class="o">+</span> scale_x_continuous<span class="p">(</span><span class="s">&quot;Horsepower&quot;</span><span class="p">,</span> limits<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">400</span><span class="p">),</span> breaks<span class="o">=</span><span class="kp">seq</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">400</span><span class="p">,</span> <span class="m">50</span><span class="p">))</span>                    
 </pre></div>
 
 
 <p><img alt="png" src="../images/scatterplots-ggplot2_files/scatterplots-ggplot2_19_1.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># create a scatter plot of points with the color determined by wt</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a scatter plot of points with the color determined by wt</span>
 g5 <span class="o">&lt;-</span> ggplot<span class="p">(</span>mtc<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> hp<span class="p">,</span> y <span class="o">=</span> mpg<span class="p">))</span> <span class="o">+</span> geom_point<span class="p">(</span>size<span class="o">=</span><span class="m">2</span><span class="p">,</span> aes<span class="p">(</span>color <span class="o">=</span> wt<span class="p">))</span>
 
 <span class="c1"># print a scatterplot with a legend titled &quot;Weight, with the legend color determined by the min, max, and mean of a continous variable (wt), with the labels on the being Light, Medium, and Heavy, and the gradient goes between red and pink</span>
@@ -275,7 +275,7 @@ g5 <span class="o">+</span> scale_color_continuous<span class="p">(</span>name<s
 
 
 <p><img alt="png" src="../images/scatterplots-ggplot2_files/scatterplots-ggplot2_20_1.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># create a scatterplot</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a scatterplot</span>
 g2 <span class="o">&lt;-</span> ggplot<span class="p">(</span>mtc<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> hp<span class="p">,</span> y <span class="o">=</span> mpg<span class="p">))</span> <span class="o">+</span> geom_point<span class="p">()</span>
 
 <span class="c1"># create a theme with no lines, a white background, and only axis lines</span>
@@ -310,7 +310,7 @@ grid.arrange<span class="p">(</span>g2<span class="p">,</span> g3<span class="p"
 
 
 <p><img alt="png" src="../images/scatterplots-ggplot2_files/scatterplots-ggplot2_21_0.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># create a scatter plot (notes inline)</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a scatter plot (notes inline)</span>
 g2 <span class="o">&lt;-</span> ggplot<span class="p">(</span>mtc<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> hp<span class="p">,</span> y <span class="o">=</span> mpg<span class="p">))</span> <span class="o">+</span>
   <span class="c1"># create points with size two, and the color and scape determined by a factor variable</span>
   geom_point<span class="p">(</span>size<span class="o">=</span><span class="m">2</span><span class="p">,</span> aes<span class="p">(</span>color<span class="o">=</span><span class="kp">factor</span><span class="p">(</span>vs<span class="p">),</span> shape<span class="o">=</span><span class="kp">factor</span><span class="p">(</span>vs<span class="p">)))</span> <span class="o">+</span>

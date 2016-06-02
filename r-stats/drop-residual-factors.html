@@ -134,37 +134,37 @@
 </header>
 
 <h2>create the problem</h2>
-<div class="highlight"><pre><span></span><span class="c1"># create a dataframe with a factor variable (state names)</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a dataframe with a factor variable (state names)</span>
 df <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>states <span class="o">=</span> state.name<span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">],</span> score<span class="o">=</span><span class="kp">seq</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># drop two of the observations</span>
+<div class="codehilite"><pre><span></span><span class="c1"># drop two of the observations</span>
 subdf <span class="o">&lt;-</span> <span class="kp">subset</span><span class="p">(</span>df<span class="p">,</span> score <span class="o">&lt;=</span> <span class="m">3</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># however, all the factors remain</span>
+<div class="codehilite"><pre><span></span><span class="c1"># however, all the factors remain</span>
 <span class="kp">levels</span><span class="p">(</span>subdf<span class="o">$</span>states<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] &quot;Alabama&quot;    &quot;Alaska&quot;     &quot;Arizona&quot;    &quot;Arkansas&quot;   &quot;California&quot;
+<div class="codehilite"><pre><span></span>[1] &quot;Alabama&quot;    &quot;Alaska&quot;     &quot;Arizona&quot;    &quot;Arkansas&quot;   &quot;California&quot;
 </pre></div>
 
 
 <h2>the solution</h2>
-<div class="highlight"><pre><span></span><span class="c1"># run factor() to remake the factors correctly</span>
+<div class="codehilite"><pre><span></span><span class="c1"># run factor() to remake the factors correctly</span>
 subdf<span class="o">$</span>states <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</span>subdf<span class="o">$</span>states<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># check to see it is correct</span>
+<div class="codehilite"><pre><span></span><span class="c1"># check to see it is correct</span>
 <span class="kp">levels</span><span class="p">(</span>subdf<span class="o">$</span>states<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] &quot;Alabama&quot; &quot;Alaska&quot;  &quot;Arizona&quot;
+<div class="codehilite"><pre><span></span>[1] &quot;Alabama&quot; &quot;Alaska&quot;  &quot;Arizona&quot;
 </pre></div>
     <aside>
     <div class="bug-reporting__panel">

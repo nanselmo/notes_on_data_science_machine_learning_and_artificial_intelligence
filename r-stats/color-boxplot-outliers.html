@@ -134,12 +134,12 @@
 </header>
 
 <p>original source: http://stackoverflow.com/questions/8499378/ggplot2-boxplot-how-do-i-match-the-outliers-color-to-fill-aesthetics</p>
-<div class="highlight"><pre><span></span><span class="c1"># load the ggplot2 package</span>
+<div class="codehilite"><pre><span></span><span class="c1"># load the ggplot2 package</span>
 <span class="kn">library</span><span class="p">(</span>ggplot2<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create the ggplot2 data with color determined by Animation</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create the ggplot2 data with color determined by Animation</span>
 m <span class="o">&lt;-</span> ggplot<span class="p">(</span>movies<span class="p">,</span> aes<span class="p">(</span>y <span class="o">=</span> votes<span class="p">,</span> x <span class="o">=</span> <span class="kp">factor</span><span class="p">(</span><span class="kp">round</span><span class="p">(</span>rating<span class="p">)),</span> colour <span class="o">=</span> <span class="kp">factor</span><span class="p">(</span>Animation<span class="p">)))</span> <span class="o">+</span>
   <span class="c1"># draw a boxplot without standard boxplot colors</span>
   geom_boxplot<span class="p">(</span>outlier.colour <span class="o">=</span> <span class="kc">NULL</span><span class="p">)</span> <span class="o">+</span>
@@ -148,7 +148,7 @@ m <span class="o">&lt;-</span> ggplot<span class="p">(</span>movies<span class="
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>m
+<div class="codehilite"><pre><span></span>m
 </pre></div>
 
 

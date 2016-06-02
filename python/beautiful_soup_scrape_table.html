@@ -133,7 +133,7 @@
 </ol>
 </header>
 
-<div class="highlight"><pre><span></span><span class="c1"># Import required modules</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Import required modules</span>
 <span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
@@ -141,7 +141,7 @@
 
 
 <h3>Create a dataframe. We will scrape iPython's HTML table output</h3>
-<div class="highlight"><pre><span></span><span class="c1"># Create a values as dictionary of lists</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a values as dictionary of lists</span>
 <span class="n">raw_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;first_name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Jason&#39;</span><span class="p">,</span> <span class="s1">&#39;Molly&#39;</span><span class="p">,</span> <span class="s1">&#39;Tina&#39;</span><span class="p">,</span> <span class="s1">&#39;Jake&#39;</span><span class="p">,</span> <span class="s1">&#39;Amy&#39;</span><span class="p">],</span>
         <span class="s1">&#39;last_name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Miller&#39;</span><span class="p">,</span> <span class="s1">&#39;Jacobson&#39;</span><span class="p">,</span> <span class="s1">&#39;Ali&#39;</span><span class="p">,</span> <span class="s1">&#39;Milner&#39;</span><span class="p">,</span> <span class="s1">&#39;Cooze&#39;</span><span class="p">],</span>
         <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">42</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">73</span><span class="p">],</span>
@@ -214,7 +214,7 @@
 </div>
 
 <h3>Download the HTML and create a Beautiful Soup object</h3>
-<div class="highlight"><pre><span></span><span class="c1"># Create a variable with the URL to this tutorial</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a variable with the URL to this tutorial</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://nbviewer.ipython.org/github/chrisalbon/code_py/blob/master/beautiful_soup_scrape_table.ipynb&#39;</span>
 
 <span class="c1"># Scrape the HTML at the url</span>
@@ -226,7 +226,7 @@
 
 
 <h3>Parse the Beautiful Soup object</h3>
-<div class="highlight"><pre><span></span><span class="c1"># Create four variables to score the scraped data in</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create four variables to score the scraped data in</span>
 <span class="n">first_name</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">last_name</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">age</span> <span class="o">=</span> <span class="p">[]</span>
@@ -274,7 +274,7 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># View the dataframe</span>
+<div class="codehilite"><pre><span></span><span class="c1"># View the dataframe</span>
 <span class="n">df</span>
 </pre></div>
 

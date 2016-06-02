@@ -135,17 +135,17 @@
 
 <p>One simple test for normality is a quantile-quantile plot. It plots the sample's quantiles against a set of quantiles taken from a normal distribution.</p>
 <p>If the points follow the line drawn, they are roughly normally distributed. If the points create a S-shape or other shape, they are not normally distributed</p>
-<div class="highlight"><pre><span></span><span class="c1"># create simulated data that is not normal</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create simulated data that is not normal</span>
 y <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">1000</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create simulated data that is normal</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create simulated data that is normal</span>
 y.norm <span class="o">&lt;-</span> rnorm<span class="p">(</span><span class="m">1000</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a qq-plot for the non-normal data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a qq-plot for the non-normal data</span>
 qqnorm<span class="p">(</span>y<span class="p">)</span>
 qqline<span class="p">(</span>y<span class="p">,</span>lty<span class="o">=</span><span class="m">2</span><span class="p">)</span>
 </pre></div>
@@ -153,7 +153,7 @@ qqline<span class="p">(</span>y<span class="p">,</span>lty<span class="o">=</spa
 
 <p><img alt="png" src="../images/normality-test_files/normality-test_3_0.png" /></p>
 <p><img alt="png" src="../images/normality-test_files/normality-test_3_1.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># create a qq-plot for the normal data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a qq-plot for the normal data</span>
 qqnorm<span class="p">(</span>y.norm<span class="p">)</span>
 qqline<span class="p">(</span>y.norm<span class="p">,</span>lty<span class="o">=</span><span class="m">2</span><span class="p">)</span>
 </pre></div>
@@ -163,24 +163,24 @@ qqline<span class="p">(</span>y.norm<span class="p">,</span>lty<span class="o">=
 <p><img alt="png" src="../images/normality-test_files/normality-test_4_1.png" /></p>
 <h2>Shapiro test</h2>
 <p>The null hypothesis is that the data is normally distributed. We want a large p-value, meaning that we cannot reject the null hypothesis (that the data is normally distributed)</p>
-<div class="highlight"><pre><span></span><span class="c1"># shapiro test on non-normal data (results show that we can reject the null that the data is normally distributed)</span>
+<div class="codehilite"><pre><span></span><span class="c1"># shapiro test on non-normal data (results show that we can reject the null that the data is normally distributed)</span>
 shapiro.test<span class="p">(</span>y<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>    Shapiro-Wilk normality test
+<div class="codehilite"><pre><span></span>    Shapiro-Wilk normality test
 
 data:  y
 W = 0.9538, p-value &lt; 2.2e-16
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># shapiro test on normal data (results show that we cannot reject the null hypothesis that the data is normally distributed)</span>
+<div class="codehilite"><pre><span></span><span class="c1"># shapiro test on normal data (results show that we cannot reject the null hypothesis that the data is normally distributed)</span>
 shapiro.test<span class="p">(</span>y.norm<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>    Shapiro-Wilk normality test
+<div class="codehilite"><pre><span></span>    Shapiro-Wilk normality test
 
 data:  y.norm
 W = 0.9981, p-value = 0.3256

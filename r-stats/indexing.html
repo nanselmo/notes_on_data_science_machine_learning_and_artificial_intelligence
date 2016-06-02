@@ -135,56 +135,56 @@
 
 <p><strong> How indexing is formatted:</strong></p>
 <p><code>variable[ row(s), column(s) ]</code></p>
-<div class="highlight"><pre><span></span><span class="c1"># Create a variables of five elements</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a variables of five elements</span>
 x <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">9</span><span class="p">,</span> <span class="m">16</span><span class="p">,</span> <span class="m">25</span><span class="p">)</span>
 y <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">36</span><span class="p">,</span> <span class="m">24</span><span class="p">)</span>
 m <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>x<span class="p">,</span> y<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Select the first, third, and fifth elements</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Select the first, third, and fifth elements</span>
 x<span class="p">[</span><span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">5</span><span class="p">)]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1]  1  9 25
+<div class="codehilite"><pre><span></span>[1]  1  9 25
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Select of all EXCEPT the second and fourth elements</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Select of all EXCEPT the second and fourth elements</span>
 x<span class="p">[</span><span class="kt">c</span><span class="p">(</span><span class="m">-2</span><span class="p">,</span> <span class="m">-4</span><span class="p">)]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1]  1  9 25
+<div class="codehilite"><pre><span></span>[1]  1  9 25
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Select of all EXCEPT the second and fourth elements</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Select of all EXCEPT the second and fourth elements</span>
 x<span class="p">[</span><span class="kt">c</span><span class="p">(</span><span class="kc">TRUE</span><span class="p">,</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="kc">TRUE</span><span class="p">,</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="kc">TRUE</span><span class="p">)]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1]  1  9 25
+<div class="codehilite"><pre><span></span>[1]  1  9 25
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Select the entire first row of a matrix, array, or dataframe</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Select the entire first row of a matrix, array, or dataframe</span>
 m<span class="p">[</span><span class="m">1</span><span class="p">,</span> <span class="p">]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>  x y
+<div class="codehilite"><pre><span></span>  x y
 1 1 1
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Select an the entire first column of a matrix, array, or dataframe</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Select an the entire first column of a matrix, array, or dataframe</span>
 m<span class="p">[,</span> <span class="m">1</span><span class="p">]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1]  1  4  9 16 25
+<div class="codehilite"><pre><span></span>[1]  1  4  9 16 25
 </pre></div>
     <aside>
     <div class="bug-reporting__panel">

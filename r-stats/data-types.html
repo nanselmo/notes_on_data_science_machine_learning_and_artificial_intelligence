@@ -135,35 +135,35 @@
 
 <h2>Vectors</h2>
 <h3>Vectors could best be described as rows of information.</h3>
-<div class="highlight"><pre><span></span><span class="c1">### Create a row containing five values</span>
+<div class="codehilite"><pre><span></span><span class="c1">### Create a row containing five values</span>
 x <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">5</span><span class="p">)</span>
 </pre></div>
 
 
 <h2>Factors</h2>
 <h3>Factors are best thought about as categories, and each individual category is represented by a name and a numerical identifying value.</h3>
-<div class="highlight"><pre><span></span><span class="c1">### Create a factor that represents a variable with three categories</span>
+<div class="codehilite"><pre><span></span><span class="c1">### Create a factor that represents a variable with three categories</span>
 y <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;yes&quot;</span><span class="p">,</span> <span class="s">&quot;no&quot;</span><span class="p">,</span> <span class="s">&quot;maybe&quot;</span><span class="p">))</span>
 </pre></div>
 
 
 <h2>Matrix</h2>
 <h3>A matrix is a great of numbers, but no text strings</h3>
-<div class="highlight"><pre><span></span><span class="c1">### Create a matrix of some data</span>
+<div class="codehilite"><pre><span></span><span class="c1">### Create a matrix of some data</span>
 k <span class="o">&lt;-</span> <span class="kt">matrix</span><span class="p">(</span>data <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="m">15</span><span class="p">,</span> nrow <span class="o">=</span> <span class="m">5</span><span class="p">,</span> ncol <span class="o">=</span> <span class="m">5</span><span class="p">,</span> byrow <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
 </pre></div>
 
 
 <h2>Arrays</h2>
 <h3>An array is like a matrix, but in 3D (like a time series)</h3>
-<div class="highlight"><pre><span></span><span class="c1">### Create an array</span>
+<div class="codehilite"><pre><span></span><span class="c1">### Create an array</span>
 z <span class="o">&lt;-</span> <span class="kt">array</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">27</span><span class="p">,</span>dim<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">3</span><span class="p">))</span>
 </pre></div>
 
 
 <h2>Lists</h2>
 <h3>A list is a list of R objects, any objects</h3>
-<div class="highlight"><pre><span></span><span class="c1">### Create variables of three different data types</span>
+<div class="codehilite"><pre><span></span><span class="c1">### Create variables of three different data types</span>
 f <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">)</span>
 j <span class="o">&lt;-</span> <span class="kc">FALSE</span>
 u <span class="o">&lt;-</span> <span class="kt">matrix</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">),</span>nrow<span class="o">=</span><span class="m">2</span><span class="p">,</span>ncol<span class="o">=</span><span class="m">2</span><span class="p">)</span>
@@ -175,7 +175,7 @@ m <span class="o">&lt;-</span> <span class="kt">list</span><span class="p">(</sp
 
 <h2>Dataframes</h2>
 <h3>Data frames are like excel spreadsheets, all types of data in a big grid</h3>
-<div class="highlight"><pre><span></span>s <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">5</span>
+<div class="codehilite"><pre><span></span>s <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">5</span>
 d <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="bp">T</span><span class="p">,</span><span class="bp">T</span><span class="p">,</span><span class="bp">F</span><span class="p">,</span><span class="bp">F</span><span class="p">,</span><span class="bp">T</span><span class="p">)</span>
 df <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>s<span class="p">,</span>d<span class="p">)</span>
 </pre></div>

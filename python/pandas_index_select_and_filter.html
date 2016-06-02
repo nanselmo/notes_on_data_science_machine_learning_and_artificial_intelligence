@@ -134,12 +134,12 @@
 </header>
 
 <h3>Import modules</h3>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 </pre></div>
 
 
 <h3>Create a dataframe</h3>
-<div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Jason&#39;</span><span class="p">,</span> <span class="s1">&#39;Molly&#39;</span><span class="p">,</span> <span class="s1">&#39;Tina&#39;</span><span class="p">,</span> <span class="s1">&#39;Jake&#39;</span><span class="p">,</span> <span class="s1">&#39;Amy&#39;</span><span class="p">],</span>
+<div class="codehilite"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Jason&#39;</span><span class="p">,</span> <span class="s1">&#39;Molly&#39;</span><span class="p">,</span> <span class="s1">&#39;Tina&#39;</span><span class="p">,</span> <span class="s1">&#39;Jake&#39;</span><span class="p">,</span> <span class="s1">&#39;Amy&#39;</span><span class="p">],</span>
         <span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">2012</span><span class="p">,</span> <span class="mi">2013</span><span class="p">,</span> <span class="mi">2014</span><span class="p">,</span> <span class="mi">2014</span><span class="p">],</span>
         <span class="s1">&#39;reports&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
         <span class="s1">&#39;coverage&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">94</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">70</span><span class="p">]}</span>
@@ -201,11 +201,11 @@
 </div>
 
 <h3>View a column of the dataframe</h3>
-<div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>Cochice       Jason
+<div class="codehilite"><pre><span></span>Cochice       Jason
 Pima          Molly
 Santa Cruz     Tina
 Maricopa       Jake
@@ -215,7 +215,7 @@ Name: name, dtype: object
 
 
 <h3>View two columns of the dataframe</h3>
-<div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;reports&#39;</span><span class="p">]]</span>
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;reports&#39;</span><span class="p">]]</span>
 </pre></div>
 
 
@@ -260,7 +260,7 @@ Name: name, dtype: object
 </div>
 
 <h3>View the first two rows of the dataframe</h3>
-<div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 
 
@@ -296,7 +296,7 @@ Name: name, dtype: object
 </div>
 
 <h3>View all rows where coverage is more than 50</h3>
-<div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;coverage&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">]</span>
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;coverage&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">]</span>
 </pre></div>
 
 
@@ -346,11 +346,11 @@ Name: name, dtype: object
 </div>
 
 <h3>View a row</h3>
-<div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="s1">&#39;Maricopa&#39;</span><span class="p">]</span>
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="s1">&#39;Maricopa&#39;</span><span class="p">]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>coverage      62
+<div class="codehilite"><pre><span></span>coverage      62
 name        Jake
 reports        2
 year        2014
@@ -359,11 +359,11 @@ Name: Maricopa, dtype: object
 
 
 <h3>View a column</h3>
-<div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">ix</span><span class="p">[:,</span> <span class="s1">&#39;coverage&#39;</span><span class="p">]</span>
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">ix</span><span class="p">[:,</span> <span class="s1">&#39;coverage&#39;</span><span class="p">]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>Cochice       25
+<div class="codehilite"><pre><span></span>Cochice       25
 Pima          94
 Santa Cruz    57
 Maricopa      62
@@ -373,11 +373,11 @@ Name: coverage, dtype: int64
 
 
 <h3>View the value based on a row and column</h3>
-<div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="s1">&#39;Yuma&#39;</span><span class="p">,</span> <span class="s1">&#39;coverage&#39;</span><span class="p">]</span>
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="s1">&#39;Yuma&#39;</span><span class="p">,</span> <span class="s1">&#39;coverage&#39;</span><span class="p">]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>70
+<div class="codehilite"><pre><span></span>70
 </pre></div>
     <aside>
     <div class="bug-reporting__panel">

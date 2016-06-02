@@ -134,30 +134,30 @@
 </header>
 
 <p>Original source: http://onertipaday.blogspot.com/2007/08/sortingordering-dataframe-according.html</p>
-<div class="highlight"><pre><span></span><span class="c1"># Create three vectors of data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create three vectors of data</span>
 x <span class="o">=</span> rnorm<span class="p">(</span><span class="m">20</span><span class="p">)</span>
 y <span class="o">=</span> <span class="kp">sample</span><span class="p">(</span><span class="kp">rep</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,</span> each <span class="o">=</span> <span class="m">10</span><span class="p">))</span>
 z <span class="o">=</span> <span class="kp">sample</span><span class="p">(</span><span class="kp">rep</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create a dataframe containing those vectors</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a dataframe containing those vectors</span>
 data.df <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>x<span class="p">,</span> y<span class="p">,</span> z<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Sort the entire dataframe by column y, then by column z</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Sort the entire dataframe by column y, then by column z</span>
 sort.by <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;y&quot;</span><span class="p">,</span> <span class="s">&quot;z&quot;</span><span class="p">)</span>
 data.df.sorted <span class="o">=</span> data.df<span class="p">[</span><span class="kp">do.call</span><span class="p">(</span><span class="kp">order</span><span class="p">,</span> data.df<span class="p">[</span>sort.by<span class="p">]),</span> <span class="p">]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># View the sorted data frame</span>
+<div class="codehilite"><pre><span></span><span class="c1"># View the sorted data frame</span>
 <span class="kp">print</span><span class="p">(</span>data.df.sorted<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>            x y z
+<div class="codehilite"><pre><span></span>            x y z
 2   0.6573883 1 1
 7   0.7038443 1 1
 5  -0.8647954 1 2

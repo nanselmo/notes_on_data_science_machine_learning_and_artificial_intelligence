@@ -134,7 +134,7 @@
 </header>
 
 <p>Often imported data will need to be parsed. If the dates are character strings, you can use strptime to parse the date-time.</p>
-<div class="highlight"><pre><span></span><span class="c1"># Import some moon landing day/times</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Import some moon landing day/times</span>
 moon_landings_str <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span>
   <span class="s">&quot;20:17:40 20/07/1969&quot;</span><span class="p">,</span>
   <span class="s">&quot;06:54:35 19/11/1969&quot;</span><span class="p">,</span>
@@ -146,16 +146,16 @@ moon_landings_str <span class="o">&lt;-</span> <span class="kt">c</span><span cl
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>moon_landings_str
+<div class="codehilite"><pre><span></span>moon_landings_str
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] &quot;20:17:40 20/07/1969&quot; &quot;06:54:35 19/11/1969&quot; &quot;09:18:11 05/02/1971&quot;
+<div class="codehilite"><pre><span></span>[1] &quot;20:17:40 20/07/1969&quot; &quot;06:54:35 19/11/1969&quot; &quot;09:18:11 05/02/1971&quot;
 [4] &quot;22:16:29 30/07/1971&quot; &quot;02:23:35 21/04/1972&quot; &quot;19:54:57 11/12/1972&quot;
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># convert the date-time character strings into dates</span>
+<div class="codehilite"><pre><span></span><span class="c1"># convert the date-time character strings into dates</span>
 moon_landings_lt <span class="o">&lt;-</span> <span class="kp">strptime</span><span class="p">(</span>
   moon_landings_str<span class="p">,</span>
   <span class="s">&quot;%H:%M:%S %d/%m/%Y&quot;</span><span class="p">,</span>
@@ -163,11 +163,11 @@ moon_landings_lt <span class="o">&lt;-</span> <span class="kp">strptime</span><s
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>moon_landings_lt
+<div class="codehilite"><pre><span></span>moon_landings_lt
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] &quot;1969-07-20 20:17:40 UTC&quot; &quot;1969-11-19 06:54:35 UTC&quot;
+<div class="codehilite"><pre><span></span>[1] &quot;1969-07-20 20:17:40 UTC&quot; &quot;1969-11-19 06:54:35 UTC&quot;
 [3] &quot;1971-02-05 09:18:11 UTC&quot; &quot;1971-07-30 22:16:29 UTC&quot;
 [5] &quot;1972-04-21 02:23:35 UTC&quot; &quot;1972-12-11 19:54:57 UTC&quot;
 </pre></div>

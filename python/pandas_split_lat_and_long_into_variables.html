@@ -134,13 +134,13 @@
 </header>
 
 <h2>Preliminaries</h2>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 </pre></div>
 
 
 <h2>Create an example dataframe</h2>
-<div class="highlight"><pre><span></span><span class="n">raw_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;geo&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;40.0024, -105.4102&#39;</span><span class="p">,</span> <span class="s1">&#39;40.0068, -105.266&#39;</span><span class="p">,</span> <span class="s1">&#39;39.9318, -105.2813&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">]}</span>
+<div class="codehilite"><pre><span></span><span class="n">raw_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;geo&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;40.0024, -105.4102&#39;</span><span class="p">,</span> <span class="s1">&#39;40.0068, -105.266&#39;</span><span class="p">,</span> <span class="s1">&#39;39.9318, -105.2813&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">]}</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;geo&#39;</span><span class="p">])</span>
 <span class="n">df</span>
 </pre></div>
@@ -176,7 +176,7 @@
 </div>
 
 <h2>Split the geo variable into seperate lat and lon variables</h2>
-<div class="highlight"><pre><span></span><span class="c1"># Create two lists for the loop results to be placed</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create two lists for the loop results to be placed</span>
 <span class="n">lat</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">lon</span> <span class="o">=</span> <span class="p">[]</span>
 
@@ -204,7 +204,7 @@
 
 
 <h2>View the dataframe</h2>
-<div class="highlight"><pre><span></span><span class="n">df</span>
+<div class="codehilite"><pre><span></span><span class="n">df</span>
 </pre></div>
 
 

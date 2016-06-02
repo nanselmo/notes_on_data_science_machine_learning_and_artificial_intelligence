@@ -134,12 +134,12 @@
 </header>
 
 <p>Original source: Learning R</p>
-<div class="highlight"><pre><span></span><span class="c1"># Create some dirty data that because of the mispelling is imported as a character string</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create some dirty data that because of the mispelling is imported as a character string</span>
 dirty <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>x <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;1.23&quot;</span><span class="p">,</span> <span class="s">&quot;4..56&quot;</span><span class="p">,</span> <span class="s">&quot;7.89&quot;</span><span class="p">))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Convert the elements to numeric</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Convert the elements to numeric</span>
 factor_to_numeric <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>f<span class="p">)</span>
 <span class="p">{</span>
   <span class="kp">as.numeric</span><span class="p">(</span><span class="kp">levels</span><span class="p">(</span>f<span class="p">))[</span><span class="kp">as.integer</span><span class="p">(</span>f<span class="p">)]</span>  
@@ -150,13 +150,13 @@ factor_to_numeric<span class="p">(</span>dirty<span class="o">$</span>x<span cla
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="x">Warning message:</span>
-<span class="x">In factor_to_numeric(dirty</span><span class="p">$</span><span class="nv">x</span><span class="x">): NAs introduced by coercion</span>
+<div class="codehilite"><pre><span></span>Warning message:
+In factor_to_numeric(dirty$x): NAs introduced by coercion
 
 
 
 
-<span class="x">[1] 1.23   NA 7.89</span>
+[1] 1.23   NA 7.89
 </pre></div>
     <aside>
     <div class="bug-reporting__panel">

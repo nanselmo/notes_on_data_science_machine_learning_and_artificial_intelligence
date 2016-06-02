@@ -133,7 +133,7 @@
 </ol>
 </header>
 
-<div class="highlight"><pre><span></span><span class="c1"># create some simulated data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create some simulated data</span>
 ID <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span>
 Age <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">26</span><span class="p">,</span> <span class="m">65</span><span class="p">,</span> <span class="m">15</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">88</span><span class="p">,</span> <span class="m">43</span><span class="p">,</span> <span class="m">28</span><span class="p">,</span> <span class="m">66</span> <span class="p">,</span><span class="m">45</span><span class="p">,</span> <span class="m">12</span><span class="p">)</span>
 Sex <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">0</span> <span class="p">,</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
@@ -143,25 +143,25 @@ Married <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(<
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a dataframe of the simulated data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a dataframe of the simulated data</span>
 mydata <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>ID<span class="p">,</span> Age<span class="p">,</span> Sex<span class="p">,</span> Weight<span class="p">,</span> Height<span class="p">,</span> Married<span class="p">)</span>
 </pre></div>
 
 
 <h2>Simple example</h2>
-<div class="highlight"><pre><span></span><span class="c1"># create a new variable called Old that, if Age is greater than 40, is 1, else the value is 0</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a new variable called Old that, if Age is greater than 40, is 1, else the value is 0</span>
 mydata<span class="o">$</span>Old<span class="o">&lt;-</span><span class="kp">ifelse</span><span class="p">(</span>mydata<span class="o">$</span>Age<span class="o">&gt;</span><span class="m">40</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">0</span><span class="p">)</span>
 </pre></div>
 
 
 <h2>Nested ifelse() allows us to have more than 1 ruleset</h2>
-<div class="highlight"><pre><span></span><span class="c1"># create a new variable called Agegroup2. If Age is greater than 10 and less than 20, Agegroup 2 will have a value of 1. If not, it executes a new ifelse that if Age is over 20, codes the value as 2, else 0.</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a new variable called Agegroup2. If Age is greater than 10 and less than 20, Agegroup 2 will have a value of 1. If not, it executes a new ifelse that if Age is over 20, codes the value as 2, else 0.</span>
 mydata<span class="o">$</span>Agegroup2<span class="o">&lt;-</span><span class="kp">ifelse</span><span class="p">(</span>mydata<span class="o">$</span>Age<span class="o">&gt;</span><span class="m">10</span> <span class="o">&amp;</span> mydata<span class="o">$</span>Age<span class="o">&lt;</span><span class="m">20</span><span class="p">,</span><span class="m">1</span><span class="p">,</span>     
                          <span class="kp">ifelse</span><span class="p">(</span>mydata<span class="o">$</span>Age<span class="o">&gt;</span><span class="m">20</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span><span class="m">0</span><span class="p">))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a new variable called Height.recode. if Height is missing, then 9999, else, keep Height&#39;s original value</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a new variable called Height.recode. if Height is missing, then 9999, else, keep Height&#39;s original value</span>
 mydata<span class="o">$</span>Height.recode<span class="o">&lt;-</span><span class="kp">ifelse</span><span class="p">(</span><span class="kp">is.na</span><span class="p">(</span>mydata<span class="o">$</span>Height<span class="p">),</span>
                              <span class="m">9999</span><span class="p">,</span>
                              mydata<span class="o">$</span>Height<span class="p">)</span>

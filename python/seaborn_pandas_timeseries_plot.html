@@ -134,14 +134,14 @@
 </header>
 
 <h2>Preliminaries</h2>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;2014-05-01 18:47:05.069722&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-01 18:47:05.119994&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-02 18:47:05.178768&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-02 18:47:05.230071&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-02 18:47:05.230071&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-02 18:47:05.280592&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-03 18:47:05.332662&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-03 18:47:05.385109&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-04 18:47:05.436523&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-04 18:47:05.486877&#39;</span><span class="p">],</span>
+<div class="codehilite"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;2014-05-01 18:47:05.069722&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-01 18:47:05.119994&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-02 18:47:05.178768&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-02 18:47:05.230071&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-02 18:47:05.230071&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-02 18:47:05.280592&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-03 18:47:05.332662&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-03 18:47:05.385109&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-04 18:47:05.436523&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-04 18:47:05.486877&#39;</span><span class="p">],</span>
         <span class="s1">&#39;deaths_regiment_1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">34</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">41</span><span class="p">],</span>
         <span class="s1">&#39;deaths_regiment_2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">52</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">86</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
         <span class="s1">&#39;deaths_regiment_3&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">13</span><span class="p">,</span> <span class="mi">73</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">58</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">75</span><span class="p">],</span>
@@ -157,23 +157,23 @@
 
 
 <h2>Time Series Plot</h2>
-<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">tsplot</span><span class="p">([</span><span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_1</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_2</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_3</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_4</span><span class="p">,</span>
+<div class="codehilite"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">tsplot</span><span class="p">([</span><span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_1</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_2</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_3</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_4</span><span class="p">,</span>
             <span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_5</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_6</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_7</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;indianred&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x10bd2c350&gt;
+<div class="codehilite"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x10bd2c350&gt;
 </pre></div>
 
 
 <p><img alt="png" src="../images/seaborn_pandas_timeseries_plot/output_5_1.png" /></p>
 <h2>Time Series Splot With Confidence Interval Lines But No Lines</h2>
-<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">tsplot</span><span class="p">([</span><span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_1</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_2</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_3</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_4</span><span class="p">,</span>
+<div class="codehilite"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">tsplot</span><span class="p">([</span><span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_1</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_2</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_3</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_4</span><span class="p">,</span>
             <span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_5</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_6</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">deaths_regiment_7</span><span class="p">],</span> <span class="n">err_style</span><span class="o">=</span><span class="s2">&quot;ci_bars&quot;</span><span class="p">,</span> <span class="n">interpolate</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x10c9b7b50&gt;
+<div class="codehilite"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x10c9b7b50&gt;
 </pre></div>
 
 

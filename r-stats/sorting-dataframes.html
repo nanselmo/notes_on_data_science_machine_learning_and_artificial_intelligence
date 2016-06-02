@@ -134,7 +134,7 @@
 </header>
 
 <p>Original source: the r book</p>
-<div class="highlight"><pre><span></span><span class="c1"># create a dataframe with simulated values</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a dataframe with simulated values</span>
 x <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">1000</span><span class="p">)</span>
 y <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">1000</span><span class="p">)</span>
 z <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">1000</span><span class="p">)</span>
@@ -144,22 +144,22 @@ data <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class=
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># decsending order by x</span>
+<div class="codehilite"><pre><span></span><span class="c1"># decsending order by x</span>
 sorted.by.x <span class="o">&lt;-</span> data<span class="p">[</span><span class="kp">order</span><span class="p">(</span>data<span class="o">$</span>x<span class="p">),]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># ascending order by x</span>
+<div class="codehilite"><pre><span></span><span class="c1"># ascending order by x</span>
 rev.sorted.by.x <span class="o">&lt;-</span> data<span class="p">[</span><span class="kp">rev</span><span class="p">(</span><span class="kp">order</span><span class="p">(</span>data<span class="o">$</span>x<span class="p">)),]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># decsending order by x, then decsending order by y</span>
+<div class="codehilite"><pre><span></span><span class="c1"># decsending order by x, then decsending order by y</span>
 data<span class="p">[</span><span class="kp">order</span><span class="p">(</span>data<span class="o">$</span>x<span class="p">,</span>data<span class="o">$</span>y<span class="p">),]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>                x            y            z            a
+<div class="codehilite"><pre><span></span>                x            y            z            a
 303  5.295919e-05 0.1204359422 0.9703838271 0.7231496098
 383  1.237667e-03 0.0232438489 0.1465805110 0.0851279420
 619  1.673124e-03 0.1365318072 0.9513013442 0.9480992046

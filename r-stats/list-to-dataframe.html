@@ -133,31 +133,31 @@
 </ol>
 </header>
 
-<div class="highlight"><pre><span></span><span class="c1"># create a list of two elements, the first a vector of 20 obs, the second 20 state names</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a list of two elements, the first a vector of 20 obs, the second 20 state names</span>
 the.list <span class="o">&lt;-</span> <span class="kt">list</span><span class="p">(</span>scores <span class="o">=</span> runif<span class="p">(</span><span class="m">20</span><span class="p">),</span> states <span class="o">=</span> state.name<span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">20</span><span class="p">]);</span> the.list
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="p">$</span><span class="nv">scores</span><span class="x"></span>
-<span class="x"> [1] 0.72770677 0.61598787 0.96234018 0.19366523 0.26006986 0.07253386</span>
-<span class="x"> [7] 0.73779295 0.58013676 0.18979002 0.72309143 0.48458231 0.51446047</span>
-<span class="x">[13] 0.88990973 0.53759564 0.62698847 0.08148905 0.31585633 0.88666670</span>
-<span class="x">[19] 0.87910724 0.59395343</span>
+<div class="codehilite"><pre><span></span>$scores
+ [1] 0.72770677 0.61598787 0.96234018 0.19366523 0.26006986 0.07253386
+ [7] 0.73779295 0.58013676 0.18979002 0.72309143 0.48458231 0.51446047
+[13] 0.88990973 0.53759564 0.62698847 0.08148905 0.31585633 0.88666670
+[19] 0.87910724 0.59395343
 
-<span class="p">$</span><span class="nv">states</span><span class="x"></span>
-<span class="x"> [1] &quot;Alabama&quot;     &quot;Alaska&quot;      &quot;Arizona&quot;     &quot;Arkansas&quot;    &quot;California&quot;</span>
-<span class="x"> [6] &quot;Colorado&quot;    &quot;Connecticut&quot; &quot;Delaware&quot;    &quot;Florida&quot;     &quot;Georgia&quot;    </span>
-<span class="x">[11] &quot;Hawaii&quot;      &quot;Idaho&quot;       &quot;Illinois&quot;    &quot;Indiana&quot;     &quot;Iowa&quot;       </span>
-<span class="x">[16] &quot;Kansas&quot;      &quot;Kentucky&quot;    &quot;Louisiana&quot;   &quot;Maine&quot;       &quot;Maryland&quot;</span>
+$states
+ [1] &quot;Alabama&quot;     &quot;Alaska&quot;      &quot;Arizona&quot;     &quot;Arkansas&quot;    &quot;California&quot;
+ [6] &quot;Colorado&quot;    &quot;Connecticut&quot; &quot;Delaware&quot;    &quot;Florida&quot;     &quot;Georgia&quot;    
+[11] &quot;Hawaii&quot;      &quot;Idaho&quot;       &quot;Illinois&quot;    &quot;Indiana&quot;     &quot;Iowa&quot;       
+[16] &quot;Kansas&quot;      &quot;Kentucky&quot;    &quot;Louisiana&quot;   &quot;Maine&quot;       &quot;Maryland&quot;
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a dataframe with identifying each element of the list as a dataframe column</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a dataframe with identifying each element of the list as a dataframe column</span>
 df <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>the.list<span class="o">$</span>scores<span class="p">,</span> the.list<span class="o">$</span>states<span class="p">);</span> df
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>   the.list.scores the.list.states
+<div class="codehilite"><pre><span></span>   the.list.scores the.list.states
 1       0.72770677         Alabama
 2       0.61598787          Alaska
 3       0.96234018         Arizona

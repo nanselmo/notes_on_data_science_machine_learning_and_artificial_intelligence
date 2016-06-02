@@ -133,17 +133,17 @@
 </ol>
 </header>
 
-<div class="highlight"><pre><span></span><span class="c1"># create simulated district names</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create simulated district names</span>
 district <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;NORTH&quot;</span><span class="p">,</span> <span class="s">&quot;NORTHWEST&quot;</span><span class="p">,</span> <span class="s">&quot;CENTRAL&quot;</span><span class="p">,</span> <span class="s">&quot;SOUTH&quot;</span><span class="p">,</span> <span class="s">&quot;SOUTHWEST&quot;</span><span class="p">,</span> <span class="s">&quot;WESTERN&quot;</span><span class="p">))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1">#Select all the cases where Baltimore&#39;s district name is &quot;North&quot;</span>
+<div class="codehilite"><pre><span></span><span class="c1">#Select all the cases where Baltimore&#39;s district name is &quot;North&quot;</span>
 district<span class="p">[</span><span class="kp">grep</span><span class="p">(</span><span class="s">&quot;NORTH&quot;</span><span class="p">,</span> <span class="kp">as.character</span><span class="p">(</span>district<span class="p">))]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] NORTH     NORTHWEST
+<div class="codehilite"><pre><span></span>[1] NORTH     NORTHWEST
 Levels: CENTRAL NORTH NORTHWEST SOUTH SOUTHWEST WESTERN
 </pre></div>
     <aside>

@@ -134,13 +134,13 @@
 </header>
 
 <h3>Create a list of regiment names</h3>
-<div class="highlight"><pre><span></span><span class="n">regimentNames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Night Riflemen&#39;</span><span class="p">,</span> <span class="s1">&#39;Jungle Scouts&#39;</span><span class="p">,</span> <span class="s1">&#39;The Dragoons&#39;</span><span class="p">,</span> <span class="s1">&#39;Midnight Revengence&#39;</span><span class="p">,</span> <span class="s1">&#39;Wily Warriors&#39;</span><span class="p">]</span>
+<div class="codehilite"><pre><span></span><span class="n">regimentNames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Night Riflemen&#39;</span><span class="p">,</span> <span class="s1">&#39;Jungle Scouts&#39;</span><span class="p">,</span> <span class="s1">&#39;The Dragoons&#39;</span><span class="p">,</span> <span class="s1">&#39;Midnight Revengence&#39;</span><span class="p">,</span> <span class="s1">&#39;Wily Warriors&#39;</span><span class="p">]</span>
 </pre></div>
 
 
 <h2>Using A For Loop</h2>
 <h3>Create a for loop goes through the list and capitalizes each</h3>
-<div class="highlight"><pre><span></span><span class="c1"># create a variable for the for loop results</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a variable for the for loop results</span>
 <span class="n">regimentNamesCapitalized_f</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="c1"># for every item in regimentNames</span>
@@ -153,7 +153,7 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[&#39;NIGHT RIFLEMEN&#39;,
+<div class="codehilite"><pre><span></span>[&#39;NIGHT RIFLEMEN&#39;,
  &#39;JUNGLE SCOUTS&#39;,
  &#39;THE DRAGOONS&#39;,
  &#39;MIDNIGHT REVENGENCE&#39;,
@@ -163,16 +163,16 @@
 
 <h2>Using Map()</h2>
 <h3>Create a lambda function that capitalizes x</h3>
-<div class="highlight"><pre><span></span><span class="n">capitalizer</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><span class="n">capitalizer</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
 </pre></div>
 
 
 <h3>Map the capitalizer function to regimentNames, convert the map into a list, and view the variable</h3>
-<div class="highlight"><pre><span></span><span class="n">regimentNamesCapitalized_m</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">capitalizer</span><span class="p">,</span> <span class="n">regimentNames</span><span class="p">));</span> <span class="n">regimentNamesCapitalized_m</span>
+<div class="codehilite"><pre><span></span><span class="n">regimentNamesCapitalized_m</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">capitalizer</span><span class="p">,</span> <span class="n">regimentNames</span><span class="p">));</span> <span class="n">regimentNamesCapitalized_m</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[&#39;NIGHT RIFLEMEN&#39;,
+<div class="codehilite"><pre><span></span>[&#39;NIGHT RIFLEMEN&#39;,
  &#39;JUNGLE SCOUTS&#39;,
  &#39;THE DRAGOONS&#39;,
  &#39;MIDNIGHT REVENGENCE&#39;,
@@ -182,11 +182,11 @@
 
 <h2>Using List Comprehension</h2>
 <h3>Apply the expression x.upper to each item in the list called regiment names. Then view the output</h3>
-<div class="highlight"><pre><span></span><span class="n">regimentNamesCapitalized_l</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">regimentNames</span><span class="p">];</span> <span class="n">regimentNamesCapitalized_l</span>
+<div class="codehilite"><pre><span></span><span class="n">regimentNamesCapitalized_l</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">regimentNames</span><span class="p">];</span> <span class="n">regimentNamesCapitalized_l</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[&#39;NIGHT RIFLEMEN&#39;,
+<div class="codehilite"><pre><span></span>[&#39;NIGHT RIFLEMEN&#39;,
  &#39;JUNGLE SCOUTS&#39;,
  &#39;THE DRAGOONS&#39;,
  &#39;MIDNIGHT REVENGENCE&#39;,

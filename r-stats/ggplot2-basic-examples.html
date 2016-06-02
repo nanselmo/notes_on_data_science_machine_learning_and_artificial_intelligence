@@ -134,13 +134,13 @@
 </header>
 
 <p>Original source: https://github.com/patilv/3graphs/blob/master/ggplot2Page/index.md</p>
-<div class="highlight"><pre><span></span><span class="c1"># make sure the graphic displays in RStudio by turning off external devices</span>
+<div class="codehilite"><pre><span></span><span class="c1"># make sure the graphic displays in RStudio by turning off external devices</span>
 dev.cur<span class="p">()</span>
 dev.off<span class="p">()</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>pdf
+<div class="codehilite"><pre><span></span>pdf
   2
 
 
@@ -154,7 +154,7 @@ null device
 
 
 <h2>Create some simulated data</h2>
-<div class="highlight"><pre><span></span><span class="c1">## create three factor variables of length 50.</span>
+<div class="codehilite"><pre><span></span><span class="c1">## create three factor variables of length 50.</span>
 FacVar1 <span class="o">=</span> <span class="kp">as.factor</span><span class="p">(</span><span class="kp">rep</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;level1&quot;</span><span class="p">,</span> <span class="s">&quot;level2&quot;</span><span class="p">),</span> <span class="m">25</span><span class="p">))</span>
 FacVar2 <span class="o">=</span> <span class="kp">as.factor</span><span class="p">(</span><span class="kp">rep</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;levelA&quot;</span><span class="p">,</span> <span class="s">&quot;levelB&quot;</span><span class="p">,</span> <span class="s">&quot;levelC&quot;</span><span class="p">),</span> <span class="m">17</span><span class="p">)[</span><span class="m">-51</span><span class="p">])</span>
 FacVar3 <span class="o">=</span> <span class="kp">as.factor</span><span class="p">(</span><span class="kp">rep</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;levelI&quot;</span><span class="p">,</span> <span class="s">&quot;levelII&quot;</span><span class="p">,</span> <span class="s">&quot;levelIII&quot;</span><span class="p">,</span> <span class="s">&quot;levelIV&quot;</span><span class="p">),</span> <span class="m">13</span><span class="p">)[</span><span class="o">-</span><span class="kt">c</span><span class="p">(</span><span class="m">51</span><span class="o">:</span><span class="m">52</span><span class="p">)])</span>
@@ -162,130 +162,130 @@ FacVar3 <span class="o">=</span> <span class="kp">as.factor</span><span class="p
 
 
 <h2>Create four numeric variables frpm different distributions</h2>
-<div class="highlight"><pre><span></span><span class="c1">## normal distribution</span>
+<div class="codehilite"><pre><span></span><span class="c1">## normal distribution</span>
 <span class="kp">set.seed</span><span class="p">(</span><span class="m">123</span><span class="p">)</span>
 NumVar1 <span class="o">=</span> <span class="kp">round</span><span class="p">(</span>rnorm<span class="p">(</span>n <span class="o">=</span> <span class="m">50</span><span class="p">,</span> mean <span class="o">=</span> <span class="m">1000</span><span class="p">,</span> sd <span class="o">=</span> <span class="m">50</span><span class="p">),</span> digits <span class="o">=</span> <span class="m">2</span><span class="p">)</span>  
 <span class="kp">set.seed</span><span class="p">(</span><span class="m">123</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1">## uniform distribution</span>
+<div class="codehilite"><pre><span></span><span class="c1">## uniform distribution</span>
 NumVar2 <span class="o">=</span> <span class="kp">round</span><span class="p">(</span>runif<span class="p">(</span>n <span class="o">=</span> <span class="m">50</span><span class="p">,</span> min <span class="o">=</span> <span class="m">500</span><span class="p">,</span> max <span class="o">=</span> <span class="m">1500</span><span class="p">),</span> digits <span class="o">=</span> <span class="m">2</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1">## exponential distribution</span>
+<div class="codehilite"><pre><span></span><span class="c1">## exponential distribution</span>
 <span class="kp">set.seed</span><span class="p">(</span><span class="m">123</span><span class="p">)</span>
 NumVar3 <span class="o">=</span> <span class="kp">round</span><span class="p">(</span>rexp<span class="p">(</span>n <span class="o">=</span> <span class="m">50</span><span class="p">,</span> rate <span class="o">=</span> <span class="m">0.001</span><span class="p">))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1">## sequence</span>
+<div class="codehilite"><pre><span></span><span class="c1">## sequence</span>
 NumVar4 <span class="o">=</span> <span class="m">2001</span><span class="o">:</span><span class="m">2050</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1">## merge all the variables in a dataframe</span>
+<div class="codehilite"><pre><span></span><span class="c1">## merge all the variables in a dataframe</span>
 simData <span class="o">=</span> <span class="kt">data.frame</span><span class="p">(</span>FacVar1<span class="p">,</span> FacVar2<span class="p">,</span> FacVar3<span class="p">,</span> NumVar1<span class="p">,</span> NumVar2<span class="p">,</span> NumVar3<span class="p">,</span> NumVar4<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1">## load required packages</span>
+<div class="codehilite"><pre><span></span><span class="c1">## load required packages</span>
 <span class="kn">library</span><span class="p">(</span>ggplot2<span class="p">)</span>
 <span class="kn">library</span><span class="p">(</span>reshape2<span class="p">)</span>
 </pre></div>
 
 
 <h2>One variable plots</h2>
-<div class="highlight"><pre><span></span><span class="c1"># create a plot of NumVar1&#39;s values and their row number</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a plot of NumVar1&#39;s values and their row number</span>
 ggplot<span class="p">(</span>simData<span class="p">,</span> aes<span class="p">(</span>y <span class="o">=</span> NumVar1<span class="p">,</span> x <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="kp">nrow</span><span class="p">(</span>simData<span class="p">),</span> group <span class="o">=</span> <span class="s">&quot;NumVar1&quot;</span><span class="p">))</span> <span class="o">+</span> geom_point<span class="p">()</span> <span class="o">+</span> geom_line<span class="p">()</span> <span class="o">+</span> xlab<span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>Error in nrow(simData): object &#39;simData&#39; not found
+<div class="codehilite"><pre><span></span>Error in nrow(simData): object &#39;simData&#39; not found
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a histogram of NumVar1</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a histogram of NumVar1</span>
 ggplot<span class="p">(</span>simData<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> NumVar1<span class="p">))</span> <span class="o">+</span> geom_histogram<span class="p">()</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="n">stat_bin</span><span class="o">:</span> <span class="n">binwidth</span> <span class="n">defaulted</span> <span class="n">to</span> <span class="n">range</span><span class="o">/</span><span class="mi">30</span><span class="o">.</span> <span class="n">Use</span> <span class="s1">&#39;binwidth = x&#39;</span> <span class="n">to</span> <span class="n">adjust</span> <span class="k">this</span><span class="o">.</span>
+<div class="codehilite"><pre><span></span>stat_bin: binwidth defaulted to range/30. Use &#39;binwidth = x&#39; to adjust this.
 </pre></div>
 
 
 <p><img alt="png" src="../images/ggplot2-basic-examples_files/ggplot2-basic-examples_13_2.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># create a density plot of NumVar1</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a density plot of NumVar1</span>
 ggplot<span class="p">(</span>simData<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> NumVar1<span class="p">))</span> <span class="o">+</span> geom_density<span class="p">()</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/ggplot2-basic-examples_files/ggplot2-basic-examples_14_1.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># create a boxplot of NumVar1</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a boxplot of NumVar1</span>
 ggplot<span class="p">(</span>simData<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> <span class="kp">factor</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">),</span> y <span class="o">=</span> NumVar1<span class="p">))</span> <span class="o">+</span> geom_boxplot<span class="p">()</span> <span class="o">+</span> xlab<span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/ggplot2-basic-examples_files/ggplot2-basic-examples_15_1.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># create a barplot of FacVar3</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a barplot of FacVar3</span>
 ggplot<span class="p">(</span>simData<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> FacVar3<span class="p">))</span> <span class="o">+</span> geom_bar<span class="p">()</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/ggplot2-basic-examples_files/ggplot2-basic-examples_16_1.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># create a scatterplot of NumVar1 and NumVar 2</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a scatterplot of NumVar1 and NumVar 2</span>
 ggplot<span class="p">(</span>simData<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> NumVar1<span class="p">,</span> y <span class="o">=</span> NumVar2<span class="p">))</span> <span class="o">+</span> geom_point<span class="p">()</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/ggplot2-basic-examples_files/ggplot2-basic-examples_17_1.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># create a crosstab of FacVar2 and FacVar3 to get the Freq data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a crosstab of FacVar2 and FacVar3 to get the Freq data</span>
 bartabledat <span class="o">=</span> <span class="kp">as.data.frame</span><span class="p">(</span><span class="kp">table</span><span class="p">(</span>simData<span class="o">$</span>FacVar2<span class="p">,</span> simData<span class="o">$</span>FacVar3<span class="p">))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a barplot of Var2&#39;s frequency, colored by Var1</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a barplot of Var2&#39;s frequency, colored by Var1</span>
 ggplot<span class="p">(</span>bartabledat<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> Var2<span class="p">,</span> y <span class="o">=</span> Freq<span class="p">,</span> fill <span class="o">=</span> Var1<span class="p">))</span> <span class="o">+</span> geom_bar<span class="p">(</span>position <span class="o">=</span> <span class="s">&quot;dodge&quot;</span><span class="p">)</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/ggplot2-basic-examples_files/ggplot2-basic-examples_19_1.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># create a stacked barplot of var2&#39;s frequency, colored by Var1</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a stacked barplot of var2&#39;s frequency, colored by Var1</span>
 ggplot<span class="p">(</span>bartabledat<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> Var2<span class="p">,</span> y <span class="o">=</span> Freq<span class="p">,</span> fill <span class="o">=</span> Var1<span class="p">))</span> <span class="o">+</span> geom_bar<span class="p">()</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/ggplot2-basic-examples_files/ggplot2-basic-examples_20_1.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># create a proportion table of each combo&#39;s propotion of the total</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a proportion table of each combo&#39;s propotion of the total</span>
 bartableprop <span class="o">=</span> <span class="kp">as.data.frame</span><span class="p">(</span><span class="kp">prop.table</span><span class="p">(</span><span class="kp">table</span><span class="p">(</span>simData<span class="o">$</span>FacVar2<span class="p">,</span> simData<span class="o">$</span>FacVar3<span class="p">),</span> <span class="m">2</span><span class="p">)</span> <span class="o">*</span> <span class="m">100</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a bar plot of each combination&#39;s proportion of the total</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a bar plot of each combination&#39;s proportion of the total</span>
 ggplot<span class="p">(</span>bartableprop<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> Var2<span class="p">,</span> y <span class="o">=</span> Freq<span class="p">,</span> fill <span class="o">=</span> Var1<span class="p">))</span> <span class="o">+</span> geom_bar<span class="p">()</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/ggplot2-basic-examples_files/ggplot2-basic-examples_22_1.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># create a scatterplot, with each dot colored by a third variable</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a scatterplot, with each dot colored by a third variable</span>
 ggplot<span class="p">(</span>simData<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> NumVar1<span class="p">,</span> y <span class="o">=</span> NumVar2<span class="p">,</span> color <span class="o">=</span> FacVar1<span class="p">))</span> <span class="o">+</span> geom_point<span class="p">()</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/ggplot2-basic-examples_files/ggplot2-basic-examples_23_1.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># create a scatterplot with each dot sized by a third variable</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a scatterplot with each dot sized by a third variable</span>
 ggplot<span class="p">(</span>simData<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> NumVar1<span class="p">,</span> y <span class="o">=</span> NumVar2<span class="p">,</span> size <span class="o">=</span> NumVar3<span class="p">))</span> <span class="o">+</span> geom_point<span class="p">()</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/ggplot2-basic-examples_files/ggplot2-basic-examples_24_1.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># Turn off external devices</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Turn off external devices</span>
 dev.off<span class="p">()</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>null device
+<div class="codehilite"><pre><span></span>null device
           1
 </pre></div>
     <aside>

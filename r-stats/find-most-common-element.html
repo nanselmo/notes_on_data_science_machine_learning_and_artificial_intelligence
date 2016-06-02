@@ -134,12 +134,12 @@
 </header>
 
 <p>Original source: http://www.unc.edu/~jasperlm/Rsnippets.html</p>
-<div class="highlight"><pre><span></span><span class="c1"># Create a list of wars</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a list of wars</span>
 wars <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;Spanish Civil War&quot;</span><span class="p">,</span> <span class="s">&quot;Spanish Civil War&quot;</span><span class="p">,</span> <span class="s">&quot;Spanish Civil War&quot;</span><span class="p">,</span> <span class="s">&quot;Spanish Civil War&quot;</span><span class="p">,</span> <span class="s">&quot;WWII&quot;</span><span class="p">,</span> <span class="s">&quot;WWII&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create a function that finds the most common element in an object</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a function that finds the most common element in an object</span>
 most.common <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">)</span> <span class="p">{</span>
   count <span class="o">&lt;-</span> <span class="kp">sapply</span><span class="p">(</span><span class="kp">unique</span><span class="p">(</span>x<span class="p">),</span> <span class="kr">function</span><span class="p">(</span>i<span class="p">)</span> <span class="kp">sum</span><span class="p">(</span>x<span class="o">==</span>i<span class="p">,</span> na.rm<span class="o">=</span><span class="kc">TRUE</span><span class="p">))</span>
   <span class="kp">unique</span><span class="p">(</span>x<span class="p">)[</span><span class="kp">which</span><span class="p">(</span>count<span class="o">==</span><span class="kp">max</span><span class="p">(</span>count<span class="p">))]</span>
@@ -147,12 +147,12 @@ most.common <span class="o">&lt;-</span> <span class="kr">function</span><span c
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Run the function on the list of wars</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Run the function on the list of wars</span>
 most.common<span class="p">(</span>wars<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] &quot;Spanish Civil War&quot;
+<div class="codehilite"><pre><span></span>[1] &quot;Spanish Civil War&quot;
 </pre></div>
     <aside>
     <div class="bug-reporting__panel">

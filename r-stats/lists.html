@@ -134,27 +134,27 @@
 </header>
 
 <p>Lists are objects whose elements can be anything, from matrices to functions.</p>
-<div class="highlight"><pre><span></span><span class="c1"># Create a numeric vector</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a numeric vector</span>
 x <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">50</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create a character string vector</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a character string vector</span>
 y <span class="o">&lt;-</span> state.name
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create a matrix</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a matrix</span>
 m <span class="o">&lt;-</span> <span class="kt">matrix</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="m">3</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">3</span><span class="p">),</span> nrow<span class="o">=</span> <span class="m">2</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create a list containing all of the above</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a list containing all of the above</span>
 l <span class="o">&lt;-</span> <span class="kt">list</span><span class="p">(</span>x<span class="p">,</span> y<span class="p">,</span> m<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># You can name each element in a list</span>
+<div class="codehilite"><pre><span></span><span class="c1"># You can name each element in a list</span>
 <span class="kp">names</span><span class="p">(</span>l<span class="p">)</span> <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;percent voted&quot;</span><span class="p">,</span> <span class="s">&quot;state&quot;</span><span class="p">,</span> <span class="s">&quot;vote matrix&quot;</span><span class="p">)</span>
 </pre></div>
     <aside>

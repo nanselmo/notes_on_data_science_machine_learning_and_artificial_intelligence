@@ -134,22 +134,22 @@
 </header>
 
 <p>Original source: http://giventhedata.blogspot.com/2012/06/r-and-web-for-beginners-part-ii-xml-in.html</p>
-<div class="highlight"><pre><span></span><span class="c1"># load XML library</span>
+<div class="codehilite"><pre><span></span><span class="c1"># load XML library</span>
 <span class="kn">library</span><span class="p">(</span>XML<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># save the URL as a string element</span>
+<div class="codehilite"><pre><span></span><span class="c1"># save the URL as a string element</span>
 xml.url <span class="o">&lt;-</span> <span class="s">&quot;http://www.w3schools.com/xml/plant_catalog.xml&quot;</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># parse the xml file from the web</span>
+<div class="codehilite"><pre><span></span><span class="c1"># parse the xml file from the web</span>
 xmlfile <span class="o">&lt;-</span> xmlTreeParse<span class="p">(</span>xml.url<span class="p">);</span> xmlfile
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>$doc
+<div class="codehilite"><pre><span></span>$doc
 $file
 [1] &quot;http://www.w3schools.com/xml/plant_catalog.xml&quot;
 
@@ -158,296 +158,296 @@ $version
 
 $children
 $children$CATALOG
-<span class="nt">&lt;CATALOG&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Bloodroot<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Sanguinaria canadensis<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>4<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Mostly Shady<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$2.44<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>031599<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Columbine<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Aquilegia canadensis<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>3<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Mostly Shady<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$9.37<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>030699<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Marsh Marigold<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Caltha palustris<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>4<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Mostly Sunny<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$6.81<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>051799<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Cowslip<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Caltha palustris<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>4<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Mostly Shady<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$9.90<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>030699<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Dutchman<span class="ni">&amp;apos;</span>s-Breeches<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Dicentra cucullaria<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>3<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Mostly Shady<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$6.44<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>012099<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Ginger, Wild<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Asarum canadense<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>3<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Mostly Shady<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$9.03<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>041899<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Hepatica<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Hepatica americana<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>4<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Mostly Shady<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$4.45<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>012699<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Liverleaf<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Hepatica americana<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>4<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Mostly Shady<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$3.99<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>010299<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Jack-In-The-Pulpit<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Arisaema triphyllum<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>4<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Mostly Shady<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$3.23<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>020199<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Mayapple<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Podophyllum peltatum<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>3<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Mostly Shady<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$2.98<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>060599<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Phlox, Woodland<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Phlox divaricata<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>3<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Sun or Shade<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$2.80<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>012299<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Phlox, Blue<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Phlox divaricata<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>3<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Sun or Shade<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$5.59<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>021699<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Spring-Beauty<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Claytonia Virginica<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>7<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Mostly Shady<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$6.59<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>020199<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Trillium<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Trillium grandiflorum<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>5<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Sun or Shade<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$3.90<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>042999<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Wake Robin<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Trillium grandiflorum<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>5<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Sun or Shade<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$3.20<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>022199<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Violet, Dog-Tooth<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Erythronium americanum<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>4<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Shade<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$9.04<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>020199<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Trout Lily<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Erythronium americanum<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>4<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Shade<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$6.94<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>032499<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Adder<span class="ni">&amp;apos;</span>s-Tongue<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Erythronium americanum<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>4<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Shade<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$9.58<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>041399<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Anemone<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Anemone blanda<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>6<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Mostly Shady<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$8.86<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>122698<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Grecian Windflower<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Anemone blanda<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>6<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Mostly Shady<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$9.16<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>071099<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Bee Balm<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Monarda didyma<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>4<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Shade<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$4.59<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>050399<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Bergamot<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Monarda didyma<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>4<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Shade<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$7.16<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>042799<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Black-Eyed Susan<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Rudbeckia hirta<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>Annual<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Sunny<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$9.80<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>061899<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Buttercup<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Ranunculus<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>4<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Shade<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$2.57<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>061099<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Crowfoot<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Ranunculus<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>4<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Shade<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$9.34<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>040399<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Butterfly Weed<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Asclepias tuberosa<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>Annual<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Sunny<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$2.78<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>063099<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Cinquefoil<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Potentilla<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>Annual<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Shade<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$7.06<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>052599<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Primrose<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Oenothera<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>3 - 5<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Sunny<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$6.56<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>013099<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Gentian<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Gentiana<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>4<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Sun or Shade<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$7.81<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>051899<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Blue Gentian<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Gentiana<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>4<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Sun or Shade<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$8.56<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>050299<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Jacob<span class="ni">&amp;apos;</span>s Ladder<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Polemonium caeruleum<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>Annual<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Shade<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$9.26<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>022199<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Greek Valerian<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Polemonium caeruleum<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>Annual<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Shade<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$4.36<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>071499<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>California Poppy<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Eschscholzia californica<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>Annual<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Sun<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$7.89<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>032799<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Shooting Star<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Dodecatheon<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>Annual<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Mostly Shady<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$8.60<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>051399<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Snakeroot<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Cimicifuga<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>Annual<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Shade<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$5.63<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>071199<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Cardinal Flower<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Lobelia cardinalis<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>2<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Shade<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$3.02<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>022299<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
-<span class="nt">&lt;/CATALOG&gt;</span>
+&lt;CATALOG&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Bloodroot&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Sanguinaria canadensis&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;4&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Mostly Shady&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$2.44&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;031599&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Columbine&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Aquilegia canadensis&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;3&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Mostly Shady&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$9.37&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;030699&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Marsh Marigold&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Caltha palustris&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;4&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Mostly Sunny&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$6.81&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;051799&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Cowslip&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Caltha palustris&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;4&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Mostly Shady&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$9.90&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;030699&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Dutchman&amp;apos;s-Breeches&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Dicentra cucullaria&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;3&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Mostly Shady&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$6.44&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;012099&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Ginger, Wild&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Asarum canadense&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;3&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Mostly Shady&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$9.03&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;041899&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Hepatica&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Hepatica americana&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;4&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Mostly Shady&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$4.45&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;012699&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Liverleaf&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Hepatica americana&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;4&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Mostly Shady&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$3.99&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;010299&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Jack-In-The-Pulpit&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Arisaema triphyllum&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;4&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Mostly Shady&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$3.23&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;020199&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Mayapple&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Podophyllum peltatum&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;3&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Mostly Shady&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$2.98&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;060599&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Phlox, Woodland&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Phlox divaricata&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;3&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Sun or Shade&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$2.80&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;012299&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Phlox, Blue&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Phlox divaricata&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;3&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Sun or Shade&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$5.59&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;021699&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Spring-Beauty&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Claytonia Virginica&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;7&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Mostly Shady&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$6.59&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;020199&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Trillium&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Trillium grandiflorum&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;5&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Sun or Shade&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$3.90&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;042999&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Wake Robin&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Trillium grandiflorum&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;5&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Sun or Shade&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$3.20&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;022199&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Violet, Dog-Tooth&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Erythronium americanum&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;4&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Shade&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$9.04&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;020199&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Trout Lily&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Erythronium americanum&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;4&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Shade&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$6.94&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;032499&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Adder&amp;apos;s-Tongue&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Erythronium americanum&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;4&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Shade&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$9.58&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;041399&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Anemone&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Anemone blanda&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;6&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Mostly Shady&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$8.86&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;122698&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Grecian Windflower&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Anemone blanda&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;6&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Mostly Shady&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$9.16&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;071099&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Bee Balm&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Monarda didyma&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;4&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Shade&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$4.59&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;050399&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Bergamot&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Monarda didyma&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;4&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Shade&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$7.16&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;042799&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Black-Eyed Susan&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Rudbeckia hirta&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;Annual&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Sunny&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$9.80&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;061899&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Buttercup&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Ranunculus&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;4&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Shade&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$2.57&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;061099&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Crowfoot&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Ranunculus&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;4&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Shade&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$9.34&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;040399&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Butterfly Weed&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Asclepias tuberosa&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;Annual&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Sunny&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$2.78&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;063099&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Cinquefoil&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Potentilla&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;Annual&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Shade&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$7.06&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;052599&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Primrose&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Oenothera&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;3 - 5&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Sunny&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$6.56&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;013099&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Gentian&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Gentiana&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;4&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Sun or Shade&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$7.81&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;051899&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Blue Gentian&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Gentiana&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;4&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Sun or Shade&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$8.56&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;050299&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Jacob&amp;apos;s Ladder&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Polemonium caeruleum&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;Annual&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Shade&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$9.26&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;022199&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Greek Valerian&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Polemonium caeruleum&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;Annual&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Shade&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$4.36&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;071499&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;California Poppy&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Eschscholzia californica&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;Annual&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Sun&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$7.89&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;032799&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Shooting Star&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Dodecatheon&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;Annual&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Mostly Shady&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$8.60&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;051399&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Snakeroot&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Cimicifuga&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;Annual&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Shade&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$5.63&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;071199&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Cardinal Flower&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Lobelia cardinalis&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;2&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Shade&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$3.02&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;022299&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+&lt;/CATALOG&gt;
 
 
 attr(,&quot;class&quot;)
@@ -468,310 +468,310 @@ attr(,&quot;class&quot;)
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># access the top node, skipping over DTD and the comment. In other words, get straight to the data and ignore the other stuff.</span>
+<div class="codehilite"><pre><span></span><span class="c1"># access the top node, skipping over DTD and the comment. In other words, get straight to the data and ignore the other stuff.</span>
 xmltop <span class="o">&lt;-</span> xmlRoot<span class="p">(</span>xmlfile<span class="p">);</span> xmltop
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="nt">&lt;CATALOG&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Bloodroot<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Sanguinaria canadensis<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>4<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Mostly Shady<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$2.44<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>031599<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Columbine<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Aquilegia canadensis<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>3<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Mostly Shady<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$9.37<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>030699<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Marsh Marigold<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Caltha palustris<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>4<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Mostly Sunny<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$6.81<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>051799<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Cowslip<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Caltha palustris<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>4<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Mostly Shady<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$9.90<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>030699<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Dutchman<span class="ni">&amp;apos;</span>s-Breeches<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Dicentra cucullaria<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>3<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Mostly Shady<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$6.44<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>012099<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Ginger, Wild<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Asarum canadense<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>3<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Mostly Shady<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$9.03<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>041899<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Hepatica<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Hepatica americana<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>4<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Mostly Shady<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$4.45<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>012699<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Liverleaf<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Hepatica americana<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>4<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Mostly Shady<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$3.99<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>010299<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Jack-In-The-Pulpit<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Arisaema triphyllum<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>4<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Mostly Shady<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$3.23<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>020199<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Mayapple<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Podophyllum peltatum<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>3<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Mostly Shady<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$2.98<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>060599<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Phlox, Woodland<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Phlox divaricata<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>3<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Sun or Shade<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$2.80<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>012299<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Phlox, Blue<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Phlox divaricata<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>3<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Sun or Shade<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$5.59<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>021699<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Spring-Beauty<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Claytonia Virginica<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>7<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Mostly Shady<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$6.59<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>020199<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Trillium<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Trillium grandiflorum<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>5<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Sun or Shade<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$3.90<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>042999<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Wake Robin<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Trillium grandiflorum<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>5<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Sun or Shade<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$3.20<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>022199<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Violet, Dog-Tooth<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Erythronium americanum<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>4<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Shade<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$9.04<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>020199<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Trout Lily<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Erythronium americanum<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>4<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Shade<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$6.94<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>032499<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Adder<span class="ni">&amp;apos;</span>s-Tongue<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Erythronium americanum<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>4<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Shade<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$9.58<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>041399<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Anemone<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Anemone blanda<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>6<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Mostly Shady<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$8.86<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>122698<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Grecian Windflower<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Anemone blanda<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>6<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Mostly Shady<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$9.16<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>071099<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Bee Balm<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Monarda didyma<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>4<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Shade<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$4.59<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>050399<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Bergamot<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Monarda didyma<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>4<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Shade<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$7.16<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>042799<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Black-Eyed Susan<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Rudbeckia hirta<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>Annual<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Sunny<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$9.80<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>061899<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Buttercup<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Ranunculus<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>4<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Shade<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$2.57<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>061099<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Crowfoot<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Ranunculus<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>4<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Shade<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$9.34<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>040399<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Butterfly Weed<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Asclepias tuberosa<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>Annual<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Sunny<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$2.78<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>063099<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Cinquefoil<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Potentilla<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>Annual<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Shade<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$7.06<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>052599<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Primrose<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Oenothera<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>3 - 5<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Sunny<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$6.56<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>013099<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Gentian<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Gentiana<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>4<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Sun or Shade<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$7.81<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>051899<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Blue Gentian<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Gentiana<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>4<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Sun or Shade<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$8.56<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>050299<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Jacob<span class="ni">&amp;apos;</span>s Ladder<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Polemonium caeruleum<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>Annual<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Shade<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$9.26<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>022199<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Greek Valerian<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Polemonium caeruleum<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>Annual<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Shade<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$4.36<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>071499<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>California Poppy<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Eschscholzia californica<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>Annual<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Sun<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$7.89<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>032799<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Shooting Star<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Dodecatheon<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>Annual<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Mostly Shady<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$8.60<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>051399<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Snakeroot<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Cimicifuga<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>Annual<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Shade<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$5.63<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>071199<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
- <span class="nt">&lt;PLANT&gt;</span>
-  <span class="nt">&lt;COMMON&gt;</span>Cardinal Flower<span class="nt">&lt;/COMMON&gt;</span>
-  <span class="nt">&lt;BOTANICAL&gt;</span>Lobelia cardinalis<span class="nt">&lt;/BOTANICAL&gt;</span>
-  <span class="nt">&lt;ZONE&gt;</span>2<span class="nt">&lt;/ZONE&gt;</span>
-  <span class="nt">&lt;LIGHT&gt;</span>Shade<span class="nt">&lt;/LIGHT&gt;</span>
-  <span class="nt">&lt;PRICE&gt;</span>$3.02<span class="nt">&lt;/PRICE&gt;</span>
-  <span class="nt">&lt;AVAILABILITY&gt;</span>022299<span class="nt">&lt;/AVAILABILITY&gt;</span>
- <span class="nt">&lt;/PLANT&gt;</span>
-<span class="nt">&lt;/CATALOG&gt;</span>
+<div class="codehilite"><pre><span></span>&lt;CATALOG&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Bloodroot&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Sanguinaria canadensis&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;4&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Mostly Shady&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$2.44&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;031599&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Columbine&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Aquilegia canadensis&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;3&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Mostly Shady&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$9.37&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;030699&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Marsh Marigold&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Caltha palustris&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;4&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Mostly Sunny&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$6.81&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;051799&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Cowslip&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Caltha palustris&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;4&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Mostly Shady&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$9.90&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;030699&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Dutchman&amp;apos;s-Breeches&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Dicentra cucullaria&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;3&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Mostly Shady&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$6.44&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;012099&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Ginger, Wild&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Asarum canadense&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;3&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Mostly Shady&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$9.03&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;041899&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Hepatica&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Hepatica americana&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;4&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Mostly Shady&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$4.45&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;012699&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Liverleaf&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Hepatica americana&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;4&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Mostly Shady&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$3.99&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;010299&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Jack-In-The-Pulpit&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Arisaema triphyllum&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;4&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Mostly Shady&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$3.23&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;020199&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Mayapple&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Podophyllum peltatum&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;3&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Mostly Shady&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$2.98&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;060599&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Phlox, Woodland&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Phlox divaricata&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;3&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Sun or Shade&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$2.80&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;012299&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Phlox, Blue&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Phlox divaricata&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;3&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Sun or Shade&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$5.59&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;021699&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Spring-Beauty&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Claytonia Virginica&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;7&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Mostly Shady&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$6.59&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;020199&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Trillium&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Trillium grandiflorum&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;5&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Sun or Shade&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$3.90&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;042999&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Wake Robin&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Trillium grandiflorum&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;5&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Sun or Shade&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$3.20&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;022199&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Violet, Dog-Tooth&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Erythronium americanum&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;4&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Shade&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$9.04&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;020199&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Trout Lily&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Erythronium americanum&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;4&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Shade&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$6.94&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;032499&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Adder&amp;apos;s-Tongue&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Erythronium americanum&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;4&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Shade&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$9.58&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;041399&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Anemone&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Anemone blanda&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;6&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Mostly Shady&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$8.86&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;122698&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Grecian Windflower&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Anemone blanda&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;6&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Mostly Shady&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$9.16&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;071099&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Bee Balm&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Monarda didyma&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;4&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Shade&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$4.59&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;050399&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Bergamot&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Monarda didyma&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;4&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Shade&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$7.16&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;042799&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Black-Eyed Susan&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Rudbeckia hirta&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;Annual&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Sunny&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$9.80&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;061899&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Buttercup&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Ranunculus&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;4&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Shade&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$2.57&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;061099&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Crowfoot&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Ranunculus&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;4&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Shade&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$9.34&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;040399&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Butterfly Weed&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Asclepias tuberosa&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;Annual&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Sunny&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$2.78&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;063099&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Cinquefoil&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Potentilla&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;Annual&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Shade&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$7.06&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;052599&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Primrose&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Oenothera&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;3 - 5&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Sunny&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$6.56&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;013099&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Gentian&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Gentiana&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;4&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Sun or Shade&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$7.81&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;051899&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Blue Gentian&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Gentiana&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;4&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Sun or Shade&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$8.56&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;050299&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Jacob&amp;apos;s Ladder&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Polemonium caeruleum&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;Annual&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Shade&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$9.26&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;022199&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Greek Valerian&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Polemonium caeruleum&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;Annual&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Shade&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$4.36&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;071499&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;California Poppy&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Eschscholzia californica&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;Annual&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Sun&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$7.89&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;032799&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Shooting Star&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Dodecatheon&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;Annual&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Mostly Shady&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$8.60&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;051399&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Snakeroot&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Cimicifuga&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;Annual&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Shade&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$5.63&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;071199&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+ &lt;PLANT&gt;
+  &lt;COMMON&gt;Cardinal Flower&lt;/COMMON&gt;
+  &lt;BOTANICAL&gt;Lobelia cardinalis&lt;/BOTANICAL&gt;
+  &lt;ZONE&gt;2&lt;/ZONE&gt;
+  &lt;LIGHT&gt;Shade&lt;/LIGHT&gt;
+  &lt;PRICE&gt;$3.02&lt;/PRICE&gt;
+  &lt;AVAILABILITY&gt;022299&lt;/AVAILABILITY&gt;
+ &lt;/PLANT&gt;
+&lt;/CATALOG&gt;
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># extract XML-values with xmlSApply. More specifically, this turns each $PLANT node into it&#39;s own row, each tag into a column, and each value within the tag into an element</span>
+<div class="codehilite"><pre><span></span><span class="c1"># extract XML-values with xmlSApply. More specifically, this turns each $PLANT node into it&#39;s own row, each tag into a column, and each value within the tag into an element</span>
 plantcat <span class="o">&lt;-</span> xmlSApply<span class="p">(</span>xmltop<span class="p">,</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">)</span> xmlSApply<span class="p">(</span>x<span class="p">,</span> xmlValue<span class="p">));</span> plantcat
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>             PLANT                    PLANT                  PLANT             
+<div class="codehilite"><pre><span></span>             PLANT                    PLANT                  PLANT             
 COMMON       &quot;Bloodroot&quot;              &quot;Columbine&quot;            &quot;Marsh Marigold&quot;  
 BOTANICAL    &quot;Sanguinaria canadensis&quot; &quot;Aquilegia canadensis&quot; &quot;Caltha palustris&quot;
 ZONE         &quot;4&quot;                      &quot;3&quot;                    &quot;4&quot;               
@@ -865,13 +865,13 @@ AVAILABILITY &quot;022299&quot;
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># get the data in a data-frame and have a look at the first rows and columns. The t() function transposes the plantcat variable</span>
+<div class="codehilite"><pre><span></span><span class="c1"># get the data in a data-frame and have a look at the first rows and columns. The t() function transposes the plantcat variable</span>
 plantcat_df <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span><span class="kp">t</span><span class="p">(</span>plantcat<span class="p">),</span>row.names<span class="o">=</span><span class="kc">NULL</span><span class="p">)</span>
 <span class="kp">head</span><span class="p">(</span>plantcat_df<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>               COMMON              BOTANICAL ZONE        LIGHT PRICE
+<div class="codehilite"><pre><span></span>               COMMON              BOTANICAL ZONE        LIGHT PRICE
 1           Bloodroot Sanguinaria canadensis    4 Mostly Shady $2.44
 2           Columbine   Aquilegia canadensis    3 Mostly Shady $9.37
 3      Marsh Marigold       Caltha palustris    4 Mostly Sunny $6.81

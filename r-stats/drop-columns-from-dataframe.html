@@ -134,17 +134,17 @@
 </header>
 
 <p>Original Source: http://stackoverflow.com/questions/4605206/drop-columns-r-data-frame</p>
-<div class="highlight"><pre><span></span><span class="c1"># create a dataframe with three columns</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a dataframe with three columns</span>
 df <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>x <span class="o">=</span> runif<span class="p">(</span><span class="m">100</span><span class="p">),</span> y <span class="o">=</span> runif<span class="p">(</span><span class="m">100</span><span class="p">),</span> z <span class="o">=</span> runif<span class="p">(</span><span class="m">100</span><span class="p">))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># drop columns y and z</span>
+<div class="codehilite"><pre><span></span><span class="c1"># drop columns y and z</span>
 df <span class="o">&lt;-</span> <span class="kp">subset</span><span class="p">(</span>df<span class="p">,</span> select <span class="o">=</span> <span class="o">-</span><span class="kt">c</span><span class="p">(</span>y<span class="p">,</span> z<span class="p">)</span> <span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># only keep column x (thus dropping y and z)</span>
+<div class="codehilite"><pre><span></span><span class="c1"># only keep column x (thus dropping y and z)</span>
 df <span class="o">&lt;-</span> <span class="kp">subset</span><span class="p">(</span>df<span class="p">,</span> select <span class="o">=</span> <span class="kt">c</span><span class="p">(</span>x<span class="p">))</span>
 </pre></div>
     <aside>

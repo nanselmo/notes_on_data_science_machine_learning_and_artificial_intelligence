@@ -133,32 +133,32 @@
 </ol>
 </header>
 
-<div class="highlight"><pre><span></span><span class="c1"># download the data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># download the data</span>
 nba <span class="o">&lt;-</span> read.csv<span class="p">(</span><span class="s">&quot;http://datasets.flowingdata.com/ppg2008.csv&quot;</span><span class="p">,</span> sep<span class="o">=</span><span class="s">&quot;,&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># order the data by the PTS variable</span>
+<div class="codehilite"><pre><span></span><span class="c1"># order the data by the PTS variable</span>
 nba <span class="o">&lt;-</span> nba<span class="p">[</span><span class="kp">order</span><span class="p">(</span>nba<span class="o">$</span>PTS<span class="p">),]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># name each now by the Name variable</span>
+<div class="codehilite"><pre><span></span><span class="c1"># name each now by the Name variable</span>
 <span class="kp">row.names</span><span class="p">(</span>nba<span class="p">)</span> <span class="o">&lt;-</span> nba<span class="o">$</span>Name
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># drop the first column</span>
+<div class="codehilite"><pre><span></span><span class="c1"># drop the first column</span>
 nba <span class="o">&lt;-</span> nba<span class="p">[,</span><span class="m">2</span><span class="o">:</span><span class="m">20</span><span class="p">]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># convert the data to a matrix for the heatmap</span>
+<div class="codehilite"><pre><span></span><span class="c1"># convert the data to a matrix for the heatmap</span>
 nba_matrix <span class="o">&lt;-</span> <span class="kp">data.matrix</span><span class="p">(</span>nba<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a heatmap of nba_matrix with the columns colored by the heat.colors</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a heatmap of nba_matrix with the columns colored by the heat.colors</span>
 nba_heatmap <span class="o">&lt;-</span> heatmap<span class="p">(</span>nba_matrix<span class="p">,</span> Rowv<span class="o">=</span><span class="kc">NA</span><span class="p">,</span> Colv<span class="o">=</span><span class="kc">NA</span><span class="p">,</span> col <span class="o">=</span> heat.colors<span class="p">(</span><span class="m">256</span><span class="p">),</span> scale<span class="o">=</span><span class="s">&quot;column&quot;</span><span class="p">,</span> margins<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="m">5</span><span class="p">,</span><span class="m">10</span><span class="p">))</span>
 </pre></div>
 

@@ -133,17 +133,17 @@
 </ol>
 </header>
 
-<div class="highlight"><pre><span></span><span class="c1"># Generate some fake data about education in 1000 observations</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Generate some fake data about education in 1000 observations</span>
 education <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;some high school&quot;</span><span class="p">,</span> <span class="s">&quot;high school&quot;</span><span class="p">,</span> <span class="s">&quot;college&quot;</span><span class="p">,</span> <span class="s">&quot;masters&quot;</span><span class="p">,</span> <span class="s">&quot;phd&quot;</span><span class="p">)</span>
 obs <span class="o">&lt;-</span> <span class="kp">sample</span><span class="p">(</span>education<span class="p">,</span> <span class="m">1000</span><span class="p">,</span> replace <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>obs
+<div class="codehilite"><pre><span></span>obs
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>   [1] &quot;college&quot;          &quot;college&quot;          &quot;college&quot;         
+<div class="codehilite"><pre><span></span>   [1] &quot;college&quot;          &quot;college&quot;          &quot;college&quot;         
    [4] &quot;phd&quot;              &quot;high school&quot;      &quot;college&quot;         
    [7] &quot;phd&quot;              &quot;masters&quot;          &quot;high school&quot;     
   [10] &quot;some high school&quot; &quot;high school&quot;      &quot;masters&quot;         
@@ -480,16 +480,16 @@ obs <span class="o">&lt;-</span> <span class="kp">sample</span><span class="p">(
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Turn the same into a ordered factor</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Turn the same into a ordered factor</span>
 obs.ordered <span class="o">&lt;-</span> <span class="kp">ordered</span><span class="p">(</span>obs<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>obs.ordered
+<div class="codehilite"><pre><span></span>obs.ordered
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>   [1] college          college          college          phd             
+<div class="codehilite"><pre><span></span>   [1] college          college          college          phd             
    [5] high school      college          phd              masters         
    [9] high school      some high school high school      masters         
   [13] high school      phd              some high school masters         

@@ -133,11 +133,11 @@
 </ol>
 </header>
 
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="n">raw_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;regiment&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Nighthawks&#39;</span><span class="p">,</span> <span class="s1">&#39;Nighthawks&#39;</span><span class="p">,</span> <span class="s1">&#39;Nighthawks&#39;</span><span class="p">,</span> <span class="s1">&#39;Nighthawks&#39;</span><span class="p">,</span> <span class="s1">&#39;Dragoons&#39;</span><span class="p">,</span> <span class="s1">&#39;Dragoons&#39;</span><span class="p">,</span> <span class="s1">&#39;Dragoons&#39;</span><span class="p">,</span> <span class="s1">&#39;Dragoons&#39;</span><span class="p">,</span> <span class="s1">&#39;Scouts&#39;</span><span class="p">,</span> <span class="s1">&#39;Scouts&#39;</span><span class="p">,</span> <span class="s1">&#39;Scouts&#39;</span><span class="p">,</span> <span class="s1">&#39;Scouts&#39;</span><span class="p">],</span> 
+<div class="codehilite"><pre><span></span><span class="n">raw_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;regiment&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Nighthawks&#39;</span><span class="p">,</span> <span class="s1">&#39;Nighthawks&#39;</span><span class="p">,</span> <span class="s1">&#39;Nighthawks&#39;</span><span class="p">,</span> <span class="s1">&#39;Nighthawks&#39;</span><span class="p">,</span> <span class="s1">&#39;Dragoons&#39;</span><span class="p">,</span> <span class="s1">&#39;Dragoons&#39;</span><span class="p">,</span> <span class="s1">&#39;Dragoons&#39;</span><span class="p">,</span> <span class="s1">&#39;Dragoons&#39;</span><span class="p">,</span> <span class="s1">&#39;Scouts&#39;</span><span class="p">,</span> <span class="s1">&#39;Scouts&#39;</span><span class="p">,</span> <span class="s1">&#39;Scouts&#39;</span><span class="p">,</span> <span class="s1">&#39;Scouts&#39;</span><span class="p">],</span> 
         <span class="s1">&#39;company&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span> <span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span><span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">],</span> 
         <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Miller&#39;</span><span class="p">,</span> <span class="s1">&#39;Jacobson&#39;</span><span class="p">,</span> <span class="s1">&#39;Ali&#39;</span><span class="p">,</span> <span class="s1">&#39;Milner&#39;</span><span class="p">,</span> <span class="s1">&#39;Cooze&#39;</span><span class="p">,</span> <span class="s1">&#39;Jacon&#39;</span><span class="p">,</span> <span class="s1">&#39;Ryaner&#39;</span><span class="p">,</span> <span class="s1">&#39;Sone&#39;</span><span class="p">,</span> <span class="s1">&#39;Sloan&#39;</span><span class="p">,</span> <span class="s1">&#39;Piger&#39;</span><span class="p">,</span> <span class="s1">&#39;Riani&#39;</span><span class="p">,</span> <span class="s1">&#39;Ali&#39;</span><span class="p">],</span> 
         <span class="s1">&#39;preTestScore&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
@@ -260,7 +260,7 @@
 </table>
 </div>
 
-<div class="highlight"><pre><span></span><span class="c1"># Create a variable that drop columns with column names where the first three letters of the column names was &#39;pre&#39;</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a variable that drop columns with column names where the first three letters of the column names was &#39;pre&#39;</span>
 <span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">lower</span><span class="p">()[:</span><span class="mi">3</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;pre&#39;</span><span class="p">]</span>
 
 <span class="c1"># Create a df of the columns in the variable cols</span>
@@ -268,7 +268,7 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="n">df</span>
+<div class="codehilite"><pre><span></span><span class="n">df</span>
 </pre></div>
 
 

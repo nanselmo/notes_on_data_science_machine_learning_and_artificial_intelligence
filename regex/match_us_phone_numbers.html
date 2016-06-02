@@ -135,24 +135,24 @@
 
 <p>Based on: <a href="http://shop.oreilly.com/product/0636920023630.do">Regular Expressions Cookbook</a></p>
 <h2>Preliminaries</h2>
-<div class="highlight"><pre><span></span><span class="c1"># Load regex package</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Load regex package</span>
 <span class="kn">import</span> <span class="nn">re</span>
 </pre></div>
 
 
 <h2>Create some text</h2>
-<div class="highlight"><pre><span></span><span class="c1"># Create a variable containing a text string</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a variable containing a text string</span>
 <span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;My phone number is 415-333-3922. His phone number is 4239389283&#39;</span>
 </pre></div>
 
 
 <h2>Apply regex</h2>
-<div class="highlight"><pre><span></span><span class="c1"># Find any text that fits the regex</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Find any text that fits the regex</span>
 <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">r&#39;\(?([2-9][0-8][0-9])\)?[-.●]?([2-9][0-9]{2})[-.●]?([0-9]{4})&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[(&#39;415&#39;, &#39;333&#39;, &#39;3922&#39;), (&#39;423&#39;, &#39;938&#39;, &#39;9283&#39;)]
+<div class="codehilite"><pre><span></span>[(&#39;415&#39;, &#39;333&#39;, &#39;3922&#39;), (&#39;423&#39;, &#39;938&#39;, &#39;9283&#39;)]
 </pre></div>
     <aside>
     <div class="bug-reporting__panel">

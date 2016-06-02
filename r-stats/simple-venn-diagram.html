@@ -134,22 +134,22 @@
 </header>
 
 <p>Original source: http://stackoverflow.com/questions/8713994/venn-diagram-in-r-proportional-and-color-shading-possible-semi-transparency-sup</p>
-<div class="highlight"><pre><span></span><span class="c1"># load the venneuler package</span>
+<div class="codehilite"><pre><span></span><span class="c1"># load the venneuler package</span>
 <span class="kn">require</span><span class="p">(</span>venneuler<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>Loading required package: venneuler
+<div class="codehilite"><pre><span></span>Loading required package: venneuler
 Loading required package: rJava
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># run the package on some simulated data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># run the package on some simulated data</span>
 v <span class="o">&lt;-</span> venneuler<span class="p">(</span><span class="kt">c</span><span class="p">(</span>A <span class="o">=</span> <span class="m">100</span><span class="p">,</span> B <span class="o">=</span> <span class="m">200</span><span class="p">,</span> <span class="s">&quot;A&amp;B&quot;</span> <span class="o">=</span> <span class="m">50</span><span class="p">))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># plot it</span>
+<div class="codehilite"><pre><span></span><span class="c1"># plot it</span>
 plot<span class="p">(</span>v<span class="p">)</span>
 </pre></div>
 

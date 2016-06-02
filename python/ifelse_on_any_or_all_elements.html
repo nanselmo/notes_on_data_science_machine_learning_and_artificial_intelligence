@@ -134,13 +134,13 @@
 </header>
 
 <h2>Preliminaries</h2>
-<div class="highlight"><pre><span></span><span class="c1"># import pandas as pd</span>
+<div class="codehilite"><pre><span></span><span class="c1"># import pandas as pd</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 </pre></div>
 
 
 <h2>Create a simulated dataset</h2>
-<div class="highlight"><pre><span></span><span class="c1"># Create an example dataframe</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create an example dataframe</span>
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;score&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]}</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 <span class="n">df</span>
@@ -181,7 +181,7 @@
 </div>
 
 <h2>Does any cell equal 3?</h2>
-<div class="highlight"><pre><span></span><span class="c1"># If any element in df.score equals three,</span>
+<div class="codehilite"><pre><span></span><span class="c1"># If any element in df.score equals three,</span>
 <span class="k">if</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">score</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
     <span class="c1"># Print this</span>
     <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Does any cells equal 3? Yes!&#39;</span><span class="p">)</span>
@@ -192,12 +192,12 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>Does any cells equal 3? Yes!
+<div class="codehilite"><pre><span></span>Does any cells equal 3? Yes!
 </pre></div>
 
 
 <h2>Do all cells equal 3?</h2>
-<div class="highlight"><pre><span></span><span class="c1"># If all elements in df.score equal three,</span>
+<div class="codehilite"><pre><span></span><span class="c1"># If all elements in df.score equal three,</span>
 <span class="k">if</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">score</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
     <span class="c1"># Print this</span>
     <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Do all cells equal 3? Yes!&#39;</span><span class="p">)</span>
@@ -208,7 +208,7 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>Do all cells equal 3? No!
+<div class="codehilite"><pre><span></span>Do all cells equal 3? No!
 </pre></div>
     <aside>
     <div class="bug-reporting__panel">

@@ -134,14 +134,14 @@
 </header>
 
 <p>Original Source: http://www.statmethods.net/graphs/boxplot.html</p>
-<div class="highlight"><pre><span></span><span class="c1"># Create some fake data about different types of casualties in a war</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create some fake data about different types of casualties in a war</span>
 deaths <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">234</span><span class="p">,</span><span class="m">234</span><span class="p">,</span><span class="m">643</span><span class="p">,</span><span class="m">74</span><span class="p">,</span><span class="m">323</span><span class="p">,</span><span class="m">67</span><span class="p">,</span><span class="m">34</span><span class="p">,</span><span class="m">78</span><span class="p">,</span><span class="m">434</span><span class="p">)</span>
 population <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;civilian&quot;</span><span class="p">,</span> <span class="s">&quot;soldier&quot;</span><span class="p">,</span> <span class="s">&quot;rebel&quot;</span><span class="p">))</span>
 war <span class="o">&lt;-</span> <span class="kp">cbind</span><span class="p">(</span>deaths<span class="p">,</span> population<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create a boxplot of the number of deaths, seperated by populaton type, with teach boxplot labelled with the factor name, and colored different shades of red</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a boxplot of the number of deaths, seperated by populaton type, with teach boxplot labelled with the factor name, and colored different shades of red</span>
 boxplot<span class="p">(</span>deaths<span class="o">~</span>population<span class="p">,</span>data<span class="o">=</span>war<span class="p">,</span> main<span class="o">=</span><span class="s">&quot;Deaths By Type&quot;</span><span class="p">,</span> xlab<span class="o">=</span><span class="s">&quot;Type of Victims&quot;</span><span class="p">,</span> ylab<span class="o">=</span><span class="s">&quot;Number Of Deaths&quot;</span><span class="p">,</span> names<span class="o">=</span>population<span class="p">,</span> col<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;red3&quot;</span><span class="p">,</span><span class="s">&quot;indianred4&quot;</span><span class="p">,</span><span class="s">&quot;orangered1&quot;</span><span class="p">))</span>
 </pre></div>
 

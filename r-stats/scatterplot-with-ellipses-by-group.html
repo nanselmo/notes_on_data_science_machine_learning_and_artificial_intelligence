@@ -134,7 +134,7 @@
 </header>
 
 <p>Original source: http://stackoverflow.com/questions/2397097/how-can-a-data-ellipse-be-superimposed-on-a-ggplot2-scatterplot</p>
-<div class="highlight"><pre><span></span><span class="c1"># create a dataframe of simulated data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a dataframe of simulated data</span>
 x <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span><span class="m">12</span><span class="p">,</span><span class="m">10</span><span class="p">,</span> <span class="m">20</span><span class="p">,</span><span class="m">21</span><span class="p">,</span><span class="m">23</span><span class="p">)</span>
 y <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">50</span><span class="p">,</span><span class="m">54</span><span class="p">,</span><span class="m">49</span><span class="p">,</span> <span class="m">30</span><span class="p">,</span><span class="m">25</span><span class="p">,</span><span class="m">26</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">5</span><span class="p">)</span>
 group <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">,</span> <span class="s">&quot;c&quot;</span><span class="p">,</span> <span class="s">&quot;c&quot;</span><span class="p">,</span> <span class="s">&quot;c&quot;</span><span class="p">)</span>
@@ -143,13 +143,13 @@ df <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># load packages</span>
+<div class="codehilite"><pre><span></span><span class="c1"># load packages</span>
 <span class="kn">library</span><span class="p">(</span>ggplot2<span class="p">)</span>
 <span class="kn">library</span><span class="p">(</span>ellipse<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># calculating the ellipses by df$group</span>
+<div class="codehilite"><pre><span></span><span class="c1"># calculating the ellipses by df$group</span>
 <span class="c1"># create an empty dataframe</span>
 df_ell <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">()</span>
 <span class="c1"># for each level in df$groups</span>
@@ -166,7 +166,7 @@ df_ell <span class="o">&lt;-</span> <span class="kt">data.frame</span><span clas
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create the ggplot with points colored by grouo</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create the ggplot with points colored by grouo</span>
 ggplot<span class="p">(</span>data<span class="o">=</span>df<span class="p">,</span> aes<span class="p">(</span>x<span class="o">=</span>x<span class="p">,</span> y<span class="o">=</span>y<span class="p">,</span>colour<span class="o">=</span>group<span class="p">))</span> <span class="o">+</span>
   <span class="c1"># draw points</span>
   geom_point<span class="p">(</span>size<span class="o">=</span><span class="m">1.5</span><span class="p">,</span> alpha<span class="o">=</span><span class="m">.6</span><span class="p">)</span> <span class="o">+</span>

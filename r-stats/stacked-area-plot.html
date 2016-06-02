@@ -134,7 +134,7 @@
 </header>
 
 <p>Source: http://www.r-bloggers.com/a-nifty-area-plot-or-a-bootleg-of-a-ggplot-geom/</p>
-<div class="highlight"><pre><span></span><span class="c1"># load the ggplot2 package</span>
+<div class="codehilite"><pre><span></span><span class="c1"># load the ggplot2 package</span>
 <span class="kn">library</span><span class="p">(</span>ggplot2<span class="p">)</span>
 
 <span class="c1"># load the reshape package</span>
@@ -145,46 +145,46 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a sequence</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a sequence</span>
 t.step <span class="o">&lt;-</span> <span class="kp">seq</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">20</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create some group names</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create some group names</span>
 grps <span class="o">&lt;-</span> <span class="kc">letters</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create simulated data for group values across time</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create simulated data for group values across time</span>
 grp.dat <span class="o">&lt;-</span> runif<span class="p">(</span><span class="kp">length</span><span class="p">(</span>t.step<span class="p">)</span><span class="o">*</span><span class="kp">length</span><span class="p">(</span>grps<span class="p">),</span><span class="m">5</span><span class="p">,</span><span class="m">15</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create data frame</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create data frame</span>
 grp.dat <span class="o">&lt;-</span> <span class="kt">matrix</span><span class="p">(</span>grp.dat<span class="p">,</span>nrow<span class="o">=</span><span class="kp">length</span><span class="p">(</span>t.step<span class="p">),</span>ncol<span class="o">=</span><span class="kp">length</span><span class="p">(</span>grps<span class="p">))</span>
 grp.dat <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>grp.dat<span class="p">,</span>row.names<span class="o">=</span>t.step<span class="p">)</span>
 <span class="kp">names</span><span class="p">(</span>grp.dat<span class="p">)</span> <span class="o">&lt;-</span> grps
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1">#reshape the data</span>
+<div class="codehilite"><pre><span></span><span class="c1">#reshape the data</span>
 p.dat <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>step<span class="o">=</span><span class="kp">row.names</span><span class="p">(</span>grp.dat<span class="p">),</span>grp.dat<span class="p">,</span>stringsAsFactors<span class="o">=</span><span class="bp">F</span><span class="p">)</span>
 p.dat <span class="o">&lt;-</span> melt<span class="p">(</span>p.dat<span class="p">,</span>id<span class="o">=</span><span class="s">&#39;step&#39;</span><span class="p">)</span>
 p.dat<span class="o">$</span>step <span class="o">&lt;-</span> <span class="kp">as.numeric</span><span class="p">(</span>p.dat<span class="o">$</span>step<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1">#create plots</span>
+<div class="codehilite"><pre><span></span><span class="c1">#create plots</span>
 p <span class="o">&lt;-</span> ggplot<span class="p">(</span>p.dat<span class="p">,</span> aes<span class="p">(</span>x<span class="o">=</span>step<span class="p">,</span>y<span class="o">=</span>value<span class="p">))</span> <span class="o">+</span> theme<span class="p">(</span>legend.position<span class="o">=</span><span class="s">&quot;none&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>p <span class="o">+</span> geom_area<span class="p">(</span>aes<span class="p">(</span>fill<span class="o">=</span>variable<span class="p">))</span>
+<div class="codehilite"><pre><span></span>p <span class="o">+</span> geom_area<span class="p">(</span>aes<span class="p">(</span>fill<span class="o">=</span>variable<span class="p">))</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/stacked-area-plot_files/stacked-area-plot_8_1.png" /></p>
-<div class="highlight"><pre><span></span>p <span class="o">+</span> geom_area<span class="p">(</span>aes<span class="p">(</span>fill<span class="o">=</span>variable<span class="p">),</span>position<span class="o">=</span><span class="s">&#39;fill&#39;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span>p <span class="o">+</span> geom_area<span class="p">(</span>aes<span class="p">(</span>fill<span class="o">=</span>variable<span class="p">),</span>position<span class="o">=</span><span class="s">&#39;fill&#39;</span><span class="p">)</span>
 </pre></div>
 
 

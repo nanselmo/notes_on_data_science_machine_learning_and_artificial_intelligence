@@ -135,13 +135,13 @@
 
 <p>Originally from: Data Origami.</p>
 <h3>import modules</h3>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">patsy</span>
 </pre></div>
 
 
 <h3>Create dataframe</h3>
-<div class="highlight"><pre><span></span><span class="n">raw_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;patient&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> 
+<div class="codehilite"><pre><span></span><span class="n">raw_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;patient&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> 
         <span class="s1">&#39;obs&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> 
         <span class="s1">&#39;treatment&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
         <span class="s1">&#39;score&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;strong&#39;</span><span class="p">,</span> <span class="s1">&#39;weak&#39;</span><span class="p">,</span> <span class="s1">&#39;normal&#39;</span><span class="p">,</span> <span class="s1">&#39;weak&#39;</span><span class="p">,</span> <span class="s1">&#39;strong&#39;</span><span class="p">]}</span> 
@@ -202,7 +202,7 @@
 </div>
 
 <h3>Convert df['score'] into a categorical variable ready for regression (i.e. set one category as the baseline)</h3>
-<div class="highlight"><pre><span></span><span class="c1"># On the &#39;score&#39; variable in the df dataframe, convert to a categorical variable, and spit out a dataframe</span>
+<div class="codehilite"><pre><span></span><span class="c1"># On the &#39;score&#39; variable in the df dataframe, convert to a categorical variable, and spit out a dataframe</span>
 <span class="n">patsy</span><span class="o">.</span><span class="n">dmatrix</span><span class="p">(</span><span class="s1">&#39;score&#39;</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">return_type</span><span class="o">=</span><span class="s1">&#39;dataframe&#39;</span><span class="p">)</span>
 </pre></div>
 
@@ -254,7 +254,7 @@
 
 <h3>Convert df['score'] into a categorical variable without setting one category as baseline</h3>
 <p>This is likely what you will want to do</p>
-<div class="highlight"><pre><span></span><span class="c1"># On the &#39;score&#39; variable in the df dataframe, convert to a categorical variable, and spit out a dataframe</span>
+<div class="codehilite"><pre><span></span><span class="c1"># On the &#39;score&#39; variable in the df dataframe, convert to a categorical variable, and spit out a dataframe</span>
 <span class="n">patsy</span><span class="o">.</span><span class="n">dmatrix</span><span class="p">(</span><span class="s1">&#39;score - 1&#39;</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">return_type</span><span class="o">=</span><span class="s1">&#39;dataframe&#39;</span><span class="p">)</span>
 </pre></div>
 
@@ -305,7 +305,7 @@
 </div>
 
 <h3>Create a variable that is "1" if the variables of patient and treatment are both 1</h3>
-<div class="highlight"><pre><span></span><span class="n">patsy</span><span class="o">.</span><span class="n">dmatrix</span><span class="p">(</span><span class="s1">&#39;patient + treatment + patient:treatment-1&#39;</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">return_type</span><span class="o">=</span><span class="s1">&#39;dataframe&#39;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">patsy</span><span class="o">.</span><span class="n">dmatrix</span><span class="p">(</span><span class="s1">&#39;patient + treatment + patient:treatment-1&#39;</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">return_type</span><span class="o">=</span><span class="s1">&#39;dataframe&#39;</span><span class="p">)</span>
 </pre></div>
 
 

@@ -139,23 +139,23 @@
 <li>Dictionaries are mutable.</li>
 </ul>
 <h3>Build a dictionary via brackets</h3>
-<div class="highlight"><pre><span></span><span class="n">unef_org</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;UNEF&#39;</span><span class="p">,</span>
+<div class="codehilite"><pre><span></span><span class="n">unef_org</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;UNEF&#39;</span><span class="p">,</span>
             <span class="s1">&#39;staff&#39;</span> <span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
             <span class="s1">&#39;url&#39;</span> <span class="p">:</span> <span class="s1">&#39;http://unef.org&#39;</span><span class="p">}</span>
 </pre></div>
 
 
 <h3>View the variable</h3>
-<div class="highlight"><pre><span></span><span class="n">unef_org</span>
+<div class="codehilite"><pre><span></span><span class="n">unef_org</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>{&#39;name&#39;: &#39;UNEF&#39;, &#39;staff&#39;: 32, &#39;url&#39;: &#39;http://unef.org&#39;}
+<div class="codehilite"><pre><span></span>{&#39;name&#39;: &#39;UNEF&#39;, &#39;staff&#39;: 32, &#39;url&#39;: &#39;http://unef.org&#39;}
 </pre></div>
 
 
 <h1>Build a dict via keys</h1>
-<div class="highlight"><pre><span></span><span class="n">who_org</span> <span class="o">=</span> <span class="p">{}</span>
+<div class="codehilite"><pre><span></span><span class="n">who_org</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="n">who_org</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;WHO&#39;</span>
 <span class="n">who_org</span><span class="p">[</span><span class="s1">&#39;staff&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;10&#39;</span>
 <span class="n">who_org</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;http://who.org&#39;</span>
@@ -163,28 +163,28 @@
 
 
 <h3>View the variable</h3>
-<div class="highlight"><pre><span></span><span class="n">who_org</span>
+<div class="codehilite"><pre><span></span><span class="n">who_org</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>{&#39;name&#39;: &#39;WHO&#39;, &#39;staff&#39;: &#39;10&#39;, &#39;url&#39;: &#39;http://who.org&#39;}
+<div class="codehilite"><pre><span></span>{&#39;name&#39;: &#39;WHO&#39;, &#39;staff&#39;: &#39;10&#39;, &#39;url&#39;: &#39;http://who.org&#39;}
 </pre></div>
 
 
 <h2>Nesting in dictionaries</h2>
 <h3>Build a dictionary via brackets</h3>
-<div class="highlight"><pre><span></span><span class="n">unitas_org</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;UNITAS&#39;</span><span class="p">,</span>
+<div class="codehilite"><pre><span></span><span class="n">unitas_org</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;UNITAS&#39;</span><span class="p">,</span>
               <span class="s1">&#39;staff&#39;</span> <span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
               <span class="s1">&#39;url&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;http://unitas.org&#39;</span><span class="p">,</span> <span class="s1">&#39;http://unitas.int&#39;</span><span class="p">]}</span>
 </pre></div>
 
 
 <h3>View the variable</h3>
-<div class="highlight"><pre><span></span><span class="n">unitas_org</span>
+<div class="codehilite"><pre><span></span><span class="n">unitas_org</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>{&#39;name&#39;: &#39;UNITAS&#39;,
+<div class="codehilite"><pre><span></span>{&#39;name&#39;: &#39;UNITAS&#39;,
  &#39;staff&#39;: 32,
  &#39;url&#39;: [&#39;http://unitas.org&#39;, &#39;http://unitas.int&#39;]}
 </pre></div>
@@ -192,11 +192,11 @@
 
 <h2>Index the nested list</h2>
 <h3>Index the second item of the list nested in the url key.</h3>
-<div class="highlight"><pre><span></span><span class="n">unitas_org</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+<div class="codehilite"><pre><span></span><span class="n">unitas_org</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>&#39;http://unitas.int&#39;
+<div class="codehilite"><pre><span></span>&#39;http://unitas.int&#39;
 </pre></div>
     <aside>
     <div class="bug-reporting__panel">

@@ -135,46 +135,46 @@
 
 <p>Factors are a variable type used for categorial data.</p>
 <p>Whenever a data frame is created with text strings, R treats it as a factor.</p>
-<div class="highlight"><pre><span></span><span class="c1"># Create three variables of 50 observations length.</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create three variables of 50 observations length.</span>
 turnout <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">50</span><span class="p">)</span>
 state <span class="o">&lt;-</span> state.name
 outcome <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;win&quot;</span><span class="p">,</span> <span class="s">&quot;loss&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create a dataframe of those two variables</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a dataframe of those two variables</span>
 usa <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>state<span class="p">,</span> turnout<span class="p">,</span> outcome<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Is &quot;outcome&quot; a factor? Yes.</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Is &quot;outcome&quot; a factor? Yes.</span>
 <span class="kp">class</span><span class="p">(</span>usa<span class="o">$</span>outcome<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] &quot;factor&quot;
+<div class="codehilite"><pre><span></span>[1] &quot;factor&quot;
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># View the levels (i.e. category names) of the factor</span>
+<div class="codehilite"><pre><span></span><span class="c1"># View the levels (i.e. category names) of the factor</span>
 <span class="kp">levels</span><span class="p">(</span>usa<span class="o">$</span>outcome<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] &quot;loss&quot; &quot;win&quot;
+<div class="codehilite"><pre><span></span>[1] &quot;loss&quot; &quot;win&quot;
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># views the number of these levels (i.e. category IDs) of the factor</span>
+<div class="codehilite"><pre><span></span><span class="c1"># views the number of these levels (i.e. category IDs) of the factor</span>
 <span class="kp">nlevels</span><span class="p">(</span>usa<span class="o">$</span>outcome<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] 2
+<div class="codehilite"><pre><span></span>[1] 2
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># change levels of a factor</span>
+<div class="codehilite"><pre><span></span><span class="c1"># change levels of a factor</span>
 <span class="kp">levels</span><span class="p">(</span>usa<span class="o">$</span>outcome<span class="p">)</span> <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;victory&quot;</span><span class="p">,</span> <span class="s">&quot;defeat&quot;</span><span class="p">)</span>
 </pre></div>
     <aside>

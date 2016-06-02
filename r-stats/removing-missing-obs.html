@@ -133,7 +133,7 @@
 </ol>
 </header>
 
-<div class="highlight"><pre><span></span><span class="c1"># create a data frame of fake data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a data frame of fake data</span>
 names <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;Gob&quot;</span><span class="p">,</span> <span class="s">&quot;George Michael&quot;</span><span class="p">,</span> <span class="s">&quot;Michael&quot;</span><span class="p">,</span> <span class="s">&quot;Maebe&quot;</span><span class="p">,</span> <span class="s">&quot;Jake&quot;</span><span class="p">,</span> <span class="s">&quot;NA&quot;</span><span class="p">,</span> <span class="s">&quot;Taylor&quot;</span><span class="p">,</span> <span class="s">&quot;NA&quot;</span><span class="p">,</span> <span class="s">&quot;Jack&quot;</span><span class="p">)</span>
 score.1 <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">4355</span><span class="p">,</span> <span class="kc">NA</span><span class="p">,</span> <span class="m">435345</span><span class="p">,</span> <span class="m">435435</span><span class="p">,</span> <span class="m">347754</span><span class="p">,</span> <span class="m">5754364</span><span class="p">,</span> <span class="m">34534543</span><span class="p">,</span> <span class="m">43534534</span><span class="p">,</span> <span class="kc">NA</span><span class="p">)</span>
 score.2 <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">4355</span><span class="p">,</span> <span class="m">324</span><span class="p">,</span> <span class="m">435345</span><span class="p">,</span> <span class="m">435435</span><span class="p">,</span> <span class="m">347754</span><span class="p">,</span> <span class="kc">NA</span><span class="p">,</span> <span class="kc">NA</span><span class="p">,</span> <span class="kc">NA</span><span class="p">,</span> <span class="m">9230</span><span class="p">)</span>
@@ -141,12 +141,12 @@ df <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># index only the rows with no missing data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># index only the rows with no missing data</span>
 df<span class="p">[</span>complete.cases<span class="p">(</span>df<span class="p">),]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>    names score.1 score.2
+<div class="codehilite"><pre><span></span>    names score.1 score.2
 1     Gob    4355    4355
 3 Michael  435345  435345
 4   Maebe  435435  435435

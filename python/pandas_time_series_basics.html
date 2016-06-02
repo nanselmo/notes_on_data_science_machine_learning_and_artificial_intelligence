@@ -134,7 +134,7 @@
 </header>
 
 <h3>Import modules</h3>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">pyplot</span>
@@ -142,14 +142,14 @@
 
 
 <h3>Create a dataframe</h3>
-<div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;2014-05-01 18:47:05.069722&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-01 18:47:05.119994&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-02 18:47:05.178768&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-02 18:47:05.230071&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-02 18:47:05.230071&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-02 18:47:05.280592&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-03 18:47:05.332662&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-03 18:47:05.385109&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-04 18:47:05.436523&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-04 18:47:05.486877&#39;</span><span class="p">],</span> 
+<div class="codehilite"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;2014-05-01 18:47:05.069722&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-01 18:47:05.119994&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-02 18:47:05.178768&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-02 18:47:05.230071&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-02 18:47:05.230071&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-02 18:47:05.280592&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-03 18:47:05.332662&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-03 18:47:05.385109&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-04 18:47:05.436523&#39;</span><span class="p">,</span> <span class="s1">&#39;2014-05-04 18:47:05.486877&#39;</span><span class="p">],</span> 
         <span class="s1">&#39;battle_deaths&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">34</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">41</span><span class="p">]}</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;battle_deaths&#39;</span><span class="p">])</span>
 <span class="k">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>                         date  battle_deaths
+<div class="codehilite"><pre><span></span>                         date  battle_deaths
 0  2014-05-01 18:47:05.069722             34
 1  2014-05-01 18:47:05.119994             25
 2  2014-05-02 18:47:05.178768             26
@@ -166,12 +166,12 @@
 
 
 <h3>Convert df['date'] from string to datetime</h3>
-<div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">])</span>
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">])</span>
 </pre></div>
 
 
 <h3>Set df['date'] as the index and delete the column</h3>
-<div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span>
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span>
 <span class="k">del</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span>
 <span class="n">df</span>
 </pre></div>
@@ -236,7 +236,7 @@
 </div>
 
 <h3>View all observations that occured in 2014</h3>
-<div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;2014&#39;</span><span class="p">]</span>
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;2014&#39;</span><span class="p">]</span>
 </pre></div>
 
 
@@ -299,7 +299,7 @@
 </div>
 
 <h3>View all observations that occured in May 2014</h3>
-<div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;2014-05&#39;</span><span class="p">]</span>
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;2014-05&#39;</span><span class="p">]</span>
 </pre></div>
 
 
@@ -362,7 +362,7 @@
 </div>
 
 <h3>Observations after May 3rd, 2014</h3>
-<div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2014</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">):]</span>
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2014</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">):]</span>
 </pre></div>
 
 
@@ -401,7 +401,7 @@
 </div>
 
 <h3>Observations between May 3rd and May 4th</h3>
-<div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;5/3/2014&#39;</span><span class="p">:</span><span class="s1">&#39;5/4/2014&#39;</span><span class="p">]</span>
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;5/3/2014&#39;</span><span class="p">:</span><span class="s1">&#39;5/4/2014&#39;</span><span class="p">]</span>
 </pre></div>
 
 
@@ -440,7 +440,7 @@
 </div>
 
 <h3>Truncation observations after May 2nd 2014</h3>
-<div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">truncate</span><span class="p">(</span><span class="n">after</span><span class="o">=</span><span class="s1">&#39;5/3/2014&#39;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">truncate</span><span class="p">(</span><span class="n">after</span><span class="o">=</span><span class="s1">&#39;5/3/2014&#39;</span><span class="p">)</span>
 </pre></div>
 
 
@@ -487,7 +487,7 @@
 </div>
 
 <h3>Observations of May 2014</h3>
-<div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="s1">&#39;5-2014&#39;</span><span class="p">]</span>
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="s1">&#39;5-2014&#39;</span><span class="p">]</span>
 </pre></div>
 
 
@@ -550,7 +550,7 @@
 </div>
 
 <h3>Count the number of observations per timestamp</h3>
-<div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
 </pre></div>
 
 
@@ -610,7 +610,7 @@
 
 <h3></h3>
 <h3>Mean value of battle_deaths per day</h3>
-<div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
 </pre></div>
 
 
@@ -649,7 +649,7 @@
 </div>
 
 <h3>Total value of battle_deaths per day</h3>
-<div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;sum&#39;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;sum&#39;</span><span class="p">)</span>
 </pre></div>
 
 
@@ -688,11 +688,11 @@
 </div>
 
 <h3>Plot of the total battle deaths per day</h3>
-<div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;sum&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;sum&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>&lt;matplotlib.axes.AxesSubplot at 0x10809de50&gt;
+<div class="codehilite"><pre><span></span>&lt;matplotlib.axes.AxesSubplot at 0x10809de50&gt;
 </pre></div>
 
 

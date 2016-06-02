@@ -134,7 +134,7 @@
 </header>
 
 <p>Original source: r graphics cookbook</p>
-<div class="highlight"><pre><span></span><span class="c1"># load the gcookbook package for the data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># load the gcookbook package for the data</span>
 <span class="kn">library</span><span class="p">(</span>gcookbook<span class="p">)</span>
 
 <span class="c1"># load the ggplot2 package</span>
@@ -145,17 +145,17 @@ dev.off<span class="p">()</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>null device
+<div class="codehilite"><pre><span></span>null device
           1
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># divide the faithful$waiting data into 10 bins</span>
+<div class="codehilite"><pre><span></span><span class="c1"># divide the faithful$waiting data into 10 bins</span>
 binsize <span class="o">&lt;-</span> <span class="kp">diff</span><span class="p">(</span><span class="kp">range</span><span class="p">(</span>faithful<span class="o">$</span>waiting<span class="p">))</span><span class="o">/</span><span class="m">10</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create the ggplot2 data for the faithful$waiting variable</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create the ggplot2 data for the faithful$waiting variable</span>
 ggplot<span class="p">(</span>faithful<span class="p">,</span> aes<span class="p">(</span>x<span class="o">=</span>waiting<span class="p">))</span> <span class="o">+</span>
   <span class="c1"># add a sensity line</span>
   geom_freqpoly<span class="p">(</span>binwidth<span class="o">=</span>binsize<span class="p">)</span> <span class="o">+</span>

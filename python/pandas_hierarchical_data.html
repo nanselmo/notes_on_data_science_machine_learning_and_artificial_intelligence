@@ -133,12 +133,12 @@
 </ol>
 </header>
 
-<div class="highlight"><pre><span></span><span class="c1"># import modules</span>
+<div class="codehilite"><pre><span></span><span class="c1"># import modules</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create dataframe</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create dataframe</span>
 <span class="n">raw_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;regiment&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Nighthawks&#39;</span><span class="p">,</span> <span class="s1">&#39;Nighthawks&#39;</span><span class="p">,</span> <span class="s1">&#39;Nighthawks&#39;</span><span class="p">,</span> <span class="s1">&#39;Nighthawks&#39;</span><span class="p">,</span> <span class="s1">&#39;Dragoons&#39;</span><span class="p">,</span> <span class="s1">&#39;Dragoons&#39;</span><span class="p">,</span> <span class="s1">&#39;Dragoons&#39;</span><span class="p">,</span> <span class="s1">&#39;Dragoons&#39;</span><span class="p">,</span> <span class="s1">&#39;Scouts&#39;</span><span class="p">,</span> <span class="s1">&#39;Scouts&#39;</span><span class="p">,</span> <span class="s1">&#39;Scouts&#39;</span><span class="p">,</span> <span class="s1">&#39;Scouts&#39;</span><span class="p">],</span> 
         <span class="s1">&#39;company&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span> <span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span><span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">],</span> 
         <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Miller&#39;</span><span class="p">,</span> <span class="s1">&#39;Jacobson&#39;</span><span class="p">,</span> <span class="s1">&#39;Ali&#39;</span><span class="p">,</span> <span class="s1">&#39;Milner&#39;</span><span class="p">,</span> <span class="s1">&#39;Cooze&#39;</span><span class="p">,</span> <span class="s1">&#39;Jacon&#39;</span><span class="p">,</span> <span class="s1">&#39;Ryaner&#39;</span><span class="p">,</span> <span class="s1">&#39;Sone&#39;</span><span class="p">,</span> <span class="s1">&#39;Sloan&#39;</span><span class="p">,</span> <span class="s1">&#39;Piger&#39;</span><span class="p">,</span> <span class="s1">&#39;Riani&#39;</span><span class="p">,</span> <span class="s1">&#39;Ali&#39;</span><span class="p">],</span> 
@@ -263,7 +263,7 @@
 <p>12 rows × 5 columns</p>
 </div>
 
-<div class="highlight"><pre><span></span><span class="c1"># Set the hierarchical index but leave the columns inplace</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Set the hierarchical index but leave the columns inplace</span>
 <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;regiment&#39;</span><span class="p">,</span> <span class="s1">&#39;company&#39;</span><span class="p">],</span> <span class="n">drop</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 <span class="n">df</span>
 </pre></div>
@@ -383,7 +383,7 @@
 <p>12 rows × 5 columns</p>
 </div>
 
-<div class="highlight"><pre><span></span><span class="c1"># Set the hierarchical index to be by regiment, and then by company</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Set the hierarchical index to be by regiment, and then by company</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;regiment&#39;</span><span class="p">,</span> <span class="s1">&#39;company&#39;</span><span class="p">])</span>
 <span class="n">df</span>
 </pre></div>
@@ -488,18 +488,18 @@
 <p>12 rows × 3 columns</p>
 </div>
 
-<div class="highlight"><pre><span></span><span class="c1"># View the index</span>
+<div class="codehilite"><pre><span></span><span class="c1"># View the index</span>
 <span class="n">df</span><span class="o">.</span><span class="n">index</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>MultiIndex(levels=[[&#39;Dragoons&#39;, &#39;Nighthawks&#39;, &#39;Scouts&#39;], [&#39;1st&#39;, &#39;2nd&#39;]],
+<div class="codehilite"><pre><span></span>MultiIndex(levels=[[&#39;Dragoons&#39;, &#39;Nighthawks&#39;, &#39;Scouts&#39;], [&#39;1st&#39;, &#39;2nd&#39;]],
            labels=[[1, 1, 1, 1, 0, 0, 0, 0, 2, 2, 2, 2], [0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1]],
            names=[&#39;regiment&#39;, &#39;company&#39;])
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Swap the levels in the index</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Swap the levels in the index</span>
 <span class="n">df</span><span class="o">.</span><span class="n">swaplevel</span><span class="p">(</span><span class="s1">&#39;regiment&#39;</span><span class="p">,</span> <span class="s1">&#39;company&#39;</span><span class="p">)</span>
 </pre></div>
 
@@ -606,7 +606,7 @@
 <p>12 rows × 3 columns</p>
 </div>
 
-<div class="highlight"><pre><span></span><span class="c1"># Summarize the results by regiment</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Summarize the results by regiment</span>
 <span class="n">df</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s1">&#39;regiment&#39;</span><span class="p">)</span>
 </pre></div>
 

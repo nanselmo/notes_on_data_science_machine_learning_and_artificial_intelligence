@@ -134,7 +134,7 @@
 </header>
 
 <p>original source: http://stackoverflow.com/questions/11641356/circular-plot-in-ggplot2-with-line-segments-connected-in-r</p>
-<div class="highlight"><pre><span></span><span class="c1">#load ggplot</span>
+<div class="codehilite"><pre><span></span><span class="c1">#load ggplot</span>
 <span class="kn">library</span><span class="p">(</span>ggplot2<span class="p">)</span>
 
 <span class="c1"># create simulated data. start denotes where out of 10 each segment starts, end where they end, and label what they are called</span>
@@ -146,7 +146,7 @@ filld<span class="o">$</span>p <span class="o">&lt;-</span> <span class="kp">row
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create the ggplot data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create the ggplot data</span>
 ggplot<span class="p">(</span>filld<span class="p">,</span> aes<span class="p">(</span>xmin <span class="o">=</span> start<span class="p">,</span> xmax <span class="o">=</span> end<span class="p">,</span> ymin <span class="o">=</span> <span class="m">4</span><span class="p">,</span> ymax <span class="o">=</span> <span class="m">5</span><span class="p">,</span> fill <span class="o">=</span> label<span class="p">))</span> <span class="o">+</span>
   <span class="c1"># draw the bar plot</span>
   geom_rect<span class="p">()</span> <span class="o">+</span>

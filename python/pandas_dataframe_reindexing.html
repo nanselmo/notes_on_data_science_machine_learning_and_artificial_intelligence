@@ -134,19 +134,19 @@
 </header>
 
 <h2>Series</h2>
-<div class="highlight"><pre><span></span><span class="c1"># Import Modules</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Import Modules</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create a pandas series of the risk of fire in Southern Arizona</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a pandas series of the risk of fire in Southern Arizona</span>
 <span class="n">brushFireRisk</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">34</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">23</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Bisbee&#39;</span><span class="p">,</span> <span class="s1">&#39;Douglas&#39;</span><span class="p">,</span> <span class="s1">&#39;Sierra Vista&#39;</span><span class="p">,</span> <span class="s1">&#39;Tombstone&#39;</span><span class="p">])</span>
 <span class="n">brushFireRisk</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>Bisbee          34
+<div class="codehilite"><pre><span></span>Bisbee          34
 Douglas         23
 Sierra Vista    12
 Tombstone       23
@@ -154,13 +154,13 @@ dtype: int64
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Reindex the series and create a new series variable</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Reindex the series and create a new series variable</span>
 <span class="n">brushFireRiskReindexed</span> <span class="o">=</span> <span class="n">brushFireRisk</span><span class="o">.</span><span class="n">reindex</span><span class="p">([</span><span class="s1">&#39;Tombstone&#39;</span><span class="p">,</span> <span class="s1">&#39;Douglas&#39;</span><span class="p">,</span> <span class="s1">&#39;Bisbee&#39;</span><span class="p">,</span> <span class="s1">&#39;Sierra Vista&#39;</span><span class="p">,</span> <span class="s1">&#39;Barley&#39;</span><span class="p">,</span> <span class="s1">&#39;Tucson&#39;</span><span class="p">])</span>
 <span class="n">brushFireRiskReindexed</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>Tombstone       23
+<div class="codehilite"><pre><span></span>Tombstone       23
 Douglas         23
 Bisbee          34
 Sierra Vista    12
@@ -170,13 +170,13 @@ dtype: float64
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Reindex the series and fill in any missing indexes as 0</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Reindex the series and fill in any missing indexes as 0</span>
 <span class="n">brushFireRiskReindexed</span> <span class="o">=</span> <span class="n">brushFireRisk</span><span class="o">.</span><span class="n">reindex</span><span class="p">([</span><span class="s1">&#39;Tombstone&#39;</span><span class="p">,</span> <span class="s1">&#39;Douglas&#39;</span><span class="p">,</span> <span class="s1">&#39;Bisbee&#39;</span><span class="p">,</span> <span class="s1">&#39;Sierra Vista&#39;</span><span class="p">,</span> <span class="s1">&#39;Barley&#39;</span><span class="p">,</span> <span class="s1">&#39;Tucson&#39;</span><span class="p">],</span> <span class="n">fill_value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">brushFireRiskReindexed</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>Tombstone       23
+<div class="codehilite"><pre><span></span>Tombstone       23
 Douglas         23
 Bisbee          34
 Sierra Vista    12
@@ -187,7 +187,7 @@ dtype: int64
 
 
 <h2>DataFrames</h2>
-<div class="highlight"><pre><span></span><span class="c1"># Create a dataframe</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a dataframe</span>
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;county&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Cochice&#39;</span><span class="p">,</span> <span class="s1">&#39;Pima&#39;</span><span class="p">,</span> <span class="s1">&#39;Santa Cruz&#39;</span><span class="p">,</span> <span class="s1">&#39;Maricopa&#39;</span><span class="p">,</span> <span class="s1">&#39;Yuma&#39;</span><span class="p">],</span> 
         <span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">2012</span><span class="p">,</span> <span class="mi">2013</span><span class="p">,</span> <span class="mi">2014</span><span class="p">,</span> <span class="mi">2014</span><span class="p">],</span> 
         <span class="s1">&#39;reports&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]}</span>
@@ -242,7 +242,7 @@ dtype: int64
 <p>5 rows × 3 columns</p>
 </div>
 
-<div class="highlight"><pre><span></span><span class="c1"># Change the order (the index) of the rows</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Change the order (the index) of the rows</span>
 <span class="n">df</span><span class="o">.</span><span class="n">reindex</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
 </pre></div>
 
@@ -293,7 +293,7 @@ dtype: int64
 <p>5 rows × 3 columns</p>
 </div>
 
-<div class="highlight"><pre><span></span><span class="c1"># Change the order (the index) of the columns</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Change the order (the index) of the columns</span>
 <span class="n">columnsTitles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;reports&#39;</span><span class="p">,</span> <span class="s1">&#39;county&#39;</span><span class="p">]</span>
 <span class="n">df</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">columnsTitles</span><span class="p">)</span>
 </pre></div>

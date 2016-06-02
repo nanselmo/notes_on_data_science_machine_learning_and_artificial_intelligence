@@ -134,46 +134,46 @@
 </header>
 
 <p>(i.e. categories in a nominal variable)</p>
-<div class="highlight"><pre><span></span>district <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;NORTH&quot;</span><span class="p">,</span> <span class="s">&quot;NORTHWEST&quot;</span><span class="p">,</span> <span class="s">&quot;CENTRAL&quot;</span><span class="p">,</span> <span class="s">&quot;SOUTH&quot;</span><span class="p">,</span> <span class="s">&quot;SOUTHWEST&quot;</span><span class="p">,</span> <span class="s">&quot;WESTERN&quot;</span><span class="p">))</span>
+<div class="codehilite"><pre><span></span>district <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;NORTH&quot;</span><span class="p">,</span> <span class="s">&quot;NORTHWEST&quot;</span><span class="p">,</span> <span class="s">&quot;CENTRAL&quot;</span><span class="p">,</span> <span class="s">&quot;SOUTH&quot;</span><span class="p">,</span> <span class="s">&quot;SOUTHWEST&quot;</span><span class="p">,</span> <span class="s">&quot;WESTERN&quot;</span><span class="p">))</span>
 number.crimes <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">6</span><span class="p">)</span>
 year <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">2009</span><span class="p">,</span> <span class="m">2009</span><span class="p">,</span> <span class="m">2009</span><span class="p">,</span> <span class="m">2010</span><span class="p">,</span> <span class="m">2010</span><span class="p">,</span> <span class="m">2009</span><span class="p">)</span>
 crime <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>year<span class="p">,</span> district<span class="p">,</span> number.crimes<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># split up the crime data by district</span>
+<div class="codehilite"><pre><span></span><span class="c1"># split up the crime data by district</span>
 <span class="kp">split</span><span class="p">(</span>crime<span class="p">,</span> district<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="p">$</span><span class="nv">CENTRAL</span><span class="x"></span>
-<span class="x">  year district number.crimes</span>
-<span class="x">3 2009  CENTRAL     0.9478017</span>
+<div class="codehilite"><pre><span></span>$CENTRAL
+  year district number.crimes
+3 2009  CENTRAL     0.9478017
 
-<span class="p">$</span><span class="nv">NORTH</span><span class="x"></span>
-<span class="x">  year district number.crimes</span>
-<span class="x">1 2009    NORTH     0.6461916</span>
+$NORTH
+  year district number.crimes
+1 2009    NORTH     0.6461916
 
-<span class="p">$</span><span class="nv">NORTHWEST</span><span class="x"></span>
-<span class="x">  year  district number.crimes</span>
-<span class="x">2 2009 NORTHWEST     0.1150372</span>
+$NORTHWEST
+  year  district number.crimes
+2 2009 NORTHWEST     0.1150372
 
-<span class="p">$</span><span class="nv">SOUTH</span><span class="x"></span>
-<span class="x">  year district number.crimes</span>
-<span class="x">4 2010    SOUTH     0.8126506</span>
+$SOUTH
+  year district number.crimes
+4 2010    SOUTH     0.8126506
 
-<span class="p">$</span><span class="nv">SOUTHWEST</span><span class="x"></span>
-<span class="x">  year  district number.crimes</span>
-<span class="x">5 2010 SOUTHWEST     0.6700562</span>
+$SOUTHWEST
+  year  district number.crimes
+5 2010 SOUTHWEST     0.6700562
 
-<span class="p">$</span><span class="nv">WESTERN</span><span class="x"></span>
-<span class="x">  year district number.crimes</span>
-<span class="x">6 2009  WESTERN     0.5597461</span>
+$WESTERN
+  year district number.crimes
+6 2009  WESTERN     0.5597461
 </pre></div>
 
 
 <p>Imagine if you also can crime data for 2009, you can use the combination of split() and sapply() to create a nice 2x2 table</p>
-<div class="highlight"><pre><span></span><span class="c1"># create 2009 crime data, for this example we are keeping the data the same for both years</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create 2009 crime data, for this example we are keeping the data the same for both years</span>
 numberCrimes09 <span class="o">&lt;-</span> number.crimes
 
 <span class="c1"># add a column in bmore.crime for numberCrime09</span>
@@ -187,7 +187,7 @@ crime <span class="o">&lt;-</span> <span class="kp">cbind</span><span class="p">
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>  numberCrimes09 year  district number.crimes
+<div class="codehilite"><pre><span></span>  numberCrimes09 year  district number.crimes
 1      0.6461916 2009     NORTH     0.6461916
 2      0.1150372 2009 NORTHWEST     0.1150372
 3      0.9478017 2009   CENTRAL     0.9478017

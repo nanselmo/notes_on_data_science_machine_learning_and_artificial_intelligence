@@ -134,22 +134,22 @@
 </header>
 
 <p>Original code: http://onertipaday.blogspot.com/2007/06/string-manipulation-insert-delim.html</p>
-<div class="highlight"><pre><span></span><span class="c1"># Create a text string</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a text string</span>
 cities <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;sonomanapahealdsburgoakland&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># A vector with the locations of where we want each comma</span>
+<div class="codehilite"><pre><span></span><span class="c1"># A vector with the locations of where we want each comma</span>
 comma.locations <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">6</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">10</span><span class="p">,</span><span class="m">7</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Place the commas into the string according to the locations specifics in comma.locations</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Place the commas into the string according to the locations specifics in comma.locations</span>
 <span class="kp">paste</span><span class="p">(</span>read.fwf<span class="p">(</span><span class="kp">textConnection</span><span class="p">(</span>cities<span class="p">),</span> comma.locations<span class="p">,</span> as.is <span class="o">=</span> <span class="kc">TRUE</span><span class="p">),</span> collapse <span class="o">=</span> <span class="s">&quot;,&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] &quot;sonoma,napa,healdsburg,oakland&quot;
+<div class="codehilite"><pre><span></span>[1] &quot;sonoma,napa,healdsburg,oakland&quot;
 </pre></div>
     <aside>
     <div class="bug-reporting__panel">

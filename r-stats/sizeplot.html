@@ -134,7 +134,7 @@
 </header>
 
 <p>Original source: http://www.r-bloggers.com/using-r-coloured-sizeplot-with-ggplot2/</p>
-<div class="highlight"><pre><span></span><span class="c1"># load the ggplot2 package</span>
+<div class="codehilite"><pre><span></span><span class="c1"># load the ggplot2 package</span>
 <span class="kn">library</span><span class="p">(</span>ggplot2<span class="p">)</span>
 
 <span class="c1"># load the reshape2</span>
@@ -142,7 +142,7 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create some simulated data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create some simulated data</span>
 data <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>
   x<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">4</span><span class="p">),</span>
   y<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">4</span><span class="p">),</span>
@@ -150,38 +150,38 @@ data <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class=
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a new object that &quot;melts&quot; the data so each row is a unique id-variable combination</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a new object that &quot;melts&quot; the data so each row is a unique id-variable combination</span>
 counts <span class="o">&lt;-</span> melt<span class="p">(</span><span class="kp">table</span><span class="p">(</span>data<span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">]))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># add column names</span>
+<div class="codehilite"><pre><span></span><span class="c1"># add column names</span>
 <span class="kp">colnames</span><span class="p">(</span>counts<span class="p">)</span> <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="kp">colnames</span><span class="p">(</span>data<span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">],</span> <span class="s">&quot;count&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># remove zeros</span>
+<div class="codehilite"><pre><span></span><span class="c1"># remove zeros</span>
 counts <span class="o">&lt;-</span> <span class="kp">subset</span><span class="p">(</span>counts<span class="p">,</span> count <span class="o">!=</span> <span class="m">0</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># plot with the size of the dot being count</span>
+<div class="codehilite"><pre><span></span><span class="c1"># plot with the size of the dot being count</span>
 sizeplot <span class="o">&lt;-</span> qplot<span class="p">(</span>x<span class="o">=</span>x<span class="p">,</span> y<span class="o">=</span>y<span class="p">,</span> size<span class="o">=</span>count<span class="p">,</span> data<span class="o">=</span>counts<span class="p">)</span> <span class="o">+</span> scale_size<span class="p">(</span>range<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="m">5</span><span class="p">,</span> <span class="m">10</span><span class="p">))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># view the size plot</span>
+<div class="codehilite"><pre><span></span><span class="c1"># view the size plot</span>
 sizeplot
 </pre></div>
 
 
 <p><img alt="png" src="../images/sizeplot_files/sizeplot_7_1.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># create some factors</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create some factors</span>
 counts.and.groups <span class="o">&lt;-</span> <span class="kp">merge</span><span class="p">(</span>counts<span class="p">,</span> <span class="kp">unique</span><span class="p">(</span>data<span class="p">))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a sizeplot with color determined by a factor</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a sizeplot with color determined by a factor</span>
 sizeplot.colour <span class="o">&lt;-</span> qplot<span class="p">(</span>
   x<span class="o">=</span>x<span class="p">,</span> y<span class="o">=</span>y<span class="p">,</span> size<span class="o">=</span>count<span class="p">,</span>
   colour<span class="o">=</span><span class="kp">factor</span><span class="p">(</span>group<span class="p">),</span> data<span class="o">=</span>counts.and.groups<span class="p">)</span> <span class="o">+</span>
@@ -189,17 +189,17 @@ sizeplot.colour <span class="o">&lt;-</span> qplot<span class="p">(</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># view the plot</span>
+<div class="codehilite"><pre><span></span><span class="c1"># view the plot</span>
 sizeplot.colour
 </pre></div>
 
 
 <p><img alt="png" src="../images/sizeplot_files/sizeplot_10_1.png" /></p>
-<div class="highlight"><pre><span></span>dev.off<span class="p">()</span>
+<div class="codehilite"><pre><span></span>dev.off<span class="p">()</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>null device
+<div class="codehilite"><pre><span></span>null device
           1
 </pre></div>
     <aside>

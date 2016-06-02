@@ -134,7 +134,7 @@
 </header>
 
 <p>original source: http://www.r-bloggers.com/check-if-a-variable-exists-in-r/</p>
-<div class="highlight"><pre><span></span><span class="c1"># create a dataframe with simulated values</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a dataframe with simulated values</span>
 x <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">1000</span><span class="p">)</span>
 y <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">1000</span><span class="p">)</span>
 z <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">1000</span><span class="p">)</span>
@@ -144,21 +144,21 @@ data <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class=
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># does a variable called &quot;x&quot; exists in the object &quot;data&quot;?</span>
+<div class="codehilite"><pre><span></span><span class="c1"># does a variable called &quot;x&quot; exists in the object &quot;data&quot;?</span>
 <span class="s">&quot;x&quot;</span> <span class="o">%in%</span> <span class="kp">names</span><span class="p">(</span>data<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] TRUE
+<div class="codehilite"><pre><span></span>[1] TRUE
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># does a column called &quot;x&quot; exists in the object &quot;data&quot;?</span>
+<div class="codehilite"><pre><span></span><span class="c1"># does a column called &quot;x&quot; exists in the object &quot;data&quot;?</span>
 <span class="s">&quot;x&quot;</span> <span class="o">%in%</span> <span class="kp">colnames</span><span class="p">(</span>data<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] TRUE
+<div class="codehilite"><pre><span></span>[1] TRUE
 </pre></div>
     <aside>
     <div class="bug-reporting__panel">

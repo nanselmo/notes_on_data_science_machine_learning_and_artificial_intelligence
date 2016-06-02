@@ -135,19 +135,19 @@
 
 <p>Additional explaination: http://www.codinghorror.com/blog/2007/10/a-visual-explanation-of-sql-joins.html</p>
 <p>Original source: http://stackoverflow.com/questions/1299871/how-to-join-data-frames-in-r-inner-outer-left-right</p>
-<div class="highlight"><pre><span></span><span class="c1"># create two dataframes are fake data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create two dataframes are fake data</span>
 survey.1 <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>response.id <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">6</span><span class="p">),</span> region <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="kp">rep</span><span class="p">(</span><span class="s">&quot;Kisumu&quot;</span><span class="p">,</span><span class="m">3</span><span class="p">),</span><span class="kp">rep</span><span class="p">(</span><span class="s">&quot;Mumbasa&quot;</span><span class="p">,</span><span class="m">3</span><span class="p">)))</span>
 survey.2 <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>response.id <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">6</span><span class="p">),</span> region <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="kp">rep</span><span class="p">(</span><span class="s">&quot;Nairobi&quot;</span><span class="p">,</span><span class="m">2</span><span class="p">),</span><span class="kp">rep</span><span class="p">(</span><span class="s">&quot;Tankana&quot;</span><span class="p">,</span><span class="m">1</span><span class="p">)))</span>
 </pre></div>
 
 
 <h2>Inner Join Only Merges Observations Shared By Both Data Frames</h2>
-<div class="highlight"><pre><span></span><span class="c1"># merge survey.1 and survey.2 by response.id</span>
+<div class="codehilite"><pre><span></span><span class="c1"># merge survey.1 and survey.2 by response.id</span>
 <span class="kp">merge</span><span class="p">(</span>survey.1<span class="p">,</span> survey.2<span class="p">,</span> by<span class="o">=</span><span class="s">&quot;response.id&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>  response.id region.x region.y
+<div class="codehilite"><pre><span></span>  response.id region.x region.y
 1           2   Kisumu  Nairobi
 2           4  Mumbasa  Nairobi
 3           6  Mumbasa  Tankana
@@ -155,12 +155,12 @@ survey.2 <span class="o">&lt;-</span> <span class="kt">data.frame</span><span cl
 
 
 <h2>Outer Join Includes Merges All Observations, Leaving A NULL Observation When There Is No Match</h2>
-<div class="highlight"><pre><span></span><span class="c1"># merge survey.1 and survey.2 by response.id, but include observations that don&#39;t match</span>
+<div class="codehilite"><pre><span></span><span class="c1"># merge survey.1 and survey.2 by response.id, but include observations that don&#39;t match</span>
 <span class="kp">merge</span><span class="p">(</span>x <span class="o">=</span> survey.1<span class="p">,</span> y <span class="o">=</span> survey.2<span class="p">,</span> by <span class="o">=</span> <span class="s">&quot;response.id&quot;</span><span class="p">,</span> all <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>  response.id region.x region.y
+<div class="codehilite"><pre><span></span>  response.id region.x region.y
 1           1   Kisumu     &lt;NA&gt;
 2           2   Kisumu  Nairobi
 3           3   Kisumu     &lt;NA&gt;
@@ -171,12 +171,12 @@ survey.2 <span class="o">&lt;-</span> <span class="kt">data.frame</span><span cl
 
 
 <h2>Left Join Includes All Observations From The First Dataframe But Only Matching Observations From The Second Dataframe</h2>
-<div class="highlight"><pre><span></span><span class="c1"># merge survey.1 and survey.2 by response.id, but include survey.1 observations</span>
+<div class="codehilite"><pre><span></span><span class="c1"># merge survey.1 and survey.2 by response.id, but include survey.1 observations</span>
 <span class="kp">merge</span><span class="p">(</span>x <span class="o">=</span> survey.1<span class="p">,</span> y <span class="o">=</span> survey.2<span class="p">,</span> by <span class="o">=</span> <span class="s">&quot;response.id&quot;</span><span class="p">,</span> all.x<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>  response.id region.x region.y
+<div class="codehilite"><pre><span></span>  response.id region.x region.y
 1           1   Kisumu     &lt;NA&gt;
 2           2   Kisumu  Nairobi
 3           3   Kisumu     &lt;NA&gt;
@@ -187,12 +187,12 @@ survey.2 <span class="o">&lt;-</span> <span class="kt">data.frame</span><span cl
 
 
 <h2>Left Join Includes All Observations From The Second Dataframe But Only Matching Observations From The First Dataframe</h2>
-<div class="highlight"><pre><span></span><span class="c1"># merge survey.1 and survey.2 by response.id, but include survey.2 observations</span>
+<div class="codehilite"><pre><span></span><span class="c1"># merge survey.1 and survey.2 by response.id, but include survey.2 observations</span>
 <span class="kp">merge</span><span class="p">(</span>x <span class="o">=</span> survey.1<span class="p">,</span> y <span class="o">=</span> survey.2<span class="p">,</span> by <span class="o">=</span> <span class="s">&quot;response.id&quot;</span><span class="p">,</span> all.y<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>  response.id region.x region.y
+<div class="codehilite"><pre><span></span>  response.id region.x region.y
 1           2   Kisumu  Nairobi
 2           4  Mumbasa  Nairobi
 3           6  Mumbasa  Tankana

@@ -134,7 +134,7 @@
 </header>
 
 <p>Combining factors acts like interacting two variables. In other words, like interacting two binary variables to create all four possible combinations.</p>
-<div class="highlight"><pre><span></span><span class="c1"># Create a binary variable for treatment or control</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a binary variable for treatment or control</span>
 treatment <span class="o">&lt;-</span> <span class="kp">gl</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> labels <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;treatment&quot;</span><span class="p">,</span> <span class="s">&quot;control&quot;</span><span class="p">))</span>
 
 <span class="c1"># Create a binary variable for female or male</span>
@@ -142,12 +142,12 @@ gender <span class="o">&lt;-</span> <span class="kp">gl</span><span class="p">(<
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Interact the factors by combining them</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Interact the factors by combining them</span>
 <span class="kp">interaction</span><span class="p">(</span>treatment<span class="p">,</span> gender<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] treatment.female control.male    
+<div class="codehilite"><pre><span></span>[1] treatment.female control.male    
 Levels: treatment.female control.female treatment.male control.male
 </pre></div>
     <aside>

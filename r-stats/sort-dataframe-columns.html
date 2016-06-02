@@ -134,17 +134,17 @@
 </header>
 
 <p>Original source: http://stackoverflow.com/questions/1296646/how-to-sort-a-dataframe-by-columns-in-r</p>
-<div class="highlight"><pre><span></span><span class="c1"># create some simulated data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create some simulated data</span>
 df <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>score <span class="o">=</span> <span class="kt">c</span><span class="p">(</span>runif<span class="p">(</span><span class="m">5</span><span class="p">)),</span> team <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="kc">letters</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">]),</span> state <span class="o">=</span> <span class="kt">c</span><span class="p">(</span>state.name<span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">]))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># sort by decending score, THEN sort by ascending team letter</span>
+<div class="codehilite"><pre><span></span><span class="c1"># sort by decending score, THEN sort by ascending team letter</span>
 df<span class="p">[</span><span class="kp">with</span><span class="p">(</span>df<span class="p">,</span> <span class="kp">order</span><span class="p">(</span><span class="o">-</span>score<span class="p">,</span> team<span class="p">)),</span> <span class="p">]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>       score team      state
+<div class="codehilite"><pre><span></span>       score team      state
 1 0.99573538    a    Alabama
 2 0.82771332    b     Alaska
 5 0.61670246    e California

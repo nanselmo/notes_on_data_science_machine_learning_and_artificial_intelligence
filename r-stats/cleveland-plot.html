@@ -134,7 +134,7 @@
 </header>
 
 <p>original source: r graphics cookbook</p>
-<div class="highlight"><pre><span></span><span class="c1"># load the ggplot2 library</span>
+<div class="codehilite"><pre><span></span><span class="c1"># load the ggplot2 library</span>
 <span class="kn">library</span><span class="p">(</span>ggplot2<span class="p">)</span>
 
 <span class="c1"># load the gcookbook library</span>
@@ -142,7 +142,7 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create an object that is the top 25 hitters of 2001</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create an object that is the top 25 hitters of 2001</span>
 tophit <span class="o">&lt;-</span> tophitters2001<span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">25</span><span class="p">,</span> <span class="p">]</span>
 
 <span class="c1"># get the names, sorted first by lg, then by avg</span>
@@ -153,7 +153,7 @@ tophit<span class="o">$</span>name <span class="o">&lt;-</span> <span class="kp"
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create the ggplot data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create the ggplot data</span>
 ggplot<span class="p">(</span>tophit<span class="p">,</span> aes<span class="p">(</span>x<span class="o">=</span>avg<span class="p">,</span> y<span class="o">=</span>reorder<span class="p">(</span>name<span class="p">,</span> avg<span class="p">)))</span> <span class="o">+</span>
   <span class="c1"># use a larger dot</span>
   geom_point<span class="p">(</span>size<span class="o">=</span><span class="m">3</span><span class="p">)</span> <span class="o">+</span>
@@ -165,7 +165,7 @@ ggplot<span class="p">(</span>tophit<span class="p">,</span> aes<span class="p">
 
 
 <p><img alt="png" src="../images/cleveland-plot_files/cleveland-plot_3_1.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># create the ggplot2 data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create the ggplot2 data</span>
 ggplot<span class="p">(</span>tophit<span class="p">,</span> aes<span class="p">(</span>x<span class="o">=</span>reorder<span class="p">(</span>name<span class="p">,</span> avg<span class="p">),</span> y<span class="o">=</span>avg<span class="p">))</span> <span class="o">+</span> geom_point<span class="p">(</span>size<span class="o">=</span><span class="m">3</span><span class="p">)</span> <span class="o">+</span>
   <span class="c1"># use the black and white theme</span>
   theme_bw<span class="p">()</span> <span class="o">+</span>
@@ -181,7 +181,7 @@ ggplot<span class="p">(</span>tophit<span class="p">,</span> aes<span class="p">
 
 
 <p><img alt="png" src="../images/cleveland-plot_files/cleveland-plot_4_1.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># create the basic ggplot data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create the basic ggplot data</span>
 ggplot<span class="p">(</span>tophit<span class="p">,</span> aes<span class="p">(</span>x<span class="o">=</span>avg<span class="p">,</span> y<span class="o">=</span>name<span class="p">))</span> <span class="o">+</span>
   <span class="c1"># create a segment plot, with names at the end of the y axis and a grey line</span>
   geom_segment<span class="p">(</span>aes<span class="p">(</span>yend<span class="o">=</span>name<span class="p">),</span> xend<span class="o">=</span><span class="m">0</span><span class="p">,</span> colour<span class="o">=</span><span class="s">&quot;grey50&quot;</span><span class="p">)</span> <span class="o">+</span>

@@ -136,7 +136,7 @@
 <p>On March 13, 2016, version 0.18.0 of pandas was released, with significant changes in how the resampling function operates. This tutorial follows v0.18.0 and will not work for previous versions of pandas.</p>
 <p>First let's load the modules we care about</p>
 <h2>Preliminaries</h2>
-<div class="highlight"><pre><span></span><span class="c1"># Import required packages</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Import required packages</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">datetime</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
@@ -145,19 +145,19 @@
 
 <p>Next, let's create some sample data that we can group by time as an sample. In this example I am creating a dataframe with two columns with 365 rows. One column is a date, the second column is a numeric value.</p>
 <h2>Create Data</h2>
-<div class="highlight"><pre><span></span><span class="c1"># Create a datetime variable for today</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a datetime variable for today</span>
 <span class="n">base</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
 <span class="c1"># Create a list variable that creates 365 days of rows of datetime values</span>
 <span class="n">date_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">base</span> <span class="o">-</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">365</span><span class="p">)]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create a list variable of 365 numeric values</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a list variable of 365 numeric values</span>
 <span class="n">score_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">365</span><span class="p">))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create an empty dataframe</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create an empty dataframe</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 
 <span class="c1"># Create a column from the datetime variable</span>
@@ -171,7 +171,7 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Let&#39;s take a took at the data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Let&#39;s take a took at the data</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
@@ -222,7 +222,7 @@
 
 <h2>Group Data By Date</h2>
 <p>In pandas, the most common way to group by time is to use the <code>.resample()</code> function. In v0.18.0 this function is two-stage. This means that <code>df.resample('M')</code> creates an object to which we can apply other functions (<code>mean</code>, <code>count</code>, <code>sum</code>, etc.)</p>
-<div class="highlight"><pre><span></span><span class="c1"># Group the data by month, and take the mean for each group (i.e. each month)</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Group the data by month, and take the mean for each group (i.e. each month)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 
@@ -296,7 +296,7 @@
 </table>
 </div>
 
-<div class="highlight"><pre><span></span><span class="c1"># Group the data by month, and take the sum for each group (i.e. each month)</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Group the data by month, and take the sum for each group (i.e. each month)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
 

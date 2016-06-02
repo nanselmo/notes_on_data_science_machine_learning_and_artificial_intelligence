@@ -134,24 +134,24 @@
 </header>
 
 <p>Original Source: http://www.statmethods.net/graphs/boxplot.html</p>
-<div class="highlight"><pre><span></span><span class="c1"># Load package</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Load package</span>
 <span class="kn">library</span><span class="p">(</span>vioplot<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>Loading required package: sm
+<div class="codehilite"><pre><span></span>Loading required package: sm
 Package &#39;sm&#39;, version 2.2-5.4: type help(sm) for summary information
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create some fake data about different types of casualties in a war</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create some fake data about different types of casualties in a war</span>
 fpwar <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">234</span><span class="p">,</span><span class="m">234</span><span class="p">,</span><span class="m">643</span><span class="p">,</span><span class="m">74</span><span class="p">,</span><span class="m">323</span><span class="p">,</span><span class="m">67</span><span class="p">,</span><span class="m">34</span><span class="p">,</span><span class="m">78</span><span class="p">,</span><span class="m">434</span><span class="p">)</span>
 wwi <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">42</span><span class="p">,</span><span class="m">534</span><span class="p">,</span><span class="m">65</span><span class="p">,</span><span class="m">47</span><span class="p">,</span><span class="m">85</span><span class="p">,</span><span class="m">67</span><span class="p">,</span><span class="m">90</span><span class="p">,</span><span class="m">45</span><span class="p">,</span><span class="m">78</span><span class="p">)</span>
 wwii <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">345</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">25</span><span class="p">,</span><span class="m">345</span><span class="p">,</span><span class="m">35</span><span class="p">,</span><span class="m">373</span><span class="p">,</span><span class="m">463</span><span class="p">,</span><span class="m">46</span><span class="p">,</span><span class="m">85</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create a violin of the number of deaths</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a violin of the number of deaths</span>
 vioplot<span class="p">(</span>fpwar<span class="p">,</span> wwi<span class="p">,</span> wwii<span class="p">,</span> names<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;Franco-Prussian&quot;</span><span class="p">,</span> <span class="s">&quot;WWI&quot;</span><span class="p">,</span> <span class="s">&quot;WWII&quot;</span><span class="p">),</span> col<span class="o">=</span><span class="s">&quot;red3&quot;</span><span class="p">)</span>
 </pre></div>
 

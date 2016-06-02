@@ -134,32 +134,32 @@
 </header>
 
 <p>Inspiration: http://onertipaday.blogspot.com/2009/01/radar-chart.html</p>
-<div class="highlight"><pre><span></span><span class="c1"># Load the plotrix library</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Load the plotrix library</span>
 <span class="kn">library</span><span class="p">(</span>plotrix<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create a vector with the number of objects to be plotted</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a vector with the number of objects to be plotted</span>
 country <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">8</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create a vector of country names for the labels of the vector above</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a vector of country names for the labels of the vector above</span>
 country.names <span class="o">&lt;-</span> <span class="kp">names</span><span class="p">(</span>country<span class="p">)</span> <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span> <span class="s">&quot;Yemen&quot;</span><span class="p">,</span> <span class="s">&quot;Spain&quot;</span><span class="p">,</span> <span class="s">&quot;Russia&quot;</span><span class="p">,</span> <span class="s">&quot;Portugal&quot;</span><span class="p">,</span> <span class="s">&quot;Italy&quot;</span><span class="p">,</span> <span class="s">&quot;Kenya&quot;</span><span class="p">,</span> <span class="s">&quot;USA&quot;</span><span class="p">,</span> <span class="s">&quot;Iceland&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create a vector of the data to be plotted</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a vector of the data to be plotted</span>
 country <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">324</span><span class="p">,</span> <span class="m">234</span><span class="p">,</span> <span class="m">123</span><span class="p">,</span> <span class="m">63</span><span class="p">,</span> <span class="m">234</span><span class="p">,</span> <span class="m">423</span><span class="p">,</span> <span class="m">324</span><span class="p">,</span> <span class="m">452</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Set the font size on the radial plot</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Set the font size on the radial plot</span>
 par<span class="p">(</span>ps<span class="o">=</span><span class="m">12</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create a radial plot</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a radial plot</span>
 radial.plot<span class="p">(</span>country<span class="p">,</span> labels<span class="o">=</span>country.names<span class="p">,</span>rp.type<span class="o">=</span><span class="s">&quot;p&quot;</span><span class="p">,</span>main<span class="o">=</span><span class="s">&quot;Radar Chart&quot;</span><span class="p">,</span> radial.lim<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">500</span><span class="p">),</span>line.col<span class="o">=</span><span class="s">&quot;blue&quot;</span><span class="p">)</span>
 </pre></div>
 

@@ -133,7 +133,7 @@
 </ol>
 </header>
 
-<div class="highlight"><pre><span></span><span class="c1"># load the gcookbook package for the data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># load the gcookbook package for the data</span>
 <span class="kn">library</span><span class="p">(</span>gcookbook<span class="p">)</span>
 
 <span class="c1"># load the ggplot2 package</span>
@@ -141,19 +141,19 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># plot a default barplot</span>
+<div class="codehilite"><pre><span></span><span class="c1"># plot a default barplot</span>
 ggplot<span class="p">(</span>pg_mean<span class="p">,</span> aes<span class="p">(</span>x<span class="o">=</span>group<span class="p">,</span> y<span class="o">=</span>weight<span class="p">))</span> <span class="o">+</span> geom_bar<span class="p">(</span>stat<span class="o">=</span><span class="s">&quot;identity&quot;</span><span class="p">)</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/change-barplot-bar-width_files/change-barplot-bar-width_2_1.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># plot a barplot with skinny bars</span>
+<div class="codehilite"><pre><span></span><span class="c1"># plot a barplot with skinny bars</span>
 ggplot<span class="p">(</span>pg_mean<span class="p">,</span> aes<span class="p">(</span>x<span class="o">=</span>group<span class="p">,</span> y<span class="o">=</span>weight<span class="p">))</span> <span class="o">+</span> geom_bar<span class="p">(</span>stat<span class="o">=</span><span class="s">&quot;identity&quot;</span><span class="p">,</span> width<span class="o">=</span><span class="m">0.5</span><span class="p">)</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/change-barplot-bar-width_files/change-barplot-bar-width_3_1.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># plot a barplot with thick bars</span>
+<div class="codehilite"><pre><span></span><span class="c1"># plot a barplot with thick bars</span>
 ggplot<span class="p">(</span>pg_mean<span class="p">,</span> aes<span class="p">(</span>x<span class="o">=</span>group<span class="p">,</span> y<span class="o">=</span>weight<span class="p">))</span> <span class="o">+</span> geom_bar<span class="p">(</span>stat<span class="o">=</span><span class="s">&quot;identity&quot;</span><span class="p">,</span> width<span class="o">=</span><span class="m">1</span><span class="p">)</span>
 </pre></div>
 

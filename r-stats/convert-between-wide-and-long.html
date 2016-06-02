@@ -134,12 +134,12 @@
 </header>
 
 <p>Original Source: Learning R</p>
-<div class="highlight"><pre><span></span><span class="c1"># Load the reshape library</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Load the reshape library</span>
 <span class="kn">library</span><span class="p">(</span>reshape2<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Generate five subjects, each with five measurements</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Generate five subjects, each with five measurements</span>
 name <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;Jack&quot;</span><span class="p">,</span> <span class="s">&quot;Jill&quot;</span><span class="p">,</span> <span class="s">&quot;Steve&quot;</span><span class="p">,</span> <span class="s">&quot;Jake&quot;</span><span class="p">,</span> <span class="s">&quot;Bill&quot;</span><span class="p">)</span>
 obs1 <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">5</span><span class="p">)</span>
 obs2 <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">5</span><span class="p">)</span>
@@ -149,21 +149,21 @@ obs5 <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">5
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a wide form data frame. That is, one row per person, one column per measurement</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a wide form data frame. That is, one row per person, one column per measurement</span>
 survey.wide <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>name<span class="p">,</span> obs1<span class="p">,</span> obs2<span class="p">,</span> obs3<span class="p">,</span> obs4<span class="p">,</span> obs5<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># convert from wide to long. id.vars denotes the variable to make the transition by and measure.vars denotes the variables to flip</span>
+<div class="codehilite"><pre><span></span><span class="c1"># convert from wide to long. id.vars denotes the variable to make the transition by and measure.vars denotes the variables to flip</span>
 survey.long <span class="o">&lt;-</span> melt<span class="p">(</span>survey.wide<span class="p">,</span> id.vars <span class="o">=</span> <span class="s">&quot;name&quot;</span><span class="p">,</span> measure.vars <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;obs1&quot;</span><span class="p">,</span> <span class="s">&quot;obs2&quot;</span><span class="p">,</span> <span class="s">&quot;obs3&quot;</span><span class="p">,</span> <span class="s">&quot;obs4&quot;</span><span class="p">,</span> <span class="s">&quot;obs5&quot;</span><span class="p">))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>survey.long
+<div class="codehilite"><pre><span></span>survey.long
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>    name variable      value
+<div class="codehilite"><pre><span></span>    name variable      value
 1   Jack     obs1 0.74041288
 2   Jill     obs1 0.52529347
 3  Steve     obs1 0.97317970
@@ -192,16 +192,16 @@ survey.long <span class="o">&lt;-</span> melt<span class="p">(</span>survey.wide
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># convert long to wide</span>
+<div class="codehilite"><pre><span></span><span class="c1"># convert long to wide</span>
 survey.wide.2 <span class="o">&lt;-</span> dcast<span class="p">(</span>survey.long<span class="p">,</span> name <span class="o">~</span> variable<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>survey.wide.2
+<div class="codehilite"><pre><span></span>survey.wide.2
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>   name      obs1       obs2      obs3       obs4      obs5
+<div class="codehilite"><pre><span></span>   name      obs1       obs2      obs3       obs4      obs5
 1  Bill 0.5512189 0.15419403 0.7312853 0.17464191 0.3664910
 2  Jack 0.7404129 0.03121784 0.1175106 0.09517355 0.8508648
 3  Jake 0.8591035 0.31912928 0.9988052 0.68951869 0.1464407

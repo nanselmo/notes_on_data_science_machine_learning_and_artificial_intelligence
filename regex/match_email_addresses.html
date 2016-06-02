@@ -135,19 +135,19 @@
 
 <p>Based on: <a href="http://stackoverflow.com/questions/201323/using-a-regular-expression-to-validate-an-email-address">StackOverflow</a></p>
 <h2>Preliminaries</h2>
-<div class="highlight"><pre><span></span><span class="c1"># Load regex package</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Load regex package</span>
 <span class="kn">import</span> <span class="nn">re</span>
 </pre></div>
 
 
 <h2>Create some text</h2>
-<div class="highlight"><pre><span></span><span class="c1"># Create a variable containing a text string</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a variable containing a text string</span>
 <span class="n">text</span> <span class="o">=</span>  <span class="s1">&#39;My email is chris@hotmail.com, thanks! No, I am at bob@data.ninja.&#39;</span>
 </pre></div>
 
 
 <h2>Apply regex</h2>
-<div class="highlight"><pre><span></span><span class="c1"># Find all email addresses</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Find all email addresses</span>
 <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">r&#39;[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9]+&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
 
 <span class="c1"># Explanation:</span>
@@ -158,7 +158,7 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[&#39;chris@hotmail.com&#39;, &#39;bob@data.ninja&#39;]
+<div class="codehilite"><pre><span></span>[&#39;chris@hotmail.com&#39;, &#39;bob@data.ninja&#39;]
 </pre></div>
     <aside>
     <div class="bug-reporting__panel">

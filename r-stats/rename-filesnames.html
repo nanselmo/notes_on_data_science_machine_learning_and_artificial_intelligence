@@ -133,34 +133,34 @@
 </ol>
 </header>
 
-<div class="highlight"><pre><span></span><span class="c1"># create a variable with the directory of the files we want to rename</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a variable with the directory of the files we want to rename</span>
 loc.dir <span class="o">&lt;-</span> <span class="kp">paste</span><span class="p">(</span><span class="kp">getwd</span><span class="p">(),</span> <span class="s">&quot;/test&quot;</span><span class="p">,</span> sep<span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">);</span> loc.dir
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] &quot;/Users/chrisralbon/cra/cra_projects/peripheral_brain/notebooks/rstats/test&quot;
+<div class="codehilite"><pre><span></span>[1] &quot;/Users/chrisralbon/cra/cra_projects/peripheral_brain/notebooks/rstats/test&quot;
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a list of files in the directory</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a list of files in the directory</span>
 refs <span class="o">&lt;-</span> <span class="kp">list.files</span><span class="p">(</span>path<span class="o">=</span>loc.dir<span class="p">,</span> all.files<span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span> recursive<span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span> full.names<span class="o">=</span><span class="kc">TRUE</span><span class="p">);</span> refs
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>character(0)
+<div class="codehilite"><pre><span></span>character(0)
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a vector with the numbers we will add to the file names</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a vector with the numbers we will add to the file names</span>
 numbers <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="kp">length</span><span class="p">(</span>refs<span class="p">);</span> numbers
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] 1 0
+<div class="codehilite"><pre><span></span>[1] 1 0
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># rename the files in &quot;refs&quot; to albon-*.txt, wherein * is the digits in the variable &quot;numbers&quot;</span>
+<div class="codehilite"><pre><span></span><span class="c1"># rename the files in &quot;refs&quot; to albon-*.txt, wherein * is the digits in the variable &quot;numbers&quot;</span>
 <span class="c1"># file.rename(refs, paste0(loc.dir, &quot;/&quot;, &quot;albon-&quot;, numbers, &quot;.txt&quot;))</span>
 </pre></div>
     <aside>

@@ -133,50 +133,50 @@
 </ol>
 </header>
 
-<div class="highlight"><pre><span></span><span class="c1"># Create two variables of 50 observations, note that we only use 10 month names, because to be combined into a dataset all variables must have the same number of lengths OR be a multiple of the longest length.</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create two variables of 50 observations, note that we only use 10 month names, because to be combined into a dataset all variables must have the same number of lengths OR be a multiple of the longest length.</span>
 percent.sms.85 <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">50</span><span class="p">)</span>
 state <span class="o">&lt;-</span> state.name
 month.85 <span class="o">&lt;-</span> <span class="kp">month.name</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create a dataframe of those two variables</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a dataframe of those two variables</span>
 usa1985 <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>state<span class="p">,</span> percent.sms.85<span class="p">,</span> month.85<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>percent.sms.95 <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">50</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span>percent.sms.95 <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">50</span><span class="p">)</span>
 state <span class="o">&lt;-</span> state.name
 month.95 <span class="o">&lt;-</span> <span class="kp">month.name</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create a dataframe of those two variables</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a dataframe of those two variables</span>
 usa1995 <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>state<span class="p">,</span> percent.sms.95<span class="p">,</span> month.95<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Merge the 1995 and 1985 data frames by the variable &quot;state&quot;</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Merge the 1995 and 1985 data frames by the variable &quot;state&quot;</span>
 usa <span class="o">&lt;-</span> <span class="kp">merge</span><span class="p">(</span>usa1985<span class="p">,</span> usa1995<span class="p">,</span> by <span class="o">=</span> <span class="s">&quot;state&quot;</span><span class="p">)</span>
 </pre></div>
 
 
 <p>If some observations don't have a match, we can force the merge with the all = TRUE argument</p>
-<div class="highlight"><pre><span></span><span class="c1"># Drop the last 10 observations in usa1985</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Drop the last 10 observations in usa1985</span>
 usa1985a <span class="o">&lt;-</span> usa1985<span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">40</span><span class="p">,]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Merge 1985 and 1995 data frames</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Merge 1985 and 1995 data frames</span>
 usa.a <span class="o">&lt;-</span> <span class="kp">merge</span><span class="p">(</span>usa1985a<span class="p">,</span> usa1995<span class="p">,</span> by <span class="o">=</span> <span class="s">&quot;state&quot;</span><span class="p">,</span> all <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>usa.a
+<div class="codehilite"><pre><span></span>usa.a
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>            state percent.sms.85  month.85 percent.sms.95  month.95
+<div class="codehilite"><pre><span></span>            state percent.sms.85  month.85 percent.sms.95  month.95
 1         Alabama    0.911839169   January     0.78692563   January
 2          Alaska    0.962579448  February     0.70895643  February
 3         Arizona    0.026227813     March     0.72485492     March

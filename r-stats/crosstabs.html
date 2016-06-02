@@ -133,7 +133,7 @@
 </ol>
 </header>
 
-<div class="highlight"><pre><span></span><span class="c1"># create some simulated disaster data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create some simulated disaster data</span>
 event <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;flood&quot;</span><span class="p">,</span><span class="s">&quot;fire&quot;</span><span class="p">,</span><span class="s">&quot;flood&quot;</span><span class="p">,</span><span class="s">&quot;fire&quot;</span><span class="p">,</span><span class="s">&quot;riot&quot;</span><span class="p">,</span><span class="s">&quot;flood&quot;</span><span class="p">,</span><span class="s">&quot;riot&quot;</span><span class="p">,</span><span class="s">&quot;riot&quot;</span><span class="p">,</span><span class="s">&quot;flood&quot;</span><span class="p">);</span>
 location <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;africa&quot;</span><span class="p">,</span> <span class="s">&quot;asia&quot;</span><span class="p">,</span> <span class="s">&quot;europe&quot;</span><span class="p">,</span><span class="s">&quot;africa&quot;</span><span class="p">,</span> <span class="s">&quot;asia&quot;</span><span class="p">,</span> <span class="s">&quot;europe&quot;</span><span class="p">,</span><span class="s">&quot;africa&quot;</span><span class="p">,</span> <span class="s">&quot;asia&quot;</span><span class="p">,</span> <span class="s">&quot;europe&quot;</span><span class="p">)</span>
 disaster <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>event<span class="p">,</span> location<span class="p">)</span>
@@ -141,24 +141,24 @@ disaster <span class="o">&lt;-</span> <span class="kt">data.frame</span><span cl
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a variable that is the frequency counts of different types of disaster events</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a variable that is the frequency counts of different types of disaster events</span>
 event.counts.df <span class="o">&lt;-</span> <span class="kp">as.data.frame</span><span class="p">(</span><span class="kp">table</span><span class="p">(</span>disaster<span class="o">$</span>event<span class="p">));</span>event.counts.df
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>   Var1 Freq
+<div class="codehilite"><pre><span></span>   Var1 Freq
 1  fire    2
 2 flood    4
 3  riot    3
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a crosstab of event types by location</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a crosstab of event types by location</span>
 disaster.crosstab <span class="o">&lt;-</span> <span class="kp">table</span><span class="p">(</span>disaster<span class="o">$</span>event<span class="p">,</span> disaster<span class="o">$</span>location<span class="p">);</span> disaster.crosstab
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>        africa asia europe
+<div class="codehilite"><pre><span></span>        africa asia europe
   fire       1    1      0
   flood      1    0      3
   riot       1    2      0

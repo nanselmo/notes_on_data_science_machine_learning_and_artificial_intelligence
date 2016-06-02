@@ -135,28 +135,28 @@
 
 <p>Original Source: http://r-nold.blogspot.com/2013/03/overlapping-histogram-in-r.html</p>
 <h2>Create two fictional histographs</h2>
-<div class="highlight"><pre><span></span><span class="c1"># A histograph of 1000 normally distributed points with mean 4</span>
+<div class="codehilite"><pre><span></span><span class="c1"># A histograph of 1000 normally distributed points with mean 4</span>
 h2 <span class="o">&lt;-</span> rnorm<span class="p">(</span><span class="m">1000</span><span class="p">,</span><span class="m">4</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># A histograph of 1000 normally distributed points with mean 6</span>
+<div class="codehilite"><pre><span></span><span class="c1"># A histograph of 1000 normally distributed points with mean 6</span>
 h1 <span class="o">&lt;-</span> rnorm<span class="p">(</span><span class="m">1000</span><span class="p">,</span><span class="m">6</span><span class="p">)</span>
 </pre></div>
 
 
 <h2>Histogram Colored (blue and red)</h2>
-<div class="highlight"><pre><span></span><span class="c1"># Create a histogram of h1, with colors, at .5 opacity</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a histogram of h1, with colors, at .5 opacity</span>
 hist<span class="p">(</span>h1<span class="p">,</span> col<span class="o">=</span>rgb<span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0.5</span><span class="p">),</span>xlim<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">10</span><span class="p">),</span> ylim<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">200</span><span class="p">),</span> main<span class="o">=</span><span class="s">&quot;Overlapping Histogram&quot;</span><span class="p">,</span> xlab<span class="o">=</span><span class="s">&quot;Variable&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create a histogram of h1, with colors, at .5 opacity</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a histogram of h1, with colors, at .5 opacity</span>
 hist<span class="p">(</span>h2<span class="p">,</span> col<span class="o">=</span>rgb<span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">0.5</span><span class="p">),</span> add<span class="o">=</span><span class="bp">T</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Combine the two histograms</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Combine the two histograms</span>
 box<span class="p">()</span>
 </pre></div>
     <aside>

@@ -136,13 +136,13 @@
 <ul>
 <li><strong>Note:</strong> Originally from: Data Origami.</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="c1"># import modules</span>
+<div class="codehilite"><pre><span></span><span class="c1"># import modules</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">patsy</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create dataframe</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create dataframe</span>
 <span class="n">raw_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;countrycode&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]}</span> 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;countrycode&#39;</span><span class="p">])</span>
 <span class="n">df</span>
@@ -182,7 +182,7 @@
 </table>
 </div>
 
-<div class="highlight"><pre><span></span><span class="c1"># Convert the countrycode variable into three binary variables</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Convert the countrycode variable into three binary variables</span>
 <span class="n">patsy</span><span class="o">.</span><span class="n">dmatrix</span><span class="p">(</span><span class="s1">&#39;C(countrycode)-1&#39;</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">return_type</span><span class="o">=</span><span class="s1">&#39;dataframe&#39;</span><span class="p">)</span>
 </pre></div>
 

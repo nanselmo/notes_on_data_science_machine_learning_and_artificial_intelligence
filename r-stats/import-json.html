@@ -134,42 +134,42 @@
 </header>
 
 <p>Source: http://stackoverflow.com/questions/13004813/downloading-json-data-into-r?lq=1</p>
-<div class="highlight"><pre><span></span><span class="c1"># Load libraries</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Load libraries</span>
 <span class="kn">library</span><span class="p">(</span>RJSONIO<span class="p">)</span>
 <span class="kn">library</span><span class="p">(</span>RCurl<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># grab the data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># grab the data</span>
 raw_data <span class="o">&lt;-</span> getURL<span class="p">(</span><span class="s">&quot;http://swapi.co/api/people/1/?format=json&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Then covert from JSON into a list in R</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Then covert from JSON into a list in R</span>
 data <span class="o">&lt;-</span> fromJSON<span class="p">(</span>raw_data<span class="p">)</span>
 <span class="kp">length</span><span class="p">(</span>data<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># We can coerce this to a data.frame</span>
+<div class="codehilite"><pre><span></span><span class="c1"># We can coerce this to a data.frame</span>
 final_data <span class="o">&lt;-</span> <span class="kp">do.call</span><span class="p">(</span><span class="kp">rbind</span><span class="p">,</span> data<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Then write it to a flat csv file</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Then write it to a flat csv file</span>
 <span class="c1"># write.csv(final_data, &quot;final_data.csv&quot;)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] 16
+<div class="codehilite"><pre><span></span>[1] 16
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>final_data
+<div class="codehilite"><pre><span></span>final_data
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>           [,1]                               
+<div class="codehilite"><pre><span></span>           [,1]                               
 name       &quot;Luke Skywalker&quot;                   
 height     &quot;172&quot;                              
 mass       &quot;77&quot;                               

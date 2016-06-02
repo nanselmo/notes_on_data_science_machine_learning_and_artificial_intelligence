@@ -133,12 +133,12 @@
 </ol>
 </header>
 
-<div class="highlight"><pre><span></span><span class="c1"># import pandas</span>
+<div class="codehilite"><pre><span></span><span class="c1"># import pandas</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a dataset</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a dataset</span>
 <span class="n">raw_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;score&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> 
         <span class="s1">&#39;tags&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span><span class="s1">&#39;pear&#39;</span><span class="p">,</span><span class="s1">&#39;guava&#39;</span><span class="p">],[</span><span class="s1">&#39;truck&#39;</span><span class="p">,</span><span class="s1">&#39;car&#39;</span><span class="p">,</span><span class="s1">&#39;plane&#39;</span><span class="p">],[</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span><span class="s1">&#39;dog&#39;</span><span class="p">,</span><span class="s1">&#39;mouse&#39;</span><span class="p">]]}</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">,</span> <span class="s1">&#39;tags&#39;</span><span class="p">])</span>
@@ -177,7 +177,7 @@
 </table>
 </div>
 
-<div class="highlight"><pre><span></span><span class="c1"># expand df.tags into its own dataframe</span>
+<div class="codehilite"><pre><span></span><span class="c1"># expand df.tags into its own dataframe</span>
 <span class="n">tags</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;tags&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">)</span>
 
 <span class="c1"># rename each variable is tags</span>
@@ -221,7 +221,7 @@
 </table>
 </div>
 
-<div class="highlight"><pre><span></span><span class="c1"># join the tags dataframe back to the original dataframe</span>
+<div class="codehilite"><pre><span></span><span class="c1"># join the tags dataframe back to the original dataframe</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">[:],</span> <span class="n">tags</span><span class="p">[:]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 

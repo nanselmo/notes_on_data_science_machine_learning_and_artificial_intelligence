@@ -137,7 +137,7 @@
 <p>Python offers a number of packages to make the task incredibly easy. In the tutorial below, I use pygeocoder, a wrapper for Google's geo-API, to both geocode and reverse geocode.</p>
 <h2>Preliminaries</h2>
 <p>First we want to load the packages we will want to use in the script. Specifically, I am loading pygeocoder for its geo-functionality, pandas for it's dataframe structures, and numpy for it's missing value (np.nan) functionality.</p>
-<div class="highlight"><pre><span></span><span class="c1"># Load packages</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Load packages</span>
 <span class="kn">from</span> <span class="nn">pygeocoder</span> <span class="kn">import</span> <span class="n">Geocoder</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
@@ -146,7 +146,7 @@
 
 <h2>Create some simulated geo data</h2>
 <p>Geo-data comes in a wide variety of forms, in this case we have a Python dictionary of five latitude and longitude strings, with each coordinate in a coordinate pair seperated by a comma.</p>
-<div class="highlight"><pre><span></span><span class="c1"># Create a dictionary of raw data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a dictionary of raw data</span>
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Site 1&#39;</span><span class="p">:</span> <span class="s1">&#39;31.336968, -109.560959&#39;</span><span class="p">,</span>
         <span class="s1">&#39;Site 2&#39;</span><span class="p">:</span> <span class="s1">&#39;31.347745, -108.229963&#39;</span><span class="p">,</span>
         <span class="s1">&#39;Site 3&#39;</span><span class="p">:</span> <span class="s1">&#39;32.277621, -107.734724&#39;</span><span class="p">,</span>
@@ -156,12 +156,12 @@
 
 
 <p>While technically unneccesary, because I originally come from R, I am a big fan of dataframes, so let us turn the dictionary of simulated data into a dataframe.</p>
-<div class="highlight"><pre><span></span><span class="c1"># Convert the dictionary into a pandas dataframe</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Convert the dictionary into a pandas dataframe</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># View the dataframe</span>
+<div class="codehilite"><pre><span></span><span class="c1"># View the dataframe</span>
 <span class="n">df</span>
 </pre></div>
 
@@ -200,7 +200,7 @@
 </div>
 
 <p>You can see now that we have a a dataframe with five rows, with each now containing a string of latitude and longitude. Before we can work with the data, we'll need to 1) seperate the strings into latitude and longitude and 2) convert them into floats. The function below does just that.</p>
-<div class="highlight"><pre><span></span><span class="c1"># Create two lists for the loop results to be placed</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create two lists for the loop results to be placed</span>
 <span class="n">lat</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">lon</span> <span class="o">=</span> <span class="p">[]</span>
 
@@ -228,7 +228,7 @@
 
 
 <p>Let's take a took a what we have now.</p>
-<div class="highlight"><pre><span></span><span class="c1"># View the dataframe</span>
+<div class="codehilite"><pre><span></span><span class="c1"># View the dataframe</span>
 <span class="n">df</span>
 </pre></div>
 
@@ -281,95 +281,95 @@
 <p>Awesome. This is exactly what we want to see, one column of floats for latitude and one column of floats for longitude.</p>
 <h2>Reverse Geocoding</h2>
 <p>To reverse geocode, we feed a specific latitude and longitude pair, in this case the first row (indexed as '0') into pygeocoder's reverse_geocoder function. </p>
-<div class="highlight"><pre><span></span><span class="c1"># Convert longitude and latitude to a location</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Convert longitude and latitude to a location</span>
 <span class="n">results</span> <span class="o">=</span> <span class="n">Geocoder</span><span class="o">.</span><span class="n">reverse_geocode</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;latitude&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;longitude&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 
 
 <p>Now we can take can start pulling out the data that we want.</p>
-<div class="highlight"><pre><span></span><span class="c1"># Print the lat/long</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Print the lat/long</span>
 <span class="n">results</span><span class="o">.</span><span class="n">coordinates</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>(30.30077769999999, -104.0129162)
+<div class="codehilite"><pre><span></span>(30.30077769999999, -104.0129162)
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Print the city</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Print the city</span>
 <span class="n">results</span><span class="o">.</span><span class="n">city</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>&#39;Marfa&#39;
+<div class="codehilite"><pre><span></span>&#39;Marfa&#39;
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Print the country</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Print the country</span>
 <span class="n">results</span><span class="o">.</span><span class="n">country</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>&#39;United States&#39;
+<div class="codehilite"><pre><span></span>&#39;United States&#39;
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Print the street address (if applicable)</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Print the street address (if applicable)</span>
 <span class="n">results</span><span class="o">.</span><span class="n">street_address</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Print the admin1 level</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Print the admin1 level</span>
 <span class="n">results</span><span class="o">.</span><span class="n">administrative_area_level_1</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>&#39;Texas&#39;
+<div class="codehilite"><pre><span></span>&#39;Texas&#39;
 </pre></div>
 
 
 <h2>Geocoding</h2>
 <p>For geocoding, we need to submit a string containing an address or location (such as a city) into the geocode function. However, not all strings are formatted in a way that Google's geo-API can make sense of them. We can text if an input is valid by using the .geocode().valid_address function.</p>
-<div class="highlight"><pre><span></span><span class="c1"># Verify that an address is valid (i.e. in Google&#39;s system)</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Verify that an address is valid (i.e. in Google&#39;s system)</span>
 <span class="n">Geocoder</span><span class="o">.</span><span class="n">geocode</span><span class="p">(</span><span class="s2">&quot;7250 South Tucson Boulevard, Tucson, AZ 85756&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">valid_address</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>True
+<div class="codehilite"><pre><span></span>True
 </pre></div>
 
 
 <p>Because the output was True, we now know that this is a valid address and thus can print the latitude and longitude coordinates.</p>
-<div class="highlight"><pre><span></span><span class="c1"># Print the lat/long</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Print the lat/long</span>
 <span class="n">results</span><span class="o">.</span><span class="n">coordinates</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>(30.30077769999999, -104.0129162)
+<div class="codehilite"><pre><span></span>(30.30077769999999, -104.0129162)
 </pre></div>
 
 
 <p>But even more interesting, once the address is processed by the Google geo API, we can parse it and easily seperate street numbers, street names, etc. </p>
-<div class="highlight"><pre><span></span><span class="c1"># Find the lat/long of a certain address</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Find the lat/long of a certain address</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">Geocoder</span><span class="o">.</span><span class="n">geocode</span><span class="p">(</span><span class="s2">&quot;7250 South Tucson Boulevard, Tucson, AZ 85756&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Print the street number</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Print the street number</span>
 <span class="n">result</span><span class="o">.</span><span class="n">street_number</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>&#39;7250&#39;
+<div class="codehilite"><pre><span></span>&#39;7250&#39;
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Print the street name</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Print the street name</span>
 <span class="n">result</span><span class="o">.</span><span class="n">route</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>&#39;South Tucson Boulevard&#39;
+<div class="codehilite"><pre><span></span>&#39;South Tucson Boulevard&#39;
 </pre></div>
 
 

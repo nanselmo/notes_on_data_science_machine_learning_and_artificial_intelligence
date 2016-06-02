@@ -134,7 +134,7 @@
 </header>
 
 <p>Original source: http://rforpublichealth.blogspot.com</p>
-<div class="highlight"><pre><span></span><span class="c1"># create some simulated data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create some simulated data</span>
 ID <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span>
 Age <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">26</span><span class="p">,</span> <span class="m">65</span><span class="p">,</span> <span class="m">15</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">88</span><span class="p">,</span> <span class="m">43</span><span class="p">,</span> <span class="m">28</span><span class="p">,</span> <span class="m">66</span> <span class="p">,</span><span class="m">45</span><span class="p">,</span> <span class="m">12</span><span class="p">)</span>
 Sex <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">0</span> <span class="p">,</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
@@ -144,22 +144,22 @@ Married <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(<
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a dataframe of the simulated data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a dataframe of the simulated data</span>
 mydata <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>ID<span class="p">,</span> Age<span class="p">,</span> Sex<span class="p">,</span> Weight<span class="p">,</span> Height<span class="p">,</span> Married<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># cut up Age by 0-5, 6-10, 11-15, 16-20 and label each category 1-6.</span>
+<div class="codehilite"><pre><span></span><span class="c1"># cut up Age by 0-5, 6-10, 11-15, 16-20 and label each category 1-6.</span>
 mydata<span class="o">$</span>Agecat1<span class="o">&lt;-</span><span class="kp">cut</span><span class="p">(</span>mydata<span class="o">$</span>Age<span class="p">,</span> <span class="kt">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">10</span><span class="p">,</span><span class="m">15</span><span class="p">,</span><span class="m">20</span><span class="p">,</span><span class="m">25</span><span class="p">,</span><span class="m">30</span><span class="p">),</span> labels<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">6</span><span class="p">))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># it is a factor</span>
+<div class="codehilite"><pre><span></span><span class="c1"># it is a factor</span>
 <span class="kp">class</span><span class="p">(</span>mydata<span class="o">$</span>Agecat1<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] &quot;factor&quot;
+<div class="codehilite"><pre><span></span>[1] &quot;factor&quot;
 </pre></div>
     <aside>
     <div class="bug-reporting__panel">

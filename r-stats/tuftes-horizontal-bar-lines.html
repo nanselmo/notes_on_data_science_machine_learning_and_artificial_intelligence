@@ -134,12 +134,12 @@
 </header>
 
 <p>Original source: http://stackoverflow.com/questions/13701485/r-graphs-creating-tuftes-horizontal-bar-lines</p>
-<div class="highlight"><pre><span></span><span class="c1"># load the ggplot2 package</span>
+<div class="codehilite"><pre><span></span><span class="c1"># load the ggplot2 package</span>
 <span class="kn">library</span><span class="p">(</span>ggplot2<span class="p">)</span>    
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create the ggplot2 data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create the ggplot2 data</span>
 ggplot<span class="p">(</span>msleep<span class="p">,</span> aes<span class="p">(</span>x<span class="o">=</span><span class="kp">order</span><span class="p">))</span> <span class="o">+</span>
   <span class="c1"># draw the bars</span>
   stat_bin<span class="p">()</span> <span class="o">+</span>

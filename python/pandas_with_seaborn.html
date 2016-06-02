@@ -134,7 +134,7 @@
 </header>
 
 <h2>Preliminaries</h2>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 <span class="kn">import</span> <span class="nn">random</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
@@ -142,14 +142,14 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="mi">25</span><span class="p">)</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="mi">25</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
 
@@ -193,86 +193,86 @@
 </div>
 
 <h2>Scatterplot</h2>
-<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">fit_reg</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">fit_reg</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x10dc2b1d0&gt;
+<div class="codehilite"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x10dc2b1d0&gt;
 </pre></div>
 
 
 <p><img alt="png" src="../images/pandas_with_seaborn/output_6_1.png" /></p>
 <h2>Density Plot</h2>
-<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x10c30e050&gt;
+<div class="codehilite"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x10c30e050&gt;
 </pre></div>
 
 
 <p><img alt="png" src="../images/pandas_with_seaborn/output_8_1.png" /></p>
-<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x10c5536d0&gt;
+<div class="codehilite"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x10c5536d0&gt;
 </pre></div>
 
 
 <p><img alt="png" src="../images/pandas_with_seaborn/output_9_1.png" /></p>
-<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x10b669550&gt;
+<div class="codehilite"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x10b669550&gt;
 </pre></div>
 
 
 <p><img alt="png" src="../images/pandas_with_seaborn/output_10_1.png" /></p>
 <h2>Histogram</h2>
-<div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">3</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">rugplot</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">x</span><span class="p">);</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/pandas_with_seaborn/output_12_0.png" /></p>
 <h2>Boxplot</h2>
-<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">([</span><span class="n">df</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">x</span><span class="p">])</span>
+<div class="codehilite"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">([</span><span class="n">df</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">x</span><span class="p">])</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x10a5c9b50&gt;
+<div class="codehilite"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x10a5c9b50&gt;
 </pre></div>
 
 
 <p><img alt="png" src="../images/pandas_with_seaborn/output_14_1.png" /></p>
 <h2>Violin Plot</h2>
-<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">([</span><span class="n">df</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">x</span><span class="p">])</span>
+<div class="codehilite"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">([</span><span class="n">df</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">x</span><span class="p">])</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x10dca4b50&gt;
+<div class="codehilite"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x10dca4b50&gt;
 </pre></div>
 
 
 <p><img alt="png" src="../images/pandas_with_seaborn/output_16_1.png" /></p>
 <h2>Heatmap</h2>
-<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">([</span><span class="n">df</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">x</span><span class="p">],</span> <span class="n">annot</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;d&quot;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">([</span><span class="n">df</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">x</span><span class="p">],</span> <span class="n">annot</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;d&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x10dab5110&gt;
+<div class="codehilite"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x10dab5110&gt;
 </pre></div>
 
 
 <p><img alt="png" src="../images/pandas_with_seaborn/output_18_1.png" /></p>
 <h2>Clustermap</h2>
-<div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">clustermap</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">clustermap</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>&lt;seaborn.matrix.ClusterGrid at 0x10de304d0&gt;
+<div class="codehilite"><pre><span></span>&lt;seaborn.matrix.ClusterGrid at 0x10de304d0&gt;
 </pre></div>
 
 

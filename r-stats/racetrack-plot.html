@@ -134,12 +134,12 @@
 </header>
 
 <p>Original source: http://stackoverflow.com/questions/15751442/making-a-circular-barplot-with-a-hollow-center-aka-race-track-plot</p>
-<div class="highlight"><pre><span></span><span class="c1"># load the ggplot2 library</span>
+<div class="codehilite"><pre><span></span><span class="c1"># load the ggplot2 library</span>
 <span class="kn">library</span><span class="p">(</span>ggplot2<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create some simulated data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create some simulated data</span>
 Category <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;Electronics&quot;</span><span class="p">,</span> <span class="s">&quot;Appliances&quot;</span><span class="p">,</span> <span class="s">&quot;Books&quot;</span><span class="p">,</span> <span class="s">&quot;Music&quot;</span><span class="p">,</span> <span class="s">&quot;Clothing&quot;</span><span class="p">,</span>
               <span class="s">&quot;Cars&quot;</span><span class="p">,</span> <span class="s">&quot;Food/Beverages&quot;</span><span class="p">,</span> <span class="s">&quot;Personal Hygiene&quot;</span><span class="p">,</span>
               <span class="s">&quot;Personal Health/OTC&quot;</span><span class="p">,</span> <span class="s">&quot;Hair Care&quot;</span><span class="p">)</span>
@@ -149,29 +149,29 @@ internetImportance <span class="o">&lt;-</span> <span class="kt">data.frame</spa
 
 
 <h2>Create a dataframe that contains the legend information</h2>
-<div class="highlight"><pre><span></span><span class="c1"># create a variable called len that equals 4</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a variable called len that equals 4</span>
 len <span class="o">&lt;-</span> <span class="m">4</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a data frame with three elements, Category, Percent, and Category2. this is all blank data so that the middle of the racetrack is blank</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a data frame with three elements, Category, Percent, and Category2. this is all blank data so that the middle of the racetrack is blank</span>
 df2 <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>Category <span class="o">=</span> <span class="kc">letters</span><span class="p">[</span><span class="m">1</span><span class="o">:</span>len<span class="p">],</span> Percent <span class="o">=</span> <span class="kp">rep</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> len<span class="p">),</span>
                   Category2 <span class="o">=</span> <span class="kp">rep</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">,</span> len<span class="p">))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a new Category2 variable in the internetImportance df that contains the category name, a dash, the importance percent, and a percent sign</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a new Category2 variable in the internetImportance df that contains the category name, a dash, the importance percent, and a percent sign</span>
 internetImportance<span class="o">$</span>Category2 <span class="o">&lt;-</span>
   <span class="kp">paste0</span><span class="p">(</span>internetImportance<span class="o">$</span>Category<span class="p">,</span><span class="s">&quot; - &quot;</span><span class="p">,</span>internetImportance<span class="o">$</span>Percent<span class="p">,</span><span class="s">&quot;%&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># append number to category name</span>
+<div class="codehilite"><pre><span></span><span class="c1"># append number to category name</span>
 internetImportance <span class="o">&lt;-</span> <span class="kp">rbind</span><span class="p">(</span>internetImportance<span class="p">,</span> df2<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># set factor so it will plot in descending order</span>
+<div class="codehilite"><pre><span></span><span class="c1"># set factor so it will plot in descending order</span>
 internetImportance<span class="o">$</span>Category <span class="o">&lt;-</span>
   <span class="kp">factor</span><span class="p">(</span>internetImportance<span class="o">$</span>Category<span class="p">,</span>
          levels<span class="o">=</span><span class="kp">rev</span><span class="p">(</span>internetImportance<span class="o">$</span>Category<span class="p">))</span>
@@ -179,7 +179,7 @@ internetImportance<span class="o">$</span>Category <span class="o">&lt;-</span>
 
 
 <h2>Plot</h2>
-<div class="highlight"><pre><span></span><span class="c1"># great the ggplot data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># great the ggplot data</span>
 ggplot<span class="p">(</span>internetImportance<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> Category<span class="p">,</span> y <span class="o">=</span> Percent<span class="p">,</span>
                                fill <span class="o">=</span> Category2<span class="p">))</span> <span class="o">+</span>
   <span class="c1"># create a bar plot</span>

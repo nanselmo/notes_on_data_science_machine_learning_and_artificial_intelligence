@@ -135,7 +135,7 @@
 
 <p>Original source: Learning R</p>
 <p>R includes grep, grepl, regexpr, sub, and gsub to handle strings. However they can be clunky, so the stringr package provides a "UI" for these functions to making working with them easier.</p>
-<div class="highlight"><pre><span></span><span class="c1"># Load LearningR package</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Load LearningR package</span>
 <span class="kn">library</span><span class="p">(</span>learningr<span class="p">)</span>
 
 <span class="c1"># Load english_monarchs data from the LearningR package</span>
@@ -146,12 +146,12 @@ data<span class="p">(</span>english_monarchs<span class="p">,</span> package <sp
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># detect commas in the domain variable, meaning that during that time a monarch had multiple territories (domains)</span>
+<div class="codehilite"><pre><span></span><span class="c1"># detect commas in the domain variable, meaning that during that time a monarch had multiple territories (domains)</span>
 multiple_kingdoms <span class="o">&lt;-</span> str_detect<span class="p">(</span>english_monarchs<span class="o">$</span>domain<span class="p">,</span> fixed<span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">));</span> multiple_kingdoms
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+<div class="codehilite"><pre><span></span>  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
  [13] FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE
  [25]  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
  [37] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
@@ -176,12 +176,12 @@ multiple_kingdoms <span class="o">&lt;-</span> str_detect<span class="p">(</span
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># index domains where multiple_kingdoms is true. Show name and domain columns for those rows where it is true.</span>
+<div class="codehilite"><pre><span></span><span class="c1"># index domains where multiple_kingdoms is true. Show name and domain columns for those rows where it is true.</span>
 english_monarchs<span class="p">[</span>multiple_kingdoms<span class="p">,</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="s">&quot;domain&quot;</span><span class="p">)]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>                          name                    domain
+<div class="codehilite"><pre><span></span>                          name                    domain
 17                        Offa       East Anglia, Mercia
 18                        Offa East Anglia, Kent, Mercia
 19           Offa and Ecgfrith East Anglia, Kent, Mercia
@@ -203,12 +203,12 @@ english_monarchs<span class="p">[</span>multiple_kingdoms<span class="p">,</span
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># detect either a comma or an &quot;and&quot; in the ruler variable, meaning that a domain had multiple rulers</span>
+<div class="codehilite"><pre><span></span><span class="c1"># detect either a comma or an &quot;and&quot; in the ruler variable, meaning that a domain had multiple rulers</span>
 multiple_rulers <span class="o">&lt;-</span> str_detect<span class="p">(</span>english_monarchs<span class="o">$</span>name<span class="p">,</span> <span class="s">&quot;,|and&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># index domains where multiple rulers was true and that data isn&#39;t missing</span>
+<div class="codehilite"><pre><span></span><span class="c1"># index domains where multiple rulers was true and that data isn&#39;t missing</span>
 english_monarchs<span class="o">$</span>name<span class="p">[</span>multiple_rulers <span class="o">&amp;</span> <span class="o">!</span><span class="kp">is.na</span><span class="p">(</span>multiple_rulers<span class="p">)]</span>
 
 <span class="c1"># since individual rulers are split up by a comma or an and, we can split them up. The output is a list.</span>
@@ -216,7 +216,7 @@ individual_rulers <span class="o">&lt;-</span> str_split<span class="p">(</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span> [1] Sigeberht and Ecgric                       
+<div class="codehilite"><pre><span></span> [1] Sigeberht and Ecgric                       
  [2] Hun, Beonna and Alberht                    
  [3] Offa and Ecgfrith                          
  [4] C\u009cnwulf and Cynehelm                  
@@ -252,28 +252,28 @@ individual_rulers <span class="o">&lt;-</span> str_split<span class="p">(</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># take a look at the data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># take a look at the data</span>
 <span class="kp">head</span><span class="p">(</span>individual_rulers<span class="p">[</span><span class="kp">sapply</span><span class="p">(</span>individual_rulers<span class="p">,</span> <span class="kp">length</span><span class="p">)</span> <span class="o">&gt;</span> <span class="m">1</span><span class="p">])</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="k">[[1]]</span>
-<span class="err">[1]</span> <span class="err">&quot;Sigeberht&quot;</span> <span class="err">&quot;Ecgric&quot;</span>
+<div class="codehilite"><pre><span></span>[[1]]
+[1] &quot;Sigeberht&quot; &quot;Ecgric&quot;
 
-<span class="k">[[2]]</span>
-<span class="err">[1]</span> <span class="err">&quot;Hun&quot;</span>     <span class="err">&quot;Beonna&quot;</span>  <span class="err">&quot;Alberht&quot;</span>
+[[2]]
+[1] &quot;Hun&quot;     &quot;Beonna&quot;  &quot;Alberht&quot;
 
-<span class="k">[[3]]</span>
-<span class="err">[1]</span> <span class="err">&quot;Offa&quot;</span>     <span class="err">&quot;Ecgfrith&quot;</span>
+[[3]]
+[1] &quot;Offa&quot;     &quot;Ecgfrith&quot;
 
-<span class="k">[[4]]</span>
-<span class="err">[1]</span> <span class="err">&quot;C\u009cnwulf&quot;</span> <span class="err">&quot;Cynehelm&quot;</span>
+[[4]]
+[1] &quot;C\u009cnwulf&quot; &quot;Cynehelm&quot;
 
-<span class="k">[[5]]</span>
-<span class="err">[1]</span> <span class="err">&quot;Sighere&quot;</span> <span class="err">&quot;Sebbi&quot;</span>
+[[5]]
+[1] &quot;Sighere&quot; &quot;Sebbi&quot;
 
-<span class="k">[[6]]</span>
-<span class="err">[1]</span> <span class="err">&quot;Sigeheard&quot;</span> <span class="err">&quot;Swaefred&quot;</span>
+[[6]]
+[1] &quot;Sigeheard&quot; &quot;Swaefred&quot;
 </pre></div>
     <aside>
     <div class="bug-reporting__panel">

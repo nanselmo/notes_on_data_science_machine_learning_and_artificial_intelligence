@@ -134,16 +134,16 @@
 </header>
 
 <p>Paths can be relative to the current working directory</p>
-<div class="highlight"><pre><span></span><span class="c1"># View the working directory</span>
+<div class="codehilite"><pre><span></span><span class="c1"># View the working directory</span>
 <span class="kp">getwd</span><span class="p">()</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] &quot;/Users/chrisralbon/cra/cra_projects/peripheral_brain/notebooks/rstats&quot;
+<div class="codehilite"><pre><span></span>[1] &quot;/Users/chrisralbon/cra/cra_projects/peripheral_brain/notebooks/rstats&quot;
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Set the working directory to the user&#39;s home directory</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Set the working directory to the user&#39;s home directory</span>
 <span class="kp">setwd</span><span class="p">(</span><span class="s">&quot;~&quot;</span><span class="p">)</span>
 </pre></div>
 
@@ -153,30 +153,30 @@
 <li>In relative paths, .. denotes the parent directory</li>
 <li>In relative paths,  ~ denotes your home directory</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="c1"># Path.expand converts relative paths to absolutely paths</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Path.expand converts relative paths to absolutely paths</span>
 <span class="kp">path.expand</span><span class="p">(</span><span class="s">&quot;~&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] &quot;/Users/chrisralbon&quot;
+<div class="codehilite"><pre><span></span>[1] &quot;/Users/chrisralbon&quot;
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># basename() returns the file name without the path</span>
+<div class="codehilite"><pre><span></span><span class="c1"># basename() returns the file name without the path</span>
 <span class="kp">basename</span><span class="p">(</span><span class="s">&quot;~&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] &quot;chrisralbon&quot;
+<div class="codehilite"><pre><span></span>[1] &quot;chrisralbon&quot;
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># dirname returns the path without the file name</span>
+<div class="codehilite"><pre><span></span><span class="c1"># dirname returns the path without the file name</span>
 <span class="kp">dirname</span><span class="p">(</span><span class="s">&quot;~&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] &quot;/Users&quot;
+<div class="codehilite"><pre><span></span>[1] &quot;/Users&quot;
 </pre></div>
     <aside>
     <div class="bug-reporting__panel">

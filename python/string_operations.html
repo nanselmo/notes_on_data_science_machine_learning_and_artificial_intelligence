@@ -140,210 +140,210 @@
 <li>bytesarray() mutable variable of bytes</li>
 </ul>
 <h3>Create some simulated text.</h3>
-<div class="highlight"><pre><span></span><span class="n">string</span> <span class="o">=</span> <span class="s1">&#39;The quick brown fox jumped over the lazy brown bear.&#39;</span>
+<div class="codehilite"><pre><span></span><span class="n">string</span> <span class="o">=</span> <span class="s1">&#39;The quick brown fox jumped over the lazy brown bear.&#39;</span>
 </pre></div>
 
 
 <h3>Capitalize the first letter.</h3>
-<div class="highlight"><pre><span></span><span class="n">string_capitalized</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><span class="n">string_capitalized</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
 <span class="n">string_capitalized</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>&#39;The quick brown fox jumped over the lazy brown bear.&#39;
+<div class="codehilite"><pre><span></span>&#39;The quick brown fox jumped over the lazy brown bear.&#39;
 </pre></div>
 
 
 <h3>Center the string with periods on either side, for a total of 79 characters</h3>
-<div class="highlight"><pre><span></span><span class="n">string_centered</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">79</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">string_centered</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">79</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">)</span>
 <span class="n">string_centered</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>&#39;..............The quick brown fox jumped over the lazy brown bear..............&#39;
+<div class="codehilite"><pre><span></span>&#39;..............The quick brown fox jumped over the lazy brown bear..............&#39;
 </pre></div>
 
 
 <h3>Count the number of e's between the fifth and last character</h3>
-<div class="highlight"><pre><span></span><span class="n">string_counted</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">string</span><span class="p">))</span>
+<div class="codehilite"><pre><span></span><span class="n">string_counted</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">string</span><span class="p">))</span>
 <span class="n">string_counted</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>4
+<div class="codehilite"><pre><span></span>4
 </pre></div>
 
 
 <h3>Locate any e's between the fifth and last character</h3>
-<div class="highlight"><pre><span></span><span class="n">string_find</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">string</span><span class="p">))</span>
+<div class="codehilite"><pre><span></span><span class="n">string_find</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">string</span><span class="p">))</span>
 <span class="n">string_find</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>24
+<div class="codehilite"><pre><span></span>24
 </pre></div>
 
 
 <h3>Are all characters are alphabet?</h3>
-<div class="highlight"><pre><span></span><span class="n">string_isalpha</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">isalpha</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><span class="n">string_isalpha</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">isalpha</span><span class="p">()</span>
 <span class="n">string_isalpha</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>False
+<div class="codehilite"><pre><span></span>False
 </pre></div>
 
 
 <h3>Are all characters digits?</h3>
-<div class="highlight"><pre><span></span><span class="n">string_isdigit</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><span class="n">string_isdigit</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span>
 <span class="n">string_isdigit</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>False
+<div class="codehilite"><pre><span></span>False
 </pre></div>
 
 
 <h3>Are all characters lower case?</h3>
-<div class="highlight"><pre><span></span><span class="n">string_islower</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">islower</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><span class="n">string_islower</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">islower</span><span class="p">()</span>
 <span class="n">string_islower</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>False
+<div class="codehilite"><pre><span></span>False
 </pre></div>
 
 
 <h3>Are all chracters alphanumeric?</h3>
-<div class="highlight"><pre><span></span><span class="n">string_isalnum</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">isalnum</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><span class="n">string_isalnum</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">isalnum</span><span class="p">()</span>
 <span class="n">string_isalnum</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>False
+<div class="codehilite"><pre><span></span>False
 </pre></div>
 
 
 <h3>Are all characters whitespaces?</h3>
-<div class="highlight"><pre><span></span><span class="n">string_isalnum</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">isspace</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><span class="n">string_isalnum</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">isspace</span><span class="p">()</span>
 <span class="n">string_isalnum</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>False
+<div class="codehilite"><pre><span></span>False
 </pre></div>
 
 
 <h3>Is the string properly titlespaced?</h3>
-<div class="highlight"><pre><span></span><span class="n">string_istitle</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">istitle</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><span class="n">string_istitle</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">istitle</span><span class="p">()</span>
 <span class="n">string_istitle</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>False
+<div class="codehilite"><pre><span></span>False
 </pre></div>
 
 
 <h3>Are all the characters uppercase?</h3>
-<div class="highlight"><pre><span></span><span class="n">string_isupper</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">isupper</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><span class="n">string_isupper</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">isupper</span><span class="p">()</span>
 <span class="n">string_isupper</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>False
+<div class="codehilite"><pre><span></span>False
 </pre></div>
 
 
 <h3>Return the lengths of string</h3>
-<div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>52
+<div class="codehilite"><pre><span></span>52
 </pre></div>
 
 
 <h3>Convert string to lower case</h3>
-<div class="highlight"><pre><span></span><span class="n">string_lower</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><span class="n">string_lower</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
 <span class="n">string_lower</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>&#39;the quick brown fox jumped over the lazy brown bear.&#39;
+<div class="codehilite"><pre><span></span>&#39;the quick brown fox jumped over the lazy brown bear.&#39;
 </pre></div>
 
 
 <h3>Convert string to lower case</h3>
-<div class="highlight"><pre><span></span><span class="n">string_upper</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><span class="n">string_upper</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
 <span class="n">string_upper</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>&#39;THE QUICK BROWN FOX JUMPED OVER THE LAZY BROWN BEAR.&#39;
+<div class="codehilite"><pre><span></span>&#39;THE QUICK BROWN FOX JUMPED OVER THE LAZY BROWN BEAR.&#39;
 </pre></div>
 
 
 <h3>Convert string to title case</h3>
-<div class="highlight"><pre><span></span><span class="n">string_title</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><span class="n">string_title</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
 <span class="n">string_title</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>&#39;The Quick Brown Fox Jumped Over The Lazy Brown Bear.&#39;
+<div class="codehilite"><pre><span></span>&#39;The Quick Brown Fox Jumped Over The Lazy Brown Bear.&#39;
 </pre></div>
 
 
 <h3>Convert string the inverted case</h3>
-<div class="highlight"><pre><span></span><span class="n">string_swapcase</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">swapcase</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><span class="n">string_swapcase</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">swapcase</span><span class="p">()</span>
 <span class="n">string_swapcase</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>&#39;tHE QUICK BROWN FOX JUMPED OVER THE LAZY BROWN BEAR.&#39;
+<div class="codehilite"><pre><span></span>&#39;tHE QUICK BROWN FOX JUMPED OVER THE LAZY BROWN BEAR.&#39;
 </pre></div>
 
 
 <h3>Remove all leading whitespaces (i.e. to the left)</h3>
-<div class="highlight"><pre><span></span><span class="n">string_lstrip</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><span class="n">string_lstrip</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()</span>
 <span class="n">string_lstrip</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>&#39;The quick brown fox jumped over the lazy brown bear.&#39;
+<div class="codehilite"><pre><span></span>&#39;The quick brown fox jumped over the lazy brown bear.&#39;
 </pre></div>
 
 
 <h3>Remove all leading and trailing whitespaces (i.e. to the left and right)</h3>
-<div class="highlight"><pre><span></span><span class="n">string_strip</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><span class="n">string_strip</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
 <span class="n">string_strip</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>&#39;The quick brown fox jumped over the lazy brown bear.&#39;
+<div class="codehilite"><pre><span></span>&#39;The quick brown fox jumped over the lazy brown bear.&#39;
 </pre></div>
 
 
 <h3>Remove all trailing whitespaces (i.e. to the right)</h3>
-<div class="highlight"><pre><span></span><span class="n">string_rstrip</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><span class="n">string_rstrip</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
 <span class="n">string_rstrip</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>&#39;The quick brown fox jumped over the lazy brown bear.&#39;
+<div class="codehilite"><pre><span></span>&#39;The quick brown fox jumped over the lazy brown bear.&#39;
 </pre></div>
 
 
 <h3>Replace lower case e's with upper case E's, to a maximum of 4</h3>
-<div class="highlight"><pre><span></span><span class="n">string_replace</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">string_replace</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 <span class="n">string_replace</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>&#39;ThE quick brown fox jumpEd ovEr thE lazy brown bear.&#39;
+<div class="codehilite"><pre><span></span>&#39;ThE quick brown fox jumpEd ovEr thE lazy brown bear.&#39;
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>
+<div class="codehilite"><pre><span></span>
 </pre></div>
     <aside>
     <div class="bug-reporting__panel">

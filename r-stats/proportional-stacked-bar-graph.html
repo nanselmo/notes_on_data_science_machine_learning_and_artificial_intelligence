@@ -134,7 +134,7 @@
 </header>
 
 <p>Original source: r graphics cookbook</p>
-<div class="highlight"><pre><span></span><span class="c1"># load the ggplot2 package</span>
+<div class="codehilite"><pre><span></span><span class="c1"># load the ggplot2 package</span>
 <span class="kn">library</span><span class="p">(</span>ggplot2<span class="p">)</span>
 
 <span class="c1"># load the gcookbook package</span>
@@ -145,12 +145,12 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># do dataframe to dataframe apply. split up cabbage_exp by &quot;Date&quot; (there are three dates), and create a new variable which is percent_weight</span>
+<div class="codehilite"><pre><span></span><span class="c1"># do dataframe to dataframe apply. split up cabbage_exp by &quot;Date&quot; (there are three dates), and create a new variable which is percent_weight</span>
 ce <span class="o">&lt;-</span> ddply<span class="p">(</span>cabbage_exp<span class="p">,</span> <span class="s">&quot;Date&quot;</span><span class="p">,</span> <span class="kp">transform</span><span class="p">,</span> percent_weight <span class="o">=</span> Weight <span class="o">/</span> <span class="kp">sum</span><span class="p">(</span>Weight<span class="p">)</span> <span class="o">*</span> <span class="m">100</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a ggplot data object of date, percent_weight, and filled by cultivar</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a ggplot data object of date, percent_weight, and filled by cultivar</span>
 ggplot<span class="p">(</span>ce<span class="p">,</span> aes<span class="p">(</span>x<span class="o">=</span>Date<span class="p">,</span> y<span class="o">=</span>percent_weight<span class="p">,</span> fill<span class="o">=</span>Cultivar<span class="p">))</span> <span class="o">+</span>
   <span class="c1"># plot the bars that are black</span>
   geom_bar<span class="p">(</span>stat<span class="o">=</span><span class="s">&quot;identity&quot;</span><span class="p">,</span> colour<span class="o">=</span><span class="s">&quot;black&quot;</span><span class="p">)</span> <span class="o">+</span>

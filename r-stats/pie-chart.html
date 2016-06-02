@@ -134,32 +134,32 @@
 </header>
 
 <p>Original source: http://www.statmethods.net/graphs/pie.html</p>
-<div class="highlight"><pre><span></span><span class="c1"># Create some casualty numbers</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create some casualty numbers</span>
 slices <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">5</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create labels that correspond to the casualty numbers</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create labels that correspond to the casualty numbers</span>
 lbls <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;CrisisNET&quot;</span><span class="p">,</span> <span class="s">&quot;V3&quot;</span><span class="p">,</span> <span class="s">&quot;V2&quot;</span><span class="p">,</span> <span class="s">&quot;Crowdmap&quot;</span><span class="p">,</span> <span class="s">&quot;Ping&quot;</span><span class="p">,</span> <span class="s">&quot;SMSSync&quot;</span><span class="p">,</span> <span class="s">&quot;Other&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create Percents For Each Slice</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create Percents For Each Slice</span>
 pct <span class="o">&lt;-</span> <span class="kp">round</span><span class="p">(</span>slices<span class="o">/</span><span class="kp">sum</span><span class="p">(</span>slices<span class="p">)</span><span class="o">*</span><span class="m">100</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Add Percents To Labels</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Add Percents To Labels</span>
 lbls <span class="o">&lt;-</span> <span class="kp">paste</span><span class="p">(</span>lbls<span class="p">,</span> pct<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Add The Percent Symbol To Labels</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Add The Percent Symbol To Labels</span>
 lbls <span class="o">&lt;-</span> <span class="kp">paste</span><span class="p">(</span>lbls<span class="p">,</span><span class="s">&quot;%&quot;</span><span class="p">,</span>sep<span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create a pie chart with labels, with each slice colored by the terrain color pallete</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a pie chart with labels, with each slice colored by the terrain color pallete</span>
 pie<span class="p">(</span>slices<span class="p">,</span>labels <span class="o">=</span> lbls<span class="p">,</span> col<span class="o">=</span>terrain.colors<span class="p">(</span><span class="kp">length</span><span class="p">(</span>lbls<span class="p">)),</span> main<span class="o">=</span><span class="s">&quot;Main Ushahidi Blog Posts&quot;</span><span class="p">)</span>
 </pre></div>
 

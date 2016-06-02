@@ -133,36 +133,36 @@
 </ol>
 </header>
 
-<div class="highlight"><pre><span></span><span class="c1"># create simulated factor names</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create simulated factor names</span>
 district <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;NORTH&quot;</span><span class="p">,</span> <span class="s">&quot;NORTHWEST&quot;</span><span class="p">,</span> <span class="s">&quot;CENTRAL&quot;</span><span class="p">,</span> <span class="s">&quot;SOUTH&quot;</span><span class="p">,</span> <span class="s">&quot;SOUTHWEST&quot;</span><span class="p">,</span> <span class="s">&quot;WESTERN&quot;</span><span class="p">))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># for the levels of the Baltimore crime district variable, find instances where the names of the levels are WESTERN and replace with WEST</span>
+<div class="codehilite"><pre><span></span><span class="c1"># for the levels of the Baltimore crime district variable, find instances where the names of the levels are WESTERN and replace with WEST</span>
 <span class="kp">levels</span><span class="p">(</span>district<span class="p">)[</span><span class="kp">match</span><span class="p">(</span><span class="s">&quot;WESTERN&quot;</span><span class="p">,</span><span class="kp">levels</span><span class="p">(</span>district<span class="p">))]</span> <span class="o">&lt;-</span> <span class="s">&quot;WEST&quot;</span>
 </pre></div>
 
 
 <p>You can also do another way. Since every level in a factor can be identified by both a name (as done in the previous example) and a number.</p>
-<div class="highlight"><pre><span></span><span class="c1"># view the levels of the district factor</span>
+<div class="codehilite"><pre><span></span><span class="c1"># view the levels of the district factor</span>
 <span class="kp">levels</span><span class="p">(</span>district<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] &quot;CENTRAL&quot;   &quot;NORTH&quot;     &quot;NORTHWEST&quot; &quot;SOUTH&quot;     &quot;SOUTHWEST&quot; &quot;WEST&quot;
+<div class="codehilite"><pre><span></span>[1] &quot;CENTRAL&quot;   &quot;NORTH&quot;     &quot;NORTHWEST&quot; &quot;SOUTH&quot;     &quot;SOUTHWEST&quot; &quot;WEST&quot;
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># replace the name of the third factor, NORTHEASTERN, with NORTHEAST</span>
+<div class="codehilite"><pre><span></span><span class="c1"># replace the name of the third factor, NORTHEASTERN, with NORTHEAST</span>
 <span class="kp">levels</span><span class="p">(</span>district<span class="p">)[</span><span class="m">3</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="s">&#39;NORTHEAST&#39;</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>district
+<div class="codehilite"><pre><span></span>district
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] NORTH     NORTHEAST CENTRAL   SOUTH     SOUTHWEST WEST     
+<div class="codehilite"><pre><span></span>[1] NORTH     NORTHEAST CENTRAL   SOUTH     SOUTHWEST WEST     
 Levels: CENTRAL NORTH NORTHEAST SOUTH SOUTHWEST WEST
 </pre></div>
     <aside>

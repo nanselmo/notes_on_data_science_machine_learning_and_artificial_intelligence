@@ -134,7 +134,7 @@
 </header>
 
 <p>Original source: ggplot2 book</p>
-<div class="highlight"><pre><span></span><span class="c1"># load the ggplot2 library</span>
+<div class="codehilite"><pre><span></span><span class="c1"># load the ggplot2 library</span>
 <span class="kn">library</span><span class="p">(</span>ggplot2<span class="p">)</span>
 
 <span class="c1"># set the seed so we can reproduce the results</span>
@@ -142,27 +142,27 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a variable that is the first 100 rows of the diamonds dataset</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a variable that is the first 100 rows of the diamonds dataset</span>
 dsmall <span class="o">&lt;-</span> diamonds<span class="p">[</span><span class="kp">sample</span><span class="p">(</span><span class="kp">nrow</span><span class="p">(</span>diamonds<span class="p">),</span> <span class="m">100</span><span class="p">),</span> <span class="p">]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a scatterplot with a smoothing line with a wiggly trend line</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a scatterplot with a smoothing line with a wiggly trend line</span>
 p1 <span class="o">&lt;-</span> qplot<span class="p">(</span>carat<span class="p">,</span> price<span class="p">,</span> data <span class="o">=</span> dsmall<span class="p">,</span> geom <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;point&quot;</span><span class="p">,</span> <span class="s">&quot;smooth&quot;</span><span class="p">),</span> span <span class="o">=</span> <span class="m">0.2</span><span class="p">);</span> p1
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="n">geom_smooth</span><span class="o">:</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span> <span class="n">and</span> <span class="n">size</span> <span class="n">of</span> <span class="n">largest</span> <span class="n">group</span> <span class="k">is</span> <span class="o">&lt;</span><span class="mi">1000</span><span class="o">,</span> <span class="n">so</span> <span class="n">using</span> <span class="n">loess</span><span class="o">.</span> <span class="n">Use</span> <span class="s1">&#39;method = x&#39;</span> <span class="n">to</span> <span class="n">change</span> <span class="n">the</span> <span class="n">smoothing</span> <span class="n">method</span><span class="o">.</span>
+<div class="codehilite"><pre><span></span>geom_smooth: method=&quot;auto&quot; and size of largest group is &lt;1000, so using loess. Use &#39;method = x&#39; to change the smoothing method.
 </pre></div>
 
 
 <p><img alt="png" src="../images/scatterplot-trend-line_files/scatterplot-trend-line_3_2.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># create a scatterplot with a smoothing line with a smooth trend line</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a scatterplot with a smoothing line with a smooth trend line</span>
 p2 <span class="o">&lt;-</span> qplot<span class="p">(</span>carat<span class="p">,</span> price<span class="p">,</span> data <span class="o">=</span> dsmall<span class="p">,</span> geom <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;point&quot;</span><span class="p">,</span> <span class="s">&quot;smooth&quot;</span><span class="p">),</span> span <span class="o">=</span> <span class="m">1</span><span class="p">);</span> p2
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="n">geom_smooth</span><span class="o">:</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span> <span class="n">and</span> <span class="n">size</span> <span class="n">of</span> <span class="n">largest</span> <span class="n">group</span> <span class="k">is</span> <span class="o">&lt;</span><span class="mi">1000</span><span class="o">,</span> <span class="n">so</span> <span class="n">using</span> <span class="n">loess</span><span class="o">.</span> <span class="n">Use</span> <span class="s1">&#39;method = x&#39;</span> <span class="n">to</span> <span class="n">change</span> <span class="n">the</span> <span class="n">smoothing</span> <span class="n">method</span><span class="o">.</span>
+<div class="codehilite"><pre><span></span>geom_smooth: method=&quot;auto&quot; and size of largest group is &lt;1000, so using loess. Use &#39;method = x&#39; to change the smoothing method.
 </pre></div>
 
 

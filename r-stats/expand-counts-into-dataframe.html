@@ -134,7 +134,7 @@
 </header>
 
 <p>Original source: The R Book</p>
-<div class="highlight"><pre><span></span><span class="c1"># create a dataframe of simulated values</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a dataframe of simulated values</span>
 count <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
 sex <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;male&quot;</span><span class="p">,</span> <span class="s">&quot;female&quot;</span><span class="p">,</span> <span class="s">&quot;male&quot;</span><span class="p">,</span> <span class="s">&quot;female&quot;</span><span class="p">)</span>
 nationality <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;USA&quot;</span><span class="p">,</span> <span class="s">&quot;USA&quot;</span><span class="p">,</span> <span class="s">&quot;UK&quot;</span><span class="p">,</span> <span class="s">&quot;UK&quot;</span><span class="p">)</span>
@@ -143,22 +143,22 @@ data.df <span class="o">&lt;-</span> <span class="kt">data.frame</span><span cla
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># apply a function that repeats a row the number of times it appears in data.df$count</span>
+<div class="codehilite"><pre><span></span><span class="c1"># apply a function that repeats a row the number of times it appears in data.df$count</span>
 data.expand <span class="o">&lt;-</span> <span class="kp">lapply</span><span class="p">(</span>data.df<span class="p">,</span><span class="kr">function</span><span class="p">(</span>x<span class="p">)</span><span class="kp">rep</span><span class="p">(</span>x<span class="p">,</span> data.df<span class="o">$</span>count<span class="p">))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># convert it to a data frame</span>
+<div class="codehilite"><pre><span></span><span class="c1"># convert it to a data frame</span>
 data.expand.df <span class="o">&lt;-</span> <span class="kp">as.data.frame</span><span class="p">(</span>data.expand<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># remove the no-longer-needed count column</span>
+<div class="codehilite"><pre><span></span><span class="c1"># remove the no-longer-needed count column</span>
 data.expand.df <span class="o">&lt;-</span> data.expand.df<span class="p">[,</span><span class="m">-1</span><span class="p">];</span> data.expand.df
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>      sex nationality
+<div class="codehilite"><pre><span></span>      sex nationality
 1    male         USA
 2    male         USA
 3  female         USA

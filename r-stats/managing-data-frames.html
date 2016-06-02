@@ -133,18 +133,18 @@
 </ol>
 </header>
 
-<div class="highlight"><pre><span></span><span class="c1"># Load LearningR package</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Load LearningR package</span>
 <span class="kn">library</span><span class="p">(</span>learningr<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Load english_monarchs data from the LearningR package</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Load english_monarchs data from the LearningR package</span>
 data<span class="p">(</span>english_monarchs<span class="p">,</span> package <span class="o">=</span> <span class="s">&quot;learningr&quot;</span><span class="p">)</span>
 </pre></div>
 
 
 <h2>Altering A Single Column</h2>
-<div class="highlight"><pre><span></span><span class="c1"># Create a new column from the differece between two date columns</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a new column from the differece between two date columns</span>
 english_monarchs<span class="o">$</span>length.of.reign.years <span class="o">&lt;-</span> <span class="kp">with</span><span class="p">(</span>
   english_monarchs<span class="p">,</span>
   end.of.reign <span class="o">-</span> start.of.reign
@@ -152,11 +152,11 @@ english_monarchs<span class="o">$</span>length.of.reign.years <span class="o">&l
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>english_monarchs
+<div class="codehilite"><pre><span></span>english_monarchs
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>                                           name               house
+<div class="codehilite"><pre><span></span>                                           name               house
 1                                         Wehha           Wuffingas
 2                                         Wuffa           Wuffingas
 3                                        Tytila           Wuffingas
@@ -680,7 +680,7 @@ english_monarchs<span class="o">$</span>length.of.reign.years <span class="o">&l
 
 
 <h2>Altering Multiple Columns</h2>
-<div class="highlight"><pre><span></span><span class="c1"># Within the english_monarchs dataframe, create two new columns</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Within the english_monarchs dataframe, create two new columns</span>
 english_monarchs <span class="o">&lt;-</span> <span class="kp">within</span><span class="p">(</span>
   english_monarchs<span class="p">,</span>
 <span class="p">{</span>
@@ -691,11 +691,11 @@ english_monarchs <span class="o">&lt;-</span> <span class="kp">within</span><spa
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>english_monarchs
+<div class="codehilite"><pre><span></span>english_monarchs
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>                                           name               house
+<div class="codehilite"><pre><span></span>                                           name               house
 1                                         Wehha           Wuffingas
 2                                         Wuffa           Wuffingas
 3                                        Tytila           Wuffingas

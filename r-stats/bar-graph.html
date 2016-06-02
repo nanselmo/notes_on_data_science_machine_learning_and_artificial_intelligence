@@ -133,18 +133,18 @@
 </ol>
 </header>
 
-<div class="highlight"><pre><span></span><span class="c1"># load the ggplot2 library</span>
+<div class="codehilite"><pre><span></span><span class="c1"># load the ggplot2 library</span>
 <span class="kn">library</span><span class="p">(</span>ggplot2<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># plot BOD$Time and BOD$demand</span>
+<div class="codehilite"><pre><span></span><span class="c1"># plot BOD$Time and BOD$demand</span>
 qplot<span class="p">(</span>BOD<span class="o">$</span>Time<span class="p">,</span> BOD<span class="o">$</span>demand<span class="p">,</span> geom<span class="o">=</span><span class="s">&quot;bar&quot;</span><span class="p">,</span> stat<span class="o">=</span><span class="s">&quot;identity&quot;</span><span class="p">)</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/bar-graph_files/bar-graph_2_1.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># Convert the x variable to a factor, so that it is treated as discrete</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Convert the x variable to a factor, so that it is treated as discrete</span>
 qplot<span class="p">(</span><span class="kp">factor</span><span class="p">(</span>BOD<span class="o">$</span>Time<span class="p">),</span> BOD<span class="o">$</span>demand<span class="p">,</span> geom<span class="o">=</span><span class="s">&quot;bar&quot;</span><span class="p">,</span> stat<span class="o">=</span><span class="s">&quot;identity&quot;</span><span class="p">)</span>
 </pre></div>
 

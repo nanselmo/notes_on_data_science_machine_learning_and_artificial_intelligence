@@ -134,47 +134,47 @@
 </header>
 
 <h3>Import the regex (re) package</h3>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
 </pre></div>
 
 
 <h3>Import sys</h3>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 </pre></div>
 
 
 <h3>Create a simple text string.</h3>
-<div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;The quick brown fox jumped over the lazy black bear.&#39;</span>
+<div class="codehilite"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;The quick brown fox jumped over the lazy black bear.&#39;</span>
 </pre></div>
 
 
 <h3>Create a pattern to match</h3>
-<div class="highlight"><pre><span></span><span class="n">three_letter_word</span> <span class="o">=</span> <span class="s1">&#39;...&#39;</span>
+<div class="codehilite"><pre><span></span><span class="n">three_letter_word</span> <span class="o">=</span> <span class="s1">&#39;...&#39;</span>
 </pre></div>
 
 
 <h3>Convert the string into a regex object</h3>
-<div class="highlight"><pre><span></span><span class="n">pattern_re</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">three_letter_word</span><span class="p">);</span> <span class="n">pattern_re</span>
+<div class="codehilite"><pre><span></span><span class="n">pattern_re</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">three_letter_word</span><span class="p">);</span> <span class="n">pattern_re</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>re.compile(r&#39;...&#39;, re.UNICODE)
+<div class="codehilite"><pre><span></span>re.compile(r&#39;...&#39;, re.UNICODE)
 </pre></div>
 
 
 <h3>Does a three letter word appear in text?</h3>
-<div class="highlight"><pre><span></span><span class="n">re_search</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;..own&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">re_search</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;..own&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
 </pre></div>
 
 
 <h3>If the search query is at all true,</h3>
-<div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">re_search</span><span class="p">:</span>
+<div class="codehilite"><pre><span></span><span class="k">if</span> <span class="n">re_search</span><span class="p">:</span>
     <span class="c1"># Print the search results</span>
     <span class="k">print</span><span class="p">(</span><span class="n">re_search</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>brown
+<div class="codehilite"><pre><span></span>brown
 </pre></div>
 
 
@@ -182,12 +182,12 @@
 <p>re.match() is for matching ONLY the beginning of a string or the whole string
 For anything else, use re.search</p>
 <h3>Match all three letter words in text</h3>
-<div class="highlight"><pre><span></span><span class="n">re_match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;..own&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">re_match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;..own&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
 </pre></div>
 
 
 <h3>If re_match is true, print the match, else print "No Matches"</h3>
-<div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">re_match</span><span class="p">:</span>
+<div class="codehilite"><pre><span></span><span class="k">if</span> <span class="n">re_match</span><span class="p">:</span>
     <span class="c1"># Print all the matches</span>
     <span class="k">print</span><span class="p">(</span><span class="n">re_match</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
 <span class="k">else</span><span class="p">:</span>
@@ -196,17 +196,17 @@ For anything else, use re.search</p>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>No matches
+<div class="codehilite"><pre><span></span>No matches
 </pre></div>
 
 
 <h2>re.split</h2>
 <h3>Split up the string using "e" as the seperator.</h3>
-<div class="highlight"><pre><span></span><span class="n">re_split</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">);</span> <span class="n">re_split</span>
+<div class="codehilite"><pre><span></span><span class="n">re_split</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">);</span> <span class="n">re_split</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[&#39;Th&#39;, &#39; quick brown fox jump&#39;, &#39;d ov&#39;, &#39;r th&#39;, &#39; lazy black b&#39;, &#39;ar.&#39;]
+<div class="codehilite"><pre><span></span>[&#39;Th&#39;, &#39; quick brown fox jump&#39;, &#39;d ov&#39;, &#39;r th&#39;, &#39; lazy black b&#39;, &#39;ar.&#39;]
 </pre></div>
 
 
@@ -214,11 +214,11 @@ For anything else, use re.search</p>
 <p>Replaces occurrences of the regex pattern with something else</p>
 <p>The "3" references to the maximum number of substitutions to make.</p>
 <h3>Substitute the first three instances of "e" with "E", then print it</h3>
-<div class="highlight"><pre><span></span><span class="n">re_sub</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span> <span class="k">print</span><span class="p">(</span><span class="n">re_sub</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">re_sub</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span> <span class="k">print</span><span class="p">(</span><span class="n">re_sub</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>ThE quick brown fox jumpEd ovEr the lazy black bear.
+<div class="codehilite"><pre><span></span>ThE quick brown fox jumpEd ovEr the lazy black bear.
 </pre></div>
     <aside>
     <div class="bug-reporting__panel">

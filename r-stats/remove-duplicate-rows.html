@@ -134,7 +134,7 @@
 </header>
 
 <p>Original source: the r book</p>
-<div class="highlight"><pre><span></span><span class="c1"># create a dataframe with simulated values</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a dataframe with simulated values</span>
 x <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">)</span>
 y <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">)</span>
 z <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">)</span>
@@ -144,23 +144,23 @@ data <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class=
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># find all the rows that are the same</span>
+<div class="codehilite"><pre><span></span><span class="c1"># find all the rows that are the same</span>
 duplicates <span class="o">&lt;-</span> data<span class="p">[</span><span class="kp">duplicated</span><span class="p">(</span>data<span class="p">),];</span>duplicates
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>  x y z a
+<div class="codehilite"><pre><span></span>  x y z a
 4 1 1 1 1
 6 2 2 2 2
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># find all the rows that are unique</span>
+<div class="codehilite"><pre><span></span><span class="c1"># find all the rows that are unique</span>
 not.duplicates <span class="o">&lt;-</span> <span class="kp">unique</span><span class="p">(</span>data<span class="p">);</span>not.duplicates
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>  x y z a
+<div class="codehilite"><pre><span></span>  x y z a
 1 1 1 1 1
 2 2 6 2 5
 3 3 3 3 6

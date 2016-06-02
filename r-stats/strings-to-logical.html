@@ -133,12 +133,12 @@
 </ol>
 </header>
 
-<div class="highlight"><pre><span></span><span class="c1"># Create a string with Y and N string elements</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a string with Y and N string elements</span>
 answers <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;Y&quot;</span><span class="p">,</span> <span class="s">&quot;Y&quot;</span><span class="p">,</span> <span class="s">&quot;N&quot;</span><span class="p">,</span> <span class="s">&quot;Y&quot;</span><span class="p">,</span> <span class="s">&quot;N&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># write a function that converts &quot;Y&quot; to TRUE and &quot;N&quot; to FALSE</span>
+<div class="codehilite"><pre><span></span><span class="c1"># write a function that converts &quot;Y&quot; to TRUE and &quot;N&quot; to FALSE</span>
 yn_to_logical <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">)</span> <span class="p">{</span>
   y <span class="o">&lt;-</span> <span class="kp">rep.int</span><span class="p">(</span><span class="kc">NA</span><span class="p">,</span> <span class="kp">length</span><span class="p">(</span>x<span class="p">))</span>
   y<span class="p">[</span>x <span class="o">==</span> <span class="s">&quot;Y&quot;</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="kc">TRUE</span>
@@ -148,12 +148,12 @@ yn_to_logical <span class="o">&lt;-</span> <span class="kr">function</span><span
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># run the function on the data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># run the function on the data</span>
 yn_to_logical<span class="p">(</span>answers<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1]  TRUE  TRUE FALSE  TRUE FALSE
+<div class="codehilite"><pre><span></span>[1]  TRUE  TRUE FALSE  TRUE FALSE
 </pre></div>
     <aside>
     <div class="bug-reporting__panel">

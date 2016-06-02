@@ -133,7 +133,7 @@
 </ol>
 </header>
 
-<div class="highlight"><pre><span></span><span class="c1"># Arithmetic operators</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Arithmetic operators</span>
 <span class="m">1</span> <span class="o">+</span> <span class="m">1</span> <span class="c1"># 1 plus 1</span>
 <span class="m">4</span> <span class="o">-</span> <span class="m">3</span> <span class="c1"># 4 minus 3</span>
 <span class="m">14</span> <span class="o">/</span> <span class="m">10</span> <span class="c1"># 14 divided by 10</span>
@@ -144,7 +144,7 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] 2
+<div class="codehilite"><pre><span></span>[1] 2
 
 
 
@@ -190,7 +190,7 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Logical operators</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Logical operators</span>
 <span class="m">2</span> <span class="o">&lt;</span> <span class="m">4</span> <span class="c1"># 2 is less than 4</span>
 <span class="m">2</span> <span class="o">&lt;=</span> <span class="m">4</span> <span class="c1"># 2 is less than or equal to 4</span>
 <span class="m">2</span> <span class="o">&gt;</span> <span class="m">4</span> <span class="c1"># 2 is greater than 4</span>
@@ -204,7 +204,7 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] TRUE
+<div class="codehilite"><pre><span></span>[1] TRUE
 
 
 
@@ -273,7 +273,7 @@
 
 <h2>How R Handles Data</h2>
 <p>In R, a collection of one or more values is called a vector. Think of vectors as a collection of numbers.</p>
-<div class="highlight"><pre><span></span><span class="c1"># We can create a vector by creating an object</span>
+<div class="codehilite"><pre><span></span><span class="c1"># We can create a vector by creating an object</span>
 my.age <span class="o">&lt;-</span> <span class="m">29</span> <span class="c1"># create an vector object called my.age that contains the value &quot;29&quot;</span>
 my.age <span class="c1"># view the contents of our.ages</span>
 our.ages <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">29</span><span class="p">,</span> <span class="m">29</span><span class="p">,</span> <span class="m">43</span><span class="p">,</span> <span class="m">4</span><span class="p">)</span> <span class="c1"># create a vector object called our.ages containing the values 29, 29, 43, and 4</span>
@@ -281,7 +281,7 @@ our.ages <span class="c1"># view the contents of our.ages</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] 29
+<div class="codehilite"><pre><span></span>[1] 29
 
 
 
@@ -293,22 +293,22 @@ our.ages <span class="c1"># view the contents of our.ages</span>
 
 
 <p>Notice two things about these objects. First I am giving them very descriptive names. Second, I am seperating words with periods since spaces are not allowed in object names.</p>
-<div class="highlight"><pre><span></span><span class="c1"># We can even create objects from objects</span>
+<div class="codehilite"><pre><span></span><span class="c1"># We can even create objects from objects</span>
 number.of.us <span class="o">&lt;-</span> <span class="kp">length</span><span class="p">(</span>our.ages<span class="p">)</span> <span class="c1"># create a vector object called number.of.us whose value is the length of the our.ages vector</span>
 number.of.us <span class="c1"># view the contents of number.of.us</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] 4
+<div class="codehilite"><pre><span></span>[1] 4
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># We can even tell R to create values for us</span>
+<div class="codehilite"><pre><span></span><span class="c1"># We can even tell R to create values for us</span>
 one.to.ten <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span> <span class="c1"># create an object called one.to.ten that contains the all integiers between one and ten</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># We can also do a lot of different functions with vector objects</span>
+<div class="codehilite"><pre><span></span><span class="c1"># We can also do a lot of different functions with vector objects</span>
 <span class="kp">max</span><span class="p">(</span>our.ages<span class="p">)</span> <span class="c1"># find the maximum value in our.ages</span>
 <span class="kp">min</span><span class="p">(</span>our.ages<span class="p">)</span> <span class="c1"># find the minimum value in our.ages</span>
 <span class="kp">sum</span><span class="p">(</span>our.ages<span class="p">)</span> <span class="c1"># find the sum of all values in our.ages</span>
@@ -322,7 +322,7 @@ quantile<span class="p">(</span>our.ages<span class="p">)</span> <span class="c1
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] 43
+<div class="codehilite"><pre><span></span>[1] 43
 
 
 

@@ -135,17 +135,17 @@
 
 <p>Original source: Learning R</p>
 <p>Replicate applies an action individually to every element of a vector</p>
-<div class="highlight"><pre><span></span><span class="c1"># Run runif(1) five times</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Run runif(1) five times</span>
 <span class="kp">replicate</span><span class="p">(</span><span class="m">5</span><span class="p">,</span> runif<span class="p">(</span><span class="m">1</span><span class="p">))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] 0.2769136 0.8304662 0.5407557 0.8074367 0.2867881
+<div class="codehilite"><pre><span></span>[1] 0.2769136 0.8304662 0.5407557 0.8074367 0.2867881
 </pre></div>
 
 
 <p>The below more complicated example, we create a function that first chooses a method of transportation and then based on what method of transport was selection, calculates a travel time based on that method of transport (hence the switch function). rnorm and rlnorm are simply what the example uses to create fake travel time data</p>
-<div class="highlight"><pre><span></span>time_for_commute <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">()</span> <span class="p">{</span>
+<div class="codehilite"><pre><span></span>time_for_commute <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">()</span> <span class="p">{</span>
   <span class="c1">#Choose a mode of transport for the day</span>
   mode_of_transport <span class="o">&lt;-</span> <span class="kp">sample</span><span class="p">(</span>
     <span class="kt">c</span><span class="p">(</span><span class="s">&quot;car&quot;</span><span class="p">,</span> <span class="s">&quot;bus&quot;</span><span class="p">,</span> <span class="s">&quot;train&quot;</span><span class="p">,</span> <span class="s">&quot;bike&quot;</span><span class="p">),</span>
@@ -166,22 +166,22 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Run the function</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Run the function</span>
 time_for_commute<span class="p">()</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>    bike
+<div class="codehilite"><pre><span></span>    bike
 60.55362
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Run the function five times</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Run the function five times</span>
 <span class="kp">replicate</span><span class="p">(</span><span class="m">5</span><span class="p">,</span> time_for_commute<span class="p">())</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>    bike      bus    train    train     bike
+<div class="codehilite"><pre><span></span>    bike      bus    train    train     bike
 65.26913 71.15877 23.13382 29.23679 58.59026
 </pre></div>
     <aside>

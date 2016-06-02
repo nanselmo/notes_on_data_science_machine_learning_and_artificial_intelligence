@@ -133,18 +133,18 @@
 </ol>
 </header>
 
-<div class="highlight"><pre><span></span><span class="c1"># load the ggplot2 package</span>
+<div class="codehilite"><pre><span></span><span class="c1"># load the ggplot2 package</span>
 <span class="kn">library</span><span class="p">(</span>ggplot2<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># plot using base graphics</span>
+<div class="codehilite"><pre><span></span><span class="c1"># plot using base graphics</span>
 plot<span class="p">(</span>mtcars<span class="o">$</span>wt<span class="p">,</span> mtcars<span class="o">$</span>mpg<span class="p">)</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/scatterplot_files/scatterplot_2_0.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># plot using ggplot2</span>
+<div class="codehilite"><pre><span></span><span class="c1"># plot using ggplot2</span>
 ggplot<span class="p">(</span>mtcars<span class="p">,</span> aes<span class="p">(</span>x<span class="o">=</span>wt<span class="p">,</span> y<span class="o">=</span>mpg<span class="p">))</span> <span class="o">+</span> geom_point<span class="p">()</span>
 </pre></div>
 

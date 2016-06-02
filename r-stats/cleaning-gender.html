@@ -134,12 +134,12 @@
 </header>
 
 <p>Original source: Learning R</p>
-<div class="highlight"><pre><span></span><span class="c1"># create some messy fake gender data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create some messy fake gender data</span>
 gender <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;MALE&quot;</span><span class="p">,</span> <span class="s">&quot;Male&quot;</span><span class="p">,</span> <span class="s">&quot;male&quot;</span><span class="p">,</span> <span class="s">&quot;M&quot;</span><span class="p">,</span> <span class="s">&quot;FEMALE&quot;</span><span class="p">,</span> <span class="s">&quot;Female&quot;</span><span class="p">,</span> <span class="s">&quot;female&quot;</span><span class="p">,</span> <span class="s">&quot;f&quot;</span><span class="p">,</span> <span class="kc">NA</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># find strings that start with m and optionally ending in ale</span>
+<div class="codehilite"><pre><span></span><span class="c1"># find strings that start with m and optionally ending in ale</span>
 clean_gender <span class="o">&lt;-</span> str_replace<span class="p">(</span>
   gender<span class="p">,</span>
   ignore.case<span class="p">(</span><span class="s">&quot;^m(ale)?$&quot;</span><span class="p">),</span>
@@ -148,7 +148,7 @@ clean_gender <span class="o">&lt;-</span> str_replace<span class="p">(</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># find strings the start with f and optionally end in emale</span>
+<div class="codehilite"><pre><span></span><span class="c1"># find strings the start with f and optionally end in emale</span>
 clean_gender <span class="o">&lt;-</span> str_replace<span class="p">(</span>
   clean_gender<span class="p">,</span>
   ignore.case<span class="p">(</span><span class="s">&quot;^f(emale)?$&quot;</span><span class="p">),</span>
@@ -157,11 +157,11 @@ clean_gender <span class="o">&lt;-</span> str_replace<span class="p">(</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>clean_gender
+<div class="codehilite"><pre><span></span>clean_gender
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] &quot;Male&quot;   &quot;Male&quot;   &quot;Male&quot;   &quot;Male&quot;   &quot;Female&quot; &quot;Female&quot; &quot;Female&quot; &quot;Female&quot;
+<div class="codehilite"><pre><span></span>[1] &quot;Male&quot;   &quot;Male&quot;   &quot;Male&quot;   &quot;Male&quot;   &quot;Female&quot; &quot;Female&quot; &quot;Female&quot; &quot;Female&quot;
 [9] NA
 </pre></div>
     <aside>

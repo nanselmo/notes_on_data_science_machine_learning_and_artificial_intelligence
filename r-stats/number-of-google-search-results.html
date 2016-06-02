@@ -134,7 +134,7 @@
 </header>
 
 <p>Original source: https://gist.github.com/drewconway/791559</p>
-<div class="highlight"><pre><span></span><span class="c1"># load the RCurl package</span>
+<div class="codehilite"><pre><span></span><span class="c1"># load the RCurl package</span>
 <span class="kn">require</span><span class="p">(</span>RCurl<span class="p">)</span>
 
 <span class="c1"># load the xml package</span>
@@ -142,13 +142,13 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>Loading required package: RCurl
+<div class="codehilite"><pre><span></span>Loading required package: RCurl
 Loading required package: bitops
 Loading required package: XML
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a google.counts functions</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a google.counts functions</span>
 google.counts<span class="o">&lt;-</span><span class="kr">function</span><span class="p">(</span>s<span class="p">){</span>
   <span class="c1"># take the variable &quot;s&quot; and paste it into a google search url</span>
   search.url<span class="o">&lt;-</span><span class="kp">paste</span><span class="p">(</span><span class="s">&quot;http://www.google.com/search?q=&quot;</span><span class="p">,</span><span class="kp">gsub</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">,</span><span class="s">&quot;+&quot;</span><span class="p">,</span>s<span class="p">),</span>sep<span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">)</span>
@@ -166,12 +166,12 @@ google.counts<span class="o">&lt;-</span><span class="kr">function</span><span c
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># an example of using the library</span>
+<div class="codehilite"><pre><span></span><span class="c1"># an example of using the library</span>
 google.counts<span class="p">(</span><span class="s">&quot;frogs&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] 44200000
+<div class="codehilite"><pre><span></span>[1] 44200000
 </pre></div>
     <aside>
     <div class="bug-reporting__panel">

@@ -137,12 +137,12 @@
 <ul>
 <li>.iloc[<strong>row</strong>,<strong>column</strong>]</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="c1"># import the pandas module</span>
+<div class="codehilite"><pre><span></span><span class="c1"># import the pandas module</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create an example dataframe about a fictional army</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create an example dataframe about a fictional army</span>
 <span class="n">raw_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;regiment&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Nighthawks&#39;</span><span class="p">,</span> <span class="s1">&#39;Nighthawks&#39;</span><span class="p">,</span> <span class="s1">&#39;Nighthawks&#39;</span><span class="p">,</span> <span class="s1">&#39;Nighthawks&#39;</span><span class="p">,</span> <span class="s1">&#39;Dragoons&#39;</span><span class="p">,</span> <span class="s1">&#39;Dragoons&#39;</span><span class="p">,</span> <span class="s1">&#39;Dragoons&#39;</span><span class="p">,</span> <span class="s1">&#39;Dragoons&#39;</span><span class="p">,</span> <span class="s1">&#39;Scouts&#39;</span><span class="p">,</span> <span class="s1">&#39;Scouts&#39;</span><span class="p">,</span> <span class="s1">&#39;Scouts&#39;</span><span class="p">,</span> <span class="s1">&#39;Scouts&#39;</span><span class="p">],</span>
             <span class="s1">&#39;company&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span> <span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span><span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">],</span>
             <span class="s1">&#39;deaths&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">523</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">616</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">234</span><span class="p">,</span> <span class="mi">523</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">73</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">35</span><span class="p">],</span>
@@ -256,11 +256,11 @@
 </div>
 
 <h3>Select a column</h3>
-<div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span>
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>origin
+<div class="codehilite"><pre><span></span>origin
 Arizona       1045
 California     957
 Texas         1099
@@ -278,7 +278,7 @@ Name: size, dtype: int64
 
 
 <h3>Select multiple columns</h3>
-<div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="s1">&#39;veterans&#39;</span><span class="p">]]</span>
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="s1">&#39;veterans&#39;</span><span class="p">]]</span>
 </pre></div>
 
 
@@ -362,7 +362,7 @@ Name: size, dtype: int64
 </div>
 
 <h3>Select all rows by index label</h3>
-<div class="highlight"><pre><span></span><span class="c1"># Select all rows with the index label &quot;Arizona&quot;</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Select all rows with the index label &quot;Arizona&quot;</span>
 <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span><span class="s1">&#39;Arizona&#39;</span><span class="p">]</span>
 </pre></div>
 
@@ -413,7 +413,7 @@ Name: size, dtype: int64
 </div>
 
 <h3>Select rows by row number</h3>
-<div class="highlight"><pre><span></span><span class="c1"># Select every row up to 3</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Select every row up to 3</span>
 <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 
@@ -475,7 +475,7 @@ Name: size, dtype: int64
 </table>
 </div>
 
-<div class="highlight"><pre><span></span><span class="c1"># Select the second and third row</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Select the second and third row</span>
 <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 
@@ -525,7 +525,7 @@ Name: size, dtype: int64
 </table>
 </div>
 
-<div class="highlight"><pre><span></span><span class="c1"># Select every row after the third row</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Select every row after the third row</span>
 <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
 </pre></div>
 
@@ -684,7 +684,7 @@ Name: size, dtype: int64
 </div>
 
 <h3>Select columns by column position</h3>
-<div class="highlight"><pre><span></span><span class="c1"># Select the first 2 columns</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Select the first 2 columns</span>
 <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,:</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 
@@ -769,7 +769,7 @@ Name: size, dtype: int64
 </div>
 
 <h3>Select by conditionals (boolean)</h3>
-<div class="highlight"><pre><span></span><span class="c1"># Select rows where df.deaths is greater than 50</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Select rows where df.deaths is greater than 50</span>
 <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;deaths&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">]</span>
 </pre></div>
 
@@ -903,7 +903,7 @@ Name: size, dtype: int64
 </table>
 </div>
 
-<div class="highlight"><pre><span></span><span class="c1"># Select rows where df.deaths is greater than 500 or less than 50</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Select rows where df.deaths is greater than 500 or less than 50</span>
 <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;deaths&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">500</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;deaths&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">50</span><span class="p">)]</span>
 </pre></div>
 
@@ -1025,7 +1025,7 @@ Name: size, dtype: int64
 </table>
 </div>
 
-<div class="highlight"><pre><span></span><span class="c1"># Select all the regiments not named &quot;Dragoons&quot;</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Select all the regiments not named &quot;Dragoons&quot;</span>
 <span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;regiment&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Dragoons&#39;</span><span class="p">)]</span>
 </pre></div>
 
@@ -1161,7 +1161,7 @@ Name: size, dtype: int64
 
 <h2>.ix</h2>
 <p>.ix is the combination of both .loc and .iloc. Integers are first considered labels, but if not found, falls back on positional indexing</p>
-<div class="highlight"><pre><span></span><span class="c1"># Select the rows called Texas and Arizona</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Select the rows called Texas and Arizona</span>
 <span class="n">df</span><span class="o">.</span><span class="n">ix</span><span class="p">[[</span><span class="s1">&#39;Arizona&#39;</span><span class="p">,</span> <span class="s1">&#39;Texas&#39;</span><span class="p">]]</span>
 </pre></div>
 
@@ -1211,30 +1211,30 @@ Name: size, dtype: int64
 </table>
 </div>
 
-<div class="highlight"><pre><span></span><span class="c1"># Select the third cell in the row named Arizona</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Select the third cell in the row named Arizona</span>
 <span class="n">df</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="s1">&#39;Arizona&#39;</span><span class="p">,</span> <span class="s1">&#39;deaths&#39;</span><span class="p">]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>523
+<div class="codehilite"><pre><span></span>523
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Select the third cell in the row named Arizona</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Select the third cell in the row named Arizona</span>
 <span class="n">df</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="s1">&#39;Arizona&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>523
+<div class="codehilite"><pre><span></span>523
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Select the third cell down in the column named deaths</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Select the third cell down in the column named deaths</span>
 <span class="n">df</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;deaths&#39;</span><span class="p">]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>25
+<div class="codehilite"><pre><span></span>25
 </pre></div>
     <aside>
     <div class="bug-reporting__panel">

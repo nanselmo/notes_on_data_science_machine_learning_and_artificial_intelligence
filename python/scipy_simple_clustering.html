@@ -134,7 +134,7 @@
 </header>
 
 <h3>Import modules</h3>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">scipy.cluster</span> <span class="kn">import</span> <span class="n">vq</span>
@@ -142,7 +142,7 @@
 
 
 <h3>Create coordinates for battles for each year of the war</h3>
-<div class="highlight"><pre><span></span><span class="c1"># create 100 coordinate pairs (i.e. two values), then add 5 to all of them</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create 100 coordinate pairs (i.e. two values), then add 5 to all of them</span>
 <span class="n">year_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">5</span>
 
 <span class="c1"># create 30 coordinatee pairs (i.e. two values), then subtract 5 to all of them</span>
@@ -154,13 +154,13 @@
 
 
 <h3>View the first 3 entries of each year of battles</h3>
-<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;year 1 battles:&#39;</span><span class="p">,</span>  <span class="n">year_1</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
+<div class="codehilite"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;year 1 battles:&#39;</span><span class="p">,</span>  <span class="n">year_1</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
 <span class="k">print</span><span class="p">(</span><span class="s1">&#39;year 2 battles:&#39;</span><span class="p">,</span> <span class="n">year_2</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
 <span class="k">print</span><span class="p">(</span><span class="s1">&#39;year 3 battles:&#39;</span><span class="p">,</span> <span class="n">year_3</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>year 1 battles: [[ 3.87032104  4.93418141]
+<div class="codehilite"><pre><span></span>year 1 battles: [[ 3.87032104  4.93418141]
  [ 4.47603646  3.23230121]
  [ 6.15905943  4.55274026]]
 year 2 battles: [[-3.55642932 -3.13125097]
@@ -173,88 +173,88 @@ year 3 battles: [[-0.27557365 -0.65002898]
 
 
 <h3>Pool all three years of coordinates</h3>
-<div class="highlight"><pre><span></span><span class="c1"># vertically stack year_1, year_2, and year_3 elements</span>
+<div class="codehilite"><pre><span></span><span class="c1"># vertically stack year_1, year_2, and year_3 elements</span>
 <span class="n">battles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">year_1</span><span class="p">,</span> <span class="n">year_2</span><span class="p">,</span> <span class="n">year_3</span><span class="p">])</span>
 </pre></div>
 
 
 <h3>Cluster the battle locations into three groups</h3>
-<div class="highlight"><pre><span></span><span class="c1"># calculate the centroid coordinates of each cluster </span>
+<div class="codehilite"><pre><span></span><span class="c1"># calculate the centroid coordinates of each cluster </span>
 <span class="c1"># and the variance of all the clusters</span>
 <span class="n">centroids</span><span class="p">,</span> <span class="n">variance</span>  <span class="o">=</span> <span class="n">vq</span><span class="o">.</span><span class="n">kmeans</span><span class="p">(</span><span class="n">battles</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 </pre></div>
 
 
 <h3>View the centroid coordinate for each of the three clusters</h3>
-<div class="highlight"><pre><span></span><span class="n">centroids</span>
+<div class="codehilite"><pre><span></span><span class="n">centroids</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>array([[ 4.89478443,  5.00806609],
+<div class="codehilite"><pre><span></span>array([[ 4.89478443,  5.00806609],
        [ 0.16770004,  0.01639683],
        [-5.06447231, -4.99956259]])
 </pre></div>
 
 
 <h3>View the variance of the clusters (they all share the same)</h3>
-<div class="highlight"><pre><span></span><span class="n">variance</span>
+<div class="codehilite"><pre><span></span><span class="n">variance</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>1.2382236882037887
+<div class="codehilite"><pre><span></span>1.2382236882037887
 </pre></div>
 
 
 <h3>Seperate the battle data into clusters</h3>
-<div class="highlight"><pre><span></span><span class="n">identified</span><span class="p">,</span> <span class="n">distance</span> <span class="o">=</span> <span class="n">vq</span><span class="o">.</span><span class="n">vq</span><span class="p">(</span><span class="n">battles</span><span class="p">,</span> <span class="n">centroids</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">identified</span><span class="p">,</span> <span class="n">distance</span> <span class="o">=</span> <span class="n">vq</span><span class="o">.</span><span class="n">vq</span><span class="p">(</span><span class="n">battles</span><span class="p">,</span> <span class="n">centroids</span><span class="p">)</span>
 </pre></div>
 
 
 <h3>View the cluster of each battle</h3>
-<div class="highlight"><pre><span></span><span class="n">identified</span>
+<div class="codehilite"><pre><span></span><span class="n">identified</span>
 </pre></div>
 
 
 <h3>View the distance of each individual battle from their cluster's centroid</h3>
-<div class="highlight"><pre><span></span><span class="n">distance</span>
+<div class="codehilite"><pre><span></span><span class="n">distance</span>
 </pre></div>
 
 
 <h3>Index the battles data by the cluster to which they belong</h3>
-<div class="highlight"><pre><span></span><span class="n">cluster_1</span> <span class="o">=</span> <span class="n">battles</span><span class="p">[</span><span class="n">identified</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<div class="codehilite"><pre><span></span><span class="n">cluster_1</span> <span class="o">=</span> <span class="n">battles</span><span class="p">[</span><span class="n">identified</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
 <span class="n">cluster_2</span> <span class="o">=</span> <span class="n">battles</span><span class="p">[</span><span class="n">identified</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
 <span class="n">cluster_3</span> <span class="o">=</span> <span class="n">battles</span><span class="p">[</span><span class="n">identified</span> <span class="o">==</span> <span class="mi">2</span><span class="p">]</span>
 </pre></div>
 
 
 <h3>Print the first three coordinate pairs of each cluster</h3>
-<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">cluster_1</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
+<div class="codehilite"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">cluster_1</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
 <span class="k">print</span><span class="p">(</span><span class="n">cluster_2</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
 <span class="k">print</span><span class="p">(</span><span class="n">cluster_3</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="k">[[ 3.87032104  4.93418141]</span>
- <span class="k">[ 4.47603646  3.23230121]</span>
- <span class="k">[ 6.15905943  4.55274026]]</span>
-<span class="k">[[-0.27557365 -0.65002898]</span>
- <span class="k">[ 0.94593878 -0.46056352]</span>
- <span class="k">[ 0.91003511  0.27888337]]</span>
-<span class="k">[[-3.55642932 -3.13125097]</span>
- <span class="k">[-5.83295449 -5.75787649]</span>
- <span class="k">[-5.12144789 -5.00466761]]</span>
+<div class="codehilite"><pre><span></span>[[ 3.87032104  4.93418141]
+ [ 4.47603646  3.23230121]
+ [ 6.15905943  4.55274026]]
+[[-0.27557365 -0.65002898]
+ [ 0.94593878 -0.46056352]
+ [ 0.91003511  0.27888337]]
+[[-3.55642932 -3.13125097]
+ [-5.83295449 -5.75787649]
+ [-5.12144789 -5.00466761]]
 </pre></div>
 
 
 <h3>Plot all the battles, color each battle by cluster</h3>
-<div class="highlight"><pre><span></span><span class="c1"># create a scatter plot there the x-axis is the first column of battles</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a scatter plot there the x-axis is the first column of battles</span>
 <span class="c1"># the y-axis is the second column of battles, the size is 100, and</span>
 <span class="c1"># the color of each point is determined by the indentified variable</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">battles</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">battles</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">identified</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x10771b890&gt;
+<div class="codehilite"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x10771b890&gt;
 </pre></div>
 
 

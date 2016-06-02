@@ -134,30 +134,30 @@
 </header>
 
 <p>Original source: http://stackoverflow.com/questions/5620885/how-does-one-reorder-columns-in-r</p>
-<div class="highlight"><pre><span></span><span class="c1"># create some simulated data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create some simulated data</span>
 df <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>df
+<div class="codehilite"><pre><span></span>df
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>  X1 X2 X3 X4
+<div class="codehilite"><pre><span></span>  X1 X2 X3 X4
 1  1  2  3  4
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># move the third element to the second element&#39;s spot</span>
+<div class="codehilite"><pre><span></span><span class="c1"># move the third element to the second element&#39;s spot</span>
 df <span class="o">&lt;-</span> df<span class="p">[,</span><span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">4</span><span class="p">)]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>df
+<div class="codehilite"><pre><span></span>df
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>  X1 X3 X2 X4
+<div class="codehilite"><pre><span></span>  X1 X3 X2 X4
 1  1  3  2  4
 </pre></div>
     <aside>

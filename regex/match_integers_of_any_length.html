@@ -135,29 +135,29 @@
 
 <p>Based on: <a href="http://stackoverflow.com/questions/5917082/regular-expression-to-match-numbers-with-or-without-commas-and-decimals-in-text">StackOverflow</a></p>
 <h2>Preliminaries</h2>
-<div class="highlight"><pre><span></span><span class="c1"># Load regex package</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Load regex package</span>
 <span class="kn">import</span> <span class="nn">re</span>
 </pre></div>
 
 
 <h2>Create some text</h2>
-<div class="highlight"><pre><span></span><span class="c1"># Create a variable containing a text string</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a variable containing a text string</span>
 <span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;21 scouts and 3 tanks fought against 4,003 protestors.&#39;</span>
 </pre></div>
 
 
 <h2>Apply regex</h2>
-<div class="highlight"><pre><span></span><span class="c1"># Find any character block that is a integer of any length</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Find any character block that is a integer of any length</span>
 <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">r&#39;[1-9](?:\d{0,2})(?:,\d{3})*(?:\.\d*[1-9])?|0?\.\d*[1-9]|0&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[&#39;21&#39;, &#39;3&#39;, &#39;4,003&#39;]
+<div class="codehilite"><pre><span></span>[&#39;21&#39;, &#39;3&#39;, &#39;4,003&#39;]
 </pre></div>
 
 
 <p>Explanation from <a href="http://stackoverflow.com/users/399649/justin-morgan">Justin Morgan</a></p>
-<div class="highlight"><pre><span></span>[1-9](?:\d{0,2}) #A sequence of 1-3 numerals not starting with 0
+<div class="codehilite"><pre><span></span>[1-9](?:\d{0,2}) #A sequence of 1-3 numerals not starting with 0
 (?:,\d{3})*      #Any number of three-digit groups, each preceded by a comma
 (?:\.\d*[1-9])?  #Optionally, a decimal point followed by any number of digits not ending in 0
 |                #OR...

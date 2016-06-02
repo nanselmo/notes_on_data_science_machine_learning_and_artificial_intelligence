@@ -136,7 +136,7 @@
 <p>R has three types of loops: repeat, while, and for.</p>
 <h2>repeat Loops</h2>
 <p>Repeat loops executes the same code again and again until told to stop.</p>
-<div class="highlight"><pre><span></span><span class="c1"># print 1 to 10, stop at 10</span>
+<div class="codehilite"><pre><span></span><span class="c1"># print 1 to 10, stop at 10</span>
 <span class="kr">for</span><span class="p">(</span>i <span class="kr">in</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="kp">print</span><span class="p">(</span><span class="kp">paste</span><span class="p">(</span><span class="s">&quot;i =&quot;</span><span class="p">,</span> i<span class="p">));</span>
@@ -144,7 +144,7 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] &quot;i = 1&quot;
+<div class="codehilite"><pre><span></span>[1] &quot;i = 1&quot;
 [1] &quot;i = 2&quot;
 [1] &quot;i = 3&quot;
 [1] &quot;i = 4&quot;
@@ -159,7 +159,7 @@
 
 <h2>while Loops</h2>
 <p>Unlike repeat loops, while loops check at the beginning of the code if that code should end, and then (maybe) execute. This is the oppsite to repeat loops that execute and then check if they should end.</p>
-<div class="highlight"><pre><span></span><span class="c1"># create an object that samples one of the three character strings</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create an object that samples one of the three character strings</span>
 action <span class="o">&lt;-</span> <span class="kp">sample</span><span class="p">(</span>
   <span class="kt">c</span><span class="p">(</span>
     <span class="s">&quot;Make pancakes&quot;</span><span class="p">,</span>
@@ -185,14 +185,14 @@ action <span class="o">&lt;-</span> <span class="kp">sample</span><span class="p
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>Make burritos
+<div class="codehilite"><pre><span></span>Make burritos
 Make tacos
 </pre></div>
 
 
 <h2>for Loops</h2>
 <p>For loops are for when you want to repeat a code for a known and finite amount of time. for loops operate on each element of the vector.</p>
-<div class="highlight"><pre><span></span><span class="c1"># for each element in a 1:5 vector, say a message</span>
+<div class="codehilite"><pre><span></span><span class="c1"># for each element in a 1:5 vector, say a message</span>
 <span class="kr">for</span><span class="p">(</span>i <span class="kr">in</span> <span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">)</span> <span class="kp">message</span><span class="p">(</span><span class="s">&quot;i = &quot;</span><span class="p">,</span> i<span class="p">)</span>
 
 <span class="c1"># For each month in the variable, month.name, say a message</span>
@@ -203,7 +203,7 @@ Make tacos
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>i = 1
+<div class="codehilite"><pre><span></span>i = 1
 i = 2
 i = 3
 i = 4

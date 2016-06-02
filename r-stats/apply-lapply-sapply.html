@@ -134,19 +134,19 @@
 </header>
 
 <p>Original source: http://www.r-bloggers.com/using-apply-sapply-lapply-in-r/</p>
-<div class="highlight"><pre><span></span><span class="c1"># Create some data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create some data</span>
 data <span class="o">&lt;-</span> <span class="kt">matrix</span><span class="p">(</span>data<span class="o">=</span><span class="kp">cbind</span><span class="p">(</span>rnorm<span class="p">(</span><span class="m">100</span><span class="p">,</span> <span class="m">0</span><span class="p">),</span> rnorm<span class="p">(</span><span class="m">100</span><span class="p">,</span> <span class="m">25</span><span class="p">),</span> rnorm<span class="p">(</span><span class="m">100</span><span class="p">,</span> <span class="m">50</span><span class="p">)),</span> nrow<span class="o">=</span><span class="m">100</span><span class="p">,</span> ncol<span class="o">=</span><span class="m">3</span><span class="p">)</span>
 </pre></div>
 
 
 <h2>Apply</h2>
 <p>The apply function performs some action on a block of values. Note, all the values must be of the same data type (e.g. numeric, string, etc.). If they contain both numeric and string, the numeric values will be converted into strings before the function is applied.</p>
-<div class="highlight"><pre><span></span><span class="c1"># Find mean value of each row (denoted by &quot;1&quot;)</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Find mean value of each row (denoted by &quot;1&quot;)</span>
 <span class="kp">apply</span><span class="p">(</span>data<span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="kp">mean</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>  [1] 24.59901 26.20459 25.24876 24.70247 24.16932 24.81458 24.52746 25.41626
+<div class="codehilite"><pre><span></span>  [1] 24.59901 26.20459 25.24876 24.70247 24.16932 24.81458 24.52746 25.41626
   [9] 25.46790 25.10375 24.70040 24.45695 25.34161 25.13964 24.75298 25.19169
  [17] 24.23966 25.04549 25.79292 23.79149 25.14577 24.69546 25.24540 24.63793
  [25] 25.25698 25.16858 24.98593 25.76139 24.90628 24.99306 24.62098 25.04368
@@ -162,21 +162,21 @@ data <span class="o">&lt;-</span> <span class="kt">matrix</span><span class="p">
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Find mean value of each column (denoted by &quot;2&quot;)</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Find mean value of each column (denoted by &quot;2&quot;)</span>
 <span class="kp">apply</span><span class="p">(</span>data<span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="kp">mean</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1]  0.09619052 24.89715930 49.84308683
+<div class="codehilite"><pre><span></span>[1]  0.09619052 24.89715930 49.84308683
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Find mean of reach additional value. That is, apply the mean() functions to each individual observation instead of entire rows or entire columns (denoted by &quot;1:2&quot;)</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Find mean of reach additional value. That is, apply the mean() functions to each individual observation instead of entire rows or entire columns (denoted by &quot;1:2&quot;)</span>
 <span class="kp">apply</span><span class="p">(</span>data<span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,</span> <span class="kp">mean</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>               [,1]     [,2]     [,3]
+<div class="codehilite"><pre><span></span>               [,1]     [,2]     [,3]
   [1,] -1.568708977 25.19731 50.16843
   [2,]  1.150529977 25.82535 51.63790
   [3,]  0.977275865 24.50395 50.26505
@@ -281,12 +281,12 @@ data <span class="o">&lt;-</span> <span class="kt">matrix</span><span class="p">
 
 
 <h2>Sapply</h2>
-<div class="highlight"><pre><span></span><span class="c1"># Sapply applies a function over each individual element in an object, returning a vector</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Sapply applies a function over each individual element in an object, returning a vector</span>
 <span class="kp">sapply</span><span class="p">(</span>data<span class="p">,</span> <span class="kp">mean</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>  [1] -1.568708977  1.150529977  0.977275865 -0.263941077 -0.757359741
+<div class="codehilite"><pre><span></span>  [1] -1.568708977  1.150529977  0.977275865 -0.263941077 -0.757359741
   [6]  0.632602125 -0.244478069 -0.614889100 -0.592501893  0.052256014
  [11] -0.507014529  0.473880143  2.615240491 -0.350429812  0.661601288
  [16]  0.797786704 -1.015018178  0.331179662  1.255608573 -2.162252797
@@ -351,7 +351,7 @@ data <span class="o">&lt;-</span> <span class="kt">matrix</span><span class="p">
 
 <h2>Lapply</h2>
 <p>Lapply applies a function of each individual element in an object, returning a list</p>
-<div class="highlight"><pre><span></span><span class="c1"># Create a list with two elements</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a list with two elements</span>
 l <span class="o">&lt;-</span> <span class="kt">list</span><span class="p">(</span>a <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">,</span> b <span class="o">=</span> <span class="m">11</span><span class="o">:</span><span class="m">20</span><span class="p">)</span>
 
 <span class="c1"># Apply the sum function to each list</span>
@@ -359,11 +359,11 @@ l <span class="o">&lt;-</span> <span class="kt">list</span><span class="p">(</sp
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="p">$</span><span class="nv">a</span><span class="x"></span>
-<span class="x">[1] 55</span>
+<div class="codehilite"><pre><span></span>$a
+[1] 55
 
-<span class="p">$</span><span class="nv">b</span><span class="x"></span>
-<span class="x">[1] 155</span>
+$b
+[1] 155
 </pre></div>
     <aside>
     <div class="bug-reporting__panel">

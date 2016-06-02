@@ -134,12 +134,12 @@
 </header>
 
 <p>original source: http://stackoverflow.com/questions/19716244/aggregate-data-by-week-month-etc-in-r?lq=1</p>
-<div class="highlight"><pre><span></span><span class="c1"># load the xts package</span>
+<div class="codehilite"><pre><span></span><span class="c1"># load the xts package</span>
 <span class="kn">library</span><span class="p">(</span>xts<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>Loading required package: zoo
+<div class="codehilite"><pre><span></span>Loading required package: zoo
 
 Attaching package: ‘zoo’
 
@@ -150,7 +150,7 @@ The following objects are masked from ‘package:base’:
 
 
 <h2>Create some simulated data</h2>
-<div class="highlight"><pre><span></span><span class="c1"># create an element for every year between two dates</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create an element for every year between two dates</span>
 date <span class="o">&lt;-</span> <span class="kp">seq</span><span class="p">(</span><span class="kp">as.Date</span><span class="p">(</span><span class="s">&quot;2006-01-01&quot;</span><span class="p">),</span> <span class="kp">as.Date</span><span class="p">(</span><span class="s">&quot;2007-01-01&quot;</span><span class="p">),</span> by <span class="o">=</span> <span class="s">&quot;1 day&quot;</span><span class="p">)</span>
 
 <span class="c1"># create some simulated values</span>
@@ -162,16 +162,16 @@ zoo <span class="o">&lt;-</span> zoo<span class="p">(</span>score<span class="p"
 
 
 <h2>Create some averages</h2>
-<div class="highlight"><pre><span></span><span class="c1"># create a weekly average</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a weekly average</span>
 weekly.avg <span class="o">&lt;-</span> apply.weekly<span class="p">(</span>zoo<span class="p">,</span> <span class="kp">mean</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>weekly.avg
+<div class="codehilite"><pre><span></span>weekly.avg
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>2006-01-01 2006-01-08 2006-01-15 2006-01-22 2006-01-29 2006-02-05 2006-02-12
+<div class="codehilite"><pre><span></span>2006-01-01 2006-01-08 2006-01-15 2006-01-22 2006-01-29 2006-02-05 2006-02-12
  0.6463105  0.3696941  0.4492466  0.5587588  0.3330893  0.7490642  0.3463500
 2006-02-19 2006-02-26 2006-03-05 2006-03-12 2006-03-19 2006-03-26 2006-04-02
  0.4594144  0.3015816  0.5016827  0.3824588  0.4501046  0.5086366  0.6927037
@@ -190,16 +190,16 @@ weekly.avg <span class="o">&lt;-</span> apply.weekly<span class="p">(</span>zoo<
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a monthly average</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a monthly average</span>
 monthly.avg <span class="o">&lt;-</span> apply.monthly<span class="p">(</span>zoo<span class="p">,</span> <span class="kp">mean</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>monthly.avg
+<div class="codehilite"><pre><span></span>monthly.avg
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>2006-01-31 2006-02-28 2006-03-31 2006-04-30 2006-05-31 2006-06-30 2006-07-31
+<div class="codehilite"><pre><span></span>2006-01-31 2006-02-28 2006-03-31 2006-04-30 2006-05-31 2006-06-30 2006-07-31
  0.4636550  0.4345047  0.4883293  0.5791776  0.5045688  0.5301847  0.4698487
 2006-08-31 2006-09-30 2006-10-31 2006-11-30 2006-12-31 2007-01-01
  0.5033712  0.5218908  0.5171836  0.3661705  0.5341010  0.1102631

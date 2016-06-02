@@ -133,27 +133,27 @@
 </ol>
 </header>
 
-<div class="highlight"><pre><span></span><span class="c1"># Create fake infant mortality data for Spain</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create fake infant mortality data for Spain</span>
 spain.imr <span class="o">&lt;-</span> rnorm<span class="p">(</span><span class="m">50</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create fake GDP data for Spain</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create fake GDP data for Spain</span>
 spain.gdp <span class="o">&lt;-</span> rnorm<span class="p">(</span><span class="m">50</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">1</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create fake infant mortality data for Yemen</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create fake infant mortality data for Yemen</span>
 yemen.imr <span class="o">&lt;-</span> rnorm<span class="p">(</span><span class="m">50</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create fake GDP data for Yemen</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create fake GDP data for Yemen</span>
 yemen.gdp <span class="o">&lt;-</span> rnorm<span class="p">(</span><span class="m">50</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create a scatter spot with both variables from both sets of Spanish and Yemeni data, all data is blue</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a scatter spot with both variables from both sets of Spanish and Yemeni data, all data is blue</span>
 plot<span class="p">(</span>spain.imr<span class="p">,</span> spain.gdp<span class="p">,</span> xlim<span class="o">=</span><span class="kp">range</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span>spain.imr<span class="p">,</span> yemen.imr<span class="p">)),</span> ylim<span class="o">=</span><span class="kp">range</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span>spain.gdp<span class="p">,</span> yemen.gdp<span class="p">)),</span> col<span class="o">=</span><span class="s">&quot;blue&quot;</span><span class="p">,</span> xlab<span class="o">=</span><span class="s">&quot;Infant Mortality Rate&quot;</span><span class="p">,</span> ylab<span class="o">=</span><span class="s">&quot;Gross Domestic Product&quot;</span><span class="p">)</span>
 
 <span class="c1"># Change all Yemen data to red</span>

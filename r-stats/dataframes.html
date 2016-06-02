@@ -133,68 +133,68 @@
 </ol>
 </header>
 
-<div class="highlight"><pre><span></span><span class="c1"># Create two variables of 50 observations, note that we only use 10 month names, because to be combined into a dataset all variables must have the same number of lengths OR be a multiple of the longest length.</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create two variables of 50 observations, note that we only use 10 month names, because to be combined into a dataset all variables must have the same number of lengths OR be a multiple of the longest length.</span>
 percent.sms <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">50</span><span class="p">)</span>
 state <span class="o">&lt;-</span> state.name
 month <span class="o">&lt;-</span> <span class="kp">month.name</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create a dataframe of those two variables</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a dataframe of those two variables</span>
 usa <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>state<span class="p">,</span> percent.sms<span class="p">,</span> month<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Find the number of columns in the data frame</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Find the number of columns in the data frame</span>
 <span class="kp">length</span><span class="p">(</span>usa<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] 3
+<div class="codehilite"><pre><span></span>[1] 3
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Select the second and third rows of the first two columns</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Select the second and third rows of the first two columns</span>
 usa<span class="p">[</span><span class="m">2</span><span class="o">:</span><span class="m">3</span><span class="p">,</span> <span class="m">-3</span><span class="p">]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>    state percent.sms
+<div class="codehilite"><pre><span></span>    state percent.sms
 2  Alaska   0.5466144
 3 Arizona   0.3224463
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Select the second and third rows of the first column</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Select the second and third rows of the first column</span>
 usa<span class="p">[[</span><span class="m">1</span><span class="p">]][</span><span class="m">2</span><span class="o">:</span><span class="m">3</span><span class="p">]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] Alaska  Arizona
+<div class="codehilite"><pre><span></span>[1] Alaska  Arizona
 50 Levels: Alabama Alaska Arizona Arkansas California Colorado ... Wyoming
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Select the second and third rows of the first column</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Select the second and third rows of the first column</span>
 usa<span class="o">$</span>state<span class="p">[</span><span class="m">2</span><span class="o">:</span><span class="m">3</span><span class="p">]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] Alaska  Arizona
+<div class="codehilite"><pre><span></span>[1] Alaska  Arizona
 50 Levels: Alabama Alaska Arizona Arkansas California Colorado ... Wyoming
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Transpose the data frame</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Transpose the data frame</span>
 usa.t <span class="o">&lt;-</span> <span class="kp">t</span><span class="p">(</span>usa<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>usa.t
+<div class="codehilite"><pre><span></span>usa.t
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>            [,1]          [,2]          [,3]          [,4]         
+<div class="codehilite"><pre><span></span>            [,1]          [,2]          [,3]          [,4]         
 state       &quot;Alabama&quot;     &quot;Alaska&quot;      &quot;Arizona&quot;     &quot;Arkansas&quot;   
 percent.sms &quot;0.289356397&quot; &quot;0.546614370&quot; &quot;0.322446264&quot; &quot;0.667867042&quot;
 month       &quot;January&quot;     &quot;February&quot;    &quot;March&quot;       &quot;April&quot;      

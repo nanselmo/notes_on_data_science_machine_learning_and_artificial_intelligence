@@ -135,12 +135,12 @@
 
 <p>Original source: http://stackoverflow.com/questions/7825501/switch-statement-usage</p>
 <p>The switch function is the same as having a bunch of if statements. It allows R to trigger between different actions based on an input.</p>
-<div class="highlight"><pre><span></span><span class="c1"># create fake data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create fake data</span>
 y <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">10</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create a function that switches between different types of averages depending on the input. In this function &quot;type&quot; is input variable that the user enters to select which action is triggered.</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a function that switches between different types of averages depending on the input. In this function &quot;type&quot; is input variable that the user enters to select which action is triggered.</span>
 avg <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">,</span> type<span class="p">)</span> <span class="p">{</span>
   <span class="kr">switch</span><span class="p">(</span>type<span class="p">,</span>
     mean <span class="o">=</span> <span class="kp">mean</span><span class="p">(</span>x<span class="p">),</span>
@@ -150,30 +150,30 @@ avg <span class="o">&lt;-</span> <span class="kr">function</span><span class="p"
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Trigger the function to calculate the mean</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Trigger the function to calculate the mean</span>
 avg<span class="p">(</span>y<span class="p">,</span> <span class="s">&quot;mean&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] 0.6176063
+<div class="codehilite"><pre><span></span>[1] 0.6176063
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Trigger the function to calculate the median</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Trigger the function to calculate the median</span>
 avg<span class="p">(</span>y<span class="p">,</span> <span class="s">&quot;median&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] 0.6356017
+<div class="codehilite"><pre><span></span>[1] 0.6356017
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Trigger the function to calculate a trimmed mean</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Trigger the function to calculate a trimmed mean</span>
 avg<span class="p">(</span>y<span class="p">,</span> <span class="s">&quot;trimmed&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] 0.6390694
+<div class="codehilite"><pre><span></span>[1] 0.6390694
 </pre></div>
     <aside>
     <div class="bug-reporting__panel">

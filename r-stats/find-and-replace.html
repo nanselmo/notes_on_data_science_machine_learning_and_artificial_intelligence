@@ -134,27 +134,27 @@
 </header>
 
 <p>Original source: http://christophergandrud.blogspot.com/2013/12/three-quick-and-simple-data-cleaning.html</p>
-<div class="highlight"><pre><span></span><span class="c1"># load the DataCombine package</span>
+<div class="codehilite"><pre><span></span><span class="c1"># load the DataCombine package</span>
 <span class="kn">library</span><span class="p">(</span>DataCombine<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a dataframe of simulated values</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a dataframe of simulated values</span>
 data.df <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>cities <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;London, UK&quot;</span><span class="p">,</span> <span class="s">&quot;Oxford, UK&quot;</span><span class="p">,</span> <span class="s">&quot;Berlin, DE&quot;</span><span class="p">,</span> <span class="s">&quot;Hamburg, DE&quot;</span><span class="p">,</span> <span class="s">&quot;Oslo, NO&quot;</span><span class="p">),</span> score <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">8</span><span class="p">,</span> <span class="m">0.1</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">1</span><span class="p">))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a dataframe of two vectors, one with the characters to be replaced and the other with what to replace it with</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a dataframe of two vectors, one with the characters to be replaced and the other with what to replace it with</span>
 replace.values <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>short <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;UK&quot;</span><span class="p">,</span> <span class="s">&quot;DE&quot;</span><span class="p">),</span> long <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;England&quot;</span><span class="p">,</span> <span class="s">&quot;Germany&quot;</span><span class="p">))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># find and replace the character strings</span>
+<div class="codehilite"><pre><span></span><span class="c1"># find and replace the character strings</span>
 data.longnames.df <span class="o">&lt;-</span> FindReplace<span class="p">(</span>data <span class="o">=</span> data.df<span class="p">,</span> Var <span class="o">=</span> <span class="s">&quot;cities&quot;</span><span class="p">,</span> replaceData <span class="o">=</span> replace.values<span class="p">,</span> from <span class="o">=</span> <span class="s">&quot;short&quot;</span><span class="p">,</span> to <span class="o">=</span> <span class="s">&quot;long&quot;</span><span class="p">);</span> data.longnames.df
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>Only exact matches will be replaced.
+<div class="codehilite"><pre><span></span>Only exact matches will be replaced.
 
 
 

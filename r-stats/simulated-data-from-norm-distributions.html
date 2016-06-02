@@ -134,49 +134,49 @@
 </header>
 
 <p>Original source: http://rforpublichealth.blogspot.com/2013/02/normal-distribution-functions.html</p>
-<div class="highlight"><pre><span></span><span class="c1"># set seed to 3000 for reproducability</span>
+<div class="codehilite"><pre><span></span><span class="c1"># set seed to 3000 for reproducability</span>
 <span class="kp">set.seed</span><span class="p">(</span><span class="m">3000</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a sequence from 04 to 4 in increments of 0.01</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a sequence from 04 to 4 in increments of 0.01</span>
 xseq<span class="o">&lt;-</span><span class="kp">seq</span><span class="p">(</span><span class="m">-4</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">.01</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a probability density function of xseq, with mean 0 and an standard deviation of 1</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a probability density function of xseq, with mean 0 and an standard deviation of 1</span>
 densities<span class="o">&lt;-</span>dnorm<span class="p">(</span>xseq<span class="p">,</span> <span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a cumative distribution function of xseq with mean 0 and a SD of 1</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a cumative distribution function of xseq with mean 0 and a SD of 1</span>
 cumulative<span class="o">&lt;-</span>pnorm<span class="p">(</span>xseq<span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create 1000 random numbers from a normal distribution with mean 0 and an sd of 1</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create 1000 random numbers from a normal distribution with mean 0 and an sd of 1</span>
 randomdeviates<span class="o">&lt;-</span>rnorm<span class="p">(</span><span class="m">1000</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a grid to hold all the plots</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a grid to hold all the plots</span>
 par<span class="p">(</span>mfrow<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">),</span> mar<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">2</span><span class="p">))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># make the first plot</span>
+<div class="codehilite"><pre><span></span><span class="c1"># make the first plot</span>
 plot<span class="p">(</span>xseq<span class="p">,</span> densities<span class="p">,</span> col<span class="o">=</span><span class="s">&quot;darkgreen&quot;</span><span class="p">,</span>xlab<span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">,</span> ylab<span class="o">=</span><span class="s">&quot;Density&quot;</span><span class="p">,</span> type<span class="o">=</span><span class="s">&quot;l&quot;</span><span class="p">,</span>lwd<span class="o">=</span><span class="m">2</span><span class="p">,</span> cex<span class="o">=</span><span class="m">2</span><span class="p">,</span> main<span class="o">=</span><span class="s">&quot;PDF of Standard Normal&quot;</span><span class="p">,</span> cex.axis<span class="o">=</span><span class="m">.8</span><span class="p">)</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/simulated-data-from-norm-distributions_files/simulated-data-from-norm-distributions_7_0.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># make the second plot</span>
+<div class="codehilite"><pre><span></span><span class="c1"># make the second plot</span>
 plot<span class="p">(</span>xseq<span class="p">,</span> cumulative<span class="p">,</span> col<span class="o">=</span><span class="s">&quot;darkorange&quot;</span><span class="p">,</span> xlab<span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">,</span> ylab<span class="o">=</span><span class="s">&quot;Cumulative Probability&quot;</span><span class="p">,</span>type<span class="o">=</span><span class="s">&quot;l&quot;</span><span class="p">,</span>lwd<span class="o">=</span><span class="m">2</span><span class="p">,</span> cex<span class="o">=</span><span class="m">2</span><span class="p">,</span> main<span class="o">=</span><span class="s">&quot;CDF of Standard Normal&quot;</span><span class="p">,</span> cex.axis<span class="o">=</span><span class="m">.8</span><span class="p">)</span>
 </pre></div>
 
 
 <p><img alt="png" src="../images/simulated-data-from-norm-distributions_files/simulated-data-from-norm-distributions_8_0.png" /></p>
-<div class="highlight"><pre><span></span><span class="c1"># make the third plot</span>
+<div class="codehilite"><pre><span></span><span class="c1"># make the third plot</span>
 hist<span class="p">(</span>randomdeviates<span class="p">,</span> main<span class="o">=</span><span class="s">&quot;Random draws from Std Normal&quot;</span><span class="p">,</span> cex.axis<span class="o">=</span><span class="m">.8</span><span class="p">,</span> xlim<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="m">-4</span><span class="p">,</span><span class="m">4</span><span class="p">))</span>
 </pre></div>
 

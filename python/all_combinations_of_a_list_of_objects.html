@@ -134,19 +134,19 @@
 </header>
 
 <h2>Preliminary</h2>
-<div class="highlight"><pre><span></span><span class="c1"># Import combinations with replacements from itertools</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Import combinations with replacements from itertools</span>
 <span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">combinations_with_replacement</span>
 </pre></div>
 
 
 <h2>Create a list of objects</h2>
-<div class="highlight"><pre><span></span><span class="c1"># Create a list of objects to combine</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a list of objects to combine</span>
 <span class="n">list_of_objects</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;warplanes&#39;</span><span class="p">,</span> <span class="s1">&#39;armor&#39;</span><span class="p">,</span> <span class="s1">&#39;infantry&#39;</span><span class="p">]</span>
 </pre></div>
 
 
 <h2>Find all combinations (with replacement) for the list</h2>
-<div class="highlight"><pre><span></span><span class="c1"># Create an empty list object to hold the results of the loop</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create an empty list object to hold the results of the loop</span>
 <span class="n">combinations</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="c1"># Create a loop for every item in the length of list_of_objects, that,</span>
@@ -159,7 +159,7 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[[(&#39;warplanes&#39;,), (&#39;armor&#39;,), (&#39;infantry&#39;,)],
+<div class="codehilite"><pre><span></span>[[(&#39;warplanes&#39;,), (&#39;armor&#39;,), (&#39;infantry&#39;,)],
  [(&#39;warplanes&#39;, &#39;warplanes&#39;),
   (&#39;warplanes&#39;, &#39;armor&#39;),
   (&#39;warplanes&#39;, &#39;infantry&#39;),
@@ -179,7 +179,7 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Flatten the list of lists into just a list</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Flatten the list of lists into just a list</span>
 <span class="n">combinations</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">combinations</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">row</span><span class="p">]</span>
 
 <span class="c1"># View the results</span>
@@ -187,7 +187,7 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[(&#39;warplanes&#39;,),
+<div class="codehilite"><pre><span></span>[(&#39;warplanes&#39;,),
  (&#39;armor&#39;,),
  (&#39;infantry&#39;,),
  (&#39;warplanes&#39;, &#39;warplanes&#39;),

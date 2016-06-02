@@ -134,109 +134,109 @@
 </header>
 
 <p>All variables have a class. Variables also have modes and storage types, but those are legacy and don't worry about them.</p>
-<div class="highlight"><pre><span></span><span class="c1"># Find a variable&#39;s class</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Find a variable&#39;s class</span>
 <span class="kp">class</span><span class="p">(</span><span class="kc">TRUE</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] &quot;logical&quot;
+<div class="codehilite"><pre><span></span>[1] &quot;logical&quot;
 </pre></div>
 
 
 <h3>R has three classes of numbers</h3>
-<div class="highlight"><pre><span></span><span class="c1"># Numeric</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Numeric</span>
 <span class="kp">class</span><span class="p">(</span><span class="kp">sqrt</span><span class="p">(</span><span class="m">3</span><span class="p">))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] &quot;numeric&quot;
+<div class="codehilite"><pre><span></span>[1] &quot;numeric&quot;
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Complex</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Complex</span>
 <span class="kp">class</span><span class="p">(</span><span class="m">3i</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] &quot;complex&quot;
+<div class="codehilite"><pre><span></span>[1] &quot;complex&quot;
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Integer (add L to make a number an integer)</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Integer (add L to make a number an integer)</span>
 <span class="kp">class</span><span class="p">(</span><span class="m">3L</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] &quot;integer&quot;
+<div class="codehilite"><pre><span></span>[1] &quot;integer&quot;
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Integer</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Integer</span>
 <span class="kp">class</span><span class="p">(</span><span class="m">3</span><span class="o">:</span><span class="m">33</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] &quot;integer&quot;
+<div class="codehilite"><pre><span></span>[1] &quot;integer&quot;
 </pre></div>
 
 
 <h3>R Also Has Other Classes</h3>
-<div class="highlight"><pre><span></span><span class="c1"># Characters (Strings, like text)</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Characters (Strings, like text)</span>
 <span class="kp">class</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;Arizona&quot;</span><span class="p">,</span> <span class="s">&quot;Maryland&quot;</span><span class="p">))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] &quot;character&quot;
+<div class="codehilite"><pre><span></span>[1] &quot;character&quot;
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Factors (like unordered categories)</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Factors (like unordered categories)</span>
 <span class="kp">class</span><span class="p">(</span><span class="kp">factor</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;male&quot;</span><span class="p">,</span> <span class="s">&quot;female&quot;</span><span class="p">)))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] &quot;factor&quot;
+<div class="codehilite"><pre><span></span>[1] &quot;factor&quot;
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Factors have both values (i.e. a label) and a level (i.e. a numeric ID number)</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Factors have both values (i.e. a label) and a level (i.e. a numeric ID number)</span>
 gender <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;male&quot;</span><span class="p">,</span> <span class="s">&quot;female&quot;</span><span class="p">))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># View the values</span>
+<div class="codehilite"><pre><span></span><span class="c1"># View the values</span>
 <span class="kp">levels</span><span class="p">(</span>gender<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] &quot;female&quot; &quot;male&quot;
+<div class="codehilite"><pre><span></span>[1] &quot;female&quot; &quot;male&quot;
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># View the number of levels</span>
+<div class="codehilite"><pre><span></span><span class="c1"># View the number of levels</span>
 <span class="kp">nlevels</span><span class="p">(</span>gender<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] 2
+<div class="codehilite"><pre><span></span>[1] 2
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># View the levels of each element of a factor</span>
+<div class="codehilite"><pre><span></span><span class="c1"># View the levels of each element of a factor</span>
 <span class="kp">as.integer</span><span class="p">(</span>gender<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] 2 1
+<div class="codehilite"><pre><span></span>[1] 2 1
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># View the values of a factor as character strings</span>
+<div class="codehilite"><pre><span></span><span class="c1"># View the values of a factor as character strings</span>
 <span class="kp">as.character</span><span class="p">(</span>gender<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1] &quot;male&quot;   &quot;female&quot;
+<div class="codehilite"><pre><span></span>[1] &quot;male&quot;   &quot;female&quot;
 </pre></div>
     <aside>
     <div class="bug-reporting__panel">

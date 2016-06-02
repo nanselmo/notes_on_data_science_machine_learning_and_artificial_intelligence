@@ -134,7 +134,7 @@
 </header>
 
 <p>Original source: the r book</p>
-<div class="highlight"><pre><span></span><span class="c1"># create a dataframe with simulated values</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a dataframe with simulated values</span>
 x <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">10</span><span class="p">)</span>
 y <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">10</span><span class="p">)</span>
 z <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">10</span><span class="p">)</span>
@@ -144,12 +144,12 @@ data <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class=
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># select all rows where y is greater than x</span>
+<div class="codehilite"><pre><span></span><span class="c1"># select all rows where y is greater than x</span>
 data<span class="p">[</span>data<span class="o">$</span>y <span class="o">&gt;</span> data<span class="o">$</span>x<span class="p">,]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>          x         y          z         a
+<div class="codehilite"><pre><span></span>          x         y          z         a
 2 0.3617916 0.5513793 0.73714905 0.8678027
 3 0.4121965 0.8947345 0.00735662 0.3614312
 6 0.7360850 0.8569630 0.97564971 0.6338547
@@ -158,12 +158,12 @@ data<span class="p">[</span>data<span class="o">$</span>y <span class="o">&gt;</
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># select all rows where y IS NOT greater than x</span>
+<div class="codehilite"><pre><span></span><span class="c1"># select all rows where y IS NOT greater than x</span>
 data<span class="p">[</span><span class="o">!</span><span class="p">(</span>data<span class="o">$</span>y <span class="o">&gt;</span> data<span class="o">$</span>x<span class="p">),]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>           x         y         z          a
+<div class="codehilite"><pre><span></span>           x         y         z          a
 1  0.8097187 0.4683501 0.9130371 0.18605450
 4  0.8210452 0.2808778 0.1992804 0.03930297
 5  0.2189346 0.1651140 0.2851813 0.64965427

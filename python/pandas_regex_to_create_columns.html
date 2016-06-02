@@ -135,13 +135,13 @@
 
 <p>Based on <a href="http://nbviewer.ipython.org/github/swcarpentry/notebooks/blob/master/regex-intro.ipynb">this tutorial in nbviewer</a>.</p>
 <h3>Import modules</h3>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 </pre></div>
 
 
 <h3>Create a dataframe of raw strings</h3>
-<div class="highlight"><pre><span></span><span class="c1"># Create a dataframe with a single column of strings</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a dataframe with a single column of strings</span>
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;raw&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Arizona 1 2014-12-23       3242.0&#39;</span><span class="p">,</span>
                 <span class="s1">&#39;Iowa 1 2010-02-23       3453.7&#39;</span><span class="p">,</span>
                 <span class="s1">&#39;Oregon 0 2014-06-20       2123.0&#39;</span><span class="p">,</span>
@@ -191,12 +191,12 @@
 </div>
 
 <h3>Search a column of strings for a pattern</h3>
-<div class="highlight"><pre><span></span><span class="c1"># Which rows of df[&#39;raw&#39;] contain &#39;xxxx-xx-xx&#39;?</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Which rows of df[&#39;raw&#39;] contain &#39;xxxx-xx-xx&#39;?</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;raw&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;....-..-..&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>0    True
+<div class="codehilite"><pre><span></span>0    True
 1    True
 2    True
 3    True
@@ -207,13 +207,13 @@ Name: raw, dtype: bool
 
 
 <h3>Extract the column of single digits</h3>
-<div class="highlight"><pre><span></span><span class="c1"># In the column &#39;raw&#39;, extract single digit in the strings</span>
+<div class="codehilite"><pre><span></span><span class="c1"># In the column &#39;raw&#39;, extract single digit in the strings</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;female&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;raw&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="s1">&#39;(\d)&#39;</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;female&#39;</span><span class="p">]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>0    1
+<div class="codehilite"><pre><span></span>0    1
 1    1
 2    0
 3    0
@@ -224,13 +224,13 @@ Name: female, dtype: object
 
 
 <h3>Extract the column of dates</h3>
-<div class="highlight"><pre><span></span><span class="c1"># In the column &#39;raw&#39;, extract xxxx-xx-xx in the strings</span>
+<div class="codehilite"><pre><span></span><span class="c1"># In the column &#39;raw&#39;, extract xxxx-xx-xx in the strings</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;raw&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="s1">&#39;(....-..-..)&#39;</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>0    2014-12-23
+<div class="codehilite"><pre><span></span>0    2014-12-23
 1    2010-02-23
 2    2014-06-20
 3    2014-03-14
@@ -241,13 +241,13 @@ Name: date, dtype: object
 
 
 <h3>Extract the column of thousands</h3>
-<div class="highlight"><pre><span></span><span class="c1"># In the column &#39;raw&#39;, extract ####.## in the strings</span>
+<div class="codehilite"><pre><span></span><span class="c1"># In the column &#39;raw&#39;, extract ####.## in the strings</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;raw&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="s1">&#39;(\d\d\d\d\.\d)&#39;</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;score&#39;</span><span class="p">]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>0    3242.0
+<div class="codehilite"><pre><span></span>0    3242.0
 1    3453.7
 2    2123.0
 3    1123.6
@@ -258,13 +258,13 @@ Name: score, dtype: object
 
 
 <h3>Extract the column of words</h3>
-<div class="highlight"><pre><span></span><span class="c1"># In the column &#39;raw&#39;, extract the word in the strings</span>
+<div class="codehilite"><pre><span></span><span class="c1"># In the column &#39;raw&#39;, extract the word in the strings</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;raw&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="s1">&#39;([A-Z]\w{0,})&#39;</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>0     Arizona
+<div class="codehilite"><pre><span></span>0     Arizona
 1        Iowa
 2      Oregon
 3    Maryland
@@ -275,7 +275,7 @@ Name: state, dtype: object
 
 
 <h3>View the final dataframe</h3>
-<div class="highlight"><pre><span></span><span class="n">df</span>
+<div class="codehilite"><pre><span></span><span class="n">df</span>
 </pre></div>
 
 

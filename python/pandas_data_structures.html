@@ -134,19 +134,19 @@
 </header>
 
 <h3>Import modules</h3>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 </pre></div>
 
 
 <h2>Series 101</h2>
 <p>Series are one-dimensional arrays (like R's vectors)</p>
 <h3>Create a series of the number of floodingReports</h3>
-<div class="highlight"><pre><span></span><span class="n">floodingReports</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">])</span>
+<div class="codehilite"><pre><span></span><span class="n">floodingReports</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">])</span>
 <span class="n">floodingReports</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>0     5
+<div class="codehilite"><pre><span></span>0     5
 1     6
 2     2
 3     9
@@ -157,12 +157,12 @@ dtype: int64
 
 <p>Note that the first column of numbers (0 to 4) are the index.</p>
 <h3>Set county names to be the index of the floodingReports series</h3>
-<div class="highlight"><pre><span></span><span class="n">floodingReports</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Cochise County&#39;</span><span class="p">,</span> <span class="s1">&#39;Pima County&#39;</span><span class="p">,</span> <span class="s1">&#39;Santa Cruz County&#39;</span><span class="p">,</span> <span class="s1">&#39;Maricopa County&#39;</span><span class="p">,</span> <span class="s1">&#39;Yuma County&#39;</span><span class="p">])</span>
+<div class="codehilite"><pre><span></span><span class="n">floodingReports</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Cochise County&#39;</span><span class="p">,</span> <span class="s1">&#39;Pima County&#39;</span><span class="p">,</span> <span class="s1">&#39;Santa Cruz County&#39;</span><span class="p">,</span> <span class="s1">&#39;Maricopa County&#39;</span><span class="p">,</span> <span class="s1">&#39;Yuma County&#39;</span><span class="p">])</span>
 <span class="n">floodingReports</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>Cochise County        5
+<div class="codehilite"><pre><span></span>Cochise County        5
 Pima County           6
 Santa Cruz County     2
 Maricopa County       9
@@ -172,20 +172,20 @@ dtype: int64
 
 
 <h3>View the number of floodingReports in Cochise County</h3>
-<div class="highlight"><pre><span></span><span class="n">floodingReports</span><span class="p">[</span><span class="s1">&#39;Cochise County&#39;</span><span class="p">]</span>
+<div class="codehilite"><pre><span></span><span class="n">floodingReports</span><span class="p">[</span><span class="s1">&#39;Cochise County&#39;</span><span class="p">]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>5
+<div class="codehilite"><pre><span></span>5
 </pre></div>
 
 
 <h3>View the counties with  more than 6 flooding reports</h3>
-<div class="highlight"><pre><span></span><span class="n">floodingReports</span><span class="p">[</span><span class="n">floodingReports</span> <span class="o">&gt;</span> <span class="mi">6</span><span class="p">]</span>
+<div class="codehilite"><pre><span></span><span class="n">floodingReports</span><span class="p">[</span><span class="n">floodingReports</span> <span class="o">&gt;</span> <span class="mi">6</span><span class="p">]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>Maricopa County     9
+<div class="codehilite"><pre><span></span>Maricopa County     9
 Yuma County        12
 dtype: int64
 </pre></div>
@@ -193,7 +193,7 @@ dtype: int64
 
 <h3>Create a pandas series from a dictionary</h3>
 <p>Note: when you do this, the dict's key's will become the series's index</p>
-<div class="highlight"><pre><span></span><span class="c1"># Create a dictionary</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a dictionary</span>
 <span class="n">fireReports_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Cochise County&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s1">&#39;Pima County&#39;</span><span class="p">:</span> <span class="mi">342</span><span class="p">,</span> <span class="s1">&#39;Santa Cruz County&#39;</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span> <span class="s1">&#39;Maricopa County&#39;</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span> <span class="s1">&#39;Yuma County&#39;</span> <span class="p">:</span> <span class="mi">52</span><span class="p">}</span>
 
 <span class="c1"># Convert the dictionary into a pd.Series, and view it</span>
@@ -201,7 +201,7 @@ dtype: int64
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>Cochise County        12
+<div class="codehilite"><pre><span></span>Cochise County        12
 Maricopa County       42
 Pima County          342
 Santa Cruz County     13
@@ -211,12 +211,12 @@ dtype: int64
 
 
 <h3>Change the index of a series to shorter names</h3>
-<div class="highlight"><pre><span></span><span class="n">fireReports</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Cochice&quot;</span><span class="p">,</span> <span class="s2">&quot;Pima&quot;</span><span class="p">,</span> <span class="s2">&quot;Santa Cruz&quot;</span><span class="p">,</span> <span class="s2">&quot;Maricopa&quot;</span><span class="p">,</span> <span class="s2">&quot;Yuma&quot;</span><span class="p">]</span>
+<div class="codehilite"><pre><span></span><span class="n">fireReports</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Cochice&quot;</span><span class="p">,</span> <span class="s2">&quot;Pima&quot;</span><span class="p">,</span> <span class="s2">&quot;Santa Cruz&quot;</span><span class="p">,</span> <span class="s2">&quot;Maricopa&quot;</span><span class="p">,</span> <span class="s2">&quot;Yuma&quot;</span><span class="p">]</span>
 <span class="n">fireReports</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>Cochice        12
+<div class="codehilite"><pre><span></span>Cochice        12
 Pima           42
 Santa Cruz    342
 Maricopa       13
@@ -228,7 +228,7 @@ dtype: int64
 <h2>DataFrame 101</h2>
 <p>DataFrames are like R's Dataframes</p>
 <h3>Create a dataframe from a dict of equal length lists or numpy arrays</h3>
-<div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;county&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Cochice&#39;</span><span class="p">,</span> <span class="s1">&#39;Pima&#39;</span><span class="p">,</span> <span class="s1">&#39;Santa Cruz&#39;</span><span class="p">,</span> <span class="s1">&#39;Maricopa&#39;</span><span class="p">,</span> <span class="s1">&#39;Yuma&#39;</span><span class="p">],</span> 
+<div class="codehilite"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;county&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Cochice&#39;</span><span class="p">,</span> <span class="s1">&#39;Pima&#39;</span><span class="p">,</span> <span class="s1">&#39;Santa Cruz&#39;</span><span class="p">,</span> <span class="s1">&#39;Maricopa&#39;</span><span class="p">,</span> <span class="s1">&#39;Yuma&#39;</span><span class="p">],</span> 
         <span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">2012</span><span class="p">,</span> <span class="mi">2013</span><span class="p">,</span> <span class="mi">2014</span><span class="p">,</span> <span class="mi">2014</span><span class="p">],</span> 
         <span class="s1">&#39;reports&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]}</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
@@ -283,7 +283,7 @@ dtype: int64
 </div>
 
 <h3>Set the order of the columns using the columns attribute</h3>
-<div class="highlight"><pre><span></span><span class="n">dfColumnOrdered</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;county&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;reports&#39;</span><span class="p">])</span>
+<div class="codehilite"><pre><span></span><span class="n">dfColumnOrdered</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;county&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;reports&#39;</span><span class="p">])</span>
 <span class="n">dfColumnOrdered</span>
 </pre></div>
 
@@ -335,7 +335,7 @@ dtype: int64
 </div>
 
 <h3>Add a column</h3>
-<div class="highlight"><pre><span></span><span class="n">dfColumnOrdered</span><span class="p">[</span><span class="s1">&#39;newsCoverage&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mf">42.3</span><span class="p">,</span> <span class="mf">92.1</span><span class="p">,</span> <span class="mf">12.2</span><span class="p">,</span> <span class="mf">39.3</span><span class="p">,</span> <span class="mf">30.2</span><span class="p">])</span>
+<div class="codehilite"><pre><span></span><span class="n">dfColumnOrdered</span><span class="p">[</span><span class="s1">&#39;newsCoverage&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mf">42.3</span><span class="p">,</span> <span class="mf">92.1</span><span class="p">,</span> <span class="mf">12.2</span><span class="p">,</span> <span class="mf">39.3</span><span class="p">,</span> <span class="mf">30.2</span><span class="p">])</span>
 <span class="n">dfColumnOrdered</span>
 </pre></div>
 
@@ -393,7 +393,7 @@ dtype: int64
 </div>
 
 <h3>Delete a column</h3>
-<div class="highlight"><pre><span></span><span class="k">del</span> <span class="n">dfColumnOrdered</span><span class="p">[</span><span class="s1">&#39;newsCoverage&#39;</span><span class="p">]</span>
+<div class="codehilite"><pre><span></span><span class="k">del</span> <span class="n">dfColumnOrdered</span><span class="p">[</span><span class="s1">&#39;newsCoverage&#39;</span><span class="p">]</span>
 <span class="n">dfColumnOrdered</span>
 </pre></div>
 
@@ -445,7 +445,7 @@ dtype: int64
 </div>
 
 <h3>Transpose the dataframe</h3>
-<div class="highlight"><pre><span></span><span class="n">dfColumnOrdered</span><span class="o">.</span><span class="n">T</span>
+<div class="codehilite"><pre><span></span><span class="n">dfColumnOrdered</span><span class="o">.</span><span class="n">T</span>
 </pre></div>
 
 

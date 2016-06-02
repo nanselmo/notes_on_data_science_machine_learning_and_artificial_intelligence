@@ -134,115 +134,115 @@
 </header>
 
 <p>Original source: Learning R</p>
-<div class="highlight"><pre><span></span><span class="c1"># Load RCurl Library</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Load RCurl Library</span>
 <span class="kn">library</span><span class="p">(</span>RCurl<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create a string with the URL to the website</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a string with the URL to the website</span>
 time_url <span class="o">&lt;-</span> <span class="s">&quot;http://tycho.usno.navy.mil/cgi-bin/timer.pl&quot;</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Download the HTML</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Download the HTML</span>
 time_page <span class="o">&lt;-</span> getURL<span class="p">(</span>time_url<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Use concatenate and view the html in a pretty way</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Use concatenate and view the html in a pretty way</span>
 <span class="kp">cat</span><span class="p">(</span>time_page<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 3.2 Final&quot;//EN&gt;</span>
-<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">TITLE</span><span class="p">&gt;</span>What time is it?<span class="p">&lt;/</span><span class="nt">TITLE</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">H2</span><span class="p">&gt;</span> US Naval Observatory Master Clock Time<span class="p">&lt;/</span><span class="nt">H2</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="nt">H3</span><span class="p">&gt;&lt;</span><span class="nt">PRE</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">BR</span><span class="p">&gt;</span>Mar. 14, 18:14:26 UTC       Universal Time
-<span class="p">&lt;</span><span class="nt">BR</span><span class="p">&gt;</span>Mar. 14, 02:14:26 PM EDT        Eastern Time
-<span class="p">&lt;</span><span class="nt">BR</span><span class="p">&gt;</span>Mar. 14, 01:14:26 PM CDT        Central Time
-<span class="p">&lt;</span><span class="nt">BR</span><span class="p">&gt;</span>Mar. 14, 12:14:26 PM MDT        Mountain Time
-<span class="p">&lt;</span><span class="nt">BR</span><span class="p">&gt;</span>Mar. 14, 11:14:26 AM PDT        Pacific Time
-<span class="p">&lt;</span><span class="nt">BR</span><span class="p">&gt;</span>Mar. 14, 10:14:26 AM AKDT   Alaska Time
-<span class="p">&lt;</span><span class="nt">BR</span><span class="p">&gt;</span>Mar. 14, 08:14:26 AM HAST   Hawaii-Aleutian Time
-<span class="p">&lt;/</span><span class="nt">PRE</span><span class="p">&gt;&lt;/</span><span class="nt">H3</span><span class="p">&gt;&lt;</span><span class="nt">P</span><span class="p">&gt;&lt;</span><span class="nt">A</span> <span class="na">HREF</span><span class="o">=</span><span class="s">&quot;http://www.usno.navy.mil&quot;</span><span class="p">&gt;</span> US Naval Observatory<span class="p">&lt;/</span><span class="nt">A</span><span class="p">&gt;</span>
+<div class="codehilite"><pre><span></span>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 3.2 Final&quot;//EN&gt;
+&lt;html&gt;
+&lt;body&gt;
+&lt;TITLE&gt;What time is it?&lt;/TITLE&gt;
+&lt;H2&gt; US Naval Observatory Master Clock Time&lt;/H2&gt; &lt;H3&gt;&lt;PRE&gt;
+&lt;BR&gt;Mar. 14, 18:14:26 UTC       Universal Time
+&lt;BR&gt;Mar. 14, 02:14:26 PM EDT        Eastern Time
+&lt;BR&gt;Mar. 14, 01:14:26 PM CDT        Central Time
+&lt;BR&gt;Mar. 14, 12:14:26 PM MDT        Mountain Time
+&lt;BR&gt;Mar. 14, 11:14:26 AM PDT        Pacific Time
+&lt;BR&gt;Mar. 14, 10:14:26 AM AKDT   Alaska Time
+&lt;BR&gt;Mar. 14, 08:14:26 AM HAST   Hawaii-Aleutian Time
+&lt;/PRE&gt;&lt;/H3&gt;&lt;P&gt;&lt;A HREF=&quot;http://www.usno.navy.mil&quot;&gt; US Naval Observatory&lt;/A&gt;
 
-<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+&lt;/body&gt;&lt;/html&gt;
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># load XML library</span>
+<div class="codehilite"><pre><span></span><span class="c1"># load XML library</span>
 <span class="kn">library</span><span class="p">(</span>XML<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># parse the HTML</span>
+<div class="codehilite"><pre><span></span><span class="c1"># parse the HTML</span>
 time_doc <span class="o">&lt;-</span> htmlParse<span class="p">(</span>time_page<span class="p">);</span> time_doc
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 3.2 Final&quot;&gt;</span>
-<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>/EN<span class="ni">&amp;gt;</span>
+<div class="codehilite"><pre><span></span>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 3.2 Final&quot;&gt;
+&lt;html&gt;&lt;body&gt;
+&lt;p&gt;/EN&amp;gt;
 
-<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>What time is it?<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span> US Naval Observatory Master Clock Time<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;&lt;</span><span class="nt">pre</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>Mar. 14, 18:14:26 UTC       Universal Time
-<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>Mar. 14, 02:14:26 PM EDT        Eastern Time
-<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>Mar. 14, 01:14:26 PM CDT        Central Time
-<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>Mar. 14, 12:14:26 PM MDT        Mountain Time
-<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>Mar. 14, 11:14:26 AM PDT        Pacific Time
-<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>Mar. 14, 10:14:26 AM AKDT   Alaska Time
-<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>Mar. 14, 08:14:26 AM HAST   Hawaii-Aleutian Time
-<span class="p">&lt;/</span><span class="nt">pre</span><span class="p">&gt;&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;http://www.usno.navy.mil&quot;</span><span class="p">&gt;</span> US Naval Observatory<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+&lt;/p&gt;
+&lt;title&gt;What time is it?&lt;/title&gt;
+&lt;h2&gt; US Naval Observatory Master Clock Time&lt;/h2&gt; &lt;h3&gt;&lt;pre&gt;
+&lt;br&gt;Mar. 14, 18:14:26 UTC       Universal Time
+&lt;br&gt;Mar. 14, 02:14:26 PM EDT        Eastern Time
+&lt;br&gt;Mar. 14, 01:14:26 PM CDT        Central Time
+&lt;br&gt;Mar. 14, 12:14:26 PM MDT        Mountain Time
+&lt;br&gt;Mar. 14, 11:14:26 AM PDT        Pacific Time
+&lt;br&gt;Mar. 14, 10:14:26 AM AKDT   Alaska Time
+&lt;br&gt;Mar. 14, 08:14:26 AM HAST   Hawaii-Aleutian Time
+&lt;/pre&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.usno.navy.mil&quot;&gt; US Naval Observatory&lt;/a&gt;
 
-<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt;
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># extract everything within the &quot;pre&quot; tag. The // denotes that we are searching the entire document. The [[1]] refers to the fact we are not moving a list to pre but moving the contents of the list.</span>
+<div class="codehilite"><pre><span></span><span class="c1"># extract everything within the &quot;pre&quot; tag. The // denotes that we are searching the entire document. The [[1]] refers to the fact we are not moving a list to pre but moving the contents of the list.</span>
 pre <span class="o">&lt;-</span> xpathSApply<span class="p">(</span>time_doc<span class="p">,</span> <span class="s">&quot;//pre&quot;</span><span class="p">)[[</span><span class="m">1</span><span class="p">]]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># split along newline \n, divides up each time</span>
+<div class="codehilite"><pre><span></span><span class="c1"># split along newline \n, divides up each time</span>
 values <span class="o">&lt;-</span> <span class="kp">strsplit</span><span class="p">(</span>xmlValue<span class="p">(</span>pre<span class="p">),</span> <span class="s">&quot;\n&quot;</span><span class="p">)[[</span><span class="m">1</span><span class="p">]][</span><span class="m">-1</span><span class="p">]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># split along the tabs \t+ divides each time into time the time and timezone</span>
+<div class="codehilite"><pre><span></span><span class="c1"># split along the tabs \t+ divides each time into time the time and timezone</span>
 times <span class="o">&lt;-</span> <span class="kp">strsplit</span><span class="p">(</span>values<span class="p">,</span> <span class="s">&quot;\t+&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>times
+<div class="codehilite"><pre><span></span>times
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="k">[[1]]</span>
-<span class="err">[1]</span> <span class="err">&quot;Mar.</span> <span class="err">14,</span> <span class="err">18:14:26</span> <span class="err">UTC&quot;</span> <span class="err">&quot;Universal</span> <span class="err">Time&quot;</span>
+<div class="codehilite"><pre><span></span>[[1]]
+[1] &quot;Mar. 14, 18:14:26 UTC&quot; &quot;Universal Time&quot;
 
-<span class="k">[[2]]</span>
-<span class="err">[1]</span> <span class="err">&quot;Mar.</span> <span class="err">14,</span> <span class="err">02:14:26</span> <span class="err">PM</span> <span class="err">EDT&quot;</span> <span class="err">&quot;Eastern</span> <span class="err">Time&quot;</span>
+[[2]]
+[1] &quot;Mar. 14, 02:14:26 PM EDT&quot; &quot;Eastern Time&quot;
 
-<span class="k">[[3]]</span>
-<span class="err">[1]</span> <span class="err">&quot;Mar.</span> <span class="err">14,</span> <span class="err">01:14:26</span> <span class="err">PM</span> <span class="err">CDT&quot;</span> <span class="err">&quot;Central</span> <span class="err">Time&quot;</span>
+[[3]]
+[1] &quot;Mar. 14, 01:14:26 PM CDT&quot; &quot;Central Time&quot;
 
-<span class="k">[[4]]</span>
-<span class="err">[1]</span> <span class="err">&quot;Mar.</span> <span class="err">14,</span> <span class="err">12:14:26</span> <span class="err">PM</span> <span class="err">MDT&quot;</span> <span class="err">&quot;Mountain</span> <span class="err">Time&quot;</span>
+[[4]]
+[1] &quot;Mar. 14, 12:14:26 PM MDT&quot; &quot;Mountain Time&quot;
 
-<span class="k">[[5]]</span>
-<span class="err">[1]</span> <span class="err">&quot;Mar.</span> <span class="err">14,</span> <span class="err">11:14:26</span> <span class="err">AM</span> <span class="err">PDT&quot;</span> <span class="err">&quot;Pacific</span> <span class="err">Time&quot;</span>
+[[5]]
+[1] &quot;Mar. 14, 11:14:26 AM PDT&quot; &quot;Pacific Time&quot;
 
-<span class="k">[[6]]</span>
-<span class="err">[1]</span> <span class="err">&quot;Mar.</span> <span class="err">14,</span> <span class="err">10:14:26</span> <span class="err">AM</span> <span class="err">AKDT&quot;</span> <span class="err">&quot;Alaska</span> <span class="err">Time&quot;</span>
+[[6]]
+[1] &quot;Mar. 14, 10:14:26 AM AKDT&quot; &quot;Alaska Time&quot;
 
-<span class="k">[[7]]</span>
-<span class="err">[1]</span> <span class="err">&quot;Mar.</span> <span class="err">14,</span> <span class="err">08:14:26</span> <span class="err">AM</span> <span class="err">HAST&quot;</span> <span class="err">&quot;Hawaii-Aleutian</span> <span class="err">Time&quot;</span>
+[[7]]
+[1] &quot;Mar. 14, 08:14:26 AM HAST&quot; &quot;Hawaii-Aleutian Time&quot;
 </pre></div>
     <aside>
     <div class="bug-reporting__panel">

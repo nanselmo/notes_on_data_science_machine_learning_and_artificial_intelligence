@@ -134,7 +134,7 @@
 </header>
 
 <p>Original source: r graphics cookbook</p>
-<div class="highlight"><pre><span></span><span class="c1"># load the gcookbook package for the data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># load the gcookbook package for the data</span>
 <span class="kn">library</span><span class="p">(</span>gcookbook<span class="p">)</span>
 
 <span class="c1"># load the ggplot2 package</span>
@@ -145,18 +145,18 @@ dev.off<span class="p">()</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>quartz_off_screen
+<div class="codehilite"><pre><span></span>quartz_off_screen
                 3
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create the ggplot2 data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create the ggplot2 data</span>
 p <span class="o">&lt;-</span> ggplot<span class="p">(</span>faithful<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> eruptions<span class="p">,</span> y <span class="o">=</span> waiting<span class="p">))</span>
 </pre></div>
 
 
 <h2>Add Text</h2>
-<div class="highlight"><pre><span></span><span class="c1"># create the ggplot2 plot</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create the ggplot2 plot</span>
 p <span class="o">+</span> geom_point<span class="p">()</span> <span class="o">+</span>
   <span class="c1"># add text</span>
   annotate<span class="p">(</span><span class="s">&quot;text&quot;</span><span class="p">,</span> x <span class="o">=</span> <span class="m">3</span><span class="p">,</span> y <span class="o">=</span> <span class="m">48</span><span class="p">,</span> label<span class="o">=</span><span class="s">&quot;Group 1&quot;</span><span class="p">,</span> family<span class="o">=</span><span class="s">&quot;serif&quot;</span><span class="p">,</span> fontface<span class="o">=</span><span class="s">&quot;italic&quot;</span><span class="p">,</span> colour<span class="o">=</span><span class="s">&quot;darkred&quot;</span><span class="p">,</span> size<span class="o">=</span><span class="m">6</span><span class="p">)</span> <span class="o">+</span>
@@ -175,7 +175,7 @@ p <span class="o">+</span> geom_point<span class="p">()</span> <span class="o">+
 <p><img alt="png" src="../images/annotating-plots_files/annotating-plots_4_1.png" /></p>
 <p><img alt="png" src="../images/annotating-plots_files/annotating-plots_4_3.png" /></p>
 <h2>Add Mathematical Expressions</h2>
-<div class="highlight"><pre><span></span><span class="c1"># create the ggplot2 plot</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create the ggplot2 plot</span>
 p <span class="o">+</span> geom_point<span class="p">()</span> <span class="o">+</span>
   <span class="c1"># add the formula, parse=TRUE turns the next into a formula</span>
   annotate<span class="p">(</span><span class="s">&quot;text&quot;</span><span class="p">,</span> x <span class="o">=</span> <span class="m">4.5</span><span class="p">,</span> y <span class="o">=</span> <span class="m">66</span><span class="p">,</span> parse <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> label <span class="o">=</span> <span class="s">&quot;frac(1, sqrt(2 * pi)) * e ^ {-x^2 / 2}&quot;</span><span class="p">)</span>
@@ -184,7 +184,7 @@ p <span class="o">+</span> geom_point<span class="p">()</span> <span class="o">+
 
 <p><img alt="png" src="../images/annotating-plots_files/annotating-plots_6_1.png" /></p>
 <h2>Add Lines</h2>
-<div class="highlight"><pre><span></span><span class="c1"># load the grid package to create the flat ends of the line seqment and arrow</span>
+<div class="codehilite"><pre><span></span><span class="c1"># load the grid package to create the flat ends of the line seqment and arrow</span>
 <span class="kn">library</span><span class="p">(</span>grid<span class="p">)</span>
 
 <span class="c1"># create the ggplot2 plot</span>
@@ -204,7 +204,7 @@ p <span class="o">+</span> geom_point<span class="p">()</span> <span class="o">+
 
 <p><img alt="png" src="../images/annotating-plots_files/annotating-plots_8_1.png" /></p>
 <h2>Add A Shaded Rectangle</h2>
-<div class="highlight"><pre><span></span><span class="c1"># create the ggplot2 plot</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create the ggplot2 plot</span>
 p <span class="o">+</span> geom_point<span class="p">()</span> <span class="o">+</span>
   <span class="c1"># add a shaped blue rectangle</span>
   annotate<span class="p">(</span><span class="s">&quot;rect&quot;</span><span class="p">,</span> xmin<span class="o">=</span><span class="m">1</span><span class="p">,</span> xmax<span class="o">=</span><span class="m">3</span><span class="p">,</span> ymin<span class="o">=</span><span class="m">40</span><span class="p">,</span> ymax<span class="o">=</span><span class="m">100</span><span class="p">,</span> alpha<span class="o">=</span><span class="m">.1</span><span class="p">,</span> fill<span class="o">=</span><span class="s">&quot;blue&quot;</span><span class="p">)</span>

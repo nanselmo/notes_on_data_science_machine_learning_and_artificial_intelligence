@@ -134,7 +134,7 @@
 </header>
 
 <p>original source: r graphics cookbook</p>
-<div class="highlight"><pre><span></span><span class="c1"># load the ggplot2 package</span>
+<div class="codehilite"><pre><span></span><span class="c1"># load the ggplot2 package</span>
 <span class="kn">library</span><span class="p">(</span>ggplot2<span class="p">)</span>
 
 <span class="c1"># load the gcookbook package</span>
@@ -143,7 +143,7 @@
 
 
 <h2>Below the top</h2>
-<div class="highlight"><pre><span></span><span class="c1"># create a ggplot data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a ggplot data</span>
 ggplot<span class="p">(</span>cabbage_exp<span class="p">,</span> aes<span class="p">(</span>x<span class="o">=</span><span class="kp">interaction</span><span class="p">(</span>Date<span class="p">,</span> Cultivar<span class="p">),</span> y<span class="o">=</span>Weight<span class="p">))</span> <span class="o">+</span>
   <span class="c1"># draw the bar plot</span>
   geom_bar<span class="p">(</span>stat<span class="o">=</span><span class="s">&quot;identity&quot;</span><span class="p">)</span> <span class="o">+</span>
@@ -154,7 +154,7 @@ ggplot<span class="p">(</span>cabbage_exp<span class="p">,</span> aes<span class
 
 <p><img alt="png" src="../images/add-labels-to-bar-graph_files/add-labels-to-bar-graph_3_1.png" /></p>
 <h2>Above the top</h2>
-<div class="highlight"><pre><span></span><span class="c1"># create a ggplot data</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a ggplot data</span>
 ggplot<span class="p">(</span>cabbage_exp<span class="p">,</span> aes<span class="p">(</span>x<span class="o">=</span><span class="kp">interaction</span><span class="p">(</span>Date<span class="p">,</span> Cultivar<span class="p">),</span> y<span class="o">=</span>Weight<span class="p">))</span> <span class="o">+</span>
   <span class="c1"># draw the bar plot</span>
   geom_bar<span class="p">(</span>stat<span class="o">=</span><span class="s">&quot;identity&quot;</span><span class="p">)</span> <span class="o">+</span>
@@ -165,7 +165,7 @@ ggplot<span class="p">(</span>cabbage_exp<span class="p">,</span> aes<span class
 
 <p><img alt="png" src="../images/add-labels-to-bar-graph_files/add-labels-to-bar-graph_5_1.png" /></p>
 <h1>Labels on a grouped bar chart</h1>
-<div class="highlight"><pre><span></span><span class="c1"># create the ggplot data for a grouped bar chart</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create the ggplot data for a grouped bar chart</span>
 ggplot<span class="p">(</span>cabbage_exp<span class="p">,</span> aes<span class="p">(</span>x<span class="o">=</span>Date<span class="p">,</span> y<span class="o">=</span>Weight<span class="p">,</span> fill<span class="o">=</span>Cultivar<span class="p">))</span> <span class="o">+</span>
   <span class="c1"># plot the bars</span>
   geom_bar<span class="p">(</span>stat<span class="o">=</span><span class="s">&quot;identity&quot;</span><span class="p">,</span> position<span class="o">=</span><span class="s">&quot;dodge&quot;</span><span class="p">)</span> <span class="o">+</span>
@@ -175,7 +175,7 @@ ggplot<span class="p">(</span>cabbage_exp<span class="p">,</span> aes<span class
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>ymax not defined: adjusting position using y instead
+<div class="codehilite"><pre><span></span>ymax not defined: adjusting position using y instead
 </pre></div>
 
 

@@ -134,24 +134,24 @@
 </header>
 
 <p>original source: http://stackoverflow.com/questions/2074606/doing-a-plyr-operation-on-every-row-of-a-data-frame-in-r</p>
-<div class="highlight"><pre><span></span><span class="c1"># Load packages</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Load packages</span>
 <span class="kn">library</span><span class="p">(</span>plyr<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># create a simulated dataframe</span>
+<div class="codehilite"><pre><span></span><span class="c1"># create a simulated dataframe</span>
 x <span class="o">&lt;-</span> rnorm<span class="p">(</span><span class="m">10</span><span class="p">)</span>
 y <span class="o">&lt;-</span> rnorm<span class="p">(</span><span class="m">10</span><span class="p">)</span>
 df <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>x<span class="p">,</span>y<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># array to dataframe apply, on df, for each row, apply transform() to create a variable called &quot;max&quot; whose values are the maximum value of x or y (whichever is higher).</span>
+<div class="codehilite"><pre><span></span><span class="c1"># array to dataframe apply, on df, for each row, apply transform() to create a variable called &quot;max&quot; whose values are the maximum value of x or y (whichever is higher).</span>
 adply<span class="p">(</span>df<span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="kp">transform</span><span class="p">,</span> max <span class="o">=</span> <span class="kp">max</span><span class="p">(</span>x<span class="p">,</span> y<span class="p">))</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>            x          y        max
+<div class="codehilite"><pre><span></span>            x          y        max
 1  -1.0286311  0.6621974  0.6621974
 2   0.5466022  0.2977963  0.5466022
 3  -0.6559125 -2.0830247 -0.6559125
