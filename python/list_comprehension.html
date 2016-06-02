@@ -10,7 +10,7 @@
     <meta name="author" content="Chris Albon">
     <link rel="icon" href="../favicon.ico">
 
-    <title>List Comprehension 1 - Python</title>
+    <title>List Comprehension - Python</title>
 
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -120,7 +120,7 @@
 <section id="content" class="body">
     <header>
     <h1>
-      List Comprehension 1
+      List Comprehension
     </h1>
 <ol class="breadcrumb">
     <li>
@@ -133,49 +133,65 @@
 </ol>
 </header>
 
-<h3>Create a matrix using lists</h3>
-<div class="highlight"><pre><span></span><span class="n">matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
-          <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
-          <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]]</span>
+<h2>First Letter Of Every Word</h2>
+<h3>Import the string module</h3>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">string</span>
 </pre></div>
 
 
-<h3>View the matrix</h3>
-<div class="highlight"><pre><span></span><span class="n">matrix</span>
+<h3>Create a variable that includes all punctuation and adds a blank space</h3>
+<p>string.punctuation is: !"#$%&amp;'()*+,-./:;&lt;=&gt;?@[]^_`{|}~</p>
+<div class="highlight"><pre><span></span><span class="n">punct</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">punctuation</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+<h3>Create a string for all vowels</h3>
+<div class="highlight"><pre><span></span><span class="n">vowels</span> <span class="o">=</span> <span class="s1">&#39;aeiou&#39;</span>
 </pre></div>
 
 
-<h3>View the items in column 2</h3>
-<p>"build a new list by running an expression on each item in a sequence, one at a time, from left to right." - Learning Python</p>
-<h3>Create a variable called col2 that takes the second item from each row (i.e. nested list) in the list matrix</h3>
-<div class="highlight"><pre><span></span><span class="n">col2</span> <span class="o">=</span> <span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">matrix</span><span class="p">]</span>
+<h3>Create some text</h3>
+<div class="highlight"><pre><span></span><span class="n">phrase</span> <span class="o">=</span> <span class="s1">&#39;Strictly speaking Python strings are categorized as immutable sequences&#39;</span>
 </pre></div>
 
 
-<h3>View the column</h3>
-<div class="highlight"><pre><span></span><span class="n">col2</span>
+<h3>Create a variable for the first letter in every word of phase, after split up</h3>
+<div class="highlight"><pre><span></span><span class="n">first_letter</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">phrase</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[2, 5, 8]
+<h3>Print it out</h3>
+<div class="highlight"><pre><span></span><span class="n">first_letter</span>
 </pre></div>
 
 
-<h3>Grab the diag</h3>
-<div class="highlight"><pre><span></span><span class="n">diag</span> <span class="o">=</span> <span class="p">[</span><span class="n">matrix</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
+<div class="highlight"><pre><span></span>[&#39;S&#39;, &#39;s&#39;, &#39;P&#39;, &#39;s&#39;, &#39;a&#39;, &#39;c&#39;, &#39;a&#39;, &#39;i&#39;, &#39;s&#39;]
 </pre></div>
 
 
-<h3>Print it</h3>
-<div class="highlight"><pre><span></span><span class="n">diag</span>
+<h3>In the above example here is the breakdown of the list Comprehension</h3>
+<ul>
+<li>[w[0]             is the output. That is, what we want done.</li>
+<li>for w in          is the iterator identifier</li>
+<li>phrase.split()]   is the input</li>
+</ul>
+<h3>You can also add a conditional statement</h3>
+<h3>Create some simulated numbers</h3>
+<div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[1, 5, 9]
+<h3>Create a variable called output that squared every element in numbers variable if it is divisible by 2</h3>
+<div class="highlight"><pre><span></span><span class="n">output</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">numbers</span> <span class="k">if</span> <span class="n">x</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+
+<h3>View the output</h3>
+<div class="highlight"><pre><span></span><span class="n">output</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>[0, 4, 16, 36, 64, 100]
 </pre></div>
     <aside>
     <div class="bug-reporting__panel">
