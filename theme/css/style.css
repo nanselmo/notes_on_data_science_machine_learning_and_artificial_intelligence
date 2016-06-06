@@ -34,7 +34,7 @@ a:hover {
 
 body > .container {
   padding: 60px 15px 0;
-  color: #333333;
+  color: #424242;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -148,6 +148,13 @@ body > .container {
 
 #content {
     margin-bottom: 3em;
+}
+
+.article_content p, .article_content li, .homepage-blurb p{
+    font-family: 'PT Serif', serif;
+    color: #333333;
+    letter-spacing: -0.02px;
+    font-size: 17px;
 }
 
 .index-page-title {
