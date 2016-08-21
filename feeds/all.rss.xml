@@ -1,5 +1,827 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Chris Albon</title><link>http://chrisalbon.com/</link><description></description><lastBuildDate>Sun, 01 May 2016 12:00:00 -0700</lastBuildDate><item><title>Two Way Frequency Table</title><link>http://chrisalbon.com/r-stats/2-way-frequency-table.html</link><description>&lt;p&gt;&lt;a href="http://www.statmethods.net/stats/frequencies.html"&gt;Original source&lt;/a&gt;&lt;/p&gt;
+<rss version="2.0"><channel><title>Chris Albon</title><link>http://chrisalbon.com/</link><description></description><lastBuildDate>Fri, 19 Aug 2016 12:00:00 -0700</lastBuildDate><item><title>Bessel's Correction</title><link>http://chrisalbon.com/frequentist-statistics/bessels_correction.html</link><description>&lt;p&gt;Bessel's correction is the reason we use &lt;span class="math"&gt;\(n-1\)&lt;/span&gt; instead of &lt;span class="math"&gt;\(n\)&lt;/span&gt; in the calculations of sample variance and sample standard deviation.&lt;/p&gt;
+&lt;p&gt;Sample variance:&lt;/p&gt;
+&lt;div class="math"&gt;$$ s^2 = \frac {1}{n-1} \sum_{i=1}^n  \left(x_i - \overline{x} \right)^ 2 $$&lt;/div&gt;
+&lt;p&gt;When we calculate sample variance, we are attempting to estimate the population variance, an unknown value. To make this estimate, we estimate this unknown population variance from the mean of the squared deviations of samples from the overall sample mean. A negative sideffect of this estimation technique is that, because we are taking a sample, we are a more likely to observe observations with a smaller deviation because they are more common (e.g. they are the center of the distribution). The means that by definiton we will underestimate the population variance.&lt;/p&gt;
+&lt;p&gt;Friedrich Bessel figured out that by multiplying a biased (uncorrected) sample variance &lt;span class="math"&gt;\(s_n^2 = \frac {1}{n} \sum_{i=1}^n  \left(x_i - \overline{x} \right)^ 2\)&lt;/span&gt; by &lt;span class="math"&gt;\(\frac{n}{n-1}\)&lt;/span&gt; we will be able to reduce that bias and thus be able to make an accurate estimate of the population variance and standard deviation. The end result of that multiplication is the unbiased sample variance.&lt;/p&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' &amp;&amp; location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Fri, 19 Aug 2016 12:00:00 -0700</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-08-19:frequentist-statistics/bessels_correction.html</guid><category>Basics</category></item><item><title>Linear Regression In scikit-learn</title><link>http://chrisalbon.com/machine-learning/linear_regression_scikit-learn.html</link><description>&lt;p&gt;Sources: &lt;a href="http://scikit-learn.org/stable/auto_examples/linear_model/plot_ols.html#example-linear-model-plot-ols-py"&gt;scikit-learn&lt;/a&gt;, &lt;a href="http://robertgrantstats.co.uk/drawmydata.html"&gt;DrawMyData&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The purpose of this tutorial is to give a brief introduction into the logic of statistical model building used in machine learning. If you want to read more about the theory behind this tutorial, check out &lt;a href="https://www.amazon.com/Introduction-Statistical-Learning-Applications-Statistics/dp/1461471370"&gt;An Introduction To Statistical Learning&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Let us get started.&lt;/p&gt;
+&lt;h2&gt;Preliminary&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pandas&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;pd&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;linear_model&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;random&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
+&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="n"&gt;matplotlib&lt;/span&gt; &lt;span class="n"&gt;inline&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Load Data&lt;/h2&gt;
+&lt;p&gt;With those libraries added, let us load the dataset (the dataset is avaliable in his site's GitHub repo).&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Load the data&lt;/span&gt;
+&lt;span class="n"&gt;df&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;../data/simulated_data/battledeaths_n300_cor99.csv&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Shuffle the data&amp;#39;s rows (This is only necessary because of the way I created&lt;/span&gt;
+&lt;span class="c1"&gt;# the data using DrawMyData. This would not normally be necessary with a real analysis).&lt;/span&gt;
+&lt;span class="n"&gt;df&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sample&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;frac&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;hi&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Explore Data&lt;/h2&gt;
+&lt;p&gt;Let us take a look at the first few rows of the data just to get an idea about it.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# View the first few rows&lt;/span&gt;
+&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;head&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div&gt;
+&lt;table border="1" class="dataframe"&gt;
+  &lt;thead&gt;
+    &lt;tr style="text-align: right;"&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;friendly_battledeaths&lt;/th&gt;
+      &lt;th&gt;enemy_battledeaths&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;173&lt;/th&gt;
+      &lt;td&gt;28.4615&lt;/td&gt;
+      &lt;td&gt;26.5385&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;257&lt;/th&gt;
+      &lt;td&gt;9.7436&lt;/td&gt;
+      &lt;td&gt;7.6923&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;162&lt;/th&gt;
+      &lt;td&gt;20.0000&lt;/td&gt;
+      &lt;td&gt;10.3846&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;12&lt;/th&gt;
+      &lt;td&gt;12.8205&lt;/td&gt;
+      &lt;td&gt;10.3846&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;111&lt;/th&gt;
+      &lt;td&gt;63.8462&lt;/td&gt;
+      &lt;td&gt;61.9231&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Now let us plot the data so we can see it's structure.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Plot the two variables against eachother&lt;/span&gt;
+&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;friendly_battledeaths&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;enemy_battledeaths&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;kind&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;scatter&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;lt;matplotlib.axes._subplots.AxesSubplot at 0x11a9fc710&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="png" src="output_12_1.png" /&gt;&lt;/p&gt;
+&lt;h2&gt;Break Data Up Into Training And Test Datasets&lt;/h2&gt;
+&lt;p&gt;Now for the real work. To judge how how good our model is, we need something to test it against. We can accomplish this using a technique called cross-validation. Cross-validation can get much more complicated and powerful, but in this example we are going do the most simple version of this technique.&lt;/p&gt;
+&lt;h3&gt;Steps&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Divide the dataset into two datasets: A 'training' dataset that we will use to train our model and a 'test' dataset that we will use to judge the accuracy of that model.&lt;/li&gt;
+&lt;li&gt;Train the model on the 'training' data.&lt;/li&gt;
+&lt;li&gt;Apply that model to the test data's X variable, creating the model's guesses for the test data's Ys.&lt;/li&gt;
+&lt;li&gt;Compare how close the model's predictions for the test data's Ys were to the actual test data Ys.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Create our predictor/independent variable&lt;/span&gt;
+&lt;span class="c1"&gt;# and our response/dependent variable&lt;/span&gt;
+&lt;span class="n"&gt;X&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;friendly_battledeaths&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;enemy_battledeaths&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Create our test data from the first 30 observations&lt;/span&gt;
+&lt;span class="n"&gt;X_test&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;reshape&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;y_test&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Create our training data from the remaining observations&lt;/span&gt;
+&lt;span class="n"&gt;X_train&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt;&lt;span class="p"&gt;:]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;reshape&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;y_train&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt;&lt;span class="p"&gt;:]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Train The Linear Model&lt;/h2&gt;
+&lt;p&gt;Let us train the model using our training data.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Create an object that is an ols regression&lt;/span&gt;
+&lt;span class="n"&gt;ols&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;linear_model&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;LinearRegression&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Train the model using our training data&lt;/span&gt;
+&lt;span class="n"&gt;model&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ols&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X_train&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y_train&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;View The Results&lt;/h2&gt;
+&lt;p&gt;Here are some basic outputs of the model, notably the coefficient and the R-squared score.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# View the training model&amp;#39;s coefficient&lt;/span&gt;
+&lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;coef_&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;array([ 0.9770556])
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# View the R-Squared score&lt;/span&gt;
+&lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;score&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X_test&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y_test&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;0.98719951914847326
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now that we have used the training data to train a model, called &lt;code&gt;model&lt;/code&gt;, we can apply it to the test data's Xs to make predictions of the test data's Ys.&lt;/p&gt;
+&lt;p&gt;Previously we used &lt;code&gt;X_train&lt;/code&gt; and &lt;code&gt;y_train&lt;/code&gt; to train a linear regression model, which we stored as a variable called &lt;code&gt;model&lt;/code&gt;. The code &lt;code&gt;model.predict(X_test)&lt;/code&gt; applies the trained model to the &lt;code&gt;X_test&lt;/code&gt; data, data the model has never seen before to make predicted values of Y.&lt;/p&gt;
+&lt;p&gt;This can easily be seen by simply running the code:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Run the model on X_test and show the first five results&lt;/span&gt;
+&lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;predict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X_test&lt;/span&gt;&lt;span class="p"&gt;)[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;[27.238901424783169,
+ 8.9504723858776192,
+ 18.971545454685064,
+ 11.956774765407825,
+ 61.811720758841012]
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This array of values is the model's best guesses for the values of the test data's Ys. Compare them to the actual test data Y values:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# View the first five test Y values&lt;/span&gt;
+&lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y_test&lt;/span&gt;&lt;span class="p"&gt;)[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;[26.538499999999999,
+ 7.6923000000000004,
+ 10.384600000000001,
+ 10.384600000000001,
+ 61.923099999999998]
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Our model predicts that the first observation in the test data will have a Y value of 27.24. Actual Y value for that observation was 26.54. That means the model's prediction was &lt;span class="math"&gt;\(27.24 - 26.54 = 0.8\)&lt;/span&gt; off, this is called the residual of that observation.&lt;/p&gt;
+&lt;p&gt;The difference between the model's predicted values and the actual values is how is we judge as model's accuracy, because a perfectly accurate model would have residuals of zero.&lt;/p&gt;
+&lt;p&gt;However, to judge a model, we want a single statistic (number) that we can use as a measure. We want this measure to capture the difference between the predicted values and the actual values across all observations in the data.&lt;/p&gt;
+&lt;p&gt;The most common statistic used for quantitative Ys is the &lt;strong&gt;residual sum of squares&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class="math"&gt;$$ RSS = \sum_{i=1}^{n}(y_{i}-f(x_{i}))^{2} $$&lt;/div&gt;
+&lt;p&gt;Don't let the mathematical notation throw you off:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(f(x_{i})\)&lt;/span&gt; is the model we trained: &lt;code&gt;model.predict(X_test)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(y_{i}\)&lt;/span&gt; is the test data's y: &lt;code&gt;y_test&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(^{2}\)&lt;/span&gt; is the exponent: &lt;code&gt;**2&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(\sum_{i=1}^{n}\)&lt;/span&gt; is the summation: &lt;code&gt;.sum()&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In the residual sum of squares, for each observation we find the difference between the model's predicted Y and the actual Y, then square that difference to make all the values positive. Then we add all those squared differences together to get a single number. The final result is a statistic representing how far the model's predictions were from the real values.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Apply the model we created using the training data&lt;/span&gt;
+&lt;span class="c1"&gt;# to the test data, and calculate the RSS.&lt;/span&gt;
+&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;y_test&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;predict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X_test&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;352.1634102396179
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Note: You can also use Mean Squared Error, which is RSS divided by the degrees of freedom. But I find it helpful to think in terms of RSS.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Calculate the MSE&lt;/span&gt;
+&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mean&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;predict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X_test&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;y_test&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;11.738780341320597
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;What does the model's RSS of 352.16 mean? Mathematically, it is the sum of the squared errors (obviously). But substantly 352.16 has little real meaning. Then why is RSS so fundamental to everything we do? &lt;strong&gt;Because it lets us compare models.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Does 352.16 mean our model is good? On it's own we don't realy have a good answer. But what if we trained a second model -- with different independent variables -- and applied that model to the same test data and got an RSS of 200? Then we would know that the second model is better! And that hunt for the best model is very often our goal.&lt;/p&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' &amp;&amp; location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Fri, 19 Aug 2016 12:00:00 -0700</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-08-19:machine-learning/linear_regression_scikit-learn.html</guid><category>Basics</category></item><item><title>Basic Mathematical Terms</title><link>http://chrisalbon.com/mathematics/basic_mathematical_terms.html</link><description>&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;math&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Ratio&lt;/h3&gt;
+&lt;p&gt;Two quantities divided by eachother, &lt;span class="math"&gt;\(\frac{x}{y}\)&lt;/span&gt;. Often written as &lt;span class="math"&gt;\(x:y\)&lt;/span&gt;.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
+
+&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;0.6666666666666666
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Proportion&lt;/h3&gt;
+&lt;p&gt;One variable divided by the sum of itself and another variable: &lt;span class="math"&gt;\(\left | \frac{x}{x+y} \right |\)&lt;/span&gt;. Proportions range from 0 to 1.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
+
+&lt;span class="nb"&gt;abs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;0.4
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Percentage&lt;/h3&gt;
+&lt;p&gt;Proportions multiplied by 100: $\left | \frac{x}{x+y} \right | \times 100 $&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
+
+&lt;span class="nb"&gt;abs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;40.0
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Functions&lt;/h3&gt;
+&lt;p&gt;Functions assigns something to each element of a domain. &lt;span class="math"&gt;\(f\left ( x \right ): A \rightarrow B\)&lt;/span&gt; means "Function x maps A to B"&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Create a function called x&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;x&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;_range&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;B&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;_range&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;B&lt;/span&gt;
+
+&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;9
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Exponential Function&lt;/h3&gt;
+&lt;p&gt;Multiplication of a number by itself. Example: &lt;span class="math"&gt;\(y^{3} = y \times y \times y\)&lt;/span&gt;&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
+
+&lt;span class="c1"&gt;# y*y*y&lt;/span&gt;
+&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;27
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Logarithmic Function&lt;/h3&gt;
+&lt;p&gt;Inverse of exponential function, transforming exponential functions to linear functions. Logarithms tell you how many times to multiple a base to get a value. Example: &lt;span class="math"&gt;\(log_{a}a^{x} = x\)&lt;/span&gt;&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;5.0&lt;/span&gt;
+&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;4.0&lt;/span&gt;
+
+&lt;span class="n"&gt;math&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;4.0
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Natural Log&lt;/h3&gt;
+&lt;p&gt;Logarithmic Function with a base of &lt;span class="math"&gt;\(e\)&lt;/span&gt;, where &lt;span class="math"&gt;\(e\approx 2.7183\)&lt;/span&gt;&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;
+
+&lt;span class="n"&gt;math&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;1.3862943611198906
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Sequence&lt;/h3&gt;
+&lt;p&gt;An ordered list of numbers. Example: &lt;span class="math"&gt;\(x = \left \{ 1,5,100,2,5 \right \}\)&lt;/span&gt;. The &lt;span class="math"&gt;\(ith\)&lt;/span&gt; individual member of a sequence, &lt;span class="math"&gt;\(x\)&lt;/span&gt; is denoted &lt;span class="math"&gt;\(x_{i}\)&lt;/span&gt;.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="n"&gt;x&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;[1, 5, 100, 2, 5]
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Series&lt;/h3&gt;
+&lt;p&gt;The sum of a sequence, or put another way, a sequence with plus signs between elements. Example: &lt;span class="math"&gt;\(\sum_{i=1}^{n}x_{i}\)&lt;/span&gt; is the sum of the first to the &lt;span class="math"&gt;\(nth\)&lt;/span&gt; member of a sequence, &lt;span class="math"&gt;\(x\)&lt;/span&gt;.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="nb"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;113
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Derivative&lt;/h3&gt;
+&lt;p&gt;The instanteous rate of change of a function. Can be thought of as the slope between two points, &lt;span class="math"&gt;\(a\)&lt;/span&gt; and &lt;span class="math"&gt;\(b\)&lt;/span&gt; as the distance between them approaches being infinitely small.&lt;/p&gt;
+&lt;h3&gt;Definite integral&lt;/h3&gt;
+&lt;p&gt;The area under a curve.&lt;/p&gt;
+&lt;h3&gt;Local extrema, local maxima, local minima&lt;/h3&gt;
+&lt;p&gt;A high or low point of a function.&lt;/p&gt;
+&lt;h3&gt;Global extrema, global maxima, global minima&lt;/h3&gt;
+&lt;p&gt;The highest or lowest point of a function.&lt;/p&gt;
+&lt;h3&gt;Taylor Series&lt;/h3&gt;
+&lt;p&gt;Describing a function by using the information contained in the deriviatives of the function.&lt;/p&gt;
+&lt;h3&gt;Critical Point&lt;/h3&gt;
+&lt;p&gt;Any point in a function where the first derivative is 0 or doesn't exist. Basically any point where something interesting might happen.&lt;/p&gt;
+&lt;h3&gt;Inflection Point&lt;/h3&gt;
+&lt;p&gt;A point of a function where the curve switches from concave to convex or vice versa.&lt;/p&gt;
+&lt;h3&gt;Stationary Point&lt;/h3&gt;
+&lt;p&gt;A point of a function where the first derivative is 0. Can be thought of as either a peak or a valley floor.&lt;/p&gt;
+&lt;h3&gt;Saddle Point&lt;/h3&gt;
+&lt;p&gt;A point of a functon where both the first and second derivative is 0.&lt;/p&gt;
+&lt;h3&gt;Concave&lt;/h3&gt;
+&lt;p&gt;A function where the rate of increase slows as the value of the function gets bigger. Another way to think about it: if plotted in 2d, a convex function curves towards the ground.&lt;/p&gt;
+&lt;h3&gt;Convex&lt;/h3&gt;
+&lt;p&gt;A function where the rate of increase speeds up as the value of the function gets bigger. Another way to think about it: if plotted in 2d, a convex function curves towards the sky.&lt;/p&gt;
+&lt;h3&gt;Conditional Probability&lt;/h3&gt;
+&lt;p&gt;The probability an event occurs given whether or not another event occurs.&lt;/p&gt;
+&lt;p&gt;&lt;span class="math"&gt;\(Pr\left ( y\mid x = 4 \right )\)&lt;/span&gt; is the probability y occurs given that the event x=4 occurs.&lt;/p&gt;
+&lt;h3&gt;Combination&lt;/h3&gt;
+&lt;p&gt;From n items, choose k items, ignoring the order in which you choose them: &lt;span class="math"&gt;\(\binom{n}{k}\)&lt;/span&gt;&lt;/p&gt;
+&lt;h3&gt;Odds and Odds Ratios&lt;/h3&gt;
+&lt;p&gt;The odds of an event are the probability of an event occurs over the probability of an event not occuring: &lt;span class="math"&gt;\(\frac{Pr(x)}{Pr(~x)}\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;The odds ratio of two events, &lt;span class="math"&gt;\(x\)&lt;/span&gt; and &lt;span class="math"&gt;\(y\)&lt;/span&gt; are the odds of the two events:&lt;/p&gt;
+&lt;p&gt;&lt;span class="math"&gt;\(\frac{Pr(x)/Pr(~x)}{Pr(y)/Pr(~y)}\)&lt;/span&gt;&lt;/p&gt;
+&lt;h3&gt;Random Variable&lt;/h3&gt;
+&lt;p&gt;A random variable is a variable that can take an array of values, with the probability it takes a particular value determined by some random process.&lt;/p&gt;
+&lt;p&gt;A distribution of a random variable is the probability of each possible value being realized.&lt;/p&gt;
+&lt;h3&gt;Probability Mass Function &amp;amp; Probability Distribution Function&lt;/h3&gt;
+&lt;p&gt;A function that defines the probability of each possible value occuring in a discrete (PMF) or continous (PDF) function.&lt;/p&gt;
+&lt;h3&gt;Bernoulli Distribution&lt;/h3&gt;
+&lt;p&gt;Applies only to binary random variables only (e.g. coin flips). It's PMF is written as:&lt;/p&gt;
+&lt;div class="math"&gt;$$ Pr(Y = y\mid p)=\begin{cases}
+1-p &amp;amp; \text{ for } y = 0\\
+p &amp;amp; \text{ for } y= 1
+\end{cases} $$&lt;/div&gt;
+&lt;p&gt;The Bernoulli distribution describes the ferquencey of two outcomes over repeated observations. It is built upon the assumption that the events of independent of eachother, meaning the outcome of one coin flip doesn't not affect the outcome of the second coin flip (from Moore and Siegel).&lt;/p&gt;
+&lt;h3&gt;Binomial Distribution&lt;/h3&gt;
+&lt;p&gt;The PMF of the binomial distribution is:&lt;/p&gt;
+&lt;div class="math"&gt;$$ Pr(Y = y\mid n,p) = \binom{n}{y}p^{y}(1-p)^{n-y}$$&lt;/div&gt;
+&lt;p&gt;The binomial distribution describes any discrete distribution with three or more observations where (1) each observation is composed of a binary outcome, (2) the observations are independent, and (3) we have a record of the number of times one value was obtained (from Moore and Siegel).&lt;/p&gt;
+&lt;h3&gt;Poisson Distribution&lt;/h3&gt;
+&lt;p&gt;The Poisson distribution the number of times you observe one event, two events, three events, etc over a fixed period of time. Put another way, it describes the distribution of event counts for rare, random events (from Moore and Siegel).&lt;/p&gt;
+&lt;div class="math"&gt;$$Pr(Y=y|u)=\frac{u^y}{y!\times e^u}$$&lt;/div&gt;
+&lt;p&gt;For example, the Poisson distribution would describe the probability of observing 10 wars in a century.&lt;/p&gt;
+&lt;h3&gt;Negative Binomial Distribution&lt;/h3&gt;
+&lt;p&gt;The NB distribution describes the number of events occuring prior to observing the kth non-event. For example, the number of successful surgeries performed before the 6th failed surgery.&lt;/p&gt;
+&lt;h3&gt;Expectation Of Random Variables&lt;/h3&gt;
+&lt;p&gt;The most likely value a random variable takes. Written &lt;span class="math"&gt;\(E[X]\)&lt;/span&gt;.&lt;/p&gt;
+&lt;h3&gt;Moments Of A Distribution&lt;/h3&gt;
+&lt;p&gt;Moments of a distribution are the parameters used to describe a distribution.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;First moment: Mean&lt;/li&gt;
+&lt;li&gt;Second moment: Variance&lt;/li&gt;
+&lt;li&gt;Third moment: Skewness&lt;/li&gt;
+&lt;li&gt;Fourth moment: Kurtosis (flatness or peakedness)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Uniform Distribution&lt;/h3&gt;
+&lt;p&gt;Assigns an equal probability to all possible events.&lt;/p&gt;
+&lt;h3&gt;Gaussian-Normal Distribution&lt;/h3&gt;
+&lt;p&gt;The bell curve. Defined by two moments: mean and variance.&lt;/p&gt;
+&lt;h3&gt;Logistic Distribution&lt;/h3&gt;
+&lt;p&gt;Often used to model binary outcomes. Defined by two moments: mean and variance.&lt;/p&gt;
+&lt;h3&gt;Exponential Distribution&lt;/h3&gt;
+&lt;p&gt;The exponential distribution describes events produced by a process with a constant risk of failure (from Moore and Siegel).&lt;/p&gt;
+&lt;h3&gt;Pareto Distribution&lt;/h3&gt;
+&lt;p&gt;A distribution in which prior values affect later values.&lt;/p&gt;
+&lt;h3&gt;Gamma Distribution&lt;/h3&gt;
+&lt;p&gt;While the exponential distribution assumes contant risk, the Gamma distribution allows risk to vary over a number of periods.&lt;/p&gt;
+&lt;h3&gt;Weibull Distribution&lt;/h3&gt;
+&lt;p&gt;"[Weibull distribution] can be interpreted as if several processes are running in parallel, with the first to stop ending the duration. This is the weakest link mechanism, as when the failure of some part causes a machine to break down and the total operating time of the machine is the duration." (Lindsey 1995, p. 133)&lt;/p&gt;
+&lt;h3&gt;Chi-squared Distribution&lt;/h3&gt;
+&lt;p&gt;"The sum of squares of n independent variables each distributed according to a standard normal distribution is distributed according to a chi-squared distribution." (Moore and Siegel)&lt;/p&gt;
+&lt;h3&gt;Student's t Distribution&lt;/h3&gt;
+&lt;p&gt;This distribution looks like a normal distribution when N is big enough, but with thicker tails when N is small.&lt;/p&gt;
+&lt;h3&gt;Vector&lt;/h3&gt;
+&lt;p&gt;An 'arrow' in n-dimensional space. For example, in a 2d coordinate plane, the vector (2,3) is x=2 and y=3.&lt;/p&gt;
+&lt;h3&gt;Length Of A Vector&lt;/h3&gt;
+&lt;p&gt;If you think of a 2d coordinate plane, and have a vector (x,y), then you have a point at x,y. The distance from 0 (the origin) to x,y is the vector's length.&lt;/p&gt;
+&lt;p&gt;The length of vector &lt;span class="math"&gt;\(a\)&lt;/span&gt; is denoted &lt;span class="math"&gt;\(\left \| a \right \|\)&lt;/span&gt; and is calculated &lt;span class="math"&gt;\(\sqrt{a_{1}^{2}+a_{2}^{2}+...+a_{n}^{2}}\)&lt;/span&gt;&lt;/p&gt;
+&lt;h3&gt;Vector Addition&lt;/h3&gt;
+&lt;p&gt;To add two vectors, add each corresponding element. For example, for vectors &lt;span class="math"&gt;\(\boldsymbol{a}\)&lt;/span&gt; and &lt;span class="math"&gt;\(\boldsymbol{b}\)&lt;/span&gt;, the sum would be &lt;span class="math"&gt;\((a_{1}+b_{1}, a_{2}+b_{2}, ... a_{n}+b_{n})\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;To add the lengths of two vectors, the process is the same:&lt;/p&gt;
+&lt;div class="math"&gt;$$\left \| \boldsymbol{a} + \boldsymbol{b} \right \| = \sqrt{(a_{1}+b_{1})^{2}+(a_{2}+b_{2})^{2}+...+(a_{n}+b_{n})^{2}}$$&lt;/div&gt;
+&lt;h3&gt;Multiply A Scalar By A Vector&lt;/h3&gt;
+&lt;p&gt;Simply multiply each element of the vector by the scalar. For example:&lt;/p&gt;
+&lt;div class="math"&gt;$$c\boldsymbol{x} = (cx_{1}, cx_{2}, ... cx_{x})$$&lt;/div&gt;
+&lt;h3&gt;Dot Product&lt;/h3&gt;
+&lt;p&gt;One way of thinking about the dot product is that if two vectors are imagined as two arrows pointing out into a 2nd coordinate plane, the dot product is the vector starting at one endpoint and going to the other endpoint.&lt;/p&gt;
+&lt;p&gt;Because if two vectors are perpendicular then the dot product is 0 (because the cosine of the angle they create is 0), the dot product is used to tell you if two vectors are perpendicular/orthogonal/independent.&lt;/p&gt;
+&lt;div class="math"&gt;$$\boldsymbol{a} \cdot  \boldsymbol{b} = a_{1}b_{1} + a_{2}b_{2} + ... a_{n}b_{n}$$&lt;/div&gt;
+&lt;h3&gt;Matrix&lt;/h3&gt;
+&lt;p&gt;A matrix is a rectangular table of numbers of variables that contains rows and columns. It is typically described as an &lt;span class="math"&gt;\(n \times m\)&lt;/span&gt; matrix, meaning &lt;span class="math"&gt;\(n\)&lt;/span&gt; nows and &lt;span class="math"&gt;\(m\)&lt;/span&gt; columns.&lt;/p&gt;
+&lt;div class="math"&gt;$$A_{3x3} = \begin{pmatrix}
+a_{11} &amp;amp; a_{12} &amp;amp; a_{31}\\
+a_{21} &amp;amp;  a_{22}&amp;amp; a_{32}\\
+a_{31} &amp;amp; a_{32} &amp;amp; a_{33}
+\end{pmatrix}$$&lt;/div&gt;
+&lt;h3&gt;Scalar Matrix Multiplication&lt;/h3&gt;
+&lt;p&gt;To multiply a scalar by a matrix, simply multiply each element of the matrix by the scalar.&lt;/p&gt;
+&lt;div class="math"&gt;$$2 \times \begin{bmatrix}
+1 &amp;amp; 2\\
+3 &amp;amp; 4
+\end{bmatrix} = \begin{bmatrix}
+2 &amp;amp; 4\\
+6 &amp;amp; 8
+\end{bmatrix}$$&lt;/div&gt;
+&lt;h3&gt;Matrix Multiplication&lt;/h3&gt;
+&lt;p&gt;To multiply two matrices, it is simply the dot product of the each of first matrix's rows and the second matrix's columns.&lt;/p&gt;
+&lt;div class="math"&gt;$$\begin{bmatrix}
+1 &amp;amp; 2\\
+3 &amp;amp; 4\\
+5 &amp;amp; 6
+\end{bmatrix}\times  \begin{bmatrix}
+1 &amp;amp;  2&amp;amp; 3\\ 4 &amp;amp;  5&amp;amp; 6
+\end{bmatrix} = \begin{bmatrix}
+(1\times1) + (2\times4)&amp;amp;  (1\times2) + (2\times5)&amp;amp; (1\times3) + (2\times6)\\
+(3\times1) + (4\times4) &amp;amp;  (3\times2) + (4\times5)&amp;amp; (3\times3) + (4\times6)\\
+(5\times1) + (6\times4) &amp;amp; (5\times2) + (6\times5) &amp;amp; (5\times3) + (6\times6)
+\end{bmatrix} $$&lt;/div&gt;
+&lt;h3&gt;Trace Of A Matrix&lt;/h3&gt;
+&lt;p&gt;The trace of a matrix is the sum of it's diagonal elements.&lt;/p&gt;
+&lt;h3&gt;Identity Matrix&lt;/h3&gt;
+&lt;p&gt;A square matrix of &lt;span class="math"&gt;\(1\)&lt;/span&gt; on the diagonal elements and &lt;span class="math"&gt;\(0\)&lt;/span&gt; everywhere else.&lt;/p&gt;
+&lt;div class="math"&gt;$$\begin{bmatrix}
+1 &amp;amp; 0\\
+0 &amp;amp; 1
+\end{bmatrix}$$&lt;/div&gt;
+&lt;h3&gt;Inverse Of A Matrix&lt;/h3&gt;
+&lt;p&gt;The inverse of a matrix, &lt;span class="math"&gt;\(\boldsymbol{A}\)&lt;/span&gt;, is a second matrix, &lt;span class="math"&gt;\(\boldsymbol{A}^{-1}\)&lt;/span&gt;, such that &lt;span class="math"&gt;\(\boldsymbol{A} \cdot \boldsymbol{A}^{-1} = \boldsymbol{I}\)&lt;/span&gt;, where &lt;span class="math"&gt;\(\boldsymbol{I}\)&lt;/span&gt; is an identity matrix.&lt;/p&gt;
+&lt;h3&gt;Matrix Rank&lt;/h3&gt;
+&lt;p&gt;The rank of a matrix is the maximum number of linearly independent rows or columns.&lt;/p&gt;
+&lt;h3&gt;Eigenvalue and Eigenvector&lt;/h3&gt;
+&lt;p&gt;An eigenvalue of a matrix is the solution to &lt;span class="math"&gt;\(A\boldsymbol{x}=\lambda\boldsymbol{x}\)&lt;/span&gt;, where &lt;span class="math"&gt;\(\boldsymbol{x}\)&lt;/span&gt; is called the eigenvector, and &lt;span class="math"&gt;\(\lambda\)&lt;/span&gt; is called the eigenvalue.&lt;/p&gt;
+&lt;p&gt;If the eigenvector &lt;span class="math"&gt;\(\boldsymbol{x}\)&lt;/span&gt; is multiplied by &lt;span class="math"&gt;\(A\)&lt;/span&gt;, then &lt;span class="math"&gt;\(\boldsymbol{x}\)&lt;/span&gt; ends up as a scalar multiple of itself that always stays pointed in the same direction but just gets longer or shorter. The &lt;span class="math"&gt;\(\lambda\)&lt;/span&gt; tells us how much longer or shorter it is.&lt;/p&gt;
+&lt;p&gt;In some cases like Markov Chains, researchers think of the eigenvector, &lt;span class="math"&gt;\(\boldsymbol{x}\)&lt;/span&gt;, as the state of the system, and &lt;span class="math"&gt;\(A\)&lt;/span&gt; as the transition matrix between states.&lt;/p&gt;
+&lt;h3&gt;Markov Chains&lt;/h3&gt;
+&lt;p&gt;Markov processes are memoryless, meaning there is no dependence between the present state and the past state. A Markov chain is a stochastic process that is memoryless.&lt;/p&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' &amp;&amp; location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Fri, 12 Aug 2016 12:00:00 -0700</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-08-12:mathematics/basic_mathematical_terms.html</guid><category>Basics</category></item><item><title>Sort A List Of Names By Last Name</title><link>http://chrisalbon.com/python/sort_a_list_by_last_name.html</link><description>&lt;h2&gt;Create a list of names&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;commander_names&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Alan Brooke&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;George Marshall&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Frank Jack Fletcher&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Conrad Helfrich&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Albert Kesselring&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Sort Alphabetically By Last Name&lt;/h2&gt;
+&lt;p&gt;To complete the sort, we will combine three operations:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;lambda x: x.split(" ")&lt;/code&gt;, which is a function that takes a string &lt;code&gt;x&lt;/code&gt; and breaks it up along each blank space. This outputs a list.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;[-1]&lt;/code&gt;, which takes the last element of a list.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sorted()&lt;/code&gt;, which sorts a list.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Sort a variable called &amp;#39;commander_names&amp;#39; by the last elements of each name.&lt;/span&gt;
+&lt;span class="nb"&gt;sorted&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;commander_names&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;[&amp;#39;Alan Brooke&amp;#39;,
+ &amp;#39;Frank Jack Fletcher&amp;#39;,
+ &amp;#39;Conrad Helfrich&amp;#39;,
+ &amp;#39;Albert Kesselring&amp;#39;,
+ &amp;#39;George Marshall&amp;#39;]
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Sat, 25 Jun 2016 12:00:00 -0700</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-06-25:python/sort_a_list_by_last_name.html</guid><category>Data Wrangling</category></item><item><title>Sort A List Of Strings By Length</title><link>http://chrisalbon.com/python/sort_a_list_of_strings_by_length.html</link><description>&lt;h2&gt;Create a list of names&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;commander_names&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Alan Brooke&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;George Marshall&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Frank Jack Fletcher&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Conrad Helfrich&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Albert Kesselring&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; 
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Sort Alphabetically By Length&lt;/h2&gt;
+&lt;p&gt;To complete the sort, we will combine two operations:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;lambda x: len(x)&lt;/code&gt;, which returns the length of each string.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sorted()&lt;/code&gt;, which sorts a list.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Sort a variable called &amp;#39;commander_names&amp;#39; by the length of each string&lt;/span&gt;
+&lt;span class="nb"&gt;sorted&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;commander_names&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;[&amp;#39;Alan Brooke&amp;#39;,
+ &amp;#39;George Marshall&amp;#39;,
+ &amp;#39;Conrad Helfrich&amp;#39;,
+ &amp;#39;Albert Kesselring&amp;#39;,
+ &amp;#39;Frank Jack Fletcher&amp;#39;]
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Sat, 25 Jun 2016 12:00:00 -0700</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-06-25:python/sort_a_list_of_strings_by_length.html</guid><category>Data Wrangling</category></item><item><title>Rename Column Headers In Pandas</title><link>http://chrisalbon.com/python/pandas_rename_column_headers.html</link><description>&lt;p&gt;Originally from &lt;a href="http://stackoverflow.com/users/3291077/rgalbo"&gt;rgalbo&lt;/a&gt; on &lt;a href="http://stackoverflow.com/questions/31328861/python-pandas-replacing-header-with-top-row"&gt;StackOverflow&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Preliminaries&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Import required modules&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pandas&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;pd&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Create example data&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Create a values as dictionary of lists&lt;/span&gt;
+&lt;span class="n"&gt;raw_data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;0&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;first_name&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Molly&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Tina&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Jake&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Amy&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+        &lt;span class="s1"&gt;&amp;#39;1&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;last_name&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Jacobson&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Ali&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Milner&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Cooze&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+        &lt;span class="s1"&gt;&amp;#39;2&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;age&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;52&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;36&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;24&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;73&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+        &lt;span class="s1"&gt;&amp;#39;3&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;preTestScore&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;24&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;31&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;]}&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Create a dataframe&lt;/span&gt;
+&lt;span class="n"&gt;df&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DataFrame&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;raw_data&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# View a dataframe&lt;/span&gt;
+&lt;span class="n"&gt;df&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div&gt;
+&lt;table border="1" class="dataframe"&gt;
+  &lt;thead&gt;
+    &lt;tr style="text-align: right;"&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;0&lt;/th&gt;
+      &lt;th&gt;1&lt;/th&gt;
+      &lt;th&gt;2&lt;/th&gt;
+      &lt;th&gt;3&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;0&lt;/th&gt;
+      &lt;td&gt;first_name&lt;/td&gt;
+      &lt;td&gt;last_name&lt;/td&gt;
+      &lt;td&gt;age&lt;/td&gt;
+      &lt;td&gt;preTestScore&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;1&lt;/th&gt;
+      &lt;td&gt;Molly&lt;/td&gt;
+      &lt;td&gt;Jacobson&lt;/td&gt;
+      &lt;td&gt;52&lt;/td&gt;
+      &lt;td&gt;24&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2&lt;/th&gt;
+      &lt;td&gt;Tina&lt;/td&gt;
+      &lt;td&gt;Ali&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+      &lt;td&gt;31&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;3&lt;/th&gt;
+      &lt;td&gt;Jake&lt;/td&gt;
+      &lt;td&gt;Milner&lt;/td&gt;
+      &lt;td&gt;24&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;4&lt;/th&gt;
+      &lt;td&gt;Amy&lt;/td&gt;
+      &lt;td&gt;Cooze&lt;/td&gt;
+      &lt;td&gt;73&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;h2&gt;Replace the header value with the first row's values&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Create a new variable called &amp;#39;header&amp;#39; from the first row of the dataset&lt;/span&gt;
+&lt;span class="n"&gt;header&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;iloc&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;0      first_name
+1       last_name
+2             age
+3    preTestScore
+Name: 0, dtype: object
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Replace the dataframe with a new one which does not contain the first row&lt;/span&gt;
+&lt;span class="n"&gt;df&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Rename the dataframe&amp;#39;s column values with the header variable&lt;/span&gt;
+&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rename&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;columns&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;header&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div&gt;
+&lt;table border="1" class="dataframe"&gt;
+  &lt;thead&gt;
+    &lt;tr style="text-align: right;"&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;first_name&lt;/th&gt;
+      &lt;th&gt;last_name&lt;/th&gt;
+      &lt;th&gt;age&lt;/th&gt;
+      &lt;th&gt;preTestScore&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;1&lt;/th&gt;
+      &lt;td&gt;Molly&lt;/td&gt;
+      &lt;td&gt;Jacobson&lt;/td&gt;
+      &lt;td&gt;52&lt;/td&gt;
+      &lt;td&gt;24&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2&lt;/th&gt;
+      &lt;td&gt;Tina&lt;/td&gt;
+      &lt;td&gt;Ali&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+      &lt;td&gt;31&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;3&lt;/th&gt;
+      &lt;td&gt;Jake&lt;/td&gt;
+      &lt;td&gt;Milner&lt;/td&gt;
+      &lt;td&gt;24&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;4&lt;/th&gt;
+      &lt;td&gt;Amy&lt;/td&gt;
+      &lt;td&gt;Cooze&lt;/td&gt;
+      &lt;td&gt;73&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Fri, 17 Jun 2016 12:00:00 -0700</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-06-17:python/pandas_rename_column_headers.html</guid><category>Data Wrangling</category></item><item><title>Two Way Frequency Table</title><link>http://chrisalbon.com/r-stats/2-way-frequency-table.html</link><description>&lt;p&gt;&lt;a href="http://www.statmethods.net/stats/frequencies.html"&gt;Original source&lt;/a&gt;&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Create some data&lt;/span&gt;
 A &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kt"&gt;c&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;yes&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;no&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;yes&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;no&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;yes&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;no&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;yes&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;no&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 B &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kt"&gt;c&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;male&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;female&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;female&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;male&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;male&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;male&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;male&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;male&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -193,520 +1015,4 @@ ggplot&lt;span class="p"&gt;(&lt;/span&gt;cabbage_exp&lt;span class="p"&gt;,&lt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="png" src="http://chrisalbon.com/images/add-labels-to-bar-graph_files/add-labels-to-bar-graph_7_2.png" /&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Sun, 01 May 2016 12:00:00 -0700</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-05-01:r-stats/add-labels-to-bar-graph.html</guid><category>Data Visualization</category></item><item><title>Adding Levels To A Factor</title><link>http://chrisalbon.com/r-stats/add-levels-to-factors.html</link><description>&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# create simulated distract name data&lt;/span&gt;
-district &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kt"&gt;c&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;NORTH&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;NORTHWEST&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;CENTRAL&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;SOUTH&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;SOUTHWEST&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;EAST&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="c1"&gt;# remake district categories with the combination of district categories and a new SOUTH CENTRAL category&lt;/span&gt;
-&lt;span class="kp"&gt;levels&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;district&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kt"&gt;c&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;district&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;SOUTH CENTRAL&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kp"&gt;levels&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;district&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;[1] &amp;quot;NORTH&amp;quot;         &amp;quot;NORTHWEST&amp;quot;     &amp;quot;CENTRAL&amp;quot;       &amp;quot;SOUTH&amp;quot;        
-[5] &amp;quot;SOUTHWEST&amp;quot;     &amp;quot;EAST&amp;quot;          &amp;quot;SOUTH CENTRAL&amp;quot;
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Sun, 01 May 2016 12:00:00 -0700</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-05-01:r-stats/add-levels-to-factors.html</guid><category>Basics</category></item><item><title>Aggregate Data By Week Or Month</title><link>http://chrisalbon.com/r-stats/aggregate-by-week-or-month.html</link><description>&lt;p&gt;original source: http://stackoverflow.com/questions/19716244/aggregate-data-by-week-month-etc-in-r?lq=1&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# load the xts package&lt;/span&gt;
-&lt;span class="kn"&gt;library&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;xts&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Loading required package: zoo
-
-Attaching package: ‘zoo’
-
-The following objects are masked from ‘package:base’:
-
-    as.Date, as.Date.numeric
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;Create some simulated data&lt;/h2&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# create an element for every year between two dates&lt;/span&gt;
-date &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kp"&gt;seq&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kp"&gt;as.Date&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;2006-01-01&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="kp"&gt;as.Date&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;2007-01-01&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; by &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;1 day&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="c1"&gt;# create some simulated values&lt;/span&gt;
-score &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; runif&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;366&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="c1"&gt;# create a zoo time series object of score and ata&lt;/span&gt;
-zoo &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; zoo&lt;span class="p"&gt;(&lt;/span&gt;score&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kp"&gt;date&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;Create some averages&lt;/h2&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# create a weekly average&lt;/span&gt;
-weekly.avg &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; apply.weekly&lt;span class="p"&gt;(&lt;/span&gt;zoo&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kp"&gt;mean&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;weekly.avg
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;2006-01-01 2006-01-08 2006-01-15 2006-01-22 2006-01-29 2006-02-05 2006-02-12
- 0.6463105  0.3696941  0.4492466  0.5587588  0.3330893  0.7490642  0.3463500
-2006-02-19 2006-02-26 2006-03-05 2006-03-12 2006-03-19 2006-03-26 2006-04-02
- 0.4594144  0.3015816  0.5016827  0.3824588  0.4501046  0.5086366  0.6927037
-2006-04-09 2006-04-16 2006-04-23 2006-04-30 2006-05-07 2006-05-14 2006-05-21
- 0.5238080  0.6618441  0.4366701  0.6187016  0.6110044  0.5724795  0.5267836
-2006-05-28 2006-06-04 2006-06-11 2006-06-18 2006-06-25 2006-07-02 2006-07-09
- 0.4003268  0.3999404  0.6366840  0.4546525  0.5675619  0.4411083  0.5747285
-2006-07-16 2006-07-23 2006-07-30 2006-08-06 2006-08-13 2006-08-20 2006-08-27
- 0.4136250  0.4936679  0.4814989  0.4419165  0.3644543  0.6385395  0.5230308
-2006-09-03 2006-09-10 2006-09-17 2006-09-24 2006-10-01 2006-10-08 2006-10-15
- 0.5259253  0.5474812  0.4658602  0.4771834  0.6106620  0.4471343  0.4576065
-2006-10-22 2006-10-29 2006-11-05 2006-11-12 2006-11-19 2006-11-26 2006-12-03
- 0.6124155  0.5418694  0.3136825  0.4227544  0.2406943  0.3723846  0.6079556
-2006-12-10 2006-12-17 2006-12-24 2006-12-31 2007-01-01
- 0.5289365  0.4426345  0.6362102  0.4849858  0.1102631
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# create a monthly average&lt;/span&gt;
-monthly.avg &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; apply.monthly&lt;span class="p"&gt;(&lt;/span&gt;zoo&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kp"&gt;mean&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;monthly.avg
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;2006-01-31 2006-02-28 2006-03-31 2006-04-30 2006-05-31 2006-06-30 2006-07-31
- 0.4636550  0.4345047  0.4883293  0.5791776  0.5045688  0.5301847  0.4698487
-2006-08-31 2006-09-30 2006-10-31 2006-11-30 2006-12-31 2007-01-01
- 0.5033712  0.5218908  0.5171836  0.3661705  0.5341010  0.1102631
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Sun, 01 May 2016 12:00:00 -0700</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-05-01:r-stats/aggregate-by-week-or-month.html</guid><category>Data Wrangling</category></item><item><title>The Probability An Economy Seat Is An Aisle?</title><link>http://chrisalbon.com/articles/aisle_seat_probabilities.html</link><description>&lt;p&gt;There are two types of people in the world, aisle seaters and window seaters. I am an aisle seater, nothing is worse than limited bathroom access on a long flight. The first thing I do when I get my ticket is check to see if I have a window seat. If not, I immediately head over to the airline counter and try to get one.&lt;/p&gt;
-&lt;p&gt;Last flight, on Turkish Airlines, I ran into a curious situation. I recieved my boarding pass with my seat number, 18C, but the ticket did not specify if C was an aisle seat or not. Making matters worse, the airline counter was swamped with a few dozen people. So I asked myself: &lt;strong&gt;given only the seat letter, C, what is the probability that it is an aisle seat?&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Later, on the flight, I decided to find out.&lt;/p&gt;
-&lt;h2&gt;Preliminaries&lt;/h2&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Import required modules&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pandas&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;pd&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
-
-&lt;span class="c1"&gt;# Set plots to display in the iPython notebook&lt;/span&gt;
-&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="n"&gt;matplotlib&lt;/span&gt; &lt;span class="n"&gt;inline&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;Setup possible seat configurations&lt;/h2&gt;
-&lt;p&gt;I am a pretty frequently flyer on a variety of airlines and aircraft. There are a variety of seating configurations out there, but typically they follow some basic rules:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;No window cluster of seats has more than three seats.&lt;/li&gt;
-&lt;li&gt;On small slights with three seats, the single seat is on the left side.&lt;/li&gt;
-&lt;li&gt;No flight has more than nine rows.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Based on these rules, here are the "typical" seating configurations from aircraft with between two and nine seats per row. A '1' codifies that a seat is an aisle seat, a '0' codifies that it is a non-aisle seat (i.e. window or middle), and 'np.nan' denotes that the aircraft has less than nine seats (this is so all the list lengths are the same).&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# An aircraft with two seats per row&lt;/span&gt;
-&lt;span class="n"&gt;rows2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nan&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nan&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nan&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nan&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nan&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nan&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nan&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-
-&lt;span class="c1"&gt;# An aircraft with three seats per row&lt;/span&gt;
-&lt;span class="n"&gt;rows3&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nan&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nan&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nan&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nan&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nan&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nan&lt;/span&gt;&lt;span class="p"&gt;,]&lt;/span&gt;
-
-&lt;span class="c1"&gt;# An aircraft with four seats per row&lt;/span&gt;
-&lt;span class="n"&gt;rows4&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nan&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nan&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nan&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nan&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nan&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-
-&lt;span class="c1"&gt;# An aircraft with five seats per row&lt;/span&gt;
-&lt;span class="n"&gt;rows5&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nan&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nan&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nan&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nan&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-
-&lt;span class="c1"&gt;# An aircraft with six seats per row&lt;/span&gt;
-&lt;span class="n"&gt;rows6&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nan&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nan&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nan&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-
-&lt;span class="c1"&gt;# An aircraft with seven seats per row&lt;/span&gt;
-&lt;span class="n"&gt;rows7&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nan&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nan&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-
-&lt;span class="c1"&gt;# An aircraft with eight seats per row&lt;/span&gt;
-&lt;span class="n"&gt;rows8&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nan&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-
-&lt;span class="c1"&gt;# An aircraft with nine seats per row&lt;/span&gt;
-&lt;span class="n"&gt;rows9&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;For example, in an aircraft with five seats per row, &lt;code&gt;rows5&lt;/code&gt;, the seating arrangement would be:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;window&lt;/li&gt;
-&lt;li&gt;aisle&lt;/li&gt;
-&lt;li&gt;aisle&lt;/li&gt;
-&lt;li&gt;middle&lt;/li&gt;
-&lt;li&gt;window&lt;/li&gt;
-&lt;li&gt;no seat&lt;/li&gt;
-&lt;li&gt;no seat&lt;/li&gt;
-&lt;li&gt;no seat&lt;/li&gt;
-&lt;li&gt;no seat&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Next, I'm take advantage of pandas row summation options, but to do this I need to wrangle the data into a pandas dataframe. Essentially I am using the pandas dataframe as a matrix.&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Create a list variable of all possible aircraft configurations&lt;/span&gt;
-&lt;span class="n"&gt;seating_map&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;rows2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;rows3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;rows4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;rows5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;rows6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;rows7&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;rows8&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;rows9&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Create a dataframe from the seating_map variable&lt;/span&gt;
-&lt;span class="n"&gt;df&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DataFrame&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;seating_map&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                  &lt;span class="n"&gt;columns&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;A&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;B&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;C&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;D&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;E&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;F&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;G&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;H&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;I&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
-                  &lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;rows2&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;rows3&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;rows4&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;rows5&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;rows6&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;rows7&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;rows8&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;rows9&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Here is all the data we need to construct our probabilities. The columns represent individual seat letters (A, B, etc.) while the rows represent the number of seats-per-row in the aircraft.&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# View the dataframe&lt;/span&gt;
-&lt;span class="n"&gt;df&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div style="max-height:1000px;max-width:1500px;overflow:auto;"&gt;
-&lt;table border="1" class="dataframe"&gt;
-  &lt;thead&gt;
-    &lt;tr style="text-align: right;"&gt;
-      &lt;th&gt;&lt;/th&gt;
-      &lt;th&gt;A&lt;/th&gt;
-      &lt;th&gt;B&lt;/th&gt;
-      &lt;th&gt;C&lt;/th&gt;
-      &lt;th&gt;D&lt;/th&gt;
-      &lt;th&gt;E&lt;/th&gt;
-      &lt;th&gt;F&lt;/th&gt;
-      &lt;th&gt;G&lt;/th&gt;
-      &lt;th&gt;H&lt;/th&gt;
-      &lt;th&gt;I&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;th&gt;rows2&lt;/th&gt;
-      &lt;td&gt; 1&lt;/td&gt;
-      &lt;td&gt; 1&lt;/td&gt;
-      &lt;td&gt;NaN&lt;/td&gt;
-      &lt;td&gt;NaN&lt;/td&gt;
-      &lt;td&gt;NaN&lt;/td&gt;
-      &lt;td&gt;NaN&lt;/td&gt;
-      &lt;td&gt;NaN&lt;/td&gt;
-      &lt;td&gt;NaN&lt;/td&gt;
-      &lt;td&gt;NaN&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;rows3&lt;/th&gt;
-      &lt;td&gt; 1&lt;/td&gt;
-      &lt;td&gt; 1&lt;/td&gt;
-      &lt;td&gt;  0&lt;/td&gt;
-      &lt;td&gt;NaN&lt;/td&gt;
-      &lt;td&gt;NaN&lt;/td&gt;
-      &lt;td&gt;NaN&lt;/td&gt;
-      &lt;td&gt;NaN&lt;/td&gt;
-      &lt;td&gt;NaN&lt;/td&gt;
-      &lt;td&gt;NaN&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;rows4&lt;/th&gt;
-      &lt;td&gt; 0&lt;/td&gt;
-      &lt;td&gt; 1&lt;/td&gt;
-      &lt;td&gt;  1&lt;/td&gt;
-      &lt;td&gt;  0&lt;/td&gt;
-      &lt;td&gt;NaN&lt;/td&gt;
-      &lt;td&gt;NaN&lt;/td&gt;
-      &lt;td&gt;NaN&lt;/td&gt;
-      &lt;td&gt;NaN&lt;/td&gt;
-      &lt;td&gt;NaN&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;rows5&lt;/th&gt;
-      &lt;td&gt; 0&lt;/td&gt;
-      &lt;td&gt; 1&lt;/td&gt;
-      &lt;td&gt;  1&lt;/td&gt;
-      &lt;td&gt;  0&lt;/td&gt;
-      &lt;td&gt;  0&lt;/td&gt;
-      &lt;td&gt;NaN&lt;/td&gt;
-      &lt;td&gt;NaN&lt;/td&gt;
-      &lt;td&gt;NaN&lt;/td&gt;
-      &lt;td&gt;NaN&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;rows6&lt;/th&gt;
-      &lt;td&gt; 0&lt;/td&gt;
-      &lt;td&gt; 1&lt;/td&gt;
-      &lt;td&gt;  1&lt;/td&gt;
-      &lt;td&gt;  0&lt;/td&gt;
-      &lt;td&gt;  1&lt;/td&gt;
-      &lt;td&gt;  0&lt;/td&gt;
-      &lt;td&gt;NaN&lt;/td&gt;
-      &lt;td&gt;NaN&lt;/td&gt;
-      &lt;td&gt;NaN&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;rows7&lt;/th&gt;
-      &lt;td&gt; 0&lt;/td&gt;
-      &lt;td&gt; 1&lt;/td&gt;
-      &lt;td&gt;  1&lt;/td&gt;
-      &lt;td&gt;  0&lt;/td&gt;
-      &lt;td&gt;  1&lt;/td&gt;
-      &lt;td&gt;  1&lt;/td&gt;
-      &lt;td&gt;  0&lt;/td&gt;
-      &lt;td&gt;NaN&lt;/td&gt;
-      &lt;td&gt;NaN&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;rows8&lt;/th&gt;
-      &lt;td&gt; 0&lt;/td&gt;
-      &lt;td&gt; 0&lt;/td&gt;
-      &lt;td&gt;  1&lt;/td&gt;
-      &lt;td&gt;  1&lt;/td&gt;
-      &lt;td&gt;  1&lt;/td&gt;
-      &lt;td&gt;  1&lt;/td&gt;
-      &lt;td&gt;  0&lt;/td&gt;
-      &lt;td&gt;  0&lt;/td&gt;
-      &lt;td&gt;NaN&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;rows9&lt;/th&gt;
-      &lt;td&gt; 0&lt;/td&gt;
-      &lt;td&gt; 0&lt;/td&gt;
-      &lt;td&gt;  1&lt;/td&gt;
-      &lt;td&gt;  1&lt;/td&gt;
-      &lt;td&gt;  0&lt;/td&gt;
-      &lt;td&gt;  1&lt;/td&gt;
-      &lt;td&gt;  1&lt;/td&gt;
-      &lt;td&gt;  0&lt;/td&gt;
-      &lt;td&gt;  0&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-
-&lt;h2&gt;Calculate aisle probability&lt;/h2&gt;
-&lt;p&gt;Because each aircraft seats-per-row configuration (i.e. row) is binary (1 if aisle, 0 if non-aisle), the probability that a seat is an aisle is simply the mean value of each seat letter (i.e. column).&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Create a list wherein each element is the mean value of a column&lt;/span&gt;
-&lt;span class="n"&gt;aisle_probability&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;A&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mean&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt;
-                     &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;B&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mean&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt;
-                     &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;C&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mean&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt;
-                     &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;D&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mean&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt;
-                     &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;E&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mean&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt;
-                     &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;F&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mean&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt;
-                     &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;G&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mean&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt;
-                     &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;H&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mean&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt;
-                     &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;I&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mean&lt;/span&gt;&lt;span class="p"&gt;()]&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Display the variable&lt;/span&gt;
-&lt;span class="n"&gt;aisle_probability&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;[0.25,
- 0.75,
- 0.8571428571428571,
- 0.33333333333333331,
- 0.59999999999999998,
- 0.75,
- 0.33333333333333331,
- 0.0,
- 0.0]
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;So there you have it, the probability that each seat letter is an aisle. However, we can make the presentation a little more intituative.&lt;/p&gt;
-&lt;h2&gt;Visualize seat letter probabilities&lt;/h2&gt;
-&lt;p&gt;The most obvious visualization to convey the probabilities would be seat letters on the x-axis and probabilities on the y-axis. Panda's plot function makes that easy.&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Create a list of strings to use as the x-axis labels&lt;/span&gt;
-&lt;span class="n"&gt;seats&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Seat A&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Seat B&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Seat C&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Seat D&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-         &lt;span class="s1"&gt;&amp;#39;Seat E&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Seat F&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Seat G&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Seat H&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Seat I&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Plot the probabilities, using &amp;#39;seats&amp;#39; as the index as a bar chart&lt;/span&gt;
-&lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Series&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;aisle_probability&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;seats&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;kind&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;bar&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="c1"&gt;# set y to range between 0 and 1&lt;/span&gt;
-                                                    &lt;span class="n"&gt;ylim&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
-                                                    &lt;span class="c1"&gt;# set the figure size&lt;/span&gt;
-                                                    &lt;span class="n"&gt;figsize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
-                                                    &lt;span class="c1"&gt;# set the figure title&lt;/span&gt;
-                                                    &lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Probabilty of being an Aisle Seat in Economy Class&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;lt;matplotlib.axes._subplots.AxesSubplot at 0x1078300f0&amp;gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;&lt;img alt="png" src="http://chrisalbon.com/images/aisle_seat_probabilities/output_20_1.png" /&gt;&lt;/p&gt;
-&lt;p&gt;So there we have it! If given a boarding pass with seat C you have a 86% probability of being in an aisle seat!&lt;/p&gt;
-&lt;p&gt;I hope this was helpful!&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Sun, 01 May 2016 12:00:00 -0700</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-05-01:articles/aisle_seat_probabilities.html</guid></item><item><title>All Combinations For A List Of Objects</title><link>http://chrisalbon.com/python/all_combinations_of_a_list_of_objects.html</link><description>&lt;h2&gt;Preliminary&lt;/h2&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Import combinations with replacements from itertools&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;itertools&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;combinations_with_replacement&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;Create a list of objects&lt;/h2&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Create a list of objects to combine&lt;/span&gt;
-&lt;span class="n"&gt;list_of_objects&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;warplanes&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;armor&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;infantry&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;Find all combinations (with replacement) for the list&lt;/h2&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Create an empty list object to hold the results of the loop&lt;/span&gt;
-&lt;span class="n"&gt;combinations&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
-
-&lt;span class="c1"&gt;# Create a loop for every item in the length of list_of_objects, that,&lt;/span&gt;
-&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;list_of_objects&lt;/span&gt;&lt;span class="p"&gt;))):&lt;/span&gt;
-    &lt;span class="c1"&gt;# Finds every combination (with replacement) for each object in the list&lt;/span&gt;
-    &lt;span class="n"&gt;combinations&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;combinations_with_replacement&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;list_of_objects&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
-
-&lt;span class="c1"&gt;# View the results&lt;/span&gt;
-&lt;span class="n"&gt;combinations&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;[[(&amp;#39;warplanes&amp;#39;,), (&amp;#39;armor&amp;#39;,), (&amp;#39;infantry&amp;#39;,)],
- [(&amp;#39;warplanes&amp;#39;, &amp;#39;warplanes&amp;#39;),
-  (&amp;#39;warplanes&amp;#39;, &amp;#39;armor&amp;#39;),
-  (&amp;#39;warplanes&amp;#39;, &amp;#39;infantry&amp;#39;),
-  (&amp;#39;armor&amp;#39;, &amp;#39;armor&amp;#39;),
-  (&amp;#39;armor&amp;#39;, &amp;#39;infantry&amp;#39;),
-  (&amp;#39;infantry&amp;#39;, &amp;#39;infantry&amp;#39;)],
- [(&amp;#39;warplanes&amp;#39;, &amp;#39;warplanes&amp;#39;, &amp;#39;warplanes&amp;#39;),
-  (&amp;#39;warplanes&amp;#39;, &amp;#39;warplanes&amp;#39;, &amp;#39;armor&amp;#39;),
-  (&amp;#39;warplanes&amp;#39;, &amp;#39;warplanes&amp;#39;, &amp;#39;infantry&amp;#39;),
-  (&amp;#39;warplanes&amp;#39;, &amp;#39;armor&amp;#39;, &amp;#39;armor&amp;#39;),
-  (&amp;#39;warplanes&amp;#39;, &amp;#39;armor&amp;#39;, &amp;#39;infantry&amp;#39;),
-  (&amp;#39;warplanes&amp;#39;, &amp;#39;infantry&amp;#39;, &amp;#39;infantry&amp;#39;),
-  (&amp;#39;armor&amp;#39;, &amp;#39;armor&amp;#39;, &amp;#39;armor&amp;#39;),
-  (&amp;#39;armor&amp;#39;, &amp;#39;armor&amp;#39;, &amp;#39;infantry&amp;#39;),
-  (&amp;#39;armor&amp;#39;, &amp;#39;infantry&amp;#39;, &amp;#39;infantry&amp;#39;),
-  (&amp;#39;infantry&amp;#39;, &amp;#39;infantry&amp;#39;, &amp;#39;infantry&amp;#39;)]]
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Flatten the list of lists into just a list&lt;/span&gt;
-&lt;span class="n"&gt;combinations&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;row&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;combinations&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-
-&lt;span class="c1"&gt;# View the results&lt;/span&gt;
-&lt;span class="n"&gt;combinations&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;[(&amp;#39;warplanes&amp;#39;,),
- (&amp;#39;armor&amp;#39;,),
- (&amp;#39;infantry&amp;#39;,),
- (&amp;#39;warplanes&amp;#39;, &amp;#39;warplanes&amp;#39;),
- (&amp;#39;warplanes&amp;#39;, &amp;#39;armor&amp;#39;),
- (&amp;#39;warplanes&amp;#39;, &amp;#39;infantry&amp;#39;),
- (&amp;#39;armor&amp;#39;, &amp;#39;armor&amp;#39;),
- (&amp;#39;armor&amp;#39;, &amp;#39;infantry&amp;#39;),
- (&amp;#39;infantry&amp;#39;, &amp;#39;infantry&amp;#39;),
- (&amp;#39;warplanes&amp;#39;, &amp;#39;warplanes&amp;#39;, &amp;#39;warplanes&amp;#39;),
- (&amp;#39;warplanes&amp;#39;, &amp;#39;warplanes&amp;#39;, &amp;#39;armor&amp;#39;),
- (&amp;#39;warplanes&amp;#39;, &amp;#39;warplanes&amp;#39;, &amp;#39;infantry&amp;#39;),
- (&amp;#39;warplanes&amp;#39;, &amp;#39;armor&amp;#39;, &amp;#39;armor&amp;#39;),
- (&amp;#39;warplanes&amp;#39;, &amp;#39;armor&amp;#39;, &amp;#39;infantry&amp;#39;),
- (&amp;#39;warplanes&amp;#39;, &amp;#39;infantry&amp;#39;, &amp;#39;infantry&amp;#39;),
- (&amp;#39;armor&amp;#39;, &amp;#39;armor&amp;#39;, &amp;#39;armor&amp;#39;),
- (&amp;#39;armor&amp;#39;, &amp;#39;armor&amp;#39;, &amp;#39;infantry&amp;#39;),
- (&amp;#39;armor&amp;#39;, &amp;#39;infantry&amp;#39;, &amp;#39;infantry&amp;#39;),
- (&amp;#39;infantry&amp;#39;, &amp;#39;infantry&amp;#39;, &amp;#39;infantry&amp;#39;)]
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Sun, 01 May 2016 12:00:00 -0700</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-05-01:python/all_combinations_of_a_list_of_objects.html</guid><category>Basics</category></item><item><title>Annotating Plots</title><link>http://chrisalbon.com/r-stats/annotating-plots.html</link><description>&lt;p&gt;Original source: r graphics cookbook&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# load the gcookbook package for the data&lt;/span&gt;
-&lt;span class="kn"&gt;library&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;gcookbook&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="c1"&gt;# load the ggplot2 package&lt;/span&gt;
-&lt;span class="kn"&gt;library&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;ggplot2&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="c1"&gt;# reset the graphing device&lt;/span&gt;
-dev.off&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;quartz_off_screen
-                3
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# create the ggplot2 data&lt;/span&gt;
-p &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; ggplot&lt;span class="p"&gt;(&lt;/span&gt;faithful&lt;span class="p"&gt;,&lt;/span&gt; aes&lt;span class="p"&gt;(&lt;/span&gt;x &lt;span class="o"&gt;=&lt;/span&gt; eruptions&lt;span class="p"&gt;,&lt;/span&gt; y &lt;span class="o"&gt;=&lt;/span&gt; waiting&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;Add Text&lt;/h2&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# create the ggplot2 plot&lt;/span&gt;
-p &lt;span class="o"&gt;+&lt;/span&gt; geom_point&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;
-  &lt;span class="c1"&gt;# add text&lt;/span&gt;
-  annotate&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;text&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; x &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; y &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;48&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; label&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Group 1&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; family&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;serif&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; fontface&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;italic&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; colour&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;darkred&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; size&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;6&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;
-  &lt;span class="c1"&gt;# add more text&lt;/span&gt;
-  annotate&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;text&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; x &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;4.5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; y &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;66&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; label&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Group 2&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; family&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;serif&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; fontface&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;italic&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; colour&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;darkred&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; size&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;6&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="c1"&gt;# Add Mathematical Expressions&lt;/span&gt;
-
-&lt;span class="c1"&gt;# create the ggplot2 plot&lt;/span&gt;
-p &lt;span class="o"&gt;+&lt;/span&gt; geom_point&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;
-  &lt;span class="c1"&gt;# add the formula, parse=TRUE turns the next into a formula&lt;/span&gt;
-  annotate&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;text&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; x &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;4.5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; y &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;66&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; parse &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;TRUE&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; label &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;frac(1, sqrt(2 * pi)) * e ^ {-x^2 / 2}&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;&lt;img alt="png" src="http://chrisalbon.com/images/annotating-plots_files/annotating-plots_4_1.png" /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="png" src="http://chrisalbon.com/images/annotating-plots_files/annotating-plots_4_3.png" /&gt;&lt;/p&gt;
-&lt;h2&gt;Add Mathematical Expressions&lt;/h2&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# create the ggplot2 plot&lt;/span&gt;
-p &lt;span class="o"&gt;+&lt;/span&gt; geom_point&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;
-  &lt;span class="c1"&gt;# add the formula, parse=TRUE turns the next into a formula&lt;/span&gt;
-  annotate&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;text&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; x &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;4.5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; y &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;66&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; parse &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;TRUE&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; label &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;frac(1, sqrt(2 * pi)) * e ^ {-x^2 / 2}&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;&lt;img alt="png" src="http://chrisalbon.com/images/annotating-plots_files/annotating-plots_6_1.png" /&gt;&lt;/p&gt;
-&lt;h2&gt;Add Lines&lt;/h2&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# load the grid package to create the flat ends of the line seqment and arrow&lt;/span&gt;
-&lt;span class="kn"&gt;library&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;grid&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="c1"&gt;# create the ggplot2 plot&lt;/span&gt;
-p &lt;span class="o"&gt;+&lt;/span&gt; geom_point&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;
-  &lt;span class="c1"&gt;# add a horizontal line at y = 66&lt;/span&gt;
-  geom_hline&lt;span class="p"&gt;(&lt;/span&gt;yintercept &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;66&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;
-  &lt;span class="c1"&gt;# add a vertical line at 3 = 3&lt;/span&gt;
-  geom_vline&lt;span class="p"&gt;(&lt;/span&gt;xintercept &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;
-  &lt;span class="c1"&gt;# add an angled line&lt;/span&gt;
-  geom_abline&lt;span class="p"&gt;(&lt;/span&gt;intercept &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;37.4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; slope &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;9&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;
-  &lt;span class="c1"&gt;# add a line segment&lt;/span&gt;
-  annotate&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;segment&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; x &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; xend &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;2.5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; y &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;75&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; yend &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;75&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; arrow&lt;span class="o"&gt;=&lt;/span&gt;arrow&lt;span class="p"&gt;(&lt;/span&gt;ends&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;both&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; angle&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;90&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; length&lt;span class="o"&gt;=&lt;/span&gt;unit&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;.2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;cm&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;
-  &lt;span class="c1"&gt;# add an arrow&lt;/span&gt;
-  annotate&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;segment&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; x &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; xend &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; y &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;60&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; yend &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;55&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; colour&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;blue&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; size&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; arrow&lt;span class="o"&gt;=&lt;/span&gt;arrow&lt;span class="p"&gt;())&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;&lt;img alt="png" src="http://chrisalbon.com/images/annotating-plots_files/annotating-plots_8_1.png" /&gt;&lt;/p&gt;
-&lt;h2&gt;Add A Shaded Rectangle&lt;/h2&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# create the ggplot2 plot&lt;/span&gt;
-p &lt;span class="o"&gt;+&lt;/span&gt; geom_point&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;
-  &lt;span class="c1"&gt;# add a shaped blue rectangle&lt;/span&gt;
-  annotate&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;rect&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; xmin&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; xmax&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; ymin&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;40&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; ymax&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;100&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; alpha&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;.1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; fill&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;blue&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;&lt;img alt="png" src="http://chrisalbon.com/images/annotating-plots_files/annotating-plots_10_1.png" /&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Sun, 01 May 2016 12:00:00 -0700</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-05-01:r-stats/annotating-plots.html</guid><category>Data Visualization</category></item><item><title>Apply A Function On Every Row Of A Dataframe</title><link>http://chrisalbon.com/r-stats/apply-function-to-every-row.html</link><description>&lt;p&gt;original source: http://stackoverflow.com/questions/2074606/doing-a-plyr-operation-on-every-row-of-a-data-frame-in-r&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Load packages&lt;/span&gt;
-&lt;span class="kn"&gt;library&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;plyr&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# create a simulated dataframe&lt;/span&gt;
-x &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; rnorm&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-y &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; rnorm&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-df &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="kt"&gt;data.frame&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;x&lt;span class="p"&gt;,&lt;/span&gt;y&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# array to dataframe apply, on df, for each row, apply transform() to create a variable called &amp;quot;max&amp;quot; whose values are the maximum value of x or y (whichever is higher).&lt;/span&gt;
-adply&lt;span class="p"&gt;(&lt;/span&gt;df&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kp"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; max &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kp"&gt;max&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;x&lt;span class="p"&gt;,&lt;/span&gt; y&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;            x          y        max
-1  -1.0286311  0.6621974  0.6621974
-2   0.5466022  0.2977963  0.5466022
-3  -0.6559125 -2.0830247 -0.6559125
-4  -1.6942847 -0.2205220 -0.2205220
-5   2.2678281 -0.4791234  2.2678281
-6  -1.6849528 -0.4873940 -0.4873940
-7   1.1627351  0.5137251  1.1627351
-8   1.4182618  0.9697840  1.4182618
-9   0.2025052 -0.3519337  0.2025052
-10 -0.7100003 -0.6827529 -0.6827529
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Sun, 01 May 2016 12:00:00 -0700</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-05-01:r-stats/apply-function-to-every-row.html</guid><category>Basics</category></item></channel></rss>
+&lt;p&gt;&lt;img alt="png" src="http://chrisalbon.com/images/add-labels-to-bar-graph_files/add-labels-to-bar-graph_7_2.png" /&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Sun, 01 May 2016 12:00:00 -0700</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-05-01:r-stats/add-labels-to-bar-graph.html</guid><category>Data Visualization</category></item></channel></rss>
