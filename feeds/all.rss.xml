@@ -139,7 +139,7 @@
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="png" src="output_12_1.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="png" src="http://chrisalbon.com/images/linear_regression_scikitlearn/output_12_1.png" /&gt;&lt;/p&gt;
 &lt;h2&gt;Break Data Up Into Training And Test Datasets&lt;/h2&gt;
 &lt;p&gt;Now for the real work. To judge how how good our model is, we need something to test it against. We can accomplish this using a technique called cross-validation. Cross-validation can get much more complicated and powerful, but in this example we are going do the most simple version of this technique.&lt;/p&gt;
 &lt;h3&gt;Steps&lt;/h3&gt;
