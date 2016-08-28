@@ -6,21 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="Data Science for Social Scientists">
+    <meta name="description" content="Data Science for Political and Social Phenomena">
     <meta name="author" content="Chris Albon">
     <link rel="icon" href="../favicon.ico">
 
-    <title>Data Structure Basics</title>
+    <title>Data Structure Basics - Python</title>
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="../theme/js/jquery.min.js"><\/script>')
+    </script>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="../theme/css/bootstrap.css" />
-
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link rel="stylesheet" type="text/css" href="../theme/css/ie10-viewport-bug-workaround.css" />
     <!-- Custom styles for this template -->
     <link rel="stylesheet" type="text/css" href="../theme/css/style.css" />
     <link rel="stylesheet" type="text/css" href="../theme/css/notebooks.css" />
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>    
+    <link href='https://fonts.googleapis.com/css?family=PT+Serif:400,700|Roboto:400,500,700' rel='stylesheet' type='text/css'>
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -53,9 +59,9 @@
                         <ul class="dropdown-menu">
                             <li><a href="../pages/about.html">About Chris</a></li>
                             <li><a href="https://github.com/chrisalbon">GitHub</a></li>
-                            <li><a href="https://pinboard.in/u:chrisalbon">Pinboard</a></li>
                             <li><a href="https://twitter.com/chrisalbon">Twitter</a></li>
-                            <li><a href="../feeds/all.rss.xml">Feed</a></li>
+                            <li><a href="https://www.linkedin.com/in/chrisralbon">LinkedIn</a></li>
+                            <li><a href="https://pinboard.in/u:chrisalbon">Pinboard</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -74,19 +80,24 @@
                             <li><a href="..#Bayesian_Statistics">Bayesian Statistics</a></li>
                             <li><a href="..#Machine_Learning">Machine Learning</a></li>
                             <li><a href="..#GitHub">GitHub</a></li>
+                            <li><a href="..#Articles">Articles</a></li>
+                            <li><a href="..#Projects">Projects</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Projects<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="..#Writing">Writing</a></li>
-                            <li><a href="..#Projects">Projects</a></li>
-                            <li><a href="http://popily.com">Popily</a></li>
+                            <li><a href="http://newknowledge.io">New Knowledge</a></li>
                             <li><a href="http://partiallyderivative.com">Partially Derivative</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="https://github.com/chrisalbon/peripheral_brain">Peripheral Brain</a></li>
+                            <li><a href="https://github.com/chrisalbon/Data-Science-For-Political-And-Social-Phenomena">Data Science for Political and Social Phenomena</a></li>
                         </ul>
                     </li>
+
+                    <li class="dropdown">
+                        <a href="../feeds/all.rss.xml">Feed</a>
+                    </li>
+
 
                 </ul>
 
@@ -94,7 +105,7 @@
                     <div class="form-group" style="display:inline;">
                         <div class="input-group" style="display:table;">
                             <span class="input-group-addon" style="width:1%;"><span class="glyphicon glyphicon-search"></span></span>
-                            <input class="form-control search-query" name="q" id="tipue_search_input" placeholder="Search Here" required autocomplete="off" autofocus="autofocus" type="text">
+                            <input class="form-control search-query" name="q" id="tipue_search_input" placeholder="e.g. scikit KNN, pandas merge, central limit theorem" required autocomplete="off" autofocus="autofocus" type="text">
                         </div>
                     </div>
                 </form>
@@ -103,6 +114,8 @@
             <!--/.nav-collapse -->
         </div>
     </div>
+
+
 
     <!-- end of header section -->
     <div class="container">
@@ -124,36 +137,36 @@
     <li>Basics</li>
 </ol>
 </header>
-
+<div class='article_content'>
 <p>There are four: lists, Tuples, dictionaries, and sets</p>
 <h2>Lists</h2>
 <p>"A list is a data structure that holds an ordered collection of items i.e. you can store a sequence of items in a list." - A Byte Of Python</p>
 <p>Lists are mutable.</p>
-<div class="highlight"><pre><span></span><span class="c1"># Create a list of countries, then print the results</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a list of countries, then print the results</span>
 <span class="n">allies</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;USA&#39;</span><span class="p">,</span><span class="s1">&#39;UK&#39;</span><span class="p">,</span><span class="s1">&#39;France&#39;</span><span class="p">,</span><span class="s1">&#39;New Zealand&#39;</span><span class="p">,</span>
           <span class="s1">&#39;Australia&#39;</span><span class="p">,</span><span class="s1">&#39;Canada&#39;</span><span class="p">,</span><span class="s1">&#39;Poland&#39;</span><span class="p">];</span> <span class="n">allies</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[&#39;USA&#39;, &#39;UK&#39;, &#39;France&#39;, &#39;New Zealand&#39;, &#39;Australia&#39;, &#39;Canada&#39;, &#39;Poland&#39;]
+<div class="codehilite"><pre><span></span>[&#39;USA&#39;, &#39;UK&#39;, &#39;France&#39;, &#39;New Zealand&#39;, &#39;Australia&#39;, &#39;Canada&#39;, &#39;Poland&#39;]
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Print the length of the list</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Print the length of the list</span>
 <span class="nb">len</span><span class="p">(</span><span class="n">allies</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>7
+<div class="codehilite"><pre><span></span>7
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Add an item to the list, then print the results</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Add an item to the list, then print the results</span>
 <span class="n">allies</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;China&#39;</span><span class="p">);</span> <span class="n">allies</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[&#39;USA&#39;,
+<div class="codehilite"><pre><span></span>[&#39;USA&#39;,
  &#39;UK&#39;,
  &#39;France&#39;,
  &#39;New Zealand&#39;,
@@ -164,12 +177,12 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Sort list, then print the results</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Sort list, then print the results</span>
 <span class="n">allies</span><span class="o">.</span><span class="n">sort</span><span class="p">();</span> <span class="n">allies</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[&#39;Australia&#39;,
+<div class="codehilite"><pre><span></span>[&#39;Australia&#39;,
  &#39;Canada&#39;,
  &#39;China&#39;,
  &#39;France&#39;,
@@ -180,12 +193,12 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Reverse sort list, then print the results</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Reverse sort list, then print the results</span>
 <span class="n">allies</span><span class="o">.</span><span class="n">sort</span><span class="p">();</span> <span class="n">allies</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[&#39;Australia&#39;,
+<div class="codehilite"><pre><span></span>[&#39;Australia&#39;,
  &#39;Canada&#39;,
  &#39;China&#39;,
  &#39;France&#39;,
@@ -196,39 +209,39 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># View the first item of the list</span>
+<div class="codehilite"><pre><span></span><span class="c1"># View the first item of the list</span>
 <span class="n">allies</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>&#39;Australia&#39;
+<div class="codehilite"><pre><span></span>&#39;Australia&#39;
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># View the last item of the list</span>
+<div class="codehilite"><pre><span></span><span class="c1"># View the last item of the list</span>
 <span class="n">allies</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>&#39;USA&#39;
+<div class="codehilite"><pre><span></span>&#39;USA&#39;
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Delete the item in the list</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Delete the item in the list</span>
 <span class="k">del</span> <span class="n">allies</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span> <span class="n">allies</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[&#39;Canada&#39;, &#39;China&#39;, &#39;France&#39;, &#39;New Zealand&#39;, &#39;Poland&#39;, &#39;UK&#39;, &#39;USA&#39;]
+<div class="codehilite"><pre><span></span>[&#39;Canada&#39;, &#39;China&#39;, &#39;France&#39;, &#39;New Zealand&#39;, &#39;Poland&#39;, &#39;UK&#39;, &#39;USA&#39;]
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Add a numeric value to a list of strings</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Add a numeric value to a list of strings</span>
 <span class="n">allies</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">3442</span><span class="p">);</span> <span class="n">allies</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>[&#39;Canada&#39;, &#39;China&#39;, &#39;France&#39;, &#39;New Zealand&#39;, &#39;Poland&#39;, &#39;UK&#39;, &#39;USA&#39;, 3442]
+<div class="codehilite"><pre><span></span>[&#39;Canada&#39;, &#39;China&#39;, &#39;France&#39;, &#39;New Zealand&#39;, &#39;Poland&#39;, &#39;UK&#39;, &#39;USA&#39;, 3442]
 </pre></div>
 
 
@@ -236,46 +249,46 @@
 <p>"Though tuples may seem similar to lists, they are often used in different situations and for different purposes. Tuples are immutable, and usually contain an heterogeneous sequence of elements that are accessed via unpacking (or indexing (or even by attribute in the case of namedtuples). Lists are mutable, and their elements are usually homogeneous and are accessed by iterating over the list." - Python Documentation</p>
 <p>"Tuples are heterogeneous data structures (i.e., their entries have different meanings), while lists are homogeneous sequences." - StackOverflow</p>
 <p>Parentheses are optional, but useful.</p>
-<div class="highlight"><pre><span></span><span class="c1"># Create a tuple of state names</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a tuple of state names</span>
 <span class="n">usa</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Texas&#39;</span><span class="p">,</span> <span class="s1">&#39;California&#39;</span><span class="p">,</span> <span class="s1">&#39;Maryland&#39;</span><span class="p">);</span> <span class="n">usa</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>(&#39;Texas&#39;, &#39;California&#39;, &#39;Maryland&#39;)
+<div class="codehilite"><pre><span></span>(&#39;Texas&#39;, &#39;California&#39;, &#39;Maryland&#39;)
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create a tuple of countries</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a tuple of countries</span>
 <span class="c1"># (notice the USA has a state names in the nested tuple)</span>
 <span class="n">countries</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;canada&#39;</span><span class="p">,</span> <span class="s1">&#39;mexico&#39;</span><span class="p">,</span> <span class="n">usa</span><span class="p">);</span> <span class="n">countries</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>(&#39;canada&#39;, &#39;mexico&#39;, (&#39;Texas&#39;, &#39;California&#39;, &#39;Maryland&#39;))
+<div class="codehilite"><pre><span></span>(&#39;canada&#39;, &#39;mexico&#39;, (&#39;Texas&#39;, &#39;California&#39;, &#39;Maryland&#39;))
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># View the third item of the top tuple</span>
+<div class="codehilite"><pre><span></span><span class="c1"># View the third item of the top tuple</span>
 <span class="n">countries</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>(&#39;Texas&#39;, &#39;California&#39;, &#39;Maryland&#39;)
+<div class="codehilite"><pre><span></span>(&#39;Texas&#39;, &#39;California&#39;, &#39;Maryland&#39;)
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># View the third item of the third tuple</span>
+<div class="codehilite"><pre><span></span><span class="c1"># View the third item of the third tuple</span>
 <span class="n">countries</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>&#39;Maryland&#39;
+<div class="codehilite"><pre><span></span>&#39;Maryland&#39;
 </pre></div>
 
 
 <h2>Dictionaries</h2>
 <p>"A dictionary is like an address-book where you can find the address or contact details of a person by knowing only his/her name i.e. we associate keys (name) with values (details). Note that the key must be unique just like you cannot find out the correct information if you have two persons with the exact same name." - A Byte Of Python</p>
-<div class="highlight"><pre><span></span><span class="c1"># Create a dictionary with key:value combos</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a dictionary with key:value combos</span>
 <span class="n">staff</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Chris&#39;</span> <span class="p">:</span> <span class="s1">&#39;chris@stater.org&#39;</span><span class="p">,</span>
          <span class="s1">&#39;Jake&#39;</span> <span class="p">:</span> <span class="s1">&#39;jake@stater.org&#39;</span><span class="p">,</span>
          <span class="s1">&#39;Ashley&#39;</span> <span class="p">:</span> <span class="s1">&#39;ashley@stater.org&#39;</span><span class="p">,</span>
@@ -284,32 +297,32 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Print the value using the key</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Print the value using the key</span>
 <span class="n">staff</span><span class="p">[</span><span class="s1">&#39;Chris&#39;</span><span class="p">]</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>&#39;chris@stater.org&#39;
+<div class="codehilite"><pre><span></span>&#39;chris@stater.org&#39;
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Delete a dictionary entry based on the key</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Delete a dictionary entry based on the key</span>
 <span class="k">del</span> <span class="n">staff</span><span class="p">[</span><span class="s1">&#39;Chris&#39;</span><span class="p">];</span> <span class="n">staff</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>{&#39;Jake&#39;: &#39;jake@stater.org&#39;,
+<div class="codehilite"><pre><span></span>{&#39;Jake&#39;: &#39;jake@stater.org&#39;,
  &#39;Ashley&#39;: &#39;ashley@stater.org&#39;,
  &#39;Shelly&#39;: &#39;shelly@stater.org&#39;}
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Add an item to the dictionary</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Add an item to the dictionary</span>
 <span class="n">staff</span><span class="p">[</span><span class="s1">&#39;Guido&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;guido@python.org&#39;</span><span class="p">;</span> <span class="n">staff</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>{&#39;Jake&#39;: &#39;jake@stater.org&#39;,
+<div class="codehilite"><pre><span></span>{&#39;Jake&#39;: &#39;jake@stater.org&#39;,
  &#39;Ashley&#39;: &#39;ashley@stater.org&#39;,
  &#39;Guido&#39;: &#39;guido@python.org&#39;,
  &#39;Shelly&#39;: &#39;shelly@stater.org&#39;}
@@ -318,64 +331,65 @@
 
 <h2>Sets</h2>
 <p>Sets are unordered collections of simple objects.</p>
-<div class="highlight"><pre><span></span><span class="c1"># Create a set of BRI countries</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a set of BRI countries</span>
 <span class="n">BRI</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s1">&#39;brazil&#39;</span><span class="p">,</span> <span class="s1">&#39;russia&#39;</span><span class="p">,</span> <span class="s1">&#39;india&#39;</span><span class="p">])</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Is India in the set BRI?</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Is India in the set BRI?</span>
 <span class="s1">&#39;india&#39;</span> <span class="ow">in</span> <span class="n">BRI</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>True
+<div class="codehilite"><pre><span></span>True
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Is the US in the set BRI?</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Is the US in the set BRI?</span>
 <span class="s1">&#39;usa&#39;</span> <span class="ow">in</span> <span class="n">BRI</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>False
+<div class="codehilite"><pre><span></span>False
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Create a copy of BRI called BRIC</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a copy of BRI called BRIC</span>
 <span class="n">BRIC</span> <span class="o">=</span> <span class="n">BRI</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Add China to BRIC</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Add China to BRIC</span>
 <span class="n">BRIC</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;china&#39;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Is BRIC a super-set of BRI?</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Is BRIC a super-set of BRI?</span>
 <span class="n">BRIC</span><span class="o">.</span><span class="n">issuperset</span><span class="p">(</span><span class="n">BRI</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>True
+<div class="codehilite"><pre><span></span>True
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># Remove Russia from BRI</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Remove Russia from BRI</span>
 <span class="n">BRI</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;russia&#39;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># What items are the union of BRI and BRIC?</span>
+<div class="codehilite"><pre><span></span><span class="c1"># What items are the union of BRI and BRIC?</span>
 <span class="n">BRI</span> <span class="o">&amp;</span> <span class="n">BRIC</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>{&#39;brazil&#39;, &#39;india&#39;}
+<div class="codehilite"><pre><span></span>{&#39;brazil&#39;, &#39;india&#39;}
 </pre></div>
+</div>
     <aside>
     <div class="bug-reporting__panel">
         <h3>Find an error or bug? Have a suggestion?</h3>
-        <p>Everything on this site is avaliable on GitHub. Head on over and <a href='https://github.com/chrisalbon/peripheral_brain/blob/gh-pages/python/data_structure_basics.html'>submit an issue.</a> You can also message me directly on <a href='https://twitter.com/chrisalbon'>Twitter</a>.</p>
+        <p>Everything on this site is avaliable on GitHub. Head on over and <a href='https://github.com/chrisalbon/Data-Science-For-Political-And-Social-Phenomena/issues/new'>submit an issue.</a> You can also message me directly on <a href='https://twitter.com/chrisalbon'>Twitter</a>.</p>
     </div>
     </aside>
 </section>
@@ -385,12 +399,19 @@
     <footer class="footer">
         <div class="container">
             <p class="text-muted">
-                <center>Copyright &copy; Chris Albon,
-                    <time datetime="2016">2016</time>
+                <center>This project contains 318 pages and is available on <a href="https://github.com/chrisalbon/Data-Science-For-Political-And-Social-Phenomena">GitHub</a>.
+                <br/>
+                Copyright &copy; Chris Albon,
+                    <time datetime="2016">2016</time>.
                 </center>
             </p>
         </div>
     </footer>
+
+    <!-- This jQuery line finds any span that contains code highlighting classes and then selects the parent <pre> tag and adds a border. This is done as a workaround to visually distinguish the code inputs and outputs -->
+    <script>
+        $( ".hll, .n, .c, .err, .k, .o, .cm, .cp, .c1, .cs, .gd, .ge, .gr, .gh, .gi, .go, .gp, .gs, .gu, .gt, .kc, .kd, .kn, .kp, .kr, .kt, .m, .s, .na, .nb, .nc, .no, .nd, .ni, .ne, .nf, .nl, .nn, .nt, .nv, .ow, .w, .mf, .mh, .mi, .mo, .sb, .sc, .sd, .s2, .se, .sh, .si, .sx, .sr, .s1, .ss, .bp, .vc, .vg, .vi, .il" ).parent( "pre" ).css( "border", "1px solid #DEDEDE" );
+    </script>
 
     <!-- Load Google Analytics -->
     <script>
@@ -414,10 +435,6 @@
     <!-- Bootstrap core JavaScript
       ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script>
-        window.jQuery || document.write('<script src="../theme/js/jquery.min.js"><\/script>')
-    </script>
     <script src="../theme/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../theme/js/ie10-viewport-bug-workaround.js"></script>

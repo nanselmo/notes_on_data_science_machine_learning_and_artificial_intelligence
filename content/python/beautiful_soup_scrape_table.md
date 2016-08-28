@@ -1,12 +1,10 @@
-Title: Scraping a HTML with Beauitful Soup
-Slug: beautiful_soup_scrape_table
-Summary: Scraping a HTML with Beauitful Soup
-Date: 2016-05-01 12:00
-Category: Python
-Tags: Web Scraping
-Authors: Chris Albon
-
-
+Title: Scraping a HTML with Beauitful Soup  
+Slug: beautiful_soup_scrape_table  
+Summary: Scraping a HTML with Beauitful Soup  
+Date: 2016-05-01 12:00  
+Category: Python  
+Tags: Web Scraping  
+Authors: Chris Albon  
 
 
 ```python
@@ -37,7 +35,7 @@ raw_df
 
 
 
-<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<div>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -52,47 +50,46 @@ raw_df
   <tbody>
     <tr>
       <th>0</th>
-      <td> Jason</td>
-      <td>   Miller</td>
-      <td> 42</td>
-      <td>  4</td>
-      <td> 25</td>
+      <td>Jason</td>
+      <td>Miller</td>
+      <td>42</td>
+      <td>4</td>
+      <td>25</td>
     </tr>
     <tr>
       <th>1</th>
-      <td> Molly</td>
-      <td> Jacobson</td>
-      <td> 52</td>
-      <td> 24</td>
-      <td> 94</td>
+      <td>Molly</td>
+      <td>Jacobson</td>
+      <td>52</td>
+      <td>24</td>
+      <td>94</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>  Tina</td>
-      <td>      Ali</td>
-      <td> 36</td>
-      <td> 31</td>
-      <td> 57</td>
+      <td>Tina</td>
+      <td>Ali</td>
+      <td>36</td>
+      <td>31</td>
+      <td>57</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>  Jake</td>
-      <td>   Milner</td>
-      <td> 24</td>
-      <td>  2</td>
-      <td> 62</td>
+      <td>Jake</td>
+      <td>Milner</td>
+      <td>24</td>
+      <td>2</td>
+      <td>62</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>   Amy</td>
-      <td>    Cooze</td>
-      <td> 73</td>
-      <td>  3</td>
-      <td> 70</td>
+      <td>Amy</td>
+      <td>Cooze</td>
+      <td>73</td>
+      <td>3</td>
+      <td>70</td>
     </tr>
   </tbody>
 </table>
-<p>5 rows × 5 columns</p>
 </div>
 
 
@@ -108,7 +105,7 @@ url = 'http://nbviewer.ipython.org/github/chrisalbon/code_py/blob/master/beautif
 r = requests.get(url)
 
 # Turn the HTML into a Beautiful Soup object
-soup = BeautifulSoup(r.text)
+soup = BeautifulSoup(r.text, 'lxml')
 ```
 
 ### Parse the Beautiful Soup object
@@ -171,7 +168,7 @@ df
 
 
 
-<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<div>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -186,45 +183,44 @@ df
   <tbody>
     <tr>
       <th>0</th>
-      <td> 42</td>
-      <td> Jason</td>
-      <td>   Miller</td>
-      <td> 25</td>
-      <td>  4</td>
+      <td>42</td>
+      <td>Jason</td>
+      <td>Miller</td>
+      <td>25</td>
+      <td>4</td>
     </tr>
     <tr>
       <th>1</th>
-      <td> 52</td>
-      <td> Molly</td>
-      <td> Jacobson</td>
-      <td> 94</td>
-      <td> 24</td>
+      <td>52</td>
+      <td>Molly</td>
+      <td>Jacobson</td>
+      <td>94</td>
+      <td>24</td>
     </tr>
     <tr>
       <th>2</th>
-      <td> 36</td>
-      <td>  Tina</td>
-      <td>      Ali</td>
-      <td> 57</td>
-      <td> 31</td>
+      <td>36</td>
+      <td>Tina</td>
+      <td>Ali</td>
+      <td>57</td>
+      <td>31</td>
     </tr>
     <tr>
       <th>3</th>
-      <td> 24</td>
-      <td>  Jake</td>
-      <td>   Milner</td>
-      <td> 62</td>
-      <td>  2</td>
+      <td>24</td>
+      <td>Jake</td>
+      <td>Milner</td>
+      <td>62</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>4</th>
-      <td> 73</td>
-      <td>   Amy</td>
-      <td>    Cooze</td>
-      <td> 70</td>
-      <td>  3</td>
+      <td>73</td>
+      <td>Amy</td>
+      <td>Cooze</td>
+      <td>70</td>
+      <td>3</td>
     </tr>
   </tbody>
 </table>
-<p>5 rows × 5 columns</p>
 </div>

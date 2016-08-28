@@ -1,6 +1,6 @@
-Title: Basic Opeations With Numpy Array
+Title: Basic Operations With Numpy Array
 Slug: numpy_array_basic_operations
-Summary: Basic Opeations With Numpy Array
+Summary: Basic Operations With Numpy Array
 Date: 2016-05-01 12:00
 Category: Python
 Tags: Basics
@@ -77,5 +77,3 @@ civilian_deaths.max()
 
 
     4352
-
-

@@ -1,14 +1,10 @@
-Title: Count Values In Pandas Dataframe
-Slug: pandas_dataframe_count_values
-Summary: Count Values In Pandas Dataframe
-Date: 2016-05-01 12:00
-Category: Python
-Tags: Data Wrangling
-Authors: Chris Albon
-
-
-
-[Original description](http://www.math.uah.edu/stat/data/HorseKicks.html): "The data above give the number of soilders in the Prussian cavalry killed by horse kicks, by corp membership and by year. The years are from 1875 to 1894, and there are 14 different cavalry corps: the first column corresponds to the guard corp and the other columns to corps 1 through 11, 14, and 15. The data are from Distributome project and are derived from the book by Andrews and Herzberg. The original source of the data is the classic book by von Bortkiewicz (references are given below). The data are famous because they seem to fit the Poisson model reasonably well."
+Title: Count Values In Pandas Dataframe  
+Slug: pandas_dataframe_count_values  
+Summary: Count Values In Pandas Dataframe  
+Date: 2016-05-01 12:00  
+Category: Python  
+Tags: Data Wrangling  
+Authors: Chris Albon  
 
 ### Import the pandas module
 
@@ -17,11 +13,11 @@ Authors: Chris Albon
 import pandas as pd
 ```
 
-### Create all the columns of the dataframe as series (called vectors in R)
+### Create all the columns of the dataframe as series
 
 
 ```python
-year = pd.Series([1875, 1876, 1877, 1878, 1879, 1880, 1881, 1882, 1883, 1884, 
+year = pd.Series([1875, 1876, 1877, 1878, 1879, 1880, 1881, 1882, 1883, 1884,
                   1885, 1886, 1887, 1888, 1889, 1890, 1891, 1892, 1893, 1894])
 guardCorps = pd.Series([0,2,2,1,0,0,1,1,0,3,0,2,1,0,0,1,0,1,0,1])
 corps1 = pd.Series([0,0,0,2,0,3,0,2,0,0,0,1,1,1,0,2,0,3,1,0])
@@ -43,10 +39,10 @@ corps15 = pd.Series([0,1,0,0,0,0,0,1,0,1,1,0,0,0,2,2,0,0,0,0])
 
 
 ```python
-variables = dict(guardCorps = guardCorps, corps1 = corps1, 
-                 corps2 = corps2, corps3 = corps3, corps4 = corps4, 
-                 corps5 = corps5, corps6 = corps6, corps7 = corps7, 
-                 corps8 = corps8, corps9 = corps9, corps10 = corps10, 
+variables = dict(guardCorps = guardCorps, corps1 = corps1,
+                 corps2 = corps2, corps3 = corps3, corps4 = corps4,
+                 corps5 = corps5, corps6 = corps6, corps7 = corps7,
+                 corps8 = corps8, corps9 = corps9, corps10 = corps10,
                  corps11 = corps11 , corps14 = corps14, corps15 = corps15)
 ```
 
@@ -54,13 +50,13 @@ variables = dict(guardCorps = guardCorps, corps1 = corps1,
 
 
 ```python
-horsekick = pd.DataFrame(variables, columns = ['guardCorps', 
-                                                    'corps1', 'corps2', 
-                                                    'corps3', 'corps4', 
-                                                    'corps5', 'corps6', 
-                                                    'corps7', 'corps8', 
-                                                    'corps9', 'corps10', 
-                                                    'corps11', 'corps14', 
+horsekick = pd.DataFrame(variables, columns = ['guardCorps',
+                                                    'corps1', 'corps2',
+                                                    'corps3', 'corps4',
+                                                    'corps5', 'corps6',
+                                                    'corps7', 'corps8',
+                                                    'corps9', 'corps10',
+                                                    'corps11', 'corps14',
                                                     'corps15'])
 ```
 
@@ -68,11 +64,11 @@ horsekick = pd.DataFrame(variables, columns = ['guardCorps',
 
 
 ```python
-horsekick.index = [1875, 1876, 1877, 1878, 1879, 1880, 1881, 1882, 1883, 1884, 
+horsekick.index = [1875, 1876, 1877, 1878, 1879, 1880, 1881, 1882, 1883, 1884,
                   1885, 1886, 1887, 1888, 1889, 1890, 1891, 1892, 1893, 1894]
 ```
 
-### view the horekick dataframe
+### View the horsekick dataframe
 
 
 ```python
@@ -82,7 +78,7 @@ horsekick
 
 
 
-<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<div>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -106,347 +102,346 @@ horsekick
   <tbody>
     <tr>
       <th>1875</th>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 1</td>
-      <td> 1</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 1</td>
-      <td> 0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1876</th>
-      <td> 2</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 1</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 1</td>
-      <td> 1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>1877</th>
-      <td> 2</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 1</td>
-      <td> 1</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 1</td>
-      <td> 0</td>
-      <td> 2</td>
-      <td> 0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1878</th>
-      <td> 1</td>
-      <td> 2</td>
-      <td> 2</td>
-      <td> 1</td>
-      <td> 1</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 1</td>
-      <td> 0</td>
-      <td> 1</td>
-      <td> 0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1879</th>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 1</td>
-      <td> 1</td>
-      <td> 2</td>
-      <td> 2</td>
-      <td> 0</td>
-      <td> 1</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 2</td>
-      <td> 1</td>
-      <td> 0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1880</th>
-      <td> 0</td>
-      <td> 3</td>
-      <td> 2</td>
-      <td> 1</td>
-      <td> 1</td>
-      <td> 1</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 2</td>
-      <td> 1</td>
-      <td> 4</td>
-      <td> 3</td>
-      <td> 0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>1</td>
+      <td>4</td>
+      <td>3</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1881</th>
-      <td> 1</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 2</td>
-      <td> 1</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 1</td>
-      <td> 0</td>
-      <td> 1</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1882</th>
-      <td> 1</td>
-      <td> 2</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 1</td>
-      <td> 0</td>
-      <td> 1</td>
-      <td> 1</td>
-      <td> 2</td>
-      <td> 1</td>
-      <td> 4</td>
-      <td> 1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>1883</th>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 1</td>
-      <td> 2</td>
-      <td> 0</td>
-      <td> 1</td>
-      <td> 2</td>
-      <td> 1</td>
-      <td> 0</td>
-      <td> 1</td>
-      <td> 0</td>
-      <td> 3</td>
-      <td> 0</td>
-      <td> 0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1884</th>
-      <td> 3</td>
-      <td> 0</td>
-      <td> 1</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 1</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 2</td>
-      <td> 0</td>
-      <td> 1</td>
-      <td> 1</td>
+      <td>3</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>1885</th>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 1</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 2</td>
-      <td> 0</td>
-      <td> 1</td>
-      <td> 0</td>
-      <td> 1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>1886</th>
-      <td> 2</td>
-      <td> 1</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 1</td>
-      <td> 1</td>
-      <td> 1</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 1</td>
-      <td> 0</td>
-      <td> 1</td>
-      <td> 3</td>
-      <td> 0</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>3</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1887</th>
-      <td> 1</td>
-      <td> 1</td>
-      <td> 2</td>
-      <td> 1</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 3</td>
-      <td> 2</td>
-      <td> 1</td>
-      <td> 1</td>
-      <td> 0</td>
-      <td> 1</td>
-      <td> 2</td>
-      <td> 0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1888</th>
-      <td> 0</td>
-      <td> 1</td>
-      <td> 1</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 1</td>
-      <td> 1</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 1</td>
-      <td> 1</td>
-      <td> 0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1889</th>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 1</td>
-      <td> 1</td>
-      <td> 0</td>
-      <td> 1</td>
-      <td> 1</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 1</td>
-      <td> 2</td>
-      <td> 2</td>
-      <td> 0</td>
-      <td> 2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>1890</th>
-      <td> 1</td>
-      <td> 2</td>
-      <td> 0</td>
-      <td> 2</td>
-      <td> 0</td>
-      <td> 1</td>
-      <td> 1</td>
-      <td> 2</td>
-      <td> 0</td>
-      <td> 2</td>
-      <td> 1</td>
-      <td> 1</td>
-      <td> 2</td>
-      <td> 2</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>1891</th>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 1</td>
-      <td> 1</td>
-      <td> 1</td>
-      <td> 0</td>
-      <td> 1</td>
-      <td> 1</td>
-      <td> 0</td>
-      <td> 3</td>
-      <td> 3</td>
-      <td> 1</td>
-      <td> 0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>3</td>
+      <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1892</th>
-      <td> 1</td>
-      <td> 3</td>
-      <td> 2</td>
-      <td> 0</td>
-      <td> 1</td>
-      <td> 1</td>
-      <td> 3</td>
-      <td> 0</td>
-      <td> 1</td>
-      <td> 1</td>
-      <td> 0</td>
-      <td> 1</td>
-      <td> 1</td>
-      <td> 0</td>
+      <td>1</td>
+      <td>3</td>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1893</th>
-      <td> 0</td>
-      <td> 1</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 1</td>
-      <td> 0</td>
-      <td> 2</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 1</td>
-      <td> 3</td>
-      <td> 0</td>
-      <td> 0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1894</th>
-      <td> 1</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 0</td>
-      <td> 1</td>
-      <td> 0</td>
-      <td> 1</td>
-      <td> 1</td>
-      <td> 0</td>
-      <td> 0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
   </tbody>
 </table>
-<p>20 rows × 14 columns</p>
 </div>
 
 
@@ -461,7 +456,7 @@ result = horsekick.apply(pd.value_counts).fillna(0); result
 
 
 
-<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<div>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -485,92 +480,91 @@ result = horsekick.apply(pd.value_counts).fillna(0); result
   <tbody>
     <tr>
       <th>0</th>
-      <td> 9</td>
-      <td> 11</td>
-      <td> 12</td>
-      <td> 11</td>
-      <td> 12</td>
-      <td> 10</td>
-      <td> 9</td>
-      <td> 11</td>
-      <td> 13</td>
-      <td> 10</td>
-      <td> 10</td>
-      <td> 6</td>
-      <td> 6</td>
-      <td> 14</td>
+      <td>9.0</td>
+      <td>11.0</td>
+      <td>12.0</td>
+      <td>11.0</td>
+      <td>12.0</td>
+      <td>10.0</td>
+      <td>9.0</td>
+      <td>11.0</td>
+      <td>13.0</td>
+      <td>10.0</td>
+      <td>10.0</td>
+      <td>6</td>
+      <td>6</td>
+      <td>14.0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td> 7</td>
-      <td>  4</td>
-      <td>  4</td>
-      <td>  6</td>
-      <td>  8</td>
-      <td>  9</td>
-      <td> 7</td>
-      <td>  6</td>
-      <td>  7</td>
-      <td>  7</td>
-      <td>  6</td>
-      <td> 8</td>
-      <td> 8</td>
-      <td>  4</td>
+      <td>7.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>6.0</td>
+      <td>8.0</td>
+      <td>9.0</td>
+      <td>7.0</td>
+      <td>6.0</td>
+      <td>7.0</td>
+      <td>7.0</td>
+      <td>6.0</td>
+      <td>8</td>
+      <td>8</td>
+      <td>4.0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td> 3</td>
-      <td>  3</td>
-      <td>  4</td>
-      <td>  3</td>
-      <td>  0</td>
-      <td>  1</td>
-      <td> 2</td>
-      <td>  3</td>
-      <td>  0</td>
-      <td>  3</td>
-      <td>  3</td>
-      <td> 2</td>
-      <td> 3</td>
-      <td>  2</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>2</td>
+      <td>3</td>
+      <td>2.0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td> 1</td>
-      <td>  2</td>
-      <td>  0</td>
-      <td>  0</td>
-      <td>  0</td>
-      <td>  0</td>
-      <td> 2</td>
-      <td>  0</td>
-      <td>  0</td>
-      <td>  0</td>
-      <td>  1</td>
-      <td> 3</td>
-      <td> 2</td>
-      <td>  0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>3</td>
+      <td>2</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td> 0</td>
-      <td>  0</td>
-      <td>  0</td>
-      <td>  0</td>
-      <td>  0</td>
-      <td>  0</td>
-      <td> 0</td>
-      <td>  0</td>
-      <td>  0</td>
-      <td>  0</td>
-      <td>  0</td>
-      <td> 1</td>
-      <td> 1</td>
-      <td>  0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.0</td>
     </tr>
   </tbody>
 </table>
-<p>5 rows × 14 columns</p>
 </div>
 
 
@@ -604,5 +598,3 @@ horsekick['guardCorps'].unique()
 
 
     array([0, 2, 1, 3])
-
-

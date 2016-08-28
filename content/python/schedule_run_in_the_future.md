@@ -1,14 +1,10 @@
-Title: Scheduling Jobs In The Future
-Slug: schedule_run_in_the_future
-Summary: Scheduling Jobs In The Future
-Date: 2016-05-01 12:00
-Category: Python
-Tags: Basics
-Authors: Chris Albon
-
-
-
-**Note:** From: http://pymotw.com/2/sched/
+Title: Scheduling Jobs In The Future  
+Slug: schedule_run_in_the_future  
+Summary: Scheduling Jobs In The Future  
+Date: 2016-05-01 12:00  
+Category: Python  
+Tags: Basics  
+Authors: Chris Albon  
 
 
 ```python
@@ -35,7 +31,7 @@ def print_some_times():
     # the function called 'print_time'
     # after 10 seconds, and with priority 1.
     s.enter(10, 1, print_time)
-    
+
     # Run the scheduler
     s.run()
 ```
@@ -47,4 +43,3 @@ print_some_times()
 ```
 
     Executive Order 66
-

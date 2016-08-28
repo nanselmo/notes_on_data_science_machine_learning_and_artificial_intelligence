@@ -1,14 +1,12 @@
-Title: Descriptive Statistics For pandas Dataframe
-Slug: pandas_dataframe_descriptive_stats
-Summary: Descriptive Statistics For pandas Dataframe
-Date: 2016-05-01 12:00
-Category: Python
-Tags: Data Wrangling
-Authors: Chris Albon
+Title: Descriptive Statistics For pandas Dataframe  
+Slug: pandas_dataframe_descriptive_stats  
+Summary: Descriptive Statistics For pandas Dataframe  
+Date: 2016-05-01 12:00  
+Category: Python  
+Tags: Data Wrangling  
+Authors: Chris Albon  
 
-
-
-### import modules
+### Import modules
 
 
 ```python
@@ -19,8 +17,8 @@ import pandas as pd
 
 
 ```python
-data = {'name': ['Jason', 'Molly', 'Tina', 'Jake', 'Amy'], 
-        'age': [42, 52, 36, 24, 73], 
+data = {'name': ['Jason', 'Molly', 'Tina', 'Jake', 'Amy'],
+        'age': [42, 52, 36, 24, 73],
         'preTestScore': [4, 24, 31, 2, 3],
         'postTestScore': [25, 94, 57, 62, 70]}
 df = pd.DataFrame(data, columns = ['name', 'age', 'preTestScore', 'postTestScore'])
@@ -354,5 +352,3 @@ df.cov()
 </table>
 <p>3 rows × 3 columns</p>
 </div>
-
-

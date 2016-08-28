@@ -1,10 +1,10 @@
-Title: Loading A CSV Into Pandas
-Slug: pandas_dataframe_importing_csv
-Summary: Loading A CSV Into Pandas
-Date: 2016-05-01 12:00
-Category: Python
-Tags: Data Wrangling
-Authors: Chris Albon
+Title: Loading A CSV Into Pandas  
+Slug: pandas_dataframe_importing_csv  
+Summary: Loading A CSV Into Pandas  
+Date: 2016-05-01 12:00  
+Category: Python  
+Tags: Data Wrangling  
+Authors: Chris Albon  
 
 ### import modules
 
@@ -18,9 +18,9 @@ import numpy as np
 
 
 ```python
-raw_data = {'first_name': ['Jason', 'Molly', 'Tina', 'Jake', 'Amy'], 
-        'last_name': ['Miller', 'Jacobson', ".", 'Milner', 'Cooze'], 
-        'age': [42, 52, 36, 24, 73], 
+raw_data = {'first_name': ['Jason', 'Molly', 'Tina', 'Jake', 'Amy'],
+        'last_name': ['Miller', 'Jacobson', ".", 'Milner', 'Cooze'],
+        'age': [42, 52, 36, 24, 73],
         'preTestScore': [4, 24, 31, ".", "."],
         'postTestScore': ["25,000", "94,000", 57, 62, 70]}
 df = pd.DataFrame(raw_data, columns = ['first_name', 'last_name', 'age', 'preTestScore', 'postTestScore'])
@@ -30,7 +30,7 @@ df
 
 
 
-<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<div>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -45,47 +45,46 @@ df
   <tbody>
     <tr>
       <th>0</th>
-      <td> Jason</td>
-      <td>   Miller</td>
-      <td> 42</td>
-      <td>  4</td>
-      <td> 25,000</td>
+      <td>Jason</td>
+      <td>Miller</td>
+      <td>42</td>
+      <td>4</td>
+      <td>25,000</td>
     </tr>
     <tr>
       <th>1</th>
-      <td> Molly</td>
-      <td> Jacobson</td>
-      <td> 52</td>
-      <td> 24</td>
-      <td> 94,000</td>
+      <td>Molly</td>
+      <td>Jacobson</td>
+      <td>52</td>
+      <td>24</td>
+      <td>94,000</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>  Tina</td>
-      <td>        .</td>
-      <td> 36</td>
-      <td> 31</td>
-      <td>     57</td>
+      <td>Tina</td>
+      <td>.</td>
+      <td>36</td>
+      <td>31</td>
+      <td>57</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>  Jake</td>
-      <td>   Milner</td>
-      <td> 24</td>
-      <td>  .</td>
-      <td>     62</td>
+      <td>Jake</td>
+      <td>Milner</td>
+      <td>24</td>
+      <td>.</td>
+      <td>62</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>   Amy</td>
-      <td>    Cooze</td>
-      <td> 73</td>
-      <td>  .</td>
-      <td>     70</td>
+      <td>Amy</td>
+      <td>Cooze</td>
+      <td>73</td>
+      <td>.</td>
+      <td>70</td>
     </tr>
   </tbody>
 </table>
-<p>5 rows × 5 columns</p>
 </div>
 
 
@@ -94,21 +93,21 @@ df
 
 
 ```python
-df.to_csv('example.csv')
+df.to_csv('../data/example.csv')
 ```
 
 ### Load a csv
 
 
 ```python
-df = pd.read_csv('example.csv')
+df = pd.read_csv('../data/example.csv')
 df
 ```
 
 
 
 
-<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<div>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -124,52 +123,51 @@ df
   <tbody>
     <tr>
       <th>0</th>
-      <td> 0</td>
-      <td> Jason</td>
-      <td>   Miller</td>
-      <td> 42</td>
-      <td>  4</td>
-      <td> 25,000</td>
+      <td>0</td>
+      <td>Jason</td>
+      <td>Miller</td>
+      <td>42</td>
+      <td>4</td>
+      <td>25,000</td>
     </tr>
     <tr>
       <th>1</th>
-      <td> 1</td>
-      <td> Molly</td>
-      <td> Jacobson</td>
-      <td> 52</td>
-      <td> 24</td>
-      <td> 94,000</td>
+      <td>1</td>
+      <td>Molly</td>
+      <td>Jacobson</td>
+      <td>52</td>
+      <td>24</td>
+      <td>94,000</td>
     </tr>
     <tr>
       <th>2</th>
-      <td> 2</td>
-      <td>  Tina</td>
-      <td>        .</td>
-      <td> 36</td>
-      <td> 31</td>
-      <td>     57</td>
+      <td>2</td>
+      <td>Tina</td>
+      <td>.</td>
+      <td>36</td>
+      <td>31</td>
+      <td>57</td>
     </tr>
     <tr>
       <th>3</th>
-      <td> 3</td>
-      <td>  Jake</td>
-      <td>   Milner</td>
-      <td> 24</td>
-      <td>  .</td>
-      <td>     62</td>
+      <td>3</td>
+      <td>Jake</td>
+      <td>Milner</td>
+      <td>24</td>
+      <td>.</td>
+      <td>62</td>
     </tr>
     <tr>
       <th>4</th>
-      <td> 4</td>
-      <td>   Amy</td>
-      <td>    Cooze</td>
-      <td> 73</td>
-      <td>  .</td>
-      <td>     70</td>
+      <td>4</td>
+      <td>Amy</td>
+      <td>Cooze</td>
+      <td>73</td>
+      <td>.</td>
+      <td>70</td>
     </tr>
   </tbody>
 </table>
-<p>5 rows × 6 columns</p>
 </div>
 
 
@@ -178,14 +176,14 @@ df
 
 
 ```python
-df = pd.read_csv('example.csv', header=None)
+df = pd.read_csv('../data/example.csv', header=None)
 df
 ```
 
 
 
 
-<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<div>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -202,60 +200,59 @@ df
     <tr>
       <th>0</th>
       <td>NaN</td>
-      <td> first_name</td>
-      <td> last_name</td>
-      <td> age</td>
-      <td> preTestScore</td>
-      <td> postTestScore</td>
+      <td>first_name</td>
+      <td>last_name</td>
+      <td>age</td>
+      <td>preTestScore</td>
+      <td>postTestScore</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>  0</td>
-      <td>      Jason</td>
-      <td>    Miller</td>
-      <td>  42</td>
-      <td>            4</td>
-      <td>        25,000</td>
+      <td>0.0</td>
+      <td>Jason</td>
+      <td>Miller</td>
+      <td>42</td>
+      <td>4</td>
+      <td>25,000</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>  1</td>
-      <td>      Molly</td>
-      <td>  Jacobson</td>
-      <td>  52</td>
-      <td>           24</td>
-      <td>        94,000</td>
+      <td>1.0</td>
+      <td>Molly</td>
+      <td>Jacobson</td>
+      <td>52</td>
+      <td>24</td>
+      <td>94,000</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>  2</td>
-      <td>       Tina</td>
-      <td>         .</td>
-      <td>  36</td>
-      <td>           31</td>
-      <td>            57</td>
+      <td>2.0</td>
+      <td>Tina</td>
+      <td>.</td>
+      <td>36</td>
+      <td>31</td>
+      <td>57</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>  3</td>
-      <td>       Jake</td>
-      <td>    Milner</td>
-      <td>  24</td>
-      <td>            .</td>
-      <td>            62</td>
+      <td>3.0</td>
+      <td>Jake</td>
+      <td>Milner</td>
+      <td>24</td>
+      <td>.</td>
+      <td>62</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>  4</td>
-      <td>        Amy</td>
-      <td>     Cooze</td>
-      <td>  73</td>
-      <td>            .</td>
-      <td>            70</td>
+      <td>4.0</td>
+      <td>Amy</td>
+      <td>Cooze</td>
+      <td>73</td>
+      <td>.</td>
+      <td>70</td>
     </tr>
   </tbody>
 </table>
-<p>6 rows × 6 columns</p>
 </div>
 
 
@@ -264,16 +261,14 @@ df
 
 
 ```python
-df = pd.read_csv('example.csv', header=True, names=['UID', 'First Name', 'Last Name', 'Age', 'Pre-Test Score', 'Post-Test Score'])
+df = pd.read_csv('../data/example.csv', names=['UID', 'First Name', 'Last Name', 'Age', 'Pre-Test Score', 'Post-Test Score'])
 df
-
-
 ```
 
 
 
 
-<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<div>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -289,43 +284,60 @@ df
   <tbody>
     <tr>
       <th>0</th>
-      <td> 1</td>
-      <td> Molly</td>
-      <td> Jacobson</td>
-      <td> 52</td>
-      <td> 24</td>
-      <td> 94,000</td>
+      <td>NaN</td>
+      <td>first_name</td>
+      <td>last_name</td>
+      <td>age</td>
+      <td>preTestScore</td>
+      <td>postTestScore</td>
     </tr>
     <tr>
       <th>1</th>
-      <td> 2</td>
-      <td>  Tina</td>
-      <td>        .</td>
-      <td> 36</td>
-      <td> 31</td>
-      <td>     57</td>
+      <td>0.0</td>
+      <td>Jason</td>
+      <td>Miller</td>
+      <td>42</td>
+      <td>4</td>
+      <td>25,000</td>
     </tr>
     <tr>
       <th>2</th>
-      <td> 3</td>
-      <td>  Jake</td>
-      <td>   Milner</td>
-      <td> 24</td>
-      <td>  .</td>
-      <td>     62</td>
+      <td>1.0</td>
+      <td>Molly</td>
+      <td>Jacobson</td>
+      <td>52</td>
+      <td>24</td>
+      <td>94,000</td>
     </tr>
     <tr>
       <th>3</th>
-      <td> 4</td>
-      <td>   Amy</td>
-      <td>    Cooze</td>
-      <td> 73</td>
-      <td>  .</td>
-      <td>     70</td>
+      <td>2.0</td>
+      <td>Tina</td>
+      <td>.</td>
+      <td>36</td>
+      <td>31</td>
+      <td>57</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3.0</td>
+      <td>Jake</td>
+      <td>Milner</td>
+      <td>24</td>
+      <td>.</td>
+      <td>62</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>4.0</td>
+      <td>Amy</td>
+      <td>Cooze</td>
+      <td>73</td>
+      <td>.</td>
+      <td>70</td>
     </tr>
   </tbody>
 </table>
-<p>4 rows × 6 columns</p>
 </div>
 
 
@@ -334,14 +346,14 @@ df
 
 
 ```python
-df = pd.read_csv('example.csv', index_col='UID', header=True, names=['UID', 'First Name', 'Last Name', 'Age', 'Pre-Test Score', 'Post-Test Score'])
+df = pd.read_csv('../data/example.csv', index_col='UID', names=['UID', 'First Name', 'Last Name', 'Age', 'Pre-Test Score', 'Post-Test Score'])
 df
 ```
 
 
 
 
-<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<div>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -363,40 +375,55 @@ df
   </thead>
   <tbody>
     <tr>
-      <th>1</th>
-      <td> Molly</td>
-      <td> Jacobson</td>
-      <td> 52</td>
-      <td> 24</td>
-      <td> 94,000</td>
+      <th>NaN</th>
+      <td>first_name</td>
+      <td>last_name</td>
+      <td>age</td>
+      <td>preTestScore</td>
+      <td>postTestScore</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>  Tina</td>
-      <td>        .</td>
-      <td> 36</td>
-      <td> 31</td>
-      <td>     57</td>
+      <th>0.0</th>
+      <td>Jason</td>
+      <td>Miller</td>
+      <td>42</td>
+      <td>4</td>
+      <td>25,000</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td>  Jake</td>
-      <td>   Milner</td>
-      <td> 24</td>
-      <td>  .</td>
-      <td>     62</td>
+      <th>1.0</th>
+      <td>Molly</td>
+      <td>Jacobson</td>
+      <td>52</td>
+      <td>24</td>
+      <td>94,000</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>   Amy</td>
-      <td>    Cooze</td>
-      <td> 73</td>
-      <td>  .</td>
-      <td>     70</td>
+      <th>2.0</th>
+      <td>Tina</td>
+      <td>.</td>
+      <td>36</td>
+      <td>31</td>
+      <td>57</td>
+    </tr>
+    <tr>
+      <th>3.0</th>
+      <td>Jake</td>
+      <td>Milner</td>
+      <td>24</td>
+      <td>.</td>
+      <td>62</td>
+    </tr>
+    <tr>
+      <th>4.0</th>
+      <td>Amy</td>
+      <td>Cooze</td>
+      <td>73</td>
+      <td>.</td>
+      <td>70</td>
     </tr>
   </tbody>
 </table>
-<p>4 rows × 5 columns</p>
 </div>
 
 
@@ -405,14 +432,14 @@ df
 
 
 ```python
-df = pd.read_csv('example.csv', index_col=['First Name', 'Last Name'], header=True, names=['UID', 'First Name', 'Last Name', 'Age', 'Pre-Test Score', 'Post-Test Score'])
+df = pd.read_csv('../data/example.csv', index_col=['First Name', 'Last Name'], names=['UID', 'First Name', 'Last Name', 'Age', 'Pre-Test Score', 'Post-Test Score'])
 df
 ```
 
 
 
 
-<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<div>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -434,40 +461,55 @@ df
   </thead>
   <tbody>
     <tr>
+      <th>first_name</th>
+      <th>last_name</th>
+      <td>NaN</td>
+      <td>age</td>
+      <td>preTestScore</td>
+      <td>postTestScore</td>
+    </tr>
+    <tr>
+      <th>Jason</th>
+      <th>Miller</th>
+      <td>0.0</td>
+      <td>42</td>
+      <td>4</td>
+      <td>25,000</td>
+    </tr>
+    <tr>
       <th>Molly</th>
       <th>Jacobson</th>
-      <td> 1</td>
-      <td> 52</td>
-      <td> 24</td>
-      <td> 94,000</td>
+      <td>1.0</td>
+      <td>52</td>
+      <td>24</td>
+      <td>94,000</td>
     </tr>
     <tr>
       <th>Tina</th>
       <th>.</th>
-      <td> 2</td>
-      <td> 36</td>
-      <td> 31</td>
-      <td>     57</td>
+      <td>2.0</td>
+      <td>36</td>
+      <td>31</td>
+      <td>57</td>
     </tr>
     <tr>
       <th>Jake</th>
       <th>Milner</th>
-      <td> 3</td>
-      <td> 24</td>
-      <td>  .</td>
-      <td>     62</td>
+      <td>3.0</td>
+      <td>24</td>
+      <td>.</td>
+      <td>62</td>
     </tr>
     <tr>
       <th>Amy</th>
       <th>Cooze</th>
-      <td> 4</td>
-      <td> 73</td>
-      <td>  .</td>
-      <td>     70</td>
+      <td>4.0</td>
+      <td>73</td>
+      <td>.</td>
+      <td>70</td>
     </tr>
   </tbody>
 </table>
-<p>4 rows × 4 columns</p>
 </div>
 
 
@@ -478,14 +520,14 @@ df
 
 
 ```python
-df = pd.read_csv('example.csv', na_values=['.'])
+df = pd.read_csv('../data/example.csv', na_values=['.'])
 pd.isnull(df)
 ```
 
 
 
 
-<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<div>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -501,52 +543,51 @@ pd.isnull(df)
   <tbody>
     <tr>
       <th>0</th>
-      <td> False</td>
-      <td> False</td>
-      <td> False</td>
-      <td> False</td>
-      <td> False</td>
-      <td> False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
     </tr>
     <tr>
       <th>1</th>
-      <td> False</td>
-      <td> False</td>
-      <td> False</td>
-      <td> False</td>
-      <td> False</td>
-      <td> False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
     </tr>
     <tr>
       <th>2</th>
-      <td> False</td>
-      <td> False</td>
-      <td>  True</td>
-      <td> False</td>
-      <td> False</td>
-      <td> False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
     </tr>
     <tr>
       <th>3</th>
-      <td> False</td>
-      <td> False</td>
-      <td> False</td>
-      <td> False</td>
-      <td>  True</td>
-      <td> False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
     </tr>
     <tr>
       <th>4</th>
-      <td> False</td>
-      <td> False</td>
-      <td> False</td>
-      <td> False</td>
-      <td>  True</td>
-      <td> False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
     </tr>
   </tbody>
 </table>
-<p>5 rows × 6 columns</p>
 </div>
 
 
@@ -560,14 +601,14 @@ sentinels = {'Last Name': ['.', 'NA'], 'Pre-Test Score': ['.']}
 
 
 ```python
-df = pd.read_csv('example.csv', na_values=sentinels)
+df = pd.read_csv('../data/example.csv', na_values=sentinels)
 df
 ```
 
 
 
 
-<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<div>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -583,52 +624,51 @@ df
   <tbody>
     <tr>
       <th>0</th>
-      <td> 0</td>
-      <td> Jason</td>
-      <td>   Miller</td>
-      <td> 42</td>
-      <td>  4</td>
-      <td> 25,000</td>
+      <td>0</td>
+      <td>Jason</td>
+      <td>Miller</td>
+      <td>42</td>
+      <td>4</td>
+      <td>25,000</td>
     </tr>
     <tr>
       <th>1</th>
-      <td> 1</td>
-      <td> Molly</td>
-      <td> Jacobson</td>
-      <td> 52</td>
-      <td> 24</td>
-      <td> 94,000</td>
+      <td>1</td>
+      <td>Molly</td>
+      <td>Jacobson</td>
+      <td>52</td>
+      <td>24</td>
+      <td>94,000</td>
     </tr>
     <tr>
       <th>2</th>
-      <td> 2</td>
-      <td>  Tina</td>
-      <td>        .</td>
-      <td> 36</td>
-      <td> 31</td>
-      <td>     57</td>
+      <td>2</td>
+      <td>Tina</td>
+      <td>.</td>
+      <td>36</td>
+      <td>31</td>
+      <td>57</td>
     </tr>
     <tr>
       <th>3</th>
-      <td> 3</td>
-      <td>  Jake</td>
-      <td>   Milner</td>
-      <td> 24</td>
-      <td>  .</td>
-      <td>     62</td>
+      <td>3</td>
+      <td>Jake</td>
+      <td>Milner</td>
+      <td>24</td>
+      <td>.</td>
+      <td>62</td>
     </tr>
     <tr>
       <th>4</th>
-      <td> 4</td>
-      <td>   Amy</td>
-      <td>    Cooze</td>
-      <td> 73</td>
-      <td>  .</td>
-      <td>     70</td>
+      <td>4</td>
+      <td>Amy</td>
+      <td>Cooze</td>
+      <td>73</td>
+      <td>.</td>
+      <td>70</td>
     </tr>
   </tbody>
 </table>
-<p>5 rows × 6 columns</p>
 </div>
 
 
@@ -637,14 +677,14 @@ df
 
 
 ```python
-df = pd.read_csv('example.csv', na_values=sentinels, skiprows=3)
+df = pd.read_csv('../data/example.csv', na_values=sentinels, skiprows=3)
 df
 ```
 
 
 
 
-<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<div>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -660,75 +700,24 @@ df
   <tbody>
     <tr>
       <th>0</th>
-      <td> 3</td>
-      <td> Jake</td>
-      <td> Milner</td>
-      <td> 24</td>
-      <td> .</td>
-      <td> 62</td>
+      <td>3</td>
+      <td>Jake</td>
+      <td>Milner</td>
+      <td>24</td>
+      <td>.</td>
+      <td>62</td>
     </tr>
     <tr>
       <th>1</th>
-      <td> 4</td>
-      <td>  Amy</td>
-      <td>  Cooze</td>
-      <td> 73</td>
-      <td> .</td>
-      <td> 70</td>
+      <td>4</td>
+      <td>Amy</td>
+      <td>Cooze</td>
+      <td>73</td>
+      <td>.</td>
+      <td>70</td>
     </tr>
   </tbody>
 </table>
-<p>2 rows × 6 columns</p>
-</div>
-
-
-
-### Load a csv while skipping the bottom three rows
-
-
-```python
-df = pd.read_csv('example.csv', na_values=sentinels, skip_footer=3)
-df
-```
-
-
-
-
-<div style="max-height:1000px;max-width:1500px;overflow:auto;">
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Unnamed: 0</th>
-      <th>first_name</th>
-      <th>last_name</th>
-      <th>age</th>
-      <th>preTestScore</th>
-      <th>postTestScore</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td> 0</td>
-      <td> Jason</td>
-      <td>   Miller</td>
-      <td> 42</td>
-      <td>  4</td>
-      <td> 25,000</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td> 1</td>
-      <td> Molly</td>
-      <td> Jacobson</td>
-      <td> 52</td>
-      <td> 24</td>
-      <td> 94,000</td>
-    </tr>
-  </tbody>
-</table>
-<p>2 rows × 6 columns</p>
 </div>
 
 
@@ -737,14 +726,14 @@ df
 
 
 ```python
-df = pd.read_csv('example.csv', thousands=',')
+df = pd.read_csv('../data/example.csv', thousands=',')
 df
 ```
 
 
 
 
-<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<div>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -760,52 +749,49 @@ df
   <tbody>
     <tr>
       <th>0</th>
-      <td> 0</td>
-      <td> Jason</td>
-      <td>   Miller</td>
-      <td> 42</td>
-      <td>  4</td>
-      <td> 25000</td>
+      <td>0</td>
+      <td>Jason</td>
+      <td>Miller</td>
+      <td>42</td>
+      <td>4</td>
+      <td>25000</td>
     </tr>
     <tr>
       <th>1</th>
-      <td> 1</td>
-      <td> Molly</td>
-      <td> Jacobson</td>
-      <td> 52</td>
-      <td> 24</td>
-      <td> 94000</td>
+      <td>1</td>
+      <td>Molly</td>
+      <td>Jacobson</td>
+      <td>52</td>
+      <td>24</td>
+      <td>94000</td>
     </tr>
     <tr>
       <th>2</th>
-      <td> 2</td>
-      <td>  Tina</td>
-      <td>        .</td>
-      <td> 36</td>
-      <td> 31</td>
-      <td>    57</td>
+      <td>2</td>
+      <td>Tina</td>
+      <td>.</td>
+      <td>36</td>
+      <td>31</td>
+      <td>57</td>
     </tr>
     <tr>
       <th>3</th>
-      <td> 3</td>
-      <td>  Jake</td>
-      <td>   Milner</td>
-      <td> 24</td>
-      <td>  .</td>
-      <td>    62</td>
+      <td>3</td>
+      <td>Jake</td>
+      <td>Milner</td>
+      <td>24</td>
+      <td>.</td>
+      <td>62</td>
     </tr>
     <tr>
       <th>4</th>
-      <td> 4</td>
-      <td>   Amy</td>
-      <td>    Cooze</td>
-      <td> 73</td>
-      <td>  .</td>
-      <td>    70</td>
+      <td>4</td>
+      <td>Amy</td>
+      <td>Cooze</td>
+      <td>73</td>
+      <td>.</td>
+      <td>70</td>
     </tr>
   </tbody>
 </table>
-<p>5 rows × 6 columns</p>
 </div>
-
-

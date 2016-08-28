@@ -39,6 +39,8 @@ EXTRA_PATH_METADATA = {
     'extra/CNAME': {'path': 'CNAME'},
 }
 
+ARTICLE_EXCLUDES = ['in_progress']
+
 PLUGIN_PATHS = ['plugins']
 PLUGINS = ['render_math', 'tipue_search', 'sitemap']
 
@@ -65,3 +67,5 @@ SITEMAP = {
         'pages': 'monthly'
     }
 }
+
+MD_EXTENSIONS = ['codehilite(guess_lang=False)', 'extra']

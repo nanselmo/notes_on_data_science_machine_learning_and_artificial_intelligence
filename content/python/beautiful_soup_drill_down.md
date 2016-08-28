@@ -1,12 +1,10 @@
-Title: Drilling Down With Beautiful Soup
-Slug: beautiful_soup_drill_down
-Summary: Drilling Down With Beautiful Soup
-Date: 2016-05-01 12:00
-Category: Python
-Tags: Web Scraping
-Authors: Chris Albon
-
-
+Title: Drilling Down With Beautiful Soup  
+Slug: beautiful_soup_drill_down  
+Summary: Drilling Down With Beautiful Soup  
+Date: 2016-05-01 12:00  
+Category: Python  
+Tags: Web Scraping  
+Authors: Chris Albon  
 
 
 ```python
@@ -27,7 +25,7 @@ url = 'http://en.wikipedia.org/wiki/List_of_A_Song_of_Ice_and_Fire_characters'
 r = requests.get(url)
 
 # Turn the HTML into a Beautiful Soup object
-soup = BeautifulSoup(r.text)
+soup = BeautifulSoup(r.text, "lxml")
 ```
 
 If we looked at the soup object, we'd see that the names we want are in a heirarchical list. In psuedo-code, it looks like:
@@ -74,16 +72,18 @@ character_name
 
 
     ['Eddard Stark',
-     'Catelyn Stark',
+     'Catelyn Tully',
      'Robb Stark',
      'Sansa Stark',
      'Arya Stark',
      'Bran Stark',
      'Rickon Stark',
      'Jon Snow',
+     'Benjen Stark',
      'Lyanna Stark',
+     'Theon Greyjoy',
      'Roose Bolton',
-     'Ramsay Snow',
+     'Ramsay Bolton',
      'Hodor',
      'Osha',
      'Jeyne Poole',
@@ -94,17 +94,23 @@ character_name
      'Rhaegar Targaryen',
      'Aegon V Targaryen',
      'Aerys II Targaryen',
-     'Aegon Targaryen',
+     'Aegon VI Targaryen',
      'Jon Connington',
      'Jorah Mormont',
      'Brynden Rivers',
+     'Missandei',
+     'Daario Naharis',
+     'Grey Worm',
      'Jon Arryn',
      'Lysa Arryn',
      'Robert Arryn',
+     'Yohn Royce',
      'Tywin Lannister',
      'Cersei Lannister',
      'Jaime Lannister',
      'Joffrey Baratheon',
+     'Myrcella Baratheon',
+     'Tommen Baratheon',
      'Tyrion Lannister',
      'Kevan Lannister',
      'Lancel Lannister',
@@ -113,9 +119,9 @@ character_name
      'Sandor Clegane',
      'Podrick Payne',
      'Robert Baratheon',
-     'Myrcella Baratheon',
-     'Tommen Baratheon',
      'Stannis Baratheon',
+     'Selyse Baratheon',
+     'Shireen Baratheon',
      'Melisandre',
      'Davos Seaworth',
      'Renly Baratheon',
@@ -124,15 +130,16 @@ character_name
      'Gendry',
      'Balon Greyjoy',
      'Asha Greyjoy',
-     'Theon Greyjoy',
      'Euron Greyjoy',
      'Victarion Greyjoy',
      'Aeron Greyjoy',
      'Doran Martell',
      'Arianne Martell',
      'Quentyn Martell',
+     'Trystane Martell',
      'Elia Martell',
      'Oberyn Martell',
+     'Ellaria Sand',
      'The Sand Snakes',
      'Areo Hotah',
      'Hoster Tully',
@@ -140,19 +147,25 @@ character_name
      'Brynden Tully',
      'Walder Frey',
      'Mace Tyrell',
-     'Willas Tyrell',
-     'Garlan Tyrell',
      'Loras Tyrell',
      'Margaery Tyrell',
      'Olenna Tyrell',
+     'Randyll Tarly',
      'Jeor Mormont',
      'Maester Aemon',
      'Yoren',
      'Samwell Tarly',
      'Janos Slynt',
+     'Alliser Thorne',
      'Mance Rayder',
      'Ygritte',
+     'Craster',
+     'Gilly',
      'Val',
+     'Lord of Bones',
+     'Bowen Marsh',
+     'Eddison Tollett',
+     'Tormund Giantsbane',
      'Petyr Baelish',
      'Varys',
      'Pycelle',
@@ -160,13 +173,18 @@ character_name
      'Arys Oakheart',
      'Ilyn Payne',
      'Qyburn',
-     'Balon Swann',
+     'The High Sparrow',
      'Khal Drogo',
      'Syrio Forel',
      "Jaqen H'ghar",
      'Illyrio Mopatis',
      'Thoros of Myr',
-     'Ser Duncan the Tall']
+     'Ser Duncan the Tall',
+     'Hizdahr zo Loraq',
+     'Yezzan zo Qaggaz',
+     'Tycho Nestoris',
+     'The Waif',
+     'Septa Unella']
 
 
 
@@ -201,54 +219,65 @@ houses.value_counts()
 
 
 
+    Baratheon     8
     Stark         8
-    Tyrell        6
     Targaryen     6
     Greyjoy       6
-    Baratheon     6
     Lannister     6
-    Martell       5
-    Tully         3
+    Martell       6
+    Tyrell        4
+    Tully         4
     Arryn         3
-    Payne         2
     Clegane       2
+    Bolton        2
     Mormont       2
-    Snow          2
-    Bolton        1
-    Aemon         1
-    Val           1
-    Frey          1
-    Rivers        1
-    Varys         1
-    Bronn         1
-    Hotah         1
-    Tarly         1
-    Osha          1
-    Tall          1
-    Yoren         1
-    Rayder        1
-    Snakes        1
-    Myr           1
-    Seaworth      1
-    Qyburn        1
-    Forel         1
-    Baelish       1
-    Poole         1
-    H'ghar        1
-    Drogo         1
-    Swann         1
-    Selmy         1
-    Gendry        1
-    Tarth         1
-    Slynt         1
-    Westerling    1
-    Hodor         1
-    Mopatis       1
-    Pycelle       1
-    Ygritte       1
-    Reed          1
-    Dondarrion    1
-    Connington    1
-    Oakheart      1
+    Payne         2
+    Tarly         2
     Melisandre    1
+    Giantsbane    1
+    Ygritte       1
+    Bronn         1
+    Westerling    1
+    Sand          1
+    Osha          1
+    Gendry        1
+    Sparrow       1
+    Drogo         1
+    Qyburn        1
+    Gilly         1
+    Pycelle       1
+    Craster       1
+    H'ghar        1
+    Oakheart      1
+                 ..
+    Rivers        1
+    Seaworth      1
+    Marsh         1
+    Connington    1
+    Hodor         1
+    Val           1
+    Unella        1
+    Aemon         1
+    Myr           1
+    Slynt         1
+    Dondarrion    1
+    Baelish       1
+    Qaggaz        1
+    Yoren         1
+    Mopatis       1
+    Worm          1
+    Varys         1
+    Royce         1
+    Nestoris      1
+    Tarth         1
+    Naharis       1
+    Snakes        1
+    Reed          1
+    Bones         1
+    Tollett       1
+    Rayder        1
+    Tall          1
+    Selmy         1
+    Hotah         1
+    Snow          1
     dtype: int64

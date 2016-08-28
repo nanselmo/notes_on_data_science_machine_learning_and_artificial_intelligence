@@ -1,32 +1,19 @@
-Title: Iterate An Ifelse Over A List
-Slug: iterate_ifelse_over_list
-Summary: Iterate An Ifelse Over A List
-Date: 2016-05-01 12:00
-Category: Python
-Tags: Basics
-Authors: Chris Albon
-
-
+Title: Iterate An Ifelse Over A List  
+Slug: iterate_ifelse_over_list  
+Summary: Iterate An Ifelse Over A List  
+Date: 2016-05-01 12:00  
+Category: Python  
+Tags: Basics  
+Authors: Chris Albon  
 
 ## Create some data
 
 
 ```python
-word_list = ['Egypt',
-             'Watching',
-             'Eleanor']
+word_list = ['Egypt', 'Watching', 'Eleanor']
 
-vowels = ['A',
-          'E',
-          'I',
-          'O',
-          'U']
+vowels = ['A', 'E', 'I', 'O', 'U']
 ```
-
-    Is valid
-    Invalid
-    Is valid
-
 
 ## Create a for loop
 
@@ -47,4 +34,3 @@ for word in word_list:
     Is valid
     Invalid
     Is valid
-

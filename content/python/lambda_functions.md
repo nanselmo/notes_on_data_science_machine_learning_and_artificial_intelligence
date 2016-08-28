@@ -6,9 +6,7 @@ Category: Python
 Tags: Basics
 Authors: Chris Albon
 
-
-
-Lambda functions can ask as mini-functions, allowing you to create small bits of code into things like series.
+In Python it is possible to string lambda functions together.
 
 ### Create a series, called pipeline, that contains three mini functions
 
@@ -26,3 +24,7 @@ pipeline = [lambda x: x **2 - 1 + 5,
 for f in pipeline:
     print(f(3))
 ```
+
+    13
+    3486784402
+    265613988875874769338781322035779626829233452653394495974574961739092490901302182994384699044004

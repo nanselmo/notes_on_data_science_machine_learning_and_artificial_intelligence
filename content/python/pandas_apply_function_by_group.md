@@ -1,17 +1,10 @@
-Title: Apply Functions By Group In Pandas
-Slug: pandas_apply_function_by_group
-Summary: Apply Functions By Group In Pandas
-Date: 2016-05-01 12:00
-Category: Python
-Tags: Data Wrangling
-Authors: Chris Albon
-
-
-
-- **Author:** [Chris Albon](http://www.chrisalbon.com/), [@ChrisAlbon](https://twitter.com/chrisalbon)
-- **Date:** 22 May 2015
-- **Repo:** [Data Science Peripheral Brain](https://github.com/chrisalbon/peripheral_brain)
-- **Note:**
+Title: Apply Functions By Group In Pandas  
+Slug: pandas_apply_function_by_group  
+Summary: Apply Functions By Group In Pandas  
+Date: 2016-05-01 12:00  
+Category: Python  
+Tags: Data Wrangling  
+Authors: Chris Albon  
 
 ## Preliminaries
 
@@ -35,7 +28,7 @@ df
 
 
 
-<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<div>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -136,7 +129,7 @@ df
 
 ```python
 # Group df by df.platoon, then apply a rolling mean lambda function to df.casualties
-df.groupby('Platoon')['Casualties'].apply(lambda x:pd.rolling_mean(x, 2))
+df.groupby('Platoon')['Casualties'].apply(lambda x:x.rolling(center=False,window=2).mean())
 ```
 
 
@@ -159,5 +152,3 @@ df.groupby('Platoon')['Casualties'].apply(lambda x:pd.rolling_mean(x, 2))
     14    5.0
     15    5.0
     dtype: float64
-
-

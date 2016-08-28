@@ -27,7 +27,7 @@ This line of code does the same thing as the multiline method below, it is just 
 
 
 ```python
-# Create a list called smallRegiments that filters regimentSize to 
+# Create a list called smallRegiments that filters regimentSize to
 # find all items that fulfill the lambda function (which looks for all items under 2500).
 smallRegiments = list(filter((lambda x: x < 2500), regimentSize)); smallRegiments
 ```
@@ -68,7 +68,7 @@ smallRegiments = list(filteredRegiments)
 
 
 
-## For Loop Equilvant
+## For Loop Equivalent
 
 This for loop does the same as both methods above, except it uses a for loop.
 
@@ -97,5 +97,3 @@ smallRegiments_2
 
 
     [2352, 2124, 1200, 1000, 1211]
-
-

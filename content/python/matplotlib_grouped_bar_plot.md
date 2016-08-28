@@ -1,14 +1,12 @@
-Title: Group Bar Plot In MatPlotLib
-Slug: matplotlib_grouped_bar_plot
-Summary: Group Bar Plot In MatPlotLib
-Date: 2016-05-01 12:00
-Category: Python
-Tags: Data Visualization
-Authors: Chris Albon
+Title: Group Bar Plot In MatPlotLib  
+Slug: matplotlib_grouped_bar_plot  
+Summary: Group Bar Plot In MatPlotLib  
+Date: 2016-05-01 12:00  
+Category: Python  
+Tags: Data Visualization  
+Authors: Chris Albon  
 
-
-
-**Note:** Based on: [Sebastian Raschka](http://nbviewer.ipython.org/github/rasbt/matplotlib-gallery/blob/master/ipynb/barplots.ipynb).
+Based on: [Sebastian Raschka](http://nbviewer.ipython.org/github/rasbt/matplotlib-gallery/blob/master/ipynb/barplots.ipynb).
 
 ## Preliminaries
 
@@ -93,53 +91,53 @@ df
 
 ```python
 # Setting the positions and width for the bars
-pos = list(range(len(df['pre_score']))) 
-width = 0.25 
-    
+pos = list(range(len(df['pre_score'])))
+width = 0.25
+
 # Plotting the bars
 fig, ax = plt.subplots(figsize=(10,5))
 
 # Create a bar with pre_score data,
 # in position pos,
-plt.bar(pos, 
+plt.bar(pos,
         #using df['pre_score'] data,
-        df['pre_score'], 
+        df['pre_score'],
         # of width
-        width, 
+        width,
         # with alpha 0.5
-        alpha=0.5, 
+        alpha=0.5,
         # with color
-        color='#EE3224', 
+        color='#EE3224',
         # with label the first value in first_name
-        label=df['first_name'][0]) 
+        label=df['first_name'][0])
 
 # Create a bar with mid_score data,
 # in position pos + some width buffer,
-plt.bar([p + width for p in pos], 
+plt.bar([p + width for p in pos],
         #using df['mid_score'] data,
         df['mid_score'],
         # of width
-        width, 
+        width,
         # with alpha 0.5
-        alpha=0.5, 
+        alpha=0.5,
         # with color
-        color='#F78F1E', 
+        color='#F78F1E',
         # with label the second value in first_name
-        label=df['first_name'][1]) 
+        label=df['first_name'][1])
 
 # Create a bar with post_score data,
 # in position pos + some width buffer,
-plt.bar([p + width*2 for p in pos], 
+plt.bar([p + width*2 for p in pos],
         #using df['post_score'] data,
-        df['post_score'], 
+        df['post_score'],
         # of width
-        width, 
+        width,
         # with alpha 0.5
-        alpha=0.5, 
+        alpha=0.5,
         # with color
-        color='#FFC222', 
+        color='#FFC222',
         # with label the third value in first_name
-        label=df['first_name'][2]) 
+        label=df['first_name'][2])
 
 # Set the y axis label
 ax.set_ylabel('Score')
@@ -163,6 +161,4 @@ plt.grid()
 plt.show()
 ```
 
-
 ![png]({filename}/images/matplotlib_grouped_bar_plot/output_6_0.png)
-

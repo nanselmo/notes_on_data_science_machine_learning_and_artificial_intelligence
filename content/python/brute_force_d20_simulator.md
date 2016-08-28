@@ -8,7 +8,7 @@ Authors: Chris Albon
 
 
 
-This snippet is a completely inefficient simulator of a 20 sided dice. To create a "succussful roll" the snippit has to generate  dozens of random numbers.
+This snippet is a completely inefficient simulator of a 20 sided dice. To create a "succussful roll" the snippet has to generate  dozens of random numbers.
 
 ### Import random module
 

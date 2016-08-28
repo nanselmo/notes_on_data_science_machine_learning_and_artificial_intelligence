@@ -6,15 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="Data Science for Social Scientists">
+    <meta name="description" content="Data Science for Political and Social Phenomena">
     <meta name="author" content="Chris Albon">
     <link rel="icon" href="../favicon.ico">
 
-    <title>Prussian Horse Kick Data</title>
+    <title>Prussian Horse Kick Data - Python</title>
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="../theme/js/jquery.min.js"><\/script>')
+    </script>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="../theme/css/bootstrap.css" />
-
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link rel="stylesheet" type="text/css" href="../theme/css/ie10-viewport-bug-workaround.css" />
     <!-- Custom styles for this template -->
@@ -53,9 +58,9 @@
                         <ul class="dropdown-menu">
                             <li><a href="../pages/about.html">About Chris</a></li>
                             <li><a href="https://github.com/chrisalbon">GitHub</a></li>
-                            <li><a href="https://pinboard.in/u:chrisalbon">Pinboard</a></li>
                             <li><a href="https://twitter.com/chrisalbon">Twitter</a></li>
-                            <li><a href="../feeds/all.rss.xml">Feed</a></li>
+                            <li><a href="https://www.linkedin.com/in/chrisralbon">LinkedIn</a></li>
+                            <li><a href="https://pinboard.in/u:chrisalbon">Pinboard</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -74,17 +79,20 @@
                             <li><a href="..#Bayesian_Statistics">Bayesian Statistics</a></li>
                             <li><a href="..#Machine_Learning">Machine Learning</a></li>
                             <li><a href="..#GitHub">GitHub</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="../feeds/all.rss.xml">RSS Feed</a></li>
+
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Projects<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="..#Writing">Writing</a></li>
+                            <li><a href="..#Articles">Articles</a></li>
                             <li><a href="..#Projects">Projects</a></li>
                             <li><a href="http://popily.com">Popily</a></li>
                             <li><a href="http://partiallyderivative.com">Partially Derivative</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="https://github.com/chrisalbon/peripheral_brain">Peripheral Brain</a></li>
+                            <li><a href="https://github.com/chrisalbon/Data-Science-For-Political-And-Social-Phenomena">Data Science for Political and Social Phenomena</a></li>
                         </ul>
                     </li>
 
@@ -566,7 +574,7 @@
     <aside>
     <div class="bug-reporting__panel">
         <h3>Find an error or bug? Have a suggestion?</h3>
-        <p>Everything on this site is avaliable on GitHub. Head on over and <a href='https://github.com/chrisalbon/peripheral_brain/blob/gh-pages/python/dataset_prussian_horse_kicks.html'>submit an issue.</a> You can also message me directly on <a href='https://twitter.com/chrisalbon'>Twitter</a>.</p>
+        <p>Everything on this site is avaliable on GitHub. Head on over and <a href='https://github.com/chrisalbon/Data-Science-For-Political-And-Social-Phenomena/issues/new'>submit an issue.</a> You can also message me directly on <a href='https://twitter.com/chrisalbon'>Twitter</a>.</p>
     </div>
     </aside>
 </section>
@@ -577,11 +585,16 @@
         <div class="container">
             <p class="text-muted">
                 <center>Copyright &copy; Chris Albon,
-                    <time datetime="2016">2016</time>
+                    <time datetime="2016">2016</time>.
                 </center>
             </p>
         </div>
     </footer>
+
+    <!-- This jQuery line finds any span that contains code highlighting classes and then selects the parent <pre> tag and adds a border. This is done as a workaround to visually distinguish the code inputs and outputs -->
+    <script>
+        $( ".hll, .n, .c, .err, .k, .o, .cm, .cp, .c1, .cs, .gd, .ge, .gr, .gh, .gi, .go, .gp, .gs, .gu, .gt, .kc, .kd, .kn, .kp, .kr, .kt, .m, .s, .na, .nb, .nc, .no, .nd, .ni, .ne, .nf, .nl, .nn, .nt, .nv, .ow, .w, .mf, .mh, .mi, .mo, .sb, .sc, .sd, .s2, .se, .sh, .si, .sx, .sr, .s1, .ss, .bp, .vc, .vg, .vi, .il" ).parent( "pre" ).css( "border", "1px solid #DEDEDE" );
+    </script>
 
     <!-- Load Google Analytics -->
     <script>
@@ -605,10 +618,6 @@
     <!-- Bootstrap core JavaScript
       ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script>
-        window.jQuery || document.write('<script src="../theme/js/jquery.min.js"><\/script>')
-    </script>
     <script src="../theme/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../theme/js/ie10-viewport-bug-workaround.js"></script>

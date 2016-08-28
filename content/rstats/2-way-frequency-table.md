@@ -1,25 +1,30 @@
-Title: Two Way Frequency Table
-Slug: 2-way-frequency-table
-Summary: Two Way Frequency Table
-Date: 2016-05-01 12:00
-Category: R Stats
-Tags: Data Visualization
-Authors: Chris Albon
+Title: Two Way Frequency Table  
+Slug: 2-way-frequency-table  
+Summary: Two Way Frequency Table  
+Date: 2016-05-01 12:00  
+Category: R Stats  
+Tags: Data Visualization  
+Authors: Chris Albon  
 
-
-
-Original source: http://www.statmethods.net/stats/frequencies.html
+[Original source](http://www.statmethods.net/stats/frequencies.html)
 
 
 ```R
+# Create some data
 A <- c("yes", "no","yes", "no","yes", "no","yes", "no")
 B <- c("male", "female","female", "male","male", "male","male", "male")
 ```
 
 
 ```R
-mytable <- table(A,B) # A will be rows, B will be columns
-mytable # print table
+# A will be rows, B will be columns
+mytable <- table(A,B)
+```
+
+
+```R
+# print table
+mytable
 ```
 
 
@@ -34,8 +39,8 @@ mytable # print table
 
 
 ```R
-margin.table(mytable, 1) # A frequencies (summed over B)
-margin.table(mytable, 2) # B frequencies (summed over A)
+# A frequencies (summed over B)
+margin.table(mytable, 1)
 ```
 
 
@@ -48,6 +53,12 @@ margin.table(mytable, 2) # B frequencies (summed over A)
 
 
 
+```R
+# B frequencies (summed over A)
+margin.table(mytable, 2)
+```
+
+
 
 
     B
@@ -58,9 +69,8 @@ margin.table(mytable, 2) # B frequencies (summed over A)
 
 
 ```R
-prop.table(mytable) # cell percentages
-prop.table(mytable, 1) # row percentages
-prop.table(mytable, 2) # column percentages
+# cell percentages
+prop.table(mytable)
 ```
 
 
@@ -74,6 +84,12 @@ prop.table(mytable, 2) # column percentages
 
 
 
+```R
+# row percentages
+prop.table(mytable, 1)
+```
+
+
 
 
          B
@@ -82,6 +98,12 @@ prop.table(mytable, 2) # column percentages
       yes   0.25 0.75
 
 
+
+
+```R
+# column percentages
+prop.table(mytable, 2)
+```
 
 
 

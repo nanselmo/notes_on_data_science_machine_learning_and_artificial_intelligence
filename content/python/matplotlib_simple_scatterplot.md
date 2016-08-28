@@ -1,14 +1,12 @@
-Title: Scatterplot In MatPlotLib
-Slug: matplotlib_simple_scatterplot
-Summary: Scatterplot In MatPlotLib
-Date: 2016-05-01 12:00
-Category: Python
-Tags: Data Visualization
-Authors: Chris Albon
+Title: Scatterplot In MatPlotLib  
+Slug: matplotlib_simple_scatterplot  
+Summary: Scatterplot In MatPlotLib  
+Date: 2016-05-01 12:00  
+Category: Python  
+Tags: Data Visualization  
+Authors: Chris Albon  
 
-
-
-- **Note:** Based on: [Sebastian Raschka](http://nbviewer.ipython.org/github/rasbt/matplotlib-gallery/blob/master/ipynb/barplots.ipynb).
+Based on: [Sebastian Raschka](http://nbviewer.ipython.org/github/rasbt/matplotlib-gallery/blob/master/ipynb/barplots.ipynb).
 
 ## Preliminaries
 
@@ -30,14 +28,14 @@ pd.set_option('display.max_columns', 50)
 
 
 ```python
-df = pd.read_csv('https://www.dropbox.com/s/52cb7kcflr8qm2u/5kings_battles_v1.csv?dl=1')
+df = pd.read_csv('https://raw.githubusercontent.com/chrisalbon/war_of_the_five_kings_dataset/master/5kings_battles_v1.csv')
 df.head()
 ```
 
 
 
 
-<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<div>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -72,143 +70,143 @@ df.head()
   <tbody>
     <tr>
       <th>0</th>
-      <td>    Battle of the Golden Tooth</td>
-      <td> 298</td>
-      <td> 1</td>
-      <td> Joffrey/Tommen Baratheon</td>
-      <td>               Robb Stark</td>
-      <td> Lannister</td>
-      <td>   NaN</td>
-      <td> NaN</td>
-      <td> NaN</td>
-      <td>     Tully</td>
-      <td> NaN</td>
+      <td>Battle of the Golden Tooth</td>
+      <td>298</td>
+      <td>1</td>
+      <td>Joffrey/Tommen Baratheon</td>
+      <td>Robb Stark</td>
+      <td>Lannister</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>  win</td>
-      <td> pitched battle</td>
-      <td> 1</td>
-      <td> 0</td>
-      <td> 15000</td>
-      <td>  4000</td>
-      <td>                                   Jaime Lannister</td>
-      <td>                              Clement Piper, Vance</td>
-      <td> 1</td>
-      <td>    Golden Tooth</td>
-      <td> The Westerlands</td>
-      <td> NaN</td>
+      <td>NaN</td>
+      <td>Tully</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>win</td>
+      <td>pitched battle</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>15000.0</td>
+      <td>4000.0</td>
+      <td>Jaime Lannister</td>
+      <td>Clement Piper, Vance</td>
+      <td>1.0</td>
+      <td>Golden Tooth</td>
+      <td>The Westerlands</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>   Battle at the Mummer's Ford</td>
-      <td> 298</td>
-      <td> 2</td>
-      <td> Joffrey/Tommen Baratheon</td>
-      <td>               Robb Stark</td>
-      <td> Lannister</td>
-      <td>   NaN</td>
-      <td> NaN</td>
-      <td> NaN</td>
-      <td> Baratheon</td>
-      <td> NaN</td>
+      <td>Battle at the Mummer's Ford</td>
+      <td>298</td>
+      <td>2</td>
+      <td>Joffrey/Tommen Baratheon</td>
+      <td>Robb Stark</td>
+      <td>Lannister</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>  win</td>
-      <td>         ambush</td>
-      <td> 1</td>
-      <td> 0</td>
-      <td>   NaN</td>
-      <td>   120</td>
-      <td>                                    Gregor Clegane</td>
-      <td>                                  Beric Dondarrion</td>
-      <td> 1</td>
-      <td>   Mummer's Ford</td>
-      <td>  The Riverlands</td>
-      <td> NaN</td>
+      <td>NaN</td>
+      <td>Baratheon</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>win</td>
+      <td>ambush</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>120.0</td>
+      <td>Gregor Clegane</td>
+      <td>Beric Dondarrion</td>
+      <td>1.0</td>
+      <td>Mummer's Ford</td>
+      <td>The Riverlands</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>            Battle of Riverrun</td>
-      <td> 298</td>
-      <td> 3</td>
-      <td> Joffrey/Tommen Baratheon</td>
-      <td>               Robb Stark</td>
-      <td> Lannister</td>
-      <td>   NaN</td>
-      <td> NaN</td>
-      <td> NaN</td>
-      <td>     Tully</td>
-      <td> NaN</td>
+      <td>Battle of Riverrun</td>
+      <td>298</td>
+      <td>3</td>
+      <td>Joffrey/Tommen Baratheon</td>
+      <td>Robb Stark</td>
+      <td>Lannister</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>  win</td>
-      <td> pitched battle</td>
-      <td> 0</td>
-      <td> 1</td>
-      <td> 15000</td>
-      <td> 10000</td>
-      <td>                      Jaime Lannister, Andros Brax</td>
-      <td>                     Edmure Tully, Tytos Blackwood</td>
-      <td> 1</td>
-      <td>        Riverrun</td>
-      <td>  The Riverlands</td>
-      <td> NaN</td>
+      <td>NaN</td>
+      <td>Tully</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>win</td>
+      <td>pitched battle</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>15000.0</td>
+      <td>10000.0</td>
+      <td>Jaime Lannister, Andros Brax</td>
+      <td>Edmure Tully, Tytos Blackwood</td>
+      <td>1.0</td>
+      <td>Riverrun</td>
+      <td>The Riverlands</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>      Battle of the Green Fork</td>
-      <td> 298</td>
-      <td> 4</td>
-      <td>               Robb Stark</td>
-      <td> Joffrey/Tommen Baratheon</td>
-      <td>     Stark</td>
-      <td>   NaN</td>
-      <td> NaN</td>
-      <td> NaN</td>
-      <td> Lannister</td>
-      <td> NaN</td>
+      <td>Battle of the Green Fork</td>
+      <td>298</td>
+      <td>4</td>
+      <td>Robb Stark</td>
+      <td>Joffrey/Tommen Baratheon</td>
+      <td>Stark</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td> loss</td>
-      <td> pitched battle</td>
-      <td> 1</td>
-      <td> 1</td>
-      <td> 18000</td>
-      <td> 20000</td>
-      <td> Roose Bolton, Wylis Manderly, Medger Cerwyn, H...</td>
-      <td> Tywin Lannister, Gregor Clegane, Kevan Lannist...</td>
-      <td> 1</td>
-      <td>      Green Fork</td>
-      <td>  The Riverlands</td>
-      <td> NaN</td>
+      <td>NaN</td>
+      <td>Lannister</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>loss</td>
+      <td>pitched battle</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>18000.0</td>
+      <td>20000.0</td>
+      <td>Roose Bolton, Wylis Manderly, Medger Cerwyn, H...</td>
+      <td>Tywin Lannister, Gregor Clegane, Kevan Lannist...</td>
+      <td>1.0</td>
+      <td>Green Fork</td>
+      <td>The Riverlands</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>4</th>
-      <td> Battle of the Whispering Wood</td>
-      <td> 298</td>
-      <td> 5</td>
-      <td>               Robb Stark</td>
-      <td> Joffrey/Tommen Baratheon</td>
-      <td>     Stark</td>
-      <td> Tully</td>
-      <td> NaN</td>
-      <td> NaN</td>
-      <td> Lannister</td>
-      <td> NaN</td>
+      <td>Battle of the Whispering Wood</td>
+      <td>298</td>
+      <td>5</td>
+      <td>Robb Stark</td>
+      <td>Joffrey/Tommen Baratheon</td>
+      <td>Stark</td>
+      <td>Tully</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>  win</td>
-      <td>         ambush</td>
-      <td> 1</td>
-      <td> 1</td>
-      <td>  1875</td>
-      <td>  6000</td>
-      <td>                         Robb Stark, Brynden Tully</td>
-      <td>                                   Jaime Lannister</td>
-      <td> 1</td>
-      <td> Whispering Wood</td>
-      <td>  The Riverlands</td>
-      <td> NaN</td>
+      <td>Lannister</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>win</td>
+      <td>ambush</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1875.0</td>
+      <td>6000.0</td>
+      <td>Robb Stark, Brynden Tully</td>
+      <td>Jaime Lannister</td>
+      <td>1.0</td>
+      <td>Whispering Wood</td>
+      <td>The Riverlands</td>
+      <td>NaN</td>
     </tr>
   </tbody>
 </table>
@@ -225,11 +223,11 @@ plt.figure(figsize=(10,8))
 
 # Create a scatterplot of,
             # attacker size in year 298 as the x axis
-plt.scatter(df['attacker_size'][df['year'] == 298], 
+plt.scatter(df['attacker_size'][df['year'] == 298],
             # attacker size in year 298 as the y axis
-            df['defender_size'][df['year'] == 298], 
+            df['defender_size'][df['year'] == 298],
             # the marker as
-            marker='x', 
+            marker='x',
             # the color
             color='b',
             # the alpha
@@ -238,15 +236,15 @@ plt.scatter(df['attacker_size'][df['year'] == 298],
             s = 124,
             # labelled this
             label='Year 298')
-            
+
             # attacker size in year 299 as the x axis
-plt.scatter(df['attacker_size'][df['year'] == 299], 
+plt.scatter(df['attacker_size'][df['year'] == 299],
             # defender size in year 299 as the y axis
-            df['defender_size'][df['year'] == 299], 
+            df['defender_size'][df['year'] == 299],
             # the marker as
-            marker='o', 
+            marker='o',
             # the color
-            color='r', 
+            color='r',
             # the alpha
             alpha=0.7,
             # with size
@@ -255,15 +253,15 @@ plt.scatter(df['attacker_size'][df['year'] == 299],
             label='Year 299')
 
             # attacker size in year 300 as the x axis
-plt.scatter(df['attacker_size'][df['year'] == 300], 
+plt.scatter(df['attacker_size'][df['year'] == 300],
             # defender size in year 300 as the y axis
-            df['defender_size'][df['year'] == 300], 
+            df['defender_size'][df['year'] == 300],
             # the marker as
-            marker='^', 
+            marker='^',
             # the color
-            color='g', 
+            color='g',
             # the alpha
-            alpha=0.7, 
+            alpha=0.7,
             # with size
             s = 124,
             # labelled this
@@ -290,4 +288,3 @@ plt.show()
 
 
 ![png]({filename}/images/matplotlib_simple_scatterplot/output_6_0.png)
-

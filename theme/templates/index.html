@@ -1,14 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
-
 <div class="page-header">
-  <h1 class="index-page-title">Data Science for Political and Social Phenonoma</h1>
+  <h1 class="index-page-title">Data Science for Political and Social Phenomena</h1>
 </div>
-<div class="">
-        After years working on technology projects in <a href="http://www.ushahidi.com/">humanitarian aid</a> and <a href="http://www.frontlinesms.com/">international development</a>, I cofounded <a href="http://www.popily.com/">Popily</a>, a data science startup, and co-host a <a href="http://www.partiallyderivative.com/">general audience data science podcast</a>. This site is my repository of {{articles|length}} articles and tutorials on data science, statistics, and computational social science. For more details, see <a href="https://github.com/chrisalbon/peripheral_brain">GitHub</a>.
+<div class="homepage-blurb row">
+    <div class="col-sm-12">
+        <p>I am a <a href="{{ SITEURL }}/pages/about.html">data scientist and quantitative political scientist</a>. I specialize in the technical and organizational aspects of applying data science to political and social issues.</p>
+        <p>Years ago I noticed a gap in the existing data literature. On one side was data science, with roots in mathematics and computer science. On the other side were the social sciences, with hard-earned expertise modeling and predicting complex human behavior. The motivation for this site and ongoing book project is to bridge that gap: to create a practical guide to applying data science to political and social phenomena.</p>
+    </div>
 </div>
 
-<div class="row" id="Writing">
+<div class="row" id="Articles">
   <div class="col-sm-12">
     <h2 class="homepage_category_title">Articles</h2>
   </div>
@@ -17,28 +19,6 @@
       <div class="panel-body">
         <ul>
           {% for article in articles if article.category == 'Articles' %}
-            <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
-          {% else %}
-            <li>Coming soon.</li>
-          {% endfor %}
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="row" id="Projects">
-  <div class="col-sm-12">
-    <h2 class="homepage_category_title">Projects</h2>
-  </div>
-  <div class="col-sm-12">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Small Projects</h3>
-      </div>
-      <div class="panel-body">
-        <ul>
-          {% for article in articles if article.category == 'Projects' and 'Small Projects' in article.tags %}
             <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
           {% else %}
             <li>Coming soon.</li>
@@ -223,7 +203,7 @@
   </div>
 </div>
 
-<div class="row" id="Bash">
+<div class="row" id="Command_Line">
   <div class="col-sm-12">
     <h2 class="homepage_category_title">Command Line</h2>
   </div>
@@ -239,6 +219,49 @@
     </div>
   </div>
 </div>
+
+<div class="row" id="Javascript">
+  <div class="col-sm-12">
+    <h2 class="homepage_category_title">Javascript</h2>
+  </div>
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <ul>
+          {% for article in articles if article.category == 'Javascript' %}
+            <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+          {% else %}
+            <li>Coming soon.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row" id="Projects">
+  <div class="col-sm-12">
+    <h2 class="homepage_category_title">Projects</h2>
+  </div>
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Small Projects</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+          {% for article in articles if article.category == 'Projects' and 'Small Projects' in article.tags %}
+            <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+          {% else %}
+            <li>Coming soon.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 <div class="row" id="Project_Juypter">
   <div class="col-sm-12">
@@ -259,6 +282,7 @@
   </div>
 </div>
 
+
 <div class="row" id="SQL">
   <div class="col-sm-12">
     <h2 class="homepage_category_title">SQL</h2>
@@ -268,25 +292,6 @@
       <div class="panel-body">
         <ul>
           {% for article in articles if article.category == 'SQL' %}
-            <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
-          {% else %}
-            <li>Coming soon.</li>
-          {% endfor %}
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="row" id="Javascript">
-  <div class="col-sm-12">
-    <h2 class="homepage_category_title">Javascript</h2>
-  </div>
-  <div class="col-sm-12">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <ul>
-          {% for article in articles if article.category == 'Javascript' %}
             <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
           {% else %}
             <li>Coming soon.</li>
@@ -337,13 +342,13 @@
 
 <div class="row" id="Frequentist_Statistics">
   <div class="col-sm-12">
-    <h2 class="homepage_category_title">Frequentists Statistics</h2>
+    <h2 class="homepage_category_title">Frequentist Statistics</h2>
   </div>
   <div class="col-sm-12">
     <div class="panel panel-default">
       <div class="panel-body">
         <ul>
-          {% for article in articles if article.category == 'Statistics' %}
+          {% for article in articles if article.category == 'Frequentist Statistics' %}
             <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
           {% else %}
             <li>Coming soon.</li>
@@ -362,7 +367,7 @@
     <div class="panel panel-default">
       <div class="panel-body">
         <ul>
-          {% for article in articles if article.category == 'Bayesian' %}
+          {% for article in articles if article.category == 'Bayesian Statistics' %}
             <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
           {% else %}
             <li>Coming soon.</li>

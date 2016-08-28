@@ -1,46 +1,10 @@
-Title: Converting Strings To Datetime
-Slug: strings_to_datetime
-Summary: Converting Strings To Datetime
-Date: 2016-05-01 12:00
-Category: Python
-Tags: Basics
-Authors: Chris Albon
-
-
-
-### Datetime formating
-
-** Type - Description** 
-- %Y - 4-digit year
-- %y - 2-digit year
-- %m - 2-digit month [01, 12]
-- %d - 2-digit day [01, 31]
-- %H - Hour (24-hour clock) [00, 23]
-- %I - Hour (12-hour clock) [01, 12]
-- %M - 2-digit minute [00, 59]
-- %S - Second [00, 61] (seconds 60, 61 account for leap seconds) 
-- %w - Weekday as integer [0 (Sunday), 6]
-- %U - Week number of the year [00, 53]. Sunday is considered the first day of the week, and days before the first Sunday of the year are “week 0”.
-- %W - Week number of the year [00, 53]. Monday is considered the first day of the week, and days before the first Monday of the year are “week 0”.
-- %z - UTC time zone offset as +HHMM or -HHMM, empty if time zone naive %F 
-- %F - Shortcut for %Y-%m-%d, for example 2012-4-18
-- %D - Shortcut for %m/%d/%y, for example 04/18/12
-
-
-
-
-
-
-
-
-
-
-
-
- 
- 
- 
- 
+Title: Converting Strings To Datetime  
+Slug: strings_to_datetime  
+Summary: Converting Strings To Datetime  
+Date: 2016-05-01 12:00  
+Category: Python  
+Tags: Basics  
+Authors: Chris Albon  
 
 ### Import modules
 
@@ -139,7 +103,7 @@ parse(war_start, dayfirst=True)
 
 
 
-    datetime.datetime(2011, 1, 3, 0, 0)
+    datetime.datetime(2011, 3, 1, 0, 0)
 
 
 
@@ -147,7 +111,7 @@ parse(war_start, dayfirst=True)
 
 
 ```python
-data = {'date': ['2014-05-01 18:47:05.069722', '2014-05-01 18:47:05.119994', '2014-05-02 18:47:05.178768', '2014-05-02 18:47:05.230071', '2014-05-02 18:47:05.230071', '2014-05-02 18:47:05.280592', '2014-05-03 18:47:05.332662', '2014-05-03 18:47:05.385109', '2014-05-04 18:47:05.436523', '2014-05-04 18:47:05.486877'], 
+data = {'date': ['2014-05-01 18:47:05.069722', '2014-05-01 18:47:05.119994', '2014-05-02 18:47:05.178768', '2014-05-02 18:47:05.230071', '2014-05-02 18:47:05.230071', '2014-05-02 18:47:05.280592', '2014-05-03 18:47:05.332662', '2014-05-03 18:47:05.385109', '2014-05-04 18:47:05.436523', '2014-05-04 18:47:05.486877'],
         'value': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]}
 df = pd.DataFrame(data, columns = ['date', 'value'])
 print(df)
@@ -164,8 +128,6 @@ print(df)
     7  2014-05-03 18:47:05.385109      1
     8  2014-05-04 18:47:05.436523      1
     9  2014-05-04 18:47:05.486877      1
-    
-    [10 rows x 2 columns]
 
 
 ### Convert df['date'] from string to datetime
@@ -189,5 +151,3 @@ pd.to_datetime(df['date'])
     8   2014-05-04 18:47:05.436523
     9   2014-05-04 18:47:05.486877
     Name: date, dtype: datetime64[ns]
-
-

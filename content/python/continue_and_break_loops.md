@@ -1,12 +1,10 @@
-Title: Continue And Break Loops
-Slug: continue_and_break_loops
-Summary: Continue And Break Loops
-Date: 2016-05-01 12:00
-Category: Python
-Tags: Basics
-Authors: Chris Albon
-
-
+Title: Continue And Break Loops  
+Slug: continue_and_break_loops  
+Summary: Continue And Break Loops  
+Date: 2016-05-01 12:00  
+Category: Python  
+Tags: Basics  
+Authors: Chris Albon# Continue And Break Loops  
 
 ### Import the random module
 
@@ -14,11 +12,6 @@ Authors: Chris Albon
 ```python
 import random
 ```
-
-In this while loop:
-- If the number is less than 3, the loop restarts again.
-- If the number is 4, it changes running to false and the loop ends.
-- If the number is 5, it breaks out of the loop and the loop ends.
 
 ### Create a while loop
 
@@ -56,5 +49,5 @@ while running:
 
     It is too small, starting over.
     It is too small, starting over.
-    It is 4! Changing running to false
-
+    It is too small, starting over.
+    It is 5! Breaking Loop!
