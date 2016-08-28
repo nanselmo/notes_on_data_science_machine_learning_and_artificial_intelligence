@@ -15,7 +15,7 @@ The motivation of this ongoing book project is to bridge that gap: to create a p
     Category: Python  
     Tags: Web Scraping    
     Authors: Chris Albon  
-- Change ![png](...) to ![png]({filename}/images/scipy_simple_clustering/output_26_1.png)
+- Change `![png](...)` to `![png]({filename}/images/scipy_simple_clustering/output_26_1.png)`
 - Move post images in their folder to content/images/{filename}
 - Run Pelican
 - View Page
