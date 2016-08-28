@@ -87,10 +87,7 @@ body > .container {
   letter-spacing: 1px;
   font-weight: 700;
   text-transform: uppercase;
-  -webkit-clip-path: polygon(7% 0%, 100% 0%, 93% 100%, 0% 100%);
-  clip-path: polygon(7% 0%, 100% 0%, 93% 100%, 0% 100%);
   font-size: 14px;
-  font-style: italic;
 }
 
 @media (max-width: 767px) {

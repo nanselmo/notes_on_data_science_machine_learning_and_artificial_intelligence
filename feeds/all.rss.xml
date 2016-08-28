@@ -317,7 +317,7 @@
         "}";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Fri, 19 Aug 2016 12:00:00 -0700</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-08-19:machine-learning/linear_regression_scikit-learn.html</guid><category>Basics</category></item><item><title>Basic Mathematical Terms</title><link>http://chrisalbon.com/mathematics/basic_mathematical_terms.html</link><description>&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;math&lt;/span&gt;
+&lt;/script&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Fri, 19 Aug 2016 12:00:00 -0700</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-08-19:machine-learning/linear_regression_scikit-learn.html</guid><category>Basics</category></item><item><title>Basic Mathematical Terms In Python</title><link>http://chrisalbon.com/mathematics/basic_mathematical_terms_in_python.html</link><description>&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;math&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -639,7 +639,7 @@ a_{31} &amp;amp; a_{32} &amp;amp; a_{33}
         "}";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Fri, 12 Aug 2016 12:00:00 -0700</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-08-12:mathematics/basic_mathematical_terms.html</guid><category>Basics</category></item><item><title>Sort A List Of Names By Last Name</title><link>http://chrisalbon.com/python/sort_a_list_by_last_name.html</link><description>&lt;h2&gt;Create a list of names&lt;/h2&gt;
+&lt;/script&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Fri, 12 Aug 2016 12:00:00 -0700</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-08-12:mathematics/basic_mathematical_terms_in_python.html</guid><category>Basics</category></item><item><title>Sort A List Of Names By Last Name</title><link>http://chrisalbon.com/python/sort_a_list_by_last_name.html</link><description>&lt;h2&gt;Create a list of names&lt;/h2&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;commander_names&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Alan Brooke&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;George Marshall&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Frank Jack Fletcher&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Conrad Helfrich&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Albert Kesselring&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
