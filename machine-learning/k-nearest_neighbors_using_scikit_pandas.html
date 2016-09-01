@@ -10,7 +10,7 @@
     <meta name="author" content="Chris Albon">
     <link rel="icon" href="../favicon.ico">
 
-    <title>Bessel's Correction - Frequentist Statistics</title>
+    <title>K-Nearest Neighbors Classification - Machine Learning</title>
 
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -125,24 +125,164 @@
 <section id="content" class="body">
     <header>
     <h1>
-      Bessel's Correction
+      K-Nearest Neighbors Classification
     </h1>
 <ol class="breadcrumb">
     <li>
-        <time class="published" datetime="2016-08-19T12:00:00-07:00">
-            19 August 2016
+        <time class="published" datetime="2016-08-31T12:00:00-07:00">
+            31 August 2016
         </time>
     </li>
-    <li>Frequentist Statistics</li>
+    <li>Machine Learning</li>
     <li>Basics</li>
 </ol>
 </header>
 <div class='article_content'>
-<p>Bessel's correction is the reason we use <span class="math">\(n-1\)</span> instead of <span class="math">\(n\)</span> in the calculations of sample variance and sample standard deviation.</p>
-<p>Sample variance:</p>
-<div class="math">$$ s^2 = \frac {1}{n-1} \sum_{i=1}^n  \left(x_i - \overline{x} \right)^ 2 $$</div>
-<p>When we calculate sample variance, we are attempting to estimate the population variance, an unknown value. To make this estimate, we estimate this unknown population variance from the mean of the squared deviations of samples from the overall sample mean. A negative sideffect of this estimation technique is that, because we are taking a sample, we are a more likely to observe observations with a smaller deviation because they are more common (e.g. they are the center of the distribution). The means that by definiton we will underestimate the population variance.</p>
-<p>Friedrich Bessel figured out that by multiplying a biased (uncorrected) sample variance <span class="math">\(s_n^2 = \frac {1}{n} \sum_{i=1}^n  \left(x_i - \overline{x} \right)^ 2\)</span> by <span class="math">\(\frac{n}{n-1}\)</span> we will be able to reduce that bias and thus be able to make an accurate estimate of the population variance and standard deviation. The end result of that multiplication is the unbiased sample variance.</p>
+<p>K-nearest neighbors classifier (KNN) is a simple and powerful classification learner.</p>
+<p>KNN has three basic parts:</p>
+<ul>
+<li><span class="math">\(y_i\)</span>: The class of an observation (what we are trying to predict in the test data).</li>
+<li><span class="math">\(X_i\)</span>: The predictors/IVs/attributes of an observation.</li>
+<li><span class="math">\(K\)</span>: A positive number specified by the researcher. K denotes the number of observations closest to a particular observation that define its "neighborhood". For example, K=2 means that each observation's has a neighorhood comprising of the two other observations closest to it.</li>
+</ul>
+<p>Imagine we have an observation where we know its independent variables <span class="math">\(x_{test}\)</span> but do not know its class <span class="math">\(y_{test}\)</span>. The KNN learner finds the K other observations that are closest to <span class="math">\(x_{test}\)</span> and uses their known classes to assign a classes to <span class="math">\(x_{test}\)</span>.</p>
+<h2>Preliminaries</h2>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">neighbors</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>  
+<span class="kn">import</span> <span class="nn">seaborn</span>
+</pre></div>
+
+
+<h2>Create Dataset</h2>
+<p>Here we create three variables, <code>test_1</code> and <code>test_2</code> are our independent variables, 'outcome' is our dependent variable. We will use this data to train our learner.</p>
+<div class="codehilite"><pre><span></span><span class="n">training_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+
+<span class="n">training_data</span><span class="p">[</span><span class="s1">&#39;test_1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.3051</span><span class="p">,</span><span class="mf">0.4949</span><span class="p">,</span><span class="mf">0.6974</span><span class="p">,</span><span class="mf">0.3769</span><span class="p">,</span><span class="mf">0.2231</span><span class="p">,</span><span class="mf">0.341</span><span class="p">,</span><span class="mf">0.4436</span><span class="p">,</span><span class="mf">0.5897</span><span class="p">,</span><span class="mf">0.6308</span><span class="p">,</span><span class="mf">0.5</span><span class="p">]</span>
+<span class="n">training_data</span><span class="p">[</span><span class="s1">&#39;test_2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.5846</span><span class="p">,</span><span class="mf">0.2654</span><span class="p">,</span><span class="mf">0.2615</span><span class="p">,</span><span class="mf">0.4538</span><span class="p">,</span><span class="mf">0.4615</span><span class="p">,</span><span class="mf">0.8308</span><span class="p">,</span><span class="mf">0.4962</span><span class="p">,</span><span class="mf">0.3269</span><span class="p">,</span><span class="mf">0.5346</span><span class="p">,</span><span class="mf">0.6731</span><span class="p">]</span>
+<span class="n">training_data</span><span class="p">[</span><span class="s1">&#39;outcome&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;win&#39;</span><span class="p">,</span><span class="s1">&#39;win&#39;</span><span class="p">,</span><span class="s1">&#39;win&#39;</span><span class="p">,</span><span class="s1">&#39;win&#39;</span><span class="p">,</span><span class="s1">&#39;win&#39;</span><span class="p">,</span><span class="s1">&#39;loss&#39;</span><span class="p">,</span><span class="s1">&#39;loss&#39;</span><span class="p">,</span><span class="s1">&#39;loss&#39;</span><span class="p">,</span><span class="s1">&#39;loss&#39;</span><span class="p">,</span><span class="s1">&#39;loss&#39;</span><span class="p">]</span>
+
+<span class="n">training_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>test_1</th>
+      <th>test_2</th>
+      <th>outcome</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.3051</td>
+      <td>0.5846</td>
+      <td>win</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.4949</td>
+      <td>0.2654</td>
+      <td>win</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.6974</td>
+      <td>0.2615</td>
+      <td>win</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.3769</td>
+      <td>0.4538</td>
+      <td>win</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.2231</td>
+      <td>0.4615</td>
+      <td>win</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2>Plot the data</h2>
+<p>This is not necessary, but because we only have three variables, we can plot the training dataset. The X and Y axes are the independent variables, while the colors of the points are their classes.</p>
+<div class="codehilite"><pre><span></span><span class="n">seaborn</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="s1">&#39;test_1&#39;</span><span class="p">,</span> <span class="s1">&#39;test_2&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">training_data</span><span class="p">,</span> <span class="n">fit_reg</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="n">hue</span><span class="o">=</span><span class="s2">&quot;outcome&quot;</span><span class="p">,</span> <span class="n">scatter_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;marker&quot;</span><span class="p">:</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span><span class="s2">&quot;s&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">})</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x11553bf98&gt;
+</pre></div>
+
+
+<p><img alt="png" src="../images/k-nearest_neighbors_classifer/output_9_1.png" /></p>
+<h2>Convert Data Into np.arrays</h2>
+<p>The <code>scikit-learn</code> library requires the data be formatted as a <code>numpy</code> array. Here are doing that reformatting.</p>
+<div class="codehilite"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">training_data</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;test_1&#39;</span><span class="p">,</span> <span class="s1">&#39;test_2&#39;</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">training_data</span><span class="p">[</span><span class="s1">&#39;outcome&#39;</span><span class="p">])</span>
+</pre></div>
+
+
+<h2>Train The Learner</h2>
+<p>This is our big moment. We train a KNN learner using the parameters that an observation's neighborhood is its three closest neighors. <code>weights = 'uniform'</code> can be thought of as the voting system used. For example, <code>uniform</code> means that all neighbors get an equally weighted "vote" about an observation's class while <code>weights = 'distance'</code> would tell the learner to weigh each observation's "vote" by its distance from the observation we are classifying.</p>
+<div class="codehilite"><pre><span></span><span class="n">clf</span> <span class="o">=</span> <span class="n">neighbors</span><span class="o">.</span><span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">weights</span> <span class="o">=</span> <span class="s1">&#39;uniform&#39;</span><span class="p">)</span>
+<span class="n">trained_model</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+
+
+<h2>View The Model's Score</h2>
+<p>How good is our trained model compared to our training data?</p>
+<div class="codehilite"><pre><span></span><span class="n">trained_model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>0.80000000000000004
+</pre></div>
+
+
+<p>Our model is 80% accurate!</p>
+<p><em>Note: that in any real world example we'd want to compare the trained model to some holdout test data. But since this is a toy example I used the training data</em>.</p>
+<h2>Apply The Learner To A New Data Point</h2>
+<p>Now that we have trained our model, we can predict the class any new observation, <span class="math">\(y_{test}\)</span>. Let us do that now!</p>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a new observation with the value of the first independent variable, &#39;test_1&#39;, as .4</span>
+<span class="c1"># and the second independent variable, test_1&#39;, as .6</span>
+<span class="n">x_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">.</span><span class="mi">4</span><span class="p">,</span><span class="o">.</span><span class="mi">6</span><span class="p">]])</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="c1"># Apply the learner to the new, unclassified observation.</span>
+<span class="n">trained_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>array([&#39;loss&#39;], dtype=object)
+</pre></div>
+
+
+<p>Huzzah! We can see that the learner has predicted that the new observation's class is <code>loss</code>.</p>
+<p>We can even look at the probabilities the learner assigned to each class:</p>
+<div class="codehilite"><pre><span></span><span class="n">trained_model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>array([[ 0.66666667,  0.33333333]])
+</pre></div>
+
+
+<p>According to this result, the model predicted that the observation was <code>loss</code> with a ~67% probability and <code>win</code> with a ~33% probability. Because the observation had a greater probability of being <code>loss</code>, it predicted that class for the observation.</p>
+<h2>Notes</h2>
+<ul>
+<li>The chose of K has major affects on the classifer created.</li>
+<li>The greater the K, more linear (high bias and low variance) the decision boundary.</li>
+<li>There are a variety of ways to measure distance, two popular being simple euclidean distance and cosine similarity.</li>
+</ul>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
         indent = "0em",
