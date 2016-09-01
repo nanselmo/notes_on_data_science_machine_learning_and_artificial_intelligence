@@ -140,7 +140,7 @@
 &lt;p&gt;According to this result, the model predicted that the observation was &lt;code&gt;loss&lt;/code&gt; with a ~67% probability and &lt;code&gt;win&lt;/code&gt; with a ~33% probability. Because the observation had a greater probability of being &lt;code&gt;loss&lt;/code&gt;, it predicted that class for the observation.&lt;/p&gt;
 &lt;h2&gt;Notes&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;The chose of K has major affects on the classifer created.&lt;/li&gt;
+&lt;li&gt;The choice of K has major affects on the classifer created.&lt;/li&gt;
 &lt;li&gt;The greater the K, more linear (high bias and low variance) the decision boundary.&lt;/li&gt;
 &lt;li&gt;There are a variety of ways to measure distance, two popular being simple euclidean distance and cosine similarity.&lt;/li&gt;
 &lt;/ul&gt;
