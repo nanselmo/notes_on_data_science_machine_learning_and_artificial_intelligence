@@ -94,10 +94,6 @@ body > .container {
   background: #ef322b;
 }
 
-.navbar .navbar-brand:visited {
-  background: #ff3730;
-}
-
 
 @media (max-width: 767px) {
   .navbar .navbar-brand, .navbar .navbar-brand:hover  {
@@ -129,6 +125,10 @@ body > .container {
 }
 
 .navbar-nav > li > a:active {
+  background: #ef322b;
+}
+
+.navbar-nav > li > a:visited {
   background: #ef322b;
 }
 
