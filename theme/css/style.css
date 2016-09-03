@@ -120,15 +120,11 @@ body > .container {
   }
 }
 
-.navbar-nav > li > a:hover {
-  background: #ef322b;
+.nav > li > a {
+    padding: 10px 6px;
 }
 
-.navbar-nav > li > a:active {
-  background: #ef322b;
-}
-
-.navbar-nav > li > a:visited {
+.navbar-nav > li > a:hover, .navbar-nav > li > a:active{
   background: #ef322b;
 }
 
