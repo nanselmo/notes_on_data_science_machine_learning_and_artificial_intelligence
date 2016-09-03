@@ -120,10 +120,6 @@ body > .container {
   }
 }
 
-.nav > li > a {
-    padding: 10px 6px;
-}
-
 .navbar-nav > li > a:hover, .navbar-nav > li > a:active{
   background: #ef322b;
 }
