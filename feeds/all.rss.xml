@@ -11,6 +11,14 @@
 &lt;h2&gt;Construct A Dictionary From The Two Lists&lt;/h2&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Create a dictionary that is the zip of the two lists&lt;/span&gt;
 &lt;span class="nb"&gt;dict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;zip&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;officer_names&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;officer_armies&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;{&amp;#39;Chris Jefferson&amp;#39;: &amp;#39;Orange Army&amp;#39;,
+ &amp;#39;Jessica Billars&amp;#39;: &amp;#39;Green Army&amp;#39;,
+ &amp;#39;Michael Mulligan&amp;#39;: &amp;#39;Red Army&amp;#39;,
+ &amp;#39;Sodoni Dogla&amp;#39;: &amp;#39;Purple Army&amp;#39;,
+ &amp;#39;Steven Johnson&amp;#39;: &amp;#39;Blue Army&amp;#39;}
 &lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Tue, 06 Sep 2016 12:00:00 -0700</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-09-06:python/construct_a_dictionary_from_multiple_lists_python.html</guid><category>Basics</category></item><item><title>Exiting A Loop</title><link>http://chrisalbon.com/python/exiting_a_loop_python.html</link><description>&lt;h2&gt;Create A List&lt;/h2&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Create a list:&lt;/span&gt;
 &lt;span class="n"&gt;armies&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Red Army&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Blue Army&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Green Army&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
