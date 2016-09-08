@@ -120,12 +120,17 @@ body > .container {
   }
 }
 
-.navbar-nav > li > a:hover, .navbar-nav > li > a:active{
-  background: #ef322b;
+.navbar-nav > li > a:hover, .navbar-nav > li > a:active {
+  background-color: #ef322b;
 }
 
+.navbar-nav > li > a:focus{
+  background-color: #ff3730;
+}
+
+
 .nav .dropdown.open > a, .nav .dropdown.open > a:hover, .nav .dropdown.open > a:focus {
-    background: #ef322b;
+    background-color: #ef322b;
 }
 
 .dropdown-menu {
