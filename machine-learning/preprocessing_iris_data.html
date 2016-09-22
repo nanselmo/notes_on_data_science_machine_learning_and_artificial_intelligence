@@ -10,7 +10,7 @@
     <meta name="author" content="Chris Albon">
     <link rel="icon" href="../favicon.ico">
 
-    <title>Match URLs - Regex</title>
+    <title>Preprocessing Iris Data - Machine Learning</title>
 
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -124,39 +124,84 @@
 <section id="content" class="body">
     <header>
     <h1>
-      Match URLs
+      Preprocessing Iris Data
     </h1>
 <ol class="breadcrumb">
     <li>
-        <time class="published" datetime="2016-05-01T12:00:00-07:00">
-            01 May 2016
+        <time class="published" datetime="2016-09-21T12:00:00-07:00">
+            21 September 2016
         </time>
     </li>
-    <li>Regex</li>
+    <li>Machine Learning</li>
     <li>Basics</li>
 </ol>
 </header>
 <div class='article_content'>
-<p><a href="http://stackoverflow.com/questions/6038061/regular-expression-to-find-urls-within-a-string">StackOverflow</a></p>
 <h2>Preliminaries</h2>
-<div class="codehilite"><pre><span></span><span class="c1"># Load regex package</span>
-<span class="kn">import</span> <span class="nn">re</span>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.cross_validation</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
 </pre></div>
 
 
-<h2>Create some text</h2>
-<div class="codehilite"><pre><span></span><span class="c1"># Create a variable containing a text string</span>
-<span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;My blog is http://www.chrisalbon.com and not http://chrisalbon.com&#39;</span>
+<h2>Load Data</h2>
+<div class="codehilite"><pre><span></span><span class="c1"># Load the iris data</span>
+<span class="n">iris</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_iris</span><span class="p">()</span>
+
+<span class="c1"># Create a variable for the feature data</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">data</span>
+
+<span class="c1"># Create a variable for the target data</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span>
 </pre></div>
 
 
-<h2>Apply regex</h2>
-<div class="codehilite"><pre><span></span><span class="c1"># Find any ISBN-10 or ISBN-13 number</span>
-<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">r&#39;(http|ftp|https):\/\/([\w\-_]+(?:(?:\.[\w\-_]+)+))([\w\-\.,@?^=%&amp;amp;:/~\+#]*[\w\-\@?^=%&amp;amp;/~\+#])?&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<h2>Split Data For Cross Validation</h2>
+<div class="codehilite"><pre><span></span><span class="c1"># Random split the data into four new datasets, training features, training outcome, test features,</span>
+<span class="c1"># and test outcome. Set the size of the test data to be 30% of the full dataset.</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>[(&#39;http&#39;, &#39;www.chrisalbon.com&#39;, &#39;&#39;), (&#39;http&#39;, &#39;chrisalbon.com&#39;, &#39;&#39;)]
+<h2>Standardize Feature Data</h2>
+<div class="codehilite"><pre><span></span><span class="c1"># Load the standard scaler</span>
+<span class="n">sc</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+
+<span class="c1"># Compute the mean and standard deviation based on the training data</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+
+<span class="c1"># Scale the training data to be of mean 0 and of unit variance</span>
+<span class="n">X_train_std</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+
+<span class="c1"># Scale the test data to be of mean 0 and of unit variance</span>
+<span class="n">X_test_std</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="c1"># Feature Test Data, non-standardized</span>
+<span class="n">X_test</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>array([[ 6.1,  2.8,  4.7,  1.2],
+       [ 5.7,  3.8,  1.7,  0.3],
+       [ 7.7,  2.6,  6.9,  2.3],
+       [ 6. ,  2.9,  4.5,  1.5],
+       [ 6.8,  2.8,  4.8,  1.4]])
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="c1"># Feature Test Data, standardized.</span>
+<span class="n">X_test_std</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>array([[ 0.3100623 , -0.49582097,  0.48403749, -0.05143998],
+       [-0.17225683,  1.92563026, -1.26851205, -1.26670948],
+       [ 2.23933883, -0.98011121,  1.76924049,  1.43388941],
+       [ 0.18948252, -0.25367584,  0.36720086,  0.35364985],
+       [ 1.15412078, -0.49582097,  0.54245581,  0.21861991]])
 </pre></div>
 </div>
     <aside>

@@ -407,10 +407,10 @@ Number of observations in the test data: 43
 
 
 <h2>Train The Random Forest Classifier</h2>
-<div class="codehilite"><pre><span></span><span class="c1"># Create a random forest classifer. By convention, clf means &#39;classifer&#39;</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a random forest classifier. By convention, clf means &#39;classifier&#39;</span>
 <span class="n">clf</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
-<span class="c1"># Train the classifer to take the training features and learn how they relate</span>
+<span class="c1"># Train the classifier to take the training features and learn how they relate</span>
 <span class="c1"># to the training y (the species)</span>
 <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="n">features</span><span class="p">],</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
@@ -425,11 +425,11 @@ Number of observations in the test data: 43
 </pre></div>
 
 
-<p>Huzzah! We have done it! We have officially trained our random forest classifer! Now let's play with it. The classifer model itself is stored in the <code>clf</code> variable.</p>
-<h2>Apply Classifer To Test Data</h2>
+<p>Huzzah! We have done it! We have officially trained our random forest classifier! Now let's play with it. The classifier model itself is stored in the <code>clf</code> variable.</p>
+<h2>Apply classifier To Test Data</h2>
 <p>If you have been following along, you will know we only trained our classifier on part of the data, leaving the rest out. This is, in my humble opinion, the most important part of machine learning. Why? Because by leaving out a portion of the data, we have a set of data to test the accuracy of our model!</p>
 <p>Let's do that now.</p>
-<div class="codehilite"><pre><span></span><span class="c1"># Apply the classifer we trained to the test data (which, remember, it has never seen before)</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Apply the classifier we trained to the test data (which, remember, it has never seen before)</span>
 <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="n">features</span><span class="p">])</span>
 </pre></div>
 
@@ -459,7 +459,7 @@ Number of observations in the test data: 43
 
 
 <p>There are three species of plant, thus <code>[ 1. ,  0. ,  0. ]</code> tells us that the classifier is certain that the plant is the first class. Taking another example, <code>[ 0.9,  0.1,  0. ]</code> tells us that the classifier gives a 90% probability the plant belongs to the first class and a 10% probability the plant belongs to the second class. Because 90 is greater than 10, the classifier predicts the plant is the first class.</p>
-<h2>Evaluate Classifer</h2>
+<h2>Evaluate classifier</h2>
 <p>Now that we have predicted the species of all plants in the test data, we can compare our predicted species with the that plant's actual species.</p>
 <div class="codehilite"><pre><span></span><span class="c1"># Create actual english names for the plants for each predicted plant class</span>
 <span class="n">preds</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">target_names</span><span class="p">[</span><span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="n">features</span><span class="p">])]</span>
@@ -565,7 +565,7 @@ Categories (3, object): [setosa, versicolor, virginica]
     <footer class="footer">
         <div class="container">
             <p class="text-muted">
-                <center>This project contains 324 pages and is available on <a href="https://github.com/chrisalbon/Data-Science-For-Political-And-Social-Phenomena">GitHub</a>.
+                <center>This project contains 326 pages and is available on <a href="https://github.com/chrisalbon/Data-Science-For-Political-And-Social-Phenomena">GitHub</a>.
                 <br/>
                 Copyright &copy; Chris Albon,
                     <time datetime="2016">2016</time>.
