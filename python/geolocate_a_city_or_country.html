@@ -10,7 +10,7 @@
     <meta name="author" content="Chris Albon">
     <link rel="icon" href="../favicon.ico">
 
-    <title>Replacing Factor Names Using Match - R Stats</title>
+    <title>Geolocate A City Or Country - Python</title>
 
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -34,7 +34,7 @@
     <![endif]-->
      <link href="http://chrisalbon.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Chris Albon Full RSS Feed" />        
 
-    <meta name="tags" content="Data Wrangling" />
+    <meta name="tags" content="Other" />
 
 
 </head>
@@ -124,50 +124,78 @@
 <section id="content" class="body">
     <header>
     <h1>
-      Replacing Factor Names Using Match
+      Geolocate A City Or Country
     </h1>
 <ol class="breadcrumb">
     <li>
-        <time class="published" datetime="2016-05-01T12:00:00-07:00">
-            01 May 2016
+        <time class="published" datetime="2016-09-21T12:00:00-07:00">
+            21 September 2016
         </time>
     </li>
-    <li>R Stats</li>
-    <li>Data Wrangling</li>
+    <li>Python</li>
+    <li>Other</li>
 </ol>
 </header>
 <div class='article_content'>
-<div class="codehilite"><pre><span></span><span class="c1"># create simulated factor names</span>
-district <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;NORTH&quot;</span><span class="p">,</span> <span class="s">&quot;NORTHWEST&quot;</span><span class="p">,</span> <span class="s">&quot;CENTRAL&quot;</span><span class="p">,</span> <span class="s">&quot;SOUTH&quot;</span><span class="p">,</span> <span class="s">&quot;SOUTHWEST&quot;</span><span class="p">,</span> <span class="s">&quot;WESTERN&quot;</span><span class="p">))</span>
+<p>This tutorial creates a function that attempts to take a city and country and return its latitude and longitude. But when the city is unavailable (which is often be the case), the returns the latitude and longitude of the center of the country.</p>
+<h2>Preliminaries</h2>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">geopy.geocoders</span> <span class="kn">import</span> <span class="n">Nominatim</span>
+<span class="n">geolocator</span> <span class="o">=</span> <span class="n">Nominatim</span><span class="p">()</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="c1"># for the levels of the Baltimore crime district variable, find instances where the names of the levels are WESTERN and replace with WEST</span>
-<span class="kp">levels</span><span class="p">(</span>district<span class="p">)[</span><span class="kp">match</span><span class="p">(</span><span class="s">&quot;WESTERN&quot;</span><span class="p">,</span><span class="kp">levels</span><span class="p">(</span>district<span class="p">))]</span> <span class="o">&lt;-</span> <span class="s">&quot;WEST&quot;</span>
+<h2>Create Geolocation Function</h2>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">geolocate</span><span class="p">(</span><span class="n">city</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">country</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Inputs city and country, or just country. Returns the lat/long coordinates of</span>
+<span class="sd">    either the city if possible, if not, then returns lat/long of the center of the country.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="c1"># If the city exists,</span>
+    <span class="k">if</span> <span class="n">city</span> <span class="o">!=</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="c1"># Try</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># To geolocate the city and country</span>
+            <span class="n">loc</span> <span class="o">=</span> <span class="n">geolocator</span><span class="o">.</span><span class="n">geocode</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">city</span> <span class="o">+</span> <span class="s1">&#39;,&#39;</span> <span class="o">+</span> <span class="n">country</span><span class="p">))</span>
+            <span class="c1"># And return latitude and longitude</span>
+            <span class="k">return</span> <span class="p">(</span><span class="n">loc</span><span class="o">.</span><span class="n">latitude</span><span class="p">,</span> <span class="n">loc</span><span class="o">.</span><span class="n">longitude</span><span class="p">)</span>
+        <span class="c1"># Otherwise</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="c1"># Return missing value</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+    <span class="c1"># If the city doesn&#39;t exist</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Try</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Geolocate the center of the country</span>
+            <span class="n">loc</span> <span class="o">=</span> <span class="n">geolocator</span><span class="o">.</span><span class="n">geocode</span><span class="p">(</span><span class="n">country</span><span class="p">)</span>
+            <span class="c1"># And return latitude and longitude</span>
+            <span class="k">return</span> <span class="p">(</span><span class="n">loc</span><span class="o">.</span><span class="n">latitude</span><span class="p">,</span> <span class="n">loc</span><span class="o">.</span><span class="n">longitude</span><span class="p">)</span>
+        <span class="c1"># Otherwise</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="c1"># Return missing value</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
 </pre></div>
 
 
-<p>You can also do another way. Since every level in a factor can be identified by both a name (as done in the previous example) and a number.</p>
-<div class="codehilite"><pre><span></span><span class="c1"># view the levels of the district factor</span>
-<span class="kp">levels</span><span class="p">(</span>district<span class="p">)</span>
+<h2>Geolocate A City And Country</h2>
+<div class="codehilite"><pre><span></span><span class="c1"># Geolocate a city and country</span>
+<span class="n">geolocate</span><span class="p">(</span><span class="n">city</span><span class="o">=</span><span class="s1">&#39;Austin&#39;</span><span class="p">,</span> <span class="n">country</span><span class="o">=</span><span class="s1">&#39;USA&#39;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>[1] &quot;CENTRAL&quot;   &quot;NORTH&quot;     &quot;NORTHWEST&quot; &quot;SOUTH&quot;     &quot;SOUTHWEST&quot; &quot;WEST&quot;
+<div class="codehilite"><pre><span></span>(30.2711286, -97.7436994)
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="c1"># replace the name of the third factor, NORTHEASTERN, with NORTHEAST</span>
-<span class="kp">levels</span><span class="p">(</span>district<span class="p">)[</span><span class="m">3</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="s">&#39;NORTHEAST&#39;</span>
+<h2>Geolocate Just A Country</h2>
+<div class="codehilite"><pre><span></span><span class="c1"># Geolocate just a country</span>
+<span class="n">geolocate</span><span class="p">(</span><span class="n">country</span><span class="o">=</span><span class="s1">&#39;USA&#39;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>district
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span>[1] NORTH     NORTHEAST CENTRAL   SOUTH     SOUTHWEST WEST     
-Levels: CENTRAL NORTH NORTHEAST SOUTH SOUTHWEST WEST
+<div class="codehilite"><pre><span></span>(39.7837304, -100.4458824)
 </pre></div>
 </div>
     <aside>
