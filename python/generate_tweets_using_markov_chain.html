@@ -10,7 +10,7 @@
     <meta name="author" content="Chris Albon">
     <link rel="icon" href="../favicon.ico">
 
-    <title>Beautiful Soup Basic HTML Scraping - Python</title>
+    <title>Generate Tweets Using Markov Chains - Python</title>
 
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -34,7 +34,7 @@
     <![endif]-->
      <link href="http://chrisalbon.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Chris Albon Full RSS Feed" />        
 
-    <meta name="tags" content="Web Scraping" />
+    <meta name="tags" content="Other" />
 
 
 </head>
@@ -124,130 +124,48 @@
 <section id="content" class="body">
     <header>
     <h1>
-      Beautiful Soup Basic HTML Scraping
+      Generate Tweets Using Markov Chains
     </h1>
 <ol class="breadcrumb">
     <li>
-        <time class="published" datetime="2016-05-01T12:00:00-07:00">
-            01 May 2016
+        <time class="published" datetime="2016-11-01T12:00:00-07:00">
+            01 November 2016
         </time>
     </li>
     <li>Python</li>
-    <li>Web Scraping</li>
+    <li>Other</li>
 </ol>
 </header>
 <div class='article_content'>
-<h3>Import the modules</h3>
-<div class="codehilite"><pre><span></span><span class="c1"># Import required modules</span>
-<span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<h2>Preliminaries</h2>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">markovify</span>
 </pre></div>
 
 
-<h3>Scrap the html and turn into a beautiful soup object</h3>
-<div class="codehilite"><pre><span></span><span class="c1"># Create a variable with the url</span>
-<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://chrisralbon.com&#39;</span>
-
-<span class="c1"># Use requests to get the contents</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-
-<span class="c1"># Get the text of the contents</span>
-<span class="n">html_content</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">text</span>
-
-<span class="c1"># Convert the html content into a beautiful soup object</span>
-<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html_content</span><span class="p">,</span> <span class="s1">&#39;lxml&#39;</span><span class="p">)</span>
+<h2>Load Corpus</h2>
+<p>The corpus I am using is just one I found online. The corpus you choose is central to generating realistic text.</p>
+<div class="codehilite"><pre><span></span><span class="c1"># Get raw text as string</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;brown.txt&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 </pre></div>
 
 
-<h3>Select the website's title</h3>
-<div class="codehilite"><pre><span></span><span class="c1"># View the title tag of the soup object</span>
-<span class="n">soup</span><span class="o">.</span><span class="n">title</span>
+<h2>Build Markov Chain</h2>
+<div class="codehilite"><pre><span></span><span class="c1"># Build the model.</span>
+<span class="n">text_model</span> <span class="o">=</span> <span class="n">markovify</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>&lt;title&gt;Chris Albon&lt;/title&gt;
+<h1>Generate One Tweet</h1>
+<div class="codehilite"><pre><span></span><span class="c1"># Print three randomly-generated sentences of no more than 140 characters</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">text_model</span><span class="o">.</span><span class="n">make_short_sentence</span><span class="p">(</span><span class="mi">140</span><span class="p">))</span>
 </pre></div>
 
 
-<h3>Website title tag's string</h3>
-<div class="codehilite"><pre><span></span><span class="c1"># View the string within the title tag</span>
-<span class="n">soup</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">string</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span>&#39;Chris Albon&#39;
-</pre></div>
-
-
-<h3>First paragraph tag</h3>
-<div class="codehilite"><pre><span></span><span class="c1"># view the paragraph tag of the soup</span>
-<span class="n">soup</span><span class="o">.</span><span class="n">p</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span>&lt;p&gt;I am a &lt;a href=&quot;./pages/about.html&quot;&gt;data scientist originally trained as a quantitative political scientist&lt;/a&gt;. I specialize in the technical and organizational aspects of applying data science to political and social issues. &lt;/p&gt;
-</pre></div>
-
-
-<h3>The parent of the title tag</h3>
-<div class="codehilite"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">name</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span>&#39;head&#39;
-</pre></div>
-
-
-<h3>The first link tag</h3>
-<div class="codehilite"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">a</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span>&lt;a class=&quot;navbar-brand&quot; href=&quot;.&quot;&gt;Chris Albon&lt;/a&gt;
-</pre></div>
-
-
-<h3>Find all the link tags and list the first five</h3>
-<div class="codehilite"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span>[&lt;a class=&quot;navbar-brand&quot; href=&quot;.&quot;&gt;Chris Albon&lt;/a&gt;,
- &lt;a aria-expanded=&quot;false&quot; aria-haspopup=&quot;true&quot; class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot; href=&quot;#&quot; role=&quot;button&quot;&gt;About&lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;&lt;/a&gt;,
- &lt;a href=&quot;./pages/about.html&quot;&gt;About Chris&lt;/a&gt;,
- &lt;a href=&quot;https://github.com/chrisalbon&quot;&gt;GitHub&lt;/a&gt;,
- &lt;a href=&quot;https://twitter.com/chrisalbon&quot;&gt;Twitter&lt;/a&gt;]
-</pre></div>
-
-
-<h3>The string inside the first paragraph tag</h3>
-<div class="codehilite"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">string</span>
-</pre></div>
-
-
-<h3>Find all the h2 tags and list the first five</h3>
-<div class="codehilite"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;h2&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span>[&lt;h2 class=&quot;homepage_category_title&quot;&gt;Articles&lt;/h2&gt;,
- &lt;h2 class=&quot;homepage_category_title&quot;&gt;Projects&lt;/h2&gt;,
- &lt;h2 class=&quot;homepage_category_title&quot;&gt;Python&lt;/h2&gt;,
- &lt;h2 class=&quot;homepage_category_title&quot;&gt;R Stats&lt;/h2&gt;,
- &lt;h2 class=&quot;homepage_category_title&quot;&gt;Regex&lt;/h2&gt;]
-</pre></div>
-
-
-<h3>Find all the links on the page and list the first five</h3>
-<div class="codehilite"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span>[&lt;a class=&quot;navbar-brand&quot; href=&quot;.&quot;&gt;Chris Albon&lt;/a&gt;,
- &lt;a aria-expanded=&quot;false&quot; aria-haspopup=&quot;true&quot; class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot; href=&quot;#&quot; role=&quot;button&quot;&gt;About&lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;&lt;/a&gt;,
- &lt;a href=&quot;./pages/about.html&quot;&gt;About Chris&lt;/a&gt;,
- &lt;a href=&quot;https://github.com/chrisalbon&quot;&gt;GitHub&lt;/a&gt;,
- &lt;a href=&quot;https://twitter.com/chrisalbon&quot;&gt;Twitter&lt;/a&gt;]
+<div class="codehilite"><pre><span></span>Within a month, calls were still productive and most devotees of baseball attended the dozens of them.
+Even death, therefore, has a leather bolo drawn through a local rajah in 1949.
+He had a rather sharp and confident.
 </pre></div>
 </div>
     <aside>

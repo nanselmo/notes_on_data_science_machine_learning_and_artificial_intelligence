@@ -5,7 +5,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://chrisalbon.com/</loc>
-<lastmod>2016-11-01T09:50:00-00:00</lastmod>
+<lastmod>2016-11-01T10:12:57-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -20,6 +20,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://chrisalbon.com/pages/test.html</loc>
 <lastmod>2016-05-01T12:00:00-07:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://chrisalbon.com/python/generate_tweets_using_markov_chain.html</loc>
+<lastmod>2016-11-01T12:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
