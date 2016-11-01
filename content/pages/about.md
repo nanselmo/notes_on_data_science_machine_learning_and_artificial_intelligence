@@ -7,7 +7,7 @@ Authors: Chris Albon
 
 <img src="{filename}/images/chris_albon_banner.jpg"></img>
 
-I am a data scientist, and the co-founder and Chief Science Officer at [Popily](http://www.popily.com). I am also the co-host of the data science podcast, [Partially Derivative](http://www.partiallyderivative.com). Previously, I lead [Ushahidi's](http://www.ushahidi.com) work on crisis and humanitarian data and launched [CrisisNET](http://crisis.net). Prior to Ushahidi, I was Director of the Governance Project at [FrontlineSMS](http://www.frontlinesms.com). I earned a Ph.D. in Political Science from the University of California, Davis researching the quantitative impact of civil wars on health care systems.
+I am a data scientist, and the co-founder and Chief Science Officer at [Popily](http://www.popily.com). I am also the co-host of the data science podcast, [Partially Derivative](http://www.partiallyderivative.com). Previously, I led [Ushahidi's](http://www.ushahidi.com) work on crisis and humanitarian data and launched [CrisisNET](http://crisis.net). Prior to Ushahidi, I was Director of the Governance Project at [FrontlineSMS](http://www.frontlinesms.com). I earned a Ph.D. in Political Science from the University of California, Davis researching the quantitative impact of civil wars on health care systems.
 
 In 2008, I founded [Conflict Health](http://www.chrisalbon.com/conflict-health/), a blog on the defense of health and health workers in armed conflict and political violence. I also wrote for the [Daily Dot](http://dailydot.com), [United States Naval Institute Blog](http://blog.usni.org), TheAtlantic.com, ForeignPolicy.com, [UN Dispatch](http://undispatch.com), and elsewhere.
 

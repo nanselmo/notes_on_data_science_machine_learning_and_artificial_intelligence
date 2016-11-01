@@ -66,8 +66,8 @@ body > .container {
 }
 
 .navbar {
-      background-color: #FFF;
-      border-bottom: 1px solid #eee;
+      background-color: #ff3730;
+      border-bottom: 0px solid #ff3730;
 }
 
 @media (max-width: 767px) {
@@ -90,6 +90,11 @@ body > .container {
   font-size: 14px;
 }
 
+.navbar .navbar-brand:hover {
+  background: #ef322b;
+}
+
+
 @media (max-width: 767px) {
   .navbar .navbar-brand, .navbar .navbar-brand:hover  {
       -webkit-clip-path: none;
@@ -98,7 +103,7 @@ body > .container {
 }
 
 .navbar-nav > li > a {
-  color: #474740;
+  color: #fff;
   font-size: 13px;
   text-transform: uppercase;
   font-size: 12px;
@@ -115,21 +120,25 @@ body > .container {
   }
 }
 
-.navbar-nav > li > a:hover {
-  background: #F7F7F7;
+.navbar-nav > li > a:hover, .navbar-nav > li > a:active {
+  background-color: #ef322b;
 }
+
+.navbar-nav > li > a:focus{
+  background-color: #ff3730;
+}
+
 
 .nav .dropdown.open > a, .nav .dropdown.open > a:hover, .nav .dropdown.open > a:focus {
-    background: #F7F7F7;
+    background-color: #ef322b;
 }
-
 
 .dropdown-menu {
   border: none;
 }
 
 .navbar-toggle {
-  background: #e0302c;
+  background: #ff3730;
 }
 
 .footer {
@@ -190,6 +199,12 @@ pre {
 .dropdown {
     -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0);
+}
+
+@media (max-width: 767px) {}
+    .navbar-nav .open .dropdown-menu {
+        background: #fff;
+    }
 }
 
 .panel-body li a, .panel-body li{
@@ -290,15 +305,15 @@ h6,
     font-size: 14px;
     font-weight: normal;
     line-height: 1;
-    color: #555;
+    color: #fff;
     text-align: center;
-    background-color: #fff;
-    border: 1px solid #ccc;
+    background-color: #ec352f;
+    border: 0px solid #ccc;
     border-radius: 0px;
 }
 
 .form-control {
-    border: 1px solid #ccc;
+    border: 0px solid #ccc;
     border-radius: 0px;
 }
 
@@ -343,4 +358,12 @@ blockquote p {
     margin: 0;
     color: #696969;
     font-style: italic;
+}
+
+.search-query {
+  outline: none;
+  border: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
 }
