@@ -10,7 +10,7 @@
     <meta name="author" content="Chris Albon">
     <link rel="icon" href="../favicon.ico">
 
-    <title>Breaking Up String Variables - Python</title>
+    <title>Loading Features From Dictionaries - Machine Learning</title>
 
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -124,118 +124,55 @@
 <section id="content" class="body">
     <header>
     <h1>
-      Breaking Up String Variables
+      Loading Features From Dictionaries
     </h1>
 <ol class="breadcrumb">
     <li>
-        <time class="published" datetime="2016-05-01T12:00:00-07:00">
-            01 May 2016
+        <time class="published" datetime="2016-11-01T12:00:00-07:00">
+            01 November 2016
         </time>
     </li>
-    <li>Python</li>
+    <li>Machine Learning</li>
     <li>Basics</li>
 </ol>
 </header>
 <div class='article_content'>
-<h3>Basic name assignment</h3>
-<div class="codehilite"><pre><span></span><span class="n">variableName</span> <span class="o">=</span> <span class="s1">&#39;This is a string.&#39;</span>
+<h2>Preliminaries</h2>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction</span> <span class="kn">import</span> <span class="n">DictVectorizer</span>
 </pre></div>
 
 
-<h3>List assignment</h3>
-<div class="codehilite"><pre><span></span><span class="n">One</span><span class="p">,</span> <span class="n">Two</span><span class="p">,</span> <span class="n">Three</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<h2>Create A Dictionary</h2>
+<div class="codehilite"><pre><span></span><span class="n">staff</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Steve Miller&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mf">33.</span><span class="p">},</span>
+         <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Lyndon Jones&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mf">12.</span><span class="p">},</span>
+         <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Baxter Morth&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mf">18.</span><span class="p">}]</span>
 </pre></div>
 
 
-<h3>Break up a string into variables</h3>
-<div class="codehilite"><pre><span></span><span class="n">firstLetter</span><span class="p">,</span> <span class="n">secondLetter</span><span class="p">,</span> <span class="n">thirdLetter</span><span class="p">,</span> <span class="n">fourthLetter</span> <span class="o">=</span> <span class="s1">&#39;Bark&#39;</span>
+<h2>Convert Dictionary To Feature Matrix</h2>
+<div class="codehilite"><pre><span></span><span class="c1"># Create an object for our dictionary vectorizer</span>
+<span class="n">vec</span> <span class="o">=</span> <span class="n">DictVectorizer</span><span class="p">()</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="n">firstLetter</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Fit then transform the staff dictionary with vec, then output an array</span>
+<span class="n">vec</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">staff</span><span class="p">)</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>&#39;B&#39;
+<div class="codehilite"><pre><span></span>array([[ 33.,   0.,   0.,   1.],
+       [ 12.,   0.,   1.,   0.],
+       [ 18.,   1.,   0.,   0.]])
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="n">secondLetter</span>
+<h2>View Feature Names</h2>
+<div class="codehilite"><pre><span></span><span class="c1"># Get Feature Names</span>
+<span class="n">vec</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">()</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>&#39;a&#39;
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span><span class="n">thirdLetter</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span>&#39;r&#39;
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span><span class="n">fourthLetter</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span>&#39;k&#39;
-</pre></div>
-
-
-<h3>Breaking up a number into seperate variables</h3>
-<div class="codehilite"><pre><span></span><span class="n">firstNumber</span><span class="p">,</span> <span class="n">secondNumber</span><span class="p">,</span> <span class="n">thirdNumber</span><span class="p">,</span> <span class="n">fourthNumber</span> <span class="o">=</span> <span class="s1">&#39;9485&#39;</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span><span class="n">firstLetter</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span>&#39;B&#39;
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span><span class="n">secondLetter</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span>&#39;a&#39;
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span><span class="n">thirdLetter</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span>&#39;r&#39;
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span><span class="n">fourthLetter</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span>&#39;k&#39;
-</pre></div>
-
-
-<h3>Assign the first letter of 'spam' into varible a, assign all the remaining letters to variable b</h3>
-<div class="codehilite"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="o">*</span><span class="n">b</span> <span class="o">=</span> <span class="s1">&#39;spam&#39;</span>
-<span class="n">a</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span>&#39;s&#39;
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span><span class="n">b</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span>[&#39;p&#39;, &#39;a&#39;, &#39;m&#39;]
+<div class="codehilite"><pre><span></span>[&#39;age&#39;, &#39;name=Baxter Morth&#39;, &#39;name=Lyndon Jones&#39;, &#39;name=Steve Miller&#39;]
 </pre></div>
 </div>
     <aside>

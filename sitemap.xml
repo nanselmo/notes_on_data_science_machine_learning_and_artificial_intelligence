@@ -5,7 +5,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://chrisalbon.com/</loc>
-<lastmod>2016-11-01T10:12:57-00:00</lastmod>
+<lastmod>2016-11-01T13:11:39-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -32,7 +32,21 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>http://chrisalbon.com/machine-learning/loading_features_from_dictionaries.html</loc>
+<lastmod>2016-11-01T12:00:00-07:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>http://chrisalbon.com/python/nested_for_loops_using_list_comprehension.html</loc>
+<lastmod>2016-11-01T12:00:00-07:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://chrisalbon.com/machine-learning/preprocessing_categorical_features.html</loc>
 <lastmod>2016-11-01T12:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>

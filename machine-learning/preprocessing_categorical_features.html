@@ -10,7 +10,7 @@
     <meta name="author" content="Chris Albon">
     <link rel="icon" href="../favicon.ico">
 
-    <title>Breaking Up String Variables - Python</title>
+    <title>Preprocessing Categorical Features - Machine Learning</title>
 
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -124,119 +124,179 @@
 <section id="content" class="body">
     <header>
     <h1>
-      Breaking Up String Variables
+      Preprocessing Categorical Features
     </h1>
 <ol class="breadcrumb">
     <li>
-        <time class="published" datetime="2016-05-01T12:00:00-07:00">
-            01 May 2016
+        <time class="published" datetime="2016-11-01T12:00:00-07:00">
+            01 November 2016
         </time>
     </li>
-    <li>Python</li>
+    <li>Machine Learning</li>
     <li>Basics</li>
 </ol>
 </header>
 <div class='article_content'>
-<h3>Basic name assignment</h3>
-<div class="codehilite"><pre><span></span><span class="n">variableName</span> <span class="o">=</span> <span class="s1">&#39;This is a string.&#39;</span>
+<p>Often, machine learning methods (e.g. logistic regression, SVM with a linear kernel, etc) will require that categorical variables be converted into dummy variables (also called OneHot encoding). For example, a single feature <code>Fruit</code> would be converted into three features, <code>Apples</code>, <code>Oranges</code>, and <code>Bananas</code>, one for each category in the categorical feature.</p>
+<p>There are common ways to preprocess categorical features: using pandas or scikit-learn.</p>
+<h2>Preliminaries</h2>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">preprocessing</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 </pre></div>
 
 
-<h3>List assignment</h3>
-<div class="codehilite"><pre><span></span><span class="n">One</span><span class="p">,</span> <span class="n">Two</span><span class="p">,</span> <span class="n">Three</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<h2>Create Data</h2>
+<div class="codehilite"><pre><span></span><span class="n">raw_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;first_name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Jason&#39;</span><span class="p">,</span> <span class="s1">&#39;Molly&#39;</span><span class="p">,</span> <span class="s1">&#39;Tina&#39;</span><span class="p">,</span> <span class="s1">&#39;Jake&#39;</span><span class="p">,</span> <span class="s1">&#39;Amy&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;last_name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Miller&#39;</span><span class="p">,</span> <span class="s1">&#39;Jacobson&#39;</span><span class="p">,</span> <span class="s1">&#39;Ali&#39;</span><span class="p">,</span> <span class="s1">&#39;Milner&#39;</span><span class="p">,</span> <span class="s1">&#39;Cooze&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">42</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">73</span><span class="p">],</span>
+        <span class="s1">&#39;city&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;San Francisco&#39;</span><span class="p">,</span> <span class="s1">&#39;Baltimore&#39;</span><span class="p">,</span> <span class="s1">&#39;Miami&#39;</span><span class="p">,</span> <span class="s1">&#39;Douglas&#39;</span><span class="p">,</span> <span class="s1">&#39;Boston&#39;</span><span class="p">]}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;first_name&#39;</span><span class="p">,</span> <span class="s1">&#39;last_name&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;city&#39;</span><span class="p">])</span>
+<span class="n">df</span>
 </pre></div>
 
 
-<h3>Break up a string into variables</h3>
-<div class="codehilite"><pre><span></span><span class="n">firstLetter</span><span class="p">,</span> <span class="n">secondLetter</span><span class="p">,</span> <span class="n">thirdLetter</span><span class="p">,</span> <span class="n">fourthLetter</span> <span class="o">=</span> <span class="s1">&#39;Bark&#39;</span>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>first_name</th>
+      <th>last_name</th>
+      <th>age</th>
+      <th>city</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Jason</td>
+      <td>Miller</td>
+      <td>42</td>
+      <td>San Francisco</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Molly</td>
+      <td>Jacobson</td>
+      <td>52</td>
+      <td>Baltimore</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Tina</td>
+      <td>Ali</td>
+      <td>36</td>
+      <td>Miami</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Jake</td>
+      <td>Milner</td>
+      <td>24</td>
+      <td>Douglas</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Amy</td>
+      <td>Cooze</td>
+      <td>73</td>
+      <td>Boston</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2>Convert Nominal Categorical Feature Into Dummy Variables Using Pandas</h2>
+<div class="codehilite"><pre><span></span><span class="c1"># Create dummy variables for every unique category in df.city</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;city&quot;</span><span class="p">])</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="n">firstLetter</span>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Baltimore</th>
+      <th>Boston</th>
+      <th>Douglas</th>
+      <th>Miami</th>
+      <th>San Francisco</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2>Convert Nominal Categorical Data Into Dummy (OneHot) Features Using Scikit</h2>
+<div class="codehilite"><pre><span></span><span class="c1"># Convert strings categorical names to integers</span>
+<span class="n">integerized_data</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">LabelEncoder</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;city&quot;</span><span class="p">])</span>
+
+<span class="c1"># View data</span>
+<span class="n">integerized_data</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>&#39;B&#39;
+<div class="codehilite"><pre><span></span>array([4, 0, 3, 2, 1])
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="n">secondLetter</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Convert integer categorical representations to OneHot encodings</span>
+<span class="n">preprocessing</span><span class="o">.</span><span class="n">OneHotEncoder</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">integerized_data</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>&#39;a&#39;
+<div class="codehilite"><pre><span></span>array([[ 0.,  0.,  0.,  0.,  1.],
+       [ 1.,  0.,  0.,  0.,  0.],
+       [ 0.,  0.,  0.,  1.,  0.],
+       [ 0.,  0.,  1.,  0.,  0.],
+       [ 0.,  1.,  0.,  0.,  0.]])
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="n">thirdLetter</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span>&#39;r&#39;
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span><span class="n">fourthLetter</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span>&#39;k&#39;
-</pre></div>
-
-
-<h3>Breaking up a number into seperate variables</h3>
-<div class="codehilite"><pre><span></span><span class="n">firstNumber</span><span class="p">,</span> <span class="n">secondNumber</span><span class="p">,</span> <span class="n">thirdNumber</span><span class="p">,</span> <span class="n">fourthNumber</span> <span class="o">=</span> <span class="s1">&#39;9485&#39;</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span><span class="n">firstLetter</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span>&#39;B&#39;
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span><span class="n">secondLetter</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span>&#39;a&#39;
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span><span class="n">thirdLetter</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span>&#39;r&#39;
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span><span class="n">fourthLetter</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span>&#39;k&#39;
-</pre></div>
-
-
-<h3>Assign the first letter of 'spam' into varible a, assign all the remaining letters to variable b</h3>
-<div class="codehilite"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="o">*</span><span class="n">b</span> <span class="o">=</span> <span class="s1">&#39;spam&#39;</span>
-<span class="n">a</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span>&#39;s&#39;
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span><span class="n">b</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span>[&#39;p&#39;, &#39;a&#39;, &#39;m&#39;]
-</pre></div>
+<p>Note that the output of pd.get_dummies() and the scikit methods produces the same output matrix.</p>
 </div>
     <aside>
     <div class="bug-reporting__panel">
