@@ -10,7 +10,7 @@
     <meta name="author" content="Chris Albon">
     <link rel="icon" href="../favicon.ico">
 
-    <title>Match Email Addresses - Regex</title>
+    <title>Lasso Regression In Scikit-Learn - Machine Learning</title>
 
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -124,46 +124,184 @@
 <section id="content" class="body">
     <header>
     <h1>
-      Match Email Addresses
+      Lasso Regression In Scikit-Learn
     </h1>
 <ol class="breadcrumb">
     <li>
-        <time class="published" datetime="2016-05-01T12:00:00-07:00">
-            01 May 2016
+        <time class="published" datetime="2016-11-01T12:00:00-07:00">
+            01 November 2016
         </time>
     </li>
-    <li>Regex</li>
+    <li>Machine Learning</li>
     <li>Basics</li>
 </ol>
 </header>
 <div class='article_content'>
-<p>Based on: <a href="http://stackoverflow.com/questions/201323/using-a-regular-expression-to-validate-an-email-address">StackOverflow</a></p>
+<p>Often we want conduct a process called <a href="https://en.wikipedia.org/wiki/Regularization_(mathematics)">regularization</a>, wherein we penalize the number of features in a model in order to only keep the most important features. This can be particularly important when you have a dataset with 100,000+ features.</p>
+<p><a href="https://en.wikipedia.org/wiki/Lasso_(statistics)">Lasso regression</a> is a common modeling technique to do regularization. The math behind it is pretty interesting, but practically, what you need to know is that Lasso regression comes with a parameter, <code>alpha</code>, and the higher the <code>alpha</code>, the most feature coefficients are zero.</p>
+<p>That is, when <code>alpha</code> is <code>0</code>, Lasso regression produces the same coefficients as a linear regression. When <code>alpha</code> is very very large, all coefficients are zero.</p>
+<p>In this tutorial, I run three lasso regressions, with varying levels of alpha, and show the resulting effect on the coefficients.</p>
 <h2>Preliminaries</h2>
-<div class="codehilite"><pre><span></span><span class="c1"># Load regex package</span>
-<span class="kn">import</span> <span class="nn">re</span>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">Lasso</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_boston</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 </pre></div>
 
 
-<h2>Create some text</h2>
-<div class="codehilite"><pre><span></span><span class="c1"># Create a variable containing a text string</span>
-<span class="n">text</span> <span class="o">=</span>  <span class="s1">&#39;My email is chris@hotmail.com, thanks! No, I am at bob@data.ninja.&#39;</span>
+<h2>Load Data</h2>
+<div class="codehilite"><pre><span></span><span class="n">boston</span> <span class="o">=</span> <span class="n">load_boston</span><span class="p">()</span>
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">boston</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">])</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">boston</span><span class="p">[</span><span class="s2">&quot;target&quot;</span><span class="p">]</span>
+<span class="n">names</span> <span class="o">=</span> <span class="n">boston</span><span class="p">[</span><span class="s2">&quot;feature_names&quot;</span><span class="p">]</span>
 </pre></div>
 
 
-<h2>Apply regex</h2>
-<div class="codehilite"><pre><span></span><span class="c1"># Find all email addresses</span>
-<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">r&#39;[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9]+&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<h2>Run Three Lasso Regressions, Varying Alpha Levels</h2>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a function called lasso,</span>
+<span class="k">def</span> <span class="nf">lasso</span><span class="p">(</span><span class="n">alphas</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Takes in a list of alphas. Outputs a dataframe containing the coefficients of lasso regressions from each alpha.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># Create an empty data frame</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 
-<span class="c1"># Explanation:</span>
-<span class="c1"># This regex has three parts</span>
-<span class="c1"># [a-zA-Z0-9_.+-]+ Matches a word (the username) of any length</span>
-<span class="c1"># @[a-zA-Z0-9-]+  Matches a word (the domain name) of any length</span>
-<span class="c1"># \.[a-zA-Z0-9-.]+ Matches a word (the TLD) of any length</span>
+    <span class="c1"># Create a column of feature names</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Feature Name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">names</span>
+
+    <span class="c1"># For each alpha value in the list of alpha values,</span>
+    <span class="k">for</span> <span class="n">alpha</span> <span class="ow">in</span> <span class="n">alphas</span><span class="p">:</span>
+        <span class="c1"># Create a lasso regression with that alpha value,</span>
+        <span class="n">lasso</span> <span class="o">=</span> <span class="n">Lasso</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+
+        <span class="c1"># Fit the lasso regression</span>
+        <span class="n">lasso</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+
+        <span class="c1"># Create a column name for that alpha value</span>
+        <span class="n">column_name</span> <span class="o">=</span> <span class="s1">&#39;Alpha = </span><span class="si">%f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">alpha</span>
+
+        <span class="c1"># Create a column of coefficient values</span>
+        <span class="n">df</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">lasso</span><span class="o">.</span><span class="n">coef_</span>
+
+    <span class="c1"># Return the datafram    </span>
+    <span class="k">return</span> <span class="n">df</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>[&#39;chris@hotmail.com&#39;, &#39;bob@data.ninja&#39;]
+<div class="codehilite"><pre><span></span><span class="c1"># Run the function called, Lasso</span>
+<span class="n">lasso</span><span class="p">([</span><span class="o">.</span><span class="mo">0001</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
 </pre></div>
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Feature Name</th>
+      <th>Alpha = 0.000100</th>
+      <th>Alpha = 0.500000</th>
+      <th>Alpha = 10.000000</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>CRIM</td>
+      <td>-0.920130</td>
+      <td>-0.106977</td>
+      <td>-0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ZN</td>
+      <td>1.080498</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>INDUS</td>
+      <td>0.142027</td>
+      <td>-0.000000</td>
+      <td>-0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>CHAS</td>
+      <td>0.682235</td>
+      <td>0.397399</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>NOX</td>
+      <td>-2.059250</td>
+      <td>-0.000000</td>
+      <td>-0.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>RM</td>
+      <td>2.670814</td>
+      <td>2.973323</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>AGE</td>
+      <td>0.020680</td>
+      <td>-0.000000</td>
+      <td>-0.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>DIS</td>
+      <td>-3.104070</td>
+      <td>-0.169378</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>RAD</td>
+      <td>2.656950</td>
+      <td>-0.000000</td>
+      <td>-0.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>TAX</td>
+      <td>-2.074110</td>
+      <td>-0.000000</td>
+      <td>-0.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>PTRATIO</td>
+      <td>-2.061921</td>
+      <td>-1.599574</td>
+      <td>-0.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>B</td>
+      <td>0.856553</td>
+      <td>0.545715</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>LSTAT</td>
+      <td>-3.748470</td>
+      <td>-3.668884</td>
+      <td>-0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>Notice that as the alpha value increases, more features have a coefficient of 0.</p>
 </div>
     <aside>
     <div class="bug-reporting__panel">
