@@ -1,5 +1,280 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Chris Albon</title><link>http://chrisalbon.com/</link><description></description><lastBuildDate>Tue, 22 Nov 2016 12:00:00 -0800</lastBuildDate><item><title>SVC Parameters When Using RBF Kernel</title><link>http://chrisalbon.com/machine-learning/svc_parameters_using_rbf_kernel.html</link><description>&lt;p&gt;In this tutorial we will visually explore the effects of the two parameters from the support vector classifier (SVC) when using the radial basis function kernel (RBF). This tutorial draws heavily on the code used in Sebastian Raschka's book &lt;a href="https://www.amazon.com/Python-Machine-Learning-Sebastian-Raschka/dp/1783555130/"&gt;Python Machine Learning&lt;/a&gt;.&lt;/p&gt;
+<rss version="2.0"><channel><title>Chris Albon</title><link>http://chrisalbon.com/</link><description></description><lastBuildDate>Thu, 01 Dec 2016 12:00:00 -0800</lastBuildDate><item><title>Logistic Regression With L1 Regularization</title><link>http://chrisalbon.com/machine-learning/logistic_regression_with_l1_regularization.html</link><description>&lt;p&gt;L1 regularization (also called least absolute deviations) is a powerful tool in data science. There are many tutorials out there explaining L1 regularization and I will not try to do that here. Instead, this tutorial is show the effect of the regularization parameter &lt;code&gt;C&lt;/code&gt; on the coefficients and model accuracy.&lt;/p&gt;
+&lt;h2&gt;Preliminaries&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.linear_model&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;LogisticRegression&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;datasets&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.model_selection&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;train_test_split&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.preprocessing&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;StandardScaler&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Create The Data&lt;/h2&gt;
+&lt;p&gt;The dataset used in this tutorial is the famous &lt;a href="https://en.wikipedia.org/wiki/Iris_flower_data_set"&gt;iris dataset&lt;/a&gt;. The Iris target data contains 50 samples from three species of Iris, &lt;code&gt;y&lt;/code&gt; and four feature variables, &lt;code&gt;X&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The dataset contains three categories (three species of Iris), however for the sake of simplicity it is easier if the target data is binary. Therefore we will remove the data from the last species of Iris.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Load the iris dataset&lt;/span&gt;
+&lt;span class="n"&gt;iris&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;datasets&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;load_iris&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Create X from the features&lt;/span&gt;
+&lt;span class="n"&gt;X&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;iris&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Create y from output&lt;/span&gt;
+&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;iris&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;target&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Remake the variable, keeping all data where the category is not 2.&lt;/span&gt;
+&lt;span class="n"&gt;X&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;View The Data&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# View the features&lt;/span&gt;
+&lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;array([[ 5.1,  3.5,  1.4,  0.2],
+       [ 4.9,  3. ,  1.4,  0.2],
+       [ 4.7,  3.2,  1.3,  0.2],
+       [ 4.6,  3.1,  1.5,  0.2],
+       [ 5. ,  3.6,  1.4,  0.2]])
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# View the target data&lt;/span&gt;
+&lt;span class="n"&gt;y&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+       1, 1, 1, 1, 1, 1, 1, 1])
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Split The Data Into Training And Test Sets&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Split the data into test and training sets, with 30% of samples being put into the test set&lt;/span&gt;
+&lt;span class="n"&gt;X_train&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;X_test&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y_train&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y_test&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;train_test_split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;test_size&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;random_state&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Run Logistic Regression With A L1 Penalty With Various Regularization Strengths&lt;/h2&gt;
+&lt;p&gt;The usefulness of L1 is that it can push feature coefficients to 0, creating a method for feature selection. In the code below we run a logistic regression with a L1 penalty four times, each time decreasing the value of &lt;code&gt;C&lt;/code&gt;. We should expect that as &lt;code&gt;C&lt;/code&gt; decreases, more coefficients become 0.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;C&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mo"&gt;001&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;clf&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;LogisticRegression&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;penalty&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;l1&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;clf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X_train&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y_train&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;C:&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Coefficient of each feature:&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;clf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;coef_&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Training accuracy:&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;clf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;score&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X_train&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y_train&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Test accuracy:&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;clf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;score&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X_test&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y_test&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;C: 10
+Coefficient of each feature: [[-0.08812782 -3.75057211  4.40569011  0.        ]]
+Training accuracy: 1.0
+Test accuracy: 1.0
+
+C: 1
+Coefficient of each feature: [[ 0.         -2.28876141  2.57716818  0.        ]]
+Training accuracy: 1.0
+Test accuracy: 1.0
+
+C: 0.1
+Coefficient of each feature: [[ 0.         -0.82310496  0.97171882  0.        ]]
+Training accuracy: 1.0
+Test accuracy: 1.0
+
+C: 0.001
+Coefficient of each feature: [[ 0.  0.  0.  0.]]
+Training accuracy: 0.5
+Test accuracy: 0.5
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Notice that as &lt;code&gt;C&lt;/code&gt; decreases the model coefficients become smaller (for example from &lt;code&gt;4.40613653&lt;/code&gt; when &lt;code&gt;C=10&lt;/code&gt; to &lt;code&gt;0.97170533&lt;/code&gt; when &lt;code&gt;C=0.1&lt;/code&gt;), until at &lt;code&gt;C=0.001&lt;/code&gt; all the coefficients are zero. This is the effect of the regularization penalty becoming more prominent.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Thu, 01 Dec 2016 12:00:00 -0800</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-12-01:machine-learning/logistic_regression_with_l1_regularization.html</guid><category>Basics</category></item><item><title>Convert Pandas Categorical Data For Scikit-Learn</title><link>http://chrisalbon.com/machine-learning/convert_pandas_categorical_column_into_integers_for_scikit-learn.html</link><description>&lt;h2&gt;Preliminaries&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Import required packages&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;preprocessing&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pandas&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;pd&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Create DataFrame&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;raw_data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;patient&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+        &lt;span class="s1"&gt;&amp;#39;obs&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+        &lt;span class="s1"&gt;&amp;#39;treatment&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+        &lt;span class="s1"&gt;&amp;#39;score&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;strong&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;weak&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;normal&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;weak&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;strong&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]}&lt;/span&gt;
+&lt;span class="n"&gt;df&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DataFrame&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;raw_data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;columns&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;patient&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;obs&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;treatment&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;score&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Fit The Label Encoder&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Create a label (category) encoder object&lt;/span&gt;
+&lt;span class="n"&gt;le&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;preprocessing&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;LabelEncoder&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Fit the encoder to the pandas column&lt;/span&gt;
+&lt;span class="n"&gt;le&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;score&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;LabelEncoder()
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;View The Labels&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# View the labels (if you want)&lt;/span&gt;
+&lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;le&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;classes_&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;[&amp;#39;normal&amp;#39;, &amp;#39;strong&amp;#39;, &amp;#39;weak&amp;#39;]
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Transform Categories Into Integers&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Apply the fitted encoder to the pandas column&lt;/span&gt;
+&lt;span class="n"&gt;le&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;score&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;array([1, 2, 0, 2, 1])
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Transform Integers Into Categories&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Convert some integers into their category names&lt;/span&gt;
+&lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;le&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;inverse_transform&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;[&amp;#39;weak&amp;#39;, &amp;#39;weak&amp;#39;, &amp;#39;strong&amp;#39;]
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Wed, 30 Nov 2016 12:00:00 -0800</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-11-30:machine-learning/convert_pandas_categorical_column_into_integers_for_scikit-learn.html</guid><category>Basics</category></item><item><title>Impute Missing Values With Means</title><link>http://chrisalbon.com/machine-learning/impute_missing_values_with_means.html</link><description>&lt;p&gt;Mean imputation replaces missing values with the mean value of that feature/variable. Mean imputation is one of the most 'naive' imputation methods because unlike more complex methods like k-nearest neighbors imputation, it does not use the information we have about an observation to estimate a value for it.&lt;/p&gt;
+&lt;h2&gt;Preliminaries&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pandas&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;pd&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.preprocessing&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Imputer&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Create Data&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Create an empty dataset&lt;/span&gt;
+&lt;span class="n"&gt;df&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DataFrame&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Create two variables called x0 and x1. Make the first value of x1 a missing value&lt;/span&gt;
+&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;x0&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mf"&gt;0.3051&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;0.4949&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;0.6974&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;0.3769&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;0.2231&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;0.341&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;0.4436&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;0.5897&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;0.6308&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;x1&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nan&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;0.2654&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;0.2615&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;0.5846&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;0.4615&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;0.8308&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;0.4962&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;0.3269&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;0.5346&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;0.6731&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="c1"&gt;# View the dataset&lt;/span&gt;
+&lt;span class="n"&gt;df&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div&gt;
+&lt;table border="1" class="dataframe"&gt;
+  &lt;thead&gt;
+    &lt;tr style="text-align: right;"&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;x0&lt;/th&gt;
+      &lt;th&gt;x1&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;0&lt;/th&gt;
+      &lt;td&gt;0.3051&lt;/td&gt;
+      &lt;td&gt;NaN&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;1&lt;/th&gt;
+      &lt;td&gt;0.4949&lt;/td&gt;
+      &lt;td&gt;0.2654&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2&lt;/th&gt;
+      &lt;td&gt;0.6974&lt;/td&gt;
+      &lt;td&gt;0.2615&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;3&lt;/th&gt;
+      &lt;td&gt;0.3769&lt;/td&gt;
+      &lt;td&gt;0.5846&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;4&lt;/th&gt;
+      &lt;td&gt;0.2231&lt;/td&gt;
+      &lt;td&gt;0.4615&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;5&lt;/th&gt;
+      &lt;td&gt;0.3410&lt;/td&gt;
+      &lt;td&gt;0.8308&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;6&lt;/th&gt;
+      &lt;td&gt;0.4436&lt;/td&gt;
+      &lt;td&gt;0.4962&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;7&lt;/th&gt;
+      &lt;td&gt;0.5897&lt;/td&gt;
+      &lt;td&gt;0.3269&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;8&lt;/th&gt;
+      &lt;td&gt;0.6308&lt;/td&gt;
+      &lt;td&gt;0.5346&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;9&lt;/th&gt;
+      &lt;td&gt;0.5000&lt;/td&gt;
+      &lt;td&gt;0.6731&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;h2&gt;Fit Imputer&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Create an imputer object that looks for &amp;#39;Nan&amp;#39; values, then replaces them with the mean value of the feature by columns (axis=0)&lt;/span&gt;
+&lt;span class="n"&gt;mean_imputer&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Imputer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;missing_values&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;NaN&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;strategy&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;mean&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;axis&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Train the imputor on the df dataset&lt;/span&gt;
+&lt;span class="n"&gt;mean_imputer&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mean_imputer&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Apply Imputer&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Apply the imputer to the df dataset&lt;/span&gt;
+&lt;span class="n"&gt;imputed_df&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mean_imputer&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;View Data&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# View the data&lt;/span&gt;
+&lt;span class="n"&gt;imputed_df&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;array([[ 0.3051    ,  0.49273333],
+       [ 0.4949    ,  0.2654    ],
+       [ 0.6974    ,  0.2615    ],
+       [ 0.3769    ,  0.5846    ],
+       [ 0.2231    ,  0.4615    ],
+       [ 0.341     ,  0.8308    ],
+       [ 0.4436    ,  0.4962    ],
+       [ 0.5897    ,  0.3269    ],
+       [ 0.6308    ,  0.5346    ],
+       [ 0.5       ,  0.6731    ]])
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Notice that &lt;code&gt;0.49273333&lt;/code&gt; is the imputed value, replacing the &lt;code&gt;np.NaN&lt;/code&gt; value.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Mon, 28 Nov 2016 12:00:00 -0800</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-11-28:machine-learning/impute_missing_values_with_means.html</guid><category>Basics</category></item><item><title>SVC Parameters When Using RBF Kernel</title><link>http://chrisalbon.com/machine-learning/svc_parameters_using_rbf_kernel.html</link><description>&lt;p&gt;In this tutorial we will visually explore the effects of the two parameters from the support vector classifier (SVC) when using the radial basis function kernel (RBF). This tutorial draws heavily on the code used in Sebastian Raschka's book &lt;a href="https://www.amazon.com/Python-Machine-Learning-Sebastian-Raschka/dp/1783555130/"&gt;Python Machine Learning&lt;/a&gt;.&lt;/p&gt;
 &lt;h2&gt;Preliminaries&lt;/h2&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Import packages to visualize the classifer&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.colors&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ListedColormap&lt;/span&gt;
@@ -979,220 +1254,4 @@ He had a rather sharp and confident.
 
 
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;[&amp;#39;age&amp;#39;, &amp;#39;name=Baxter Morth&amp;#39;, &amp;#39;name=Lyndon Jones&amp;#39;, &amp;#39;name=Steve Miller&amp;#39;]
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Tue, 01 Nov 2016 12:00:00 -0700</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-11-01:machine-learning/loading_features_from_dictionaries.html</guid><category>Basics</category></item><item><title>Nested For Loops Using List Comprehension</title><link>http://chrisalbon.com/python/nested_for_loops_using_list_comprehension.html</link><description>&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Create two lists&lt;/span&gt;
-&lt;span class="n"&gt;squads&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;1st Squad&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;2nd Squad&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;3rd Squad&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;span class="n"&gt;regiments&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;51st Regiment&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;15th Regiment&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;12th Regiment&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Create a tuple for each regiment in regiments, for each squad in sqauds&lt;/span&gt;
-&lt;span class="p"&gt;[(&lt;/span&gt;&lt;span class="n"&gt;regiment&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;squad&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;regiment&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;regiments&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;squad&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;squads&lt;/span&gt; &lt;span class="p"&gt;]&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;[(&amp;#39;51st Regiment&amp;#39;, &amp;#39;1st Squad&amp;#39;),
- (&amp;#39;51st Regiment&amp;#39;, &amp;#39;2nd Squad&amp;#39;),
- (&amp;#39;51st Regiment&amp;#39;, &amp;#39;3rd Squad&amp;#39;),
- (&amp;#39;15th Regiment&amp;#39;, &amp;#39;1st Squad&amp;#39;),
- (&amp;#39;15th Regiment&amp;#39;, &amp;#39;2nd Squad&amp;#39;),
- (&amp;#39;15th Regiment&amp;#39;, &amp;#39;3rd Squad&amp;#39;),
- (&amp;#39;12th Regiment&amp;#39;, &amp;#39;1st Squad&amp;#39;),
- (&amp;#39;12th Regiment&amp;#39;, &amp;#39;2nd Squad&amp;#39;),
- (&amp;#39;12th Regiment&amp;#39;, &amp;#39;3rd Squad&amp;#39;)]
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Tue, 01 Nov 2016 12:00:00 -0700</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-11-01:python/nested_for_loops_using_list_comprehension.html</guid><category>Basic</category></item><item><title>Preprocessing Categorical Features</title><link>http://chrisalbon.com/machine-learning/preprocessing_categorical_features.html</link><description>&lt;p&gt;Often, machine learning methods (e.g. logistic regression, SVM with a linear kernel, etc) will require that categorical variables be converted into dummy variables (also called OneHot encoding). For example, a single feature &lt;code&gt;Fruit&lt;/code&gt; would be converted into three features, &lt;code&gt;Apples&lt;/code&gt;, &lt;code&gt;Oranges&lt;/code&gt;, and &lt;code&gt;Bananas&lt;/code&gt;, one for each category in the categorical feature.&lt;/p&gt;
-&lt;p&gt;There are common ways to preprocess categorical features: using pandas or scikit-learn.&lt;/p&gt;
-&lt;h2&gt;Preliminaries&lt;/h2&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;preprocessing&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.pipeline&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Pipeline&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pandas&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;pd&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;Create Data&lt;/h2&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;raw_data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;first_name&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Jason&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Molly&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Tina&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Jake&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Amy&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
-        &lt;span class="s1"&gt;&amp;#39;last_name&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Miller&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Jacobson&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Ali&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Milner&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Cooze&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
-        &lt;span class="s1"&gt;&amp;#39;age&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;42&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;52&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;36&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;24&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;73&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
-        &lt;span class="s1"&gt;&amp;#39;city&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;San Francisco&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Baltimore&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Miami&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Douglas&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Boston&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]}&lt;/span&gt;
-&lt;span class="n"&gt;df&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DataFrame&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;raw_data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;columns&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;first_name&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;last_name&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;age&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;city&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
-&lt;span class="n"&gt;df&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div&gt;
-&lt;table border="1" class="dataframe"&gt;
-  &lt;thead&gt;
-    &lt;tr style="text-align: right;"&gt;
-      &lt;th&gt;&lt;/th&gt;
-      &lt;th&gt;first_name&lt;/th&gt;
-      &lt;th&gt;last_name&lt;/th&gt;
-      &lt;th&gt;age&lt;/th&gt;
-      &lt;th&gt;city&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;th&gt;0&lt;/th&gt;
-      &lt;td&gt;Jason&lt;/td&gt;
-      &lt;td&gt;Miller&lt;/td&gt;
-      &lt;td&gt;42&lt;/td&gt;
-      &lt;td&gt;San Francisco&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;1&lt;/th&gt;
-      &lt;td&gt;Molly&lt;/td&gt;
-      &lt;td&gt;Jacobson&lt;/td&gt;
-      &lt;td&gt;52&lt;/td&gt;
-      &lt;td&gt;Baltimore&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;2&lt;/th&gt;
-      &lt;td&gt;Tina&lt;/td&gt;
-      &lt;td&gt;Ali&lt;/td&gt;
-      &lt;td&gt;36&lt;/td&gt;
-      &lt;td&gt;Miami&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;3&lt;/th&gt;
-      &lt;td&gt;Jake&lt;/td&gt;
-      &lt;td&gt;Milner&lt;/td&gt;
-      &lt;td&gt;24&lt;/td&gt;
-      &lt;td&gt;Douglas&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;4&lt;/th&gt;
-      &lt;td&gt;Amy&lt;/td&gt;
-      &lt;td&gt;Cooze&lt;/td&gt;
-      &lt;td&gt;73&lt;/td&gt;
-      &lt;td&gt;Boston&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-
-&lt;h2&gt;Convert Nominal Categorical Feature Into Dummy Variables Using Pandas&lt;/h2&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Create dummy variables for every unique category in df.city&lt;/span&gt;
-&lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_dummies&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;city&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div&gt;
-&lt;table border="1" class="dataframe"&gt;
-  &lt;thead&gt;
-    &lt;tr style="text-align: right;"&gt;
-      &lt;th&gt;&lt;/th&gt;
-      &lt;th&gt;Baltimore&lt;/th&gt;
-      &lt;th&gt;Boston&lt;/th&gt;
-      &lt;th&gt;Douglas&lt;/th&gt;
-      &lt;th&gt;Miami&lt;/th&gt;
-      &lt;th&gt;San Francisco&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;th&gt;0&lt;/th&gt;
-      &lt;td&gt;0.0&lt;/td&gt;
-      &lt;td&gt;0.0&lt;/td&gt;
-      &lt;td&gt;0.0&lt;/td&gt;
-      &lt;td&gt;0.0&lt;/td&gt;
-      &lt;td&gt;1.0&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;1&lt;/th&gt;
-      &lt;td&gt;1.0&lt;/td&gt;
-      &lt;td&gt;0.0&lt;/td&gt;
-      &lt;td&gt;0.0&lt;/td&gt;
-      &lt;td&gt;0.0&lt;/td&gt;
-      &lt;td&gt;0.0&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;2&lt;/th&gt;
-      &lt;td&gt;0.0&lt;/td&gt;
-      &lt;td&gt;0.0&lt;/td&gt;
-      &lt;td&gt;0.0&lt;/td&gt;
-      &lt;td&gt;1.0&lt;/td&gt;
-      &lt;td&gt;0.0&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;3&lt;/th&gt;
-      &lt;td&gt;0.0&lt;/td&gt;
-      &lt;td&gt;0.0&lt;/td&gt;
-      &lt;td&gt;1.0&lt;/td&gt;
-      &lt;td&gt;0.0&lt;/td&gt;
-      &lt;td&gt;0.0&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;4&lt;/th&gt;
-      &lt;td&gt;0.0&lt;/td&gt;
-      &lt;td&gt;1.0&lt;/td&gt;
-      &lt;td&gt;0.0&lt;/td&gt;
-      &lt;td&gt;0.0&lt;/td&gt;
-      &lt;td&gt;0.0&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-
-&lt;h2&gt;Convert Nominal Categorical Data Into Dummy (OneHot) Features Using Scikit&lt;/h2&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Convert strings categorical names to integers&lt;/span&gt;
-&lt;span class="n"&gt;integerized_data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;preprocessing&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;LabelEncoder&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fit_transform&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;city&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
-
-&lt;span class="c1"&gt;# View data&lt;/span&gt;
-&lt;span class="n"&gt;integerized_data&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;array([4, 0, 3, 2, 1])
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Convert integer categorical representations to OneHot encodings&lt;/span&gt;
-&lt;span class="n"&gt;preprocessing&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;OneHotEncoder&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fit_transform&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;integerized_data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;reshape&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;toarray&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;array([[ 0.,  0.,  0.,  0.,  1.],
-       [ 1.,  0.,  0.,  0.,  0.],
-       [ 0.,  0.,  0.,  1.,  0.],
-       [ 0.,  0.,  1.,  0.,  0.],
-       [ 0.,  1.,  0.,  0.,  0.]])
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Note that the output of pd.get_dummies() and the scikit methods produces the same output matrix.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Tue, 01 Nov 2016 12:00:00 -0700</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-11-01:machine-learning/preprocessing_categorical_features.html</guid><category>Basics</category></item><item><title>Store API Credentials For Open Source Projects</title><link>http://chrisalbon.com/python/store_api_credentials_for_open_source_projects.html</link><description>&lt;p&gt;One issue which repeated comes up is how to manage private API credentials when the project is available on GitHub. This is the method I use for my own projects. I store all credentials in a JSON file and tell &lt;a href="https://git-scm.com/docs/gitignore"&gt;gitignore&lt;/a&gt; to not upload that file. Then when I am running that code locally, load the API credentials from the JSON file.&lt;/p&gt;
-&lt;h2&gt;Preliminaries&lt;/h2&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;json&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;Step 1: Create a JSON with the API credentials&lt;/h2&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;credentials&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;access_secret&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;392n39d93&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-               &lt;span class="s1"&gt;&amp;#39;access_token&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;sdf424f&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-               &lt;span class="s1"&gt;&amp;#39;consumer_key&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;sdf3223&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-               &lt;span class="s1"&gt;&amp;#39;consumer_secret&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;dsf2344&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;credentials.json&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;w&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dump&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;credentials&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ensure_ascii&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;False&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;Step 2: Add File To gitignore&lt;/h2&gt;
-&lt;p&gt;Follow the &lt;a href="https://help.github.com/articles/ignoring-files/"&gt;instructions here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Here is an &lt;a href="https://gist.github.com/octocat/9257657"&gt;example of a good gitignore&lt;/a&gt; file.&lt;/p&gt;
-&lt;h2&gt;Step 3: Retrieve The Credentials From The JSON File&lt;/h2&gt;
-&lt;p&gt;This step should be the one done inside your project or script.&lt;/p&gt;
-&lt;h3&gt;Load JSON File&lt;/h3&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Import API Keys&lt;/span&gt;
-&lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;credentials.json&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;creds&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;    
-    &lt;span class="n"&gt;credentials&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;load&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;creds&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3&gt;Retrieve The Credentials&lt;/h3&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;credentials&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;consumer_key&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;#39;sdf3223&amp;#39;
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Tue, 01 Nov 2016 12:00:00 -0700</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-11-01:python/store_api_credentials_for_open_source_projects.html</guid><category>Basic</category></item></channel></rss>
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Tue, 01 Nov 2016 12:00:00 -0700</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-11-01:machine-learning/loading_features_from_dictionaries.html</guid><category>Basics</category></item></channel></rss>
