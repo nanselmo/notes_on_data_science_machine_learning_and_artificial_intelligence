@@ -10,7 +10,7 @@
     <meta name="author" content="Chris Albon">
     <link rel="icon" href="../favicon.ico">
 
-    <title>Logistic Regression With L1 Regularization - Machine Learning</title>
+    <title>Feature Selection Using Random Forest - Machine Learning</title>
 
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -124,7 +124,7 @@
 <section id="content" class="body">
     <header>
     <h1>
-      Logistic Regression With L1 Regularization
+      Feature Selection Using Random Forest
     </h1>
 <ol class="breadcrumb">
     <li>
@@ -137,31 +137,41 @@
 </ol>
 </header>
 <div class='article_content'>
-<p>L1 regularization (also called least absolute deviations) is a powerful tool in data science. There are many tutorials out there explaining L1 regularization and I will not try to do that here. Instead, this tutorial is show the effect of the regularization parameter <code>C</code> on the coefficients and model accuracy.</p>
+<p>Often in data science we have hundreds or even millions of features and we want a way to create a model that only includes the most important features. This has three benefits. First, we make our model more simple to interpret. Second, we can reduce the variance of the model, and therefore overfitting. Finally, we can reduce the computational cost (and time) of training a model. The process of identifying only the most relevant features is called "feature selection."</p>
+<p>Random Forests are often used for feature selection in a data science workflow. The reason is because the tree-based strategies used by random forests naturally ranks by how well they improve the purity of the node. This mean decrease in impurity over all trees (called <a href="https://en.wikipedia.org/wiki/Decision_tree_learning#Gini_impurity">gini impurity</a>). Nodes with the greatest decrease in impurity happen at the start of the trees, while notes with the least decrease in impurity occur at the end of trees. Thus, by pruning trees below a particular node, we can create a subset of the most important features.</p>
+<p>In this tutorial we will:</p>
+<ol>
+<li>Prepare the dataset</li>
+<li>Train a random forest classifier</li>
+<li>Identify the most important features</li>
+<li>Create a new 'limited featured' dataset containing only those features</li>
+<li>Train a second classifier on this new dataset</li>
+<li>Compare the accuracy of the 'full featured' classifier to the accuracy of the 'limited featured' classifier</li>
+</ol>
+<p><em>Note: There are other definitions of importance, however in this tutorial we limit our discussion to gini importance.</em></p>
 <h2>Preliminaries</h2>
 <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">SelectFromModel</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
 </pre></div>
 
 
 <h2>Create The Data</h2>
 <p>The dataset used in this tutorial is the famous <a href="https://en.wikipedia.org/wiki/Iris_flower_data_set">iris dataset</a>. The Iris target data contains 50 samples from three species of Iris, <code>y</code> and four feature variables, <code>X</code>.</p>
-<p>The dataset contains three categories (three species of Iris), however for the sake of simplicity it is easier if the target data is binary. Therefore we will remove the data from the last species of Iris.</p>
 <div class="codehilite"><pre><span></span><span class="c1"># Load the iris dataset</span>
 <span class="n">iris</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_iris</span><span class="p">()</span>
+
+<span class="c1"># Create a list of feature names</span>
+<span class="n">feat_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Sepal Length&#39;</span><span class="p">,</span><span class="s1">&#39;Sepal Width&#39;</span><span class="p">,</span><span class="s1">&#39;Petal Length&#39;</span><span class="p">,</span><span class="s1">&#39;Petal Width&#39;</span><span class="p">]</span>
 
 <span class="c1"># Create X from the features</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">data</span>
 
 <span class="c1"># Create y from output</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span>
-
-<span class="c1"># Remake the variable, keeping all data where the category is not 2.</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">y</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">]</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">y</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">]</span>
 </pre></div>
 
 
@@ -188,54 +198,122 @@
        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
        0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-       1, 1, 1, 1, 1, 1, 1, 1])
+       1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2])
 </pre></div>
 
 
 <h2>Split The Data Into Training And Test Sets</h2>
-<div class="codehilite"><pre><span></span><span class="c1"># Split the data into test and training sets, with 30% of samples being put into the test set</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Split the data into 40% test and 60% training</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 
 
-<h2>Run Logistic Regression With A L1 Penalty With Various Regularization Strengths</h2>
-<p>The usefulness of L1 is that it can push feature coefficients to 0, creating a method for feature selection. In the code below we run a logistic regression with a L1 penalty four times, each time decreasing the value of <code>C</code>. We should expect that as <code>C</code> decreases, more coefficients become 0.</p>
-<div class="codehilite"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mo">001</span><span class="p">]</span>
+<h2>Train A Random Forest Classifier</h2>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a random forest classifier</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">C</span><span class="p">:</span>
-    <span class="n">clf</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">penalty</span><span class="o">=</span><span class="s1">&#39;l1&#39;</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="n">c</span><span class="p">)</span>
-    <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;C:&#39;</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Coefficient of each feature:&#39;</span><span class="p">,</span> <span class="n">clf</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Training accuracy:&#39;</span><span class="p">,</span> <span class="n">clf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">))</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Test accuracy:&#39;</span><span class="p">,</span> <span class="n">clf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="c1"># Train the classifier</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Print the name and gini importance of each feature</span>
+<span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">feat_labels</span><span class="p">,</span> <span class="n">clf</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">feature</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>C: 10
-Coefficient of each feature: [[-0.08812782 -3.75057211  4.40569011  0.        ]]
-Training accuracy: 1.0
-Test accuracy: 1.0
-
-C: 1
-Coefficient of each feature: [[ 0.         -2.28876141  2.57716818  0.        ]]
-Training accuracy: 1.0
-Test accuracy: 1.0
-
-C: 0.1
-Coefficient of each feature: [[ 0.         -0.82310496  0.97171882  0.        ]]
-Training accuracy: 1.0
-Test accuracy: 1.0
-
-C: 0.001
-Coefficient of each feature: [[ 0.  0.  0.  0.]]
-Training accuracy: 0.5
-Test accuracy: 0.5
+<div class="codehilite"><pre><span></span>(&#39;Sepal Length&#39;, 0.11024282328064565)
+(&#39;Sepal Width&#39;, 0.016255033655398394)
+(&#39;Petal Length&#39;, 0.45028123999239533)
+(&#39;Petal Width&#39;, 0.42322090307156124)
 </pre></div>
 
 
-<p>Notice that as <code>C</code> decreases the model coefficients become smaller (for example from <code>4.40613653</code> when <code>C=10</code> to <code>0.97170533</code> when <code>C=0.1</code>), until at <code>C=0.001</code> all the coefficients are zero. This is the effect of the regularization penalty becoming more prominent.</p>
+<p>The scores above are the importance scores for each variable. There are two things to note. First, all the importance scores add up to 100%. Second, <code>Petal Length</code> and <code>Petal Width</code> are far more important than the other two features. Combined, <code>Petal Length</code> and <code>Petal Width</code> have an importance of ~0.86! Clearly these are the most importance features.</p>
+<h2>Identify And Select Most Important Features</h2>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a selector object that will use the random forest classifier to identify</span>
+<span class="c1"># features that have an importance of more than 0.15</span>
+<span class="n">sfm</span> <span class="o">=</span> <span class="n">SelectFromModel</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.15</span><span class="p">)</span>
+
+<span class="c1"># Train the selector</span>
+<span class="n">sfm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>SelectFromModel(estimator=RandomForestClassifier(bootstrap=True, class_weight=None, criterion=&#39;gini&#39;,
+            max_depth=None, max_features=&#39;auto&#39;, max_leaf_nodes=None,
+            min_impurity_split=1e-07, min_samples_leaf=1,
+            min_samples_split=2, min_weight_fraction_leaf=0.0,
+            n_estimators=10000, n_jobs=-1, oob_score=False, random_state=0,
+            verbose=0, warm_start=False),
+        prefit=False, threshold=0.15)
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="c1"># Print the names of the most important features</span>
+<span class="k">for</span> <span class="n">feature_list_index</span> <span class="ow">in</span> <span class="n">sfm</span><span class="o">.</span><span class="n">get_support</span><span class="p">(</span><span class="n">indices</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">feat_labels</span><span class="p">[</span><span class="n">feature_list_index</span><span class="p">])</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>Petal Length
+Petal Width
+</pre></div>
+
+
+<h2>Create A Data Subset With Only The Most Important Features</h2>
+<div class="codehilite"><pre><span></span><span class="c1"># Transform the data to create a new dataset containing only the most important features</span>
+<span class="c1"># Note: We have to apply the transform to both the training X and test X data.</span>
+<span class="n">X_important_train</span> <span class="o">=</span> <span class="n">sfm</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">X_important_test</span> <span class="o">=</span> <span class="n">sfm</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+
+
+<h2>Train A New Random Forest Classifier Using Only Most Important Features</h2>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a new random forest classifier for the most important features</span>
+<span class="n">clf_important</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Train the new classifier on the new dataset containing the most important features</span>
+<span class="n">clf_important</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_important_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>RandomForestClassifier(bootstrap=True, class_weight=None, criterion=&#39;gini&#39;,
+            max_depth=None, max_features=&#39;auto&#39;, max_leaf_nodes=None,
+            min_impurity_split=1e-07, min_samples_leaf=1,
+            min_samples_split=2, min_weight_fraction_leaf=0.0,
+            n_estimators=10000, n_jobs=-1, oob_score=False, random_state=0,
+            verbose=0, warm_start=False)
+</pre></div>
+
+
+<h2>Compare The Accuracy Of Our Full Feature Classifier To Our Limited Feature Classifier</h2>
+<div class="codehilite"><pre><span></span><span class="c1"># Apply The Full Featured Classifier To The Test Data</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># View The Accuracy Of Our Full Feature (4 Features) Model</span>
+<span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>0.93333333333333335
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="c1"># Apply The Full Featured Classifier To The Test Data</span>
+<span class="n">y_important_pred</span> <span class="o">=</span> <span class="n">clf_important</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_important_test</span><span class="p">)</span>
+
+<span class="c1"># View The Accuracy Of Our Limited Feature (2 Features) Model</span>
+<span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_important_pred</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>0.8833333333333333
+</pre></div>
+
+
+<p>As can be seen by the accuracy scores, our original model which contained all four features is 93.3% accurate while the our 'limited' model which contained only two features is 88.3% accurate. Thus, for a small cost in accuracy we halved the number of features in the model.</p>
 </div>
     <aside>
     <div class="bug-reporting__panel">

@@ -1,5 +1,181 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Chris Albon</title><link>http://chrisalbon.com/</link><description></description><lastBuildDate>Thu, 01 Dec 2016 12:00:00 -0800</lastBuildDate><item><title>Logistic Regression With L1 Regularization</title><link>http://chrisalbon.com/machine-learning/logistic_regression_with_l1_regularization.html</link><description>&lt;p&gt;L1 regularization (also called least absolute deviations) is a powerful tool in data science. There are many tutorials out there explaining L1 regularization and I will not try to do that here. Instead, this tutorial is show the effect of the regularization parameter &lt;code&gt;C&lt;/code&gt; on the coefficients and model accuracy.&lt;/p&gt;
+<rss version="2.0"><channel><title>Chris Albon</title><link>http://chrisalbon.com/</link><description></description><lastBuildDate>Thu, 01 Dec 2016 12:00:00 -0800</lastBuildDate><item><title>Feature Selection Using Random Forest</title><link>http://chrisalbon.com/machine-learning/feature_selection_using_random_forest.html</link><description>&lt;p&gt;Often in data science we have hundreds or even millions of features and we want a way to create a model that only includes the most important features. This has three benefits. First, we make our model more simple to interpret. Second, we can reduce the variance of the model, and therefore overfitting. Finally, we can reduce the computational cost (and time) of training a model. The process of identifying only the most relevant features is called "feature selection."&lt;/p&gt;
+&lt;p&gt;Random Forests are often used for feature selection in a data science workflow. The reason is because the tree-based strategies used by random forests naturally ranks by how well they improve the purity of the node. This mean decrease in impurity over all trees (called &lt;a href="https://en.wikipedia.org/wiki/Decision_tree_learning#Gini_impurity"&gt;gini impurity&lt;/a&gt;). Nodes with the greatest decrease in impurity happen at the start of the trees, while notes with the least decrease in impurity occur at the end of trees. Thus, by pruning trees below a particular node, we can create a subset of the most important features.&lt;/p&gt;
+&lt;p&gt;In this tutorial we will:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Prepare the dataset&lt;/li&gt;
+&lt;li&gt;Train a random forest classifier&lt;/li&gt;
+&lt;li&gt;Identify the most important features&lt;/li&gt;
+&lt;li&gt;Create a new 'limited featured' dataset containing only those features&lt;/li&gt;
+&lt;li&gt;Train a second classifier on this new dataset&lt;/li&gt;
+&lt;li&gt;Compare the accuracy of the 'full featured' classifier to the accuracy of the 'limited featured' classifier&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;em&gt;Note: There are other definitions of importance, however in this tutorial we limit our discussion to gini importance.&lt;/em&gt;&lt;/p&gt;
+&lt;h2&gt;Preliminaries&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.ensemble&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;RandomForestClassifier&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;datasets&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.model_selection&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;train_test_split&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.feature_selection&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;SelectFromModel&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.metrics&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;accuracy_score&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Create The Data&lt;/h2&gt;
+&lt;p&gt;The dataset used in this tutorial is the famous &lt;a href="https://en.wikipedia.org/wiki/Iris_flower_data_set"&gt;iris dataset&lt;/a&gt;. The Iris target data contains 50 samples from three species of Iris, &lt;code&gt;y&lt;/code&gt; and four feature variables, &lt;code&gt;X&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Load the iris dataset&lt;/span&gt;
+&lt;span class="n"&gt;iris&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;datasets&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;load_iris&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Create a list of feature names&lt;/span&gt;
+&lt;span class="n"&gt;feat_labels&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Sepal Length&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Sepal Width&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Petal Length&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Petal Width&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Create X from the features&lt;/span&gt;
+&lt;span class="n"&gt;X&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;iris&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Create y from output&lt;/span&gt;
+&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;iris&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;target&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;View The Data&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# View the features&lt;/span&gt;
+&lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;array([[ 5.1,  3.5,  1.4,  0.2],
+       [ 4.9,  3. ,  1.4,  0.2],
+       [ 4.7,  3.2,  1.3,  0.2],
+       [ 4.6,  3.1,  1.5,  0.2],
+       [ 5. ,  3.6,  1.4,  0.2]])
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# View the target data&lt;/span&gt;
+&lt;span class="n"&gt;y&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+       1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2])
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Split The Data Into Training And Test Sets&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Split the data into 40% test and 60% training&lt;/span&gt;
+&lt;span class="n"&gt;X_train&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;X_test&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y_train&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y_test&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;train_test_split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;test_size&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;random_state&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Train A Random Forest Classifier&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Create a random forest classifier&lt;/span&gt;
+&lt;span class="n"&gt;clf&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;RandomForestClassifier&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n_estimators&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10000&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;random_state&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;n_jobs&lt;/span&gt;&lt;span class="o"&gt;=-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Train the classifier&lt;/span&gt;
+&lt;span class="n"&gt;clf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X_train&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y_train&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Print the name and gini importance of each feature&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;feature&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;zip&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;feat_labels&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;clf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;feature_importances_&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;feature&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;(&amp;#39;Sepal Length&amp;#39;, 0.11024282328064565)
+(&amp;#39;Sepal Width&amp;#39;, 0.016255033655398394)
+(&amp;#39;Petal Length&amp;#39;, 0.45028123999239533)
+(&amp;#39;Petal Width&amp;#39;, 0.42322090307156124)
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The scores above are the importance scores for each variable. There are two things to note. First, all the importance scores add up to 100%. Second, &lt;code&gt;Petal Length&lt;/code&gt; and &lt;code&gt;Petal Width&lt;/code&gt; are far more important than the other two features. Combined, &lt;code&gt;Petal Length&lt;/code&gt; and &lt;code&gt;Petal Width&lt;/code&gt; have an importance of ~0.86! Clearly these are the most importance features.&lt;/p&gt;
+&lt;h2&gt;Identify And Select Most Important Features&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Create a selector object that will use the random forest classifier to identify&lt;/span&gt;
+&lt;span class="c1"&gt;# features that have an importance of more than 0.15&lt;/span&gt;
+&lt;span class="n"&gt;sfm&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;SelectFromModel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;clf&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;threshold&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.15&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Train the selector&lt;/span&gt;
+&lt;span class="n"&gt;sfm&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X_train&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y_train&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;SelectFromModel(estimator=RandomForestClassifier(bootstrap=True, class_weight=None, criterion=&amp;#39;gini&amp;#39;,
+            max_depth=None, max_features=&amp;#39;auto&amp;#39;, max_leaf_nodes=None,
+            min_impurity_split=1e-07, min_samples_leaf=1,
+            min_samples_split=2, min_weight_fraction_leaf=0.0,
+            n_estimators=10000, n_jobs=-1, oob_score=False, random_state=0,
+            verbose=0, warm_start=False),
+        prefit=False, threshold=0.15)
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Print the names of the most important features&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;feature_list_index&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;sfm&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_support&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;indices&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;feat_labels&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;feature_list_index&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Petal Length
+Petal Width
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Create A Data Subset With Only The Most Important Features&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Transform the data to create a new dataset containing only the most important features&lt;/span&gt;
+&lt;span class="c1"&gt;# Note: We have to apply the transform to both the training X and test X data.&lt;/span&gt;
+&lt;span class="n"&gt;X_important_train&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sfm&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X_train&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;X_important_test&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sfm&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X_test&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Train A New Random Forest Classifier Using Only Most Important Features&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Create a new random forest classifier for the most important features&lt;/span&gt;
+&lt;span class="n"&gt;clf_important&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;RandomForestClassifier&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n_estimators&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10000&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;random_state&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;n_jobs&lt;/span&gt;&lt;span class="o"&gt;=-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Train the new classifier on the new dataset containing the most important features&lt;/span&gt;
+&lt;span class="n"&gt;clf_important&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X_important_train&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y_train&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;RandomForestClassifier(bootstrap=True, class_weight=None, criterion=&amp;#39;gini&amp;#39;,
+            max_depth=None, max_features=&amp;#39;auto&amp;#39;, max_leaf_nodes=None,
+            min_impurity_split=1e-07, min_samples_leaf=1,
+            min_samples_split=2, min_weight_fraction_leaf=0.0,
+            n_estimators=10000, n_jobs=-1, oob_score=False, random_state=0,
+            verbose=0, warm_start=False)
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Compare The Accuracy Of Our Full Feature Classifier To Our Limited Feature Classifier&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Apply The Full Featured Classifier To The Test Data&lt;/span&gt;
+&lt;span class="n"&gt;y_pred&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;clf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;predict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X_test&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# View The Accuracy Of Our Full Feature (4 Features) Model&lt;/span&gt;
+&lt;span class="n"&gt;accuracy_score&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y_test&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y_pred&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;0.93333333333333335
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Apply The Full Featured Classifier To The Test Data&lt;/span&gt;
+&lt;span class="n"&gt;y_important_pred&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;clf_important&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;predict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X_important_test&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# View The Accuracy Of Our Limited Feature (2 Features) Model&lt;/span&gt;
+&lt;span class="n"&gt;accuracy_score&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y_test&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y_important_pred&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;0.8833333333333333
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;As can be seen by the accuracy scores, our original model which contained all four features is 93.3% accurate while the our 'limited' model which contained only two features is 88.3% accurate. Thus, for a small cost in accuracy we halved the number of features in the model.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Thu, 01 Dec 2016 12:00:00 -0800</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-12-01:machine-learning/feature_selection_using_random_forest.html</guid><category>Basics</category></item><item><title>Logistic Regression With L1 Regularization</title><link>http://chrisalbon.com/machine-learning/logistic_regression_with_l1_regularization.html</link><description>&lt;p&gt;L1 regularization (also called least absolute deviations) is a powerful tool in data science. There are many tutorials out there explaining L1 regularization and I will not try to do that here. Instead, this tutorial is show the effect of the regularization parameter &lt;code&gt;C&lt;/code&gt; on the coefficients and model accuracy.&lt;/p&gt;
 &lt;h2&gt;Preliminaries&lt;/h2&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.linear_model&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;LogisticRegression&lt;/span&gt;
@@ -1218,40 +1394,4 @@ He had a rather sharp and confident.
 &lt;/table&gt;
 &lt;/div&gt;
 
-&lt;p&gt;Notice that as the alpha value increases, more features have a coefficient of 0.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Tue, 01 Nov 2016 12:00:00 -0700</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-11-01:machine-learning/lasso_regression_in_scikit.html</guid><category>Basics</category></item><item><title>Loading Features From Dictionaries</title><link>http://chrisalbon.com/machine-learning/loading_features_from_dictionaries.html</link><description>&lt;h2&gt;Preliminaries&lt;/h2&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.feature_extraction&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;DictVectorizer&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;Create A Dictionary&lt;/h2&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;staff&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[{&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;name&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Steve Miller&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;age&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;33.&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
-         &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;name&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Lyndon Jones&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;age&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;12.&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
-         &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;name&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Baxter Morth&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;age&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;18.&lt;/span&gt;&lt;span class="p"&gt;}]&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;Convert Dictionary To Feature Matrix&lt;/h2&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Create an object for our dictionary vectorizer&lt;/span&gt;
-&lt;span class="n"&gt;vec&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;DictVectorizer&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Fit then transform the staff dictionary with vec, then output an array&lt;/span&gt;
-&lt;span class="n"&gt;vec&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fit_transform&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;staff&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;toarray&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;array([[ 33.,   0.,   0.,   1.],
-       [ 12.,   0.,   1.,   0.],
-       [ 18.,   1.,   0.,   0.]])
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;View Feature Names&lt;/h2&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Get Feature Names&lt;/span&gt;
-&lt;span class="n"&gt;vec&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_feature_names&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;[&amp;#39;age&amp;#39;, &amp;#39;name=Baxter Morth&amp;#39;, &amp;#39;name=Lyndon Jones&amp;#39;, &amp;#39;name=Steve Miller&amp;#39;]
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Tue, 01 Nov 2016 12:00:00 -0700</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-11-01:machine-learning/loading_features_from_dictionaries.html</guid><category>Basics</category></item></channel></rss>
+&lt;p&gt;Notice that as the alpha value increases, more features have a coefficient of 0.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Tue, 01 Nov 2016 12:00:00 -0700</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-11-01:machine-learning/lasso_regression_in_scikit.html</guid><category>Basics</category></item></channel></rss>
