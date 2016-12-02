@@ -198,6 +198,19 @@
 </pre></div>
 
 
+<h2>Standardize Features</h2>
+<p>Because the regularization penalty is comprised of the sum of the absolute value of the coefficients, we need to scale the data so the coefficients are all based on the same scale.</p>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a scaler object</span>
+<span class="n">sc</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+
+<span class="c1"># Fit the scaler to the training data and transform</span>
+<span class="n">X_train_std</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+
+<span class="c1"># Apply the scaler to the test data</span>
+<span class="n">X_test_std</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+
+
 <h2>Run Logistic Regression With A L1 Penalty With Various Regularization Strengths</h2>
 <p>The usefulness of L1 is that it can push feature coefficients to 0, creating a method for feature selection. In the code below we run a logistic regression with a L1 penalty four times, each time decreasing the value of <code>C</code>. We should expect that as <code>C</code> decreases, more coefficients become 0.</p>
 <div class="codehilite"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mo">001</span><span class="p">]</span>
@@ -214,17 +227,17 @@
 
 
 <div class="codehilite"><pre><span></span>C: 10
-Coefficient of each feature: [[-0.08812782 -3.75057211  4.40569011  0.        ]]
+Coefficient of each feature: [[-0.0855264  -3.75409972  4.40427765  0.        ]]
 Training accuracy: 1.0
 Test accuracy: 1.0
 
 C: 1
-Coefficient of each feature: [[ 0.         -2.28876141  2.57716818  0.        ]]
+Coefficient of each feature: [[ 0.         -2.28800472  2.5766469   0.        ]]
 Training accuracy: 1.0
 Test accuracy: 1.0
 
 C: 0.1
-Coefficient of each feature: [[ 0.         -0.82310496  0.97171882  0.        ]]
+Coefficient of each feature: [[ 0.         -0.82310456  0.97171847  0.        ]]
 Training accuracy: 1.0
 Test accuracy: 1.0
 
@@ -235,7 +248,7 @@ Test accuracy: 0.5
 </pre></div>
 
 
-<p>Notice that as <code>C</code> decreases the model coefficients become smaller (for example from <code>4.40613653</code> when <code>C=10</code> to <code>0.97170533</code> when <code>C=0.1</code>), until at <code>C=0.001</code> all the coefficients are zero. This is the effect of the regularization penalty becoming more prominent.</p>
+<p>Notice that as <code>C</code> decreases the model coefficients become smaller (for example from <code>4.36276075</code> when <code>C=10</code> to <code>0.0.97175097</code> when <code>C=0.1</code>), until at <code>C=0.001</code> all the coefficients are zero. This is the effect of the regularization penalty becoming more prominent.</p>
 </div>
     <aside>
     <div class="bug-reporting__panel">

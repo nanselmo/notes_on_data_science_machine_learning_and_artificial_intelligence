@@ -236,6 +236,19 @@ Petal Width
 &lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;h2&gt;Standardize Features&lt;/h2&gt;
+&lt;p&gt;Because the regularization penalty is comprised of the sum of the absolute value of the coefficients, we need to scale the data so the coefficients are all based on the same scale.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Create a scaler object&lt;/span&gt;
+&lt;span class="n"&gt;sc&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;StandardScaler&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Fit the scaler to the training data and transform&lt;/span&gt;
+&lt;span class="n"&gt;X_train_std&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fit_transform&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X_train&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Apply the scaler to the test data&lt;/span&gt;
+&lt;span class="n"&gt;X_test_std&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X_test&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;h2&gt;Run Logistic Regression With A L1 Penalty With Various Regularization Strengths&lt;/h2&gt;
 &lt;p&gt;The usefulness of L1 is that it can push feature coefficients to 0, creating a method for feature selection. In the code below we run a logistic regression with a L1 penalty four times, each time decreasing the value of &lt;code&gt;C&lt;/code&gt;. We should expect that as &lt;code&gt;C&lt;/code&gt; decreases, more coefficients become 0.&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;C&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mo"&gt;001&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
@@ -252,17 +265,17 @@ Petal Width
 
 
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;C: 10
-Coefficient of each feature: [[-0.08812782 -3.75057211  4.40569011  0.        ]]
+Coefficient of each feature: [[-0.0855264  -3.75409972  4.40427765  0.        ]]
 Training accuracy: 1.0
 Test accuracy: 1.0
 
 C: 1
-Coefficient of each feature: [[ 0.         -2.28876141  2.57716818  0.        ]]
+Coefficient of each feature: [[ 0.         -2.28800472  2.5766469   0.        ]]
 Training accuracy: 1.0
 Test accuracy: 1.0
 
 C: 0.1
-Coefficient of each feature: [[ 0.         -0.82310496  0.97171882  0.        ]]
+Coefficient of each feature: [[ 0.         -0.82310456  0.97171847  0.        ]]
 Training accuracy: 1.0
 Test accuracy: 1.0
 
@@ -273,7 +286,7 @@ Test accuracy: 0.5
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Notice that as &lt;code&gt;C&lt;/code&gt; decreases the model coefficients become smaller (for example from &lt;code&gt;4.40613653&lt;/code&gt; when &lt;code&gt;C=10&lt;/code&gt; to &lt;code&gt;0.97170533&lt;/code&gt; when &lt;code&gt;C=0.1&lt;/code&gt;), until at &lt;code&gt;C=0.001&lt;/code&gt; all the coefficients are zero. This is the effect of the regularization penalty becoming more prominent.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Thu, 01 Dec 2016 12:00:00 -0800</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-12-01:machine-learning/logistic_regression_with_l1_regularization.html</guid><category>Basics</category></item><item><title>Convert Pandas Categorical Data For Scikit-Learn</title><link>http://chrisalbon.com/machine-learning/convert_pandas_categorical_column_into_integers_for_scikit-learn.html</link><description>&lt;h2&gt;Preliminaries&lt;/h2&gt;
+&lt;p&gt;Notice that as &lt;code&gt;C&lt;/code&gt; decreases the model coefficients become smaller (for example from &lt;code&gt;4.36276075&lt;/code&gt; when &lt;code&gt;C=10&lt;/code&gt; to &lt;code&gt;0.0.97175097&lt;/code&gt; when &lt;code&gt;C=0.1&lt;/code&gt;), until at &lt;code&gt;C=0.001&lt;/code&gt; all the coefficients are zero. This is the effect of the regularization penalty becoming more prominent.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Thu, 01 Dec 2016 12:00:00 -0800</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-12-01:machine-learning/logistic_regression_with_l1_regularization.html</guid><category>Basics</category></item><item><title>Convert Pandas Categorical Data For Scikit-Learn</title><link>http://chrisalbon.com/machine-learning/convert_pandas_categorical_column_into_integers_for_scikit-learn.html</link><description>&lt;h2&gt;Preliminaries&lt;/h2&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Import required packages&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;preprocessing&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pandas&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;pd&lt;/span&gt;
