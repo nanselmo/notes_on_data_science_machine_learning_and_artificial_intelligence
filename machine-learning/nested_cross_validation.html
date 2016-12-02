@@ -10,7 +10,7 @@
     <meta name="author" content="Chris Albon">
     <link rel="icon" href="../favicon.ico">
 
-    <title>Rename Multiple Pandas Dataframe Column Names At Once - Python</title>
+    <title>Nested Cross Validation - Machine Learning</title>
 
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -34,7 +34,7 @@
     <![endif]-->
      <link href="http://chrisalbon.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Chris Albon Full RSS Feed" />        
 
-    <meta name="tags" content="Data Wrangling" />
+    <meta name="tags" content="Basics" />
 
 
 </head>
@@ -124,192 +124,98 @@
 <section id="content" class="body">
     <header>
     <h1>
-      Rename Multiple Pandas Dataframe Column Names At Once
+      Nested Cross Validation
     </h1>
 <ol class="breadcrumb">
     <li>
-        <time class="published" datetime="2016-05-01T12:00:00-07:00">
-            01 May 2016
+        <time class="published" datetime="2016-12-02T12:00:00-08:00">
+            02 December 2016
         </time>
     </li>
-    <li>Python</li>
-    <li>Data Wrangling</li>
+    <li>Machine Learning</li>
+    <li>Basics</li>
 </ol>
 </header>
 <div class='article_content'>
+<p>Often we want to tune the parameters of a model (for example, <code>C</code> in a support vector machine). That is, we want to find the value of a parameter that minimizes our loss function. The best way to do this is cross validation:</p>
+<ol>
+<li>Set the parameter you want to tune to some value.</li>
+<li>Split your data into K 'folds' (sections).</li>
+<li>Train your model using K-1 folds using the parameter value.</li>
+<li>Test your model on the remaining fold.</li>
+<li>Repeat steps 3 and 4 so that every fold is the test data once.</li>
+<li>Repeat steps 1 to 5 for every possible value of the parameter.</li>
+<li>Report the parameter that produced the best result.</li>
+</ol>
+<p>However, as <a href="http://jmlr.org/papers/volume11/cawley10a/cawley10a.pdf">Cawley and Talbot</a> point out in their 2010 paper, since we used the test set to <em>both</em> select the values of the parameter <em>and</em> evaluate the model, we risk optimistically biasing our model evaluations. For this reason, if a test set is used to select model parameters, then we need a <em>different</em> test set to get an unbiased evaluation of that selected model.</p>
+<p>One way to overcome this problem is to have nested cross validations. First, an inner cross validation is used to tune the parameters and select the best model. Second, an outer cross validation is used to evaluate the model selected by the inner cross validation.</p>
 <h2>Preliminaries</h2>
-<div class="codehilite"><pre><span></span><span class="c1"># Import modules</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
-
-<span class="c1"># Set ipython&#39;s max row display</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_row&#39;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
-
-<span class="c1"># Set iPython&#39;s max column width to 50</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Load required packages</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GridSearchCV</span><span class="p">,</span> <span class="n">cross_val_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span>
 </pre></div>
 
 
-<h2>Create an example dataframe</h2>
-<div class="codehilite"><pre><span></span><span class="c1"># Create an example dataframe</span>
-<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Commander&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Jason&#39;</span><span class="p">,</span> <span class="s1">&#39;Molly&#39;</span><span class="p">,</span> <span class="s1">&#39;Tina&#39;</span><span class="p">,</span> <span class="s1">&#39;Jake&#39;</span><span class="p">,</span> <span class="s1">&#39;Amy&#39;</span><span class="p">],</span>
-        <span class="s1">&#39;Date&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;2012, 02, 08&#39;</span><span class="p">,</span> <span class="s1">&#39;2012, 02, 08&#39;</span><span class="p">,</span> <span class="s1">&#39;2012, 02, 08&#39;</span><span class="p">,</span> <span class="s1">&#39;2012, 02, 08&#39;</span><span class="p">,</span> <span class="s1">&#39;2012, 02, 08&#39;</span><span class="p">],</span>
-        <span class="s1">&#39;Score&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]}</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Cochice&#39;</span><span class="p">,</span> <span class="s1">&#39;Pima&#39;</span><span class="p">,</span> <span class="s1">&#39;Santa Cruz&#39;</span><span class="p">,</span> <span class="s1">&#39;Maricopa&#39;</span><span class="p">,</span> <span class="s1">&#39;Yuma&#39;</span><span class="p">])</span>
-<span class="n">df</span>
+<h2>Get Data</h2>
+<p>The data for this tutorial is beast cancer data with <a href="http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_breast_cancer.html">30 features and a binary target variable</a>.</p>
+<div class="codehilite"><pre><span></span><span class="c1"># Load the data</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_breast_cancer</span><span class="p">()</span>
+
+<span class="c1"># Create X from the features</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">data</span>
+
+<span class="c1"># Create y from the target</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">target</span>
 </pre></div>
 
 
-<div>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Commander</th>
-      <th>Date</th>
-      <th>Score</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Cochice</th>
-      <td>Jason</td>
-      <td>2012, 02, 08</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>Pima</th>
-      <td>Molly</td>
-      <td>2012, 02, 08</td>
-      <td>24</td>
-    </tr>
-    <tr>
-      <th>Santa Cruz</th>
-      <td>Tina</td>
-      <td>2012, 02, 08</td>
-      <td>31</td>
-    </tr>
-    <tr>
-      <th>Maricopa</th>
-      <td>Jake</td>
-      <td>2012, 02, 08</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>Yuma</th>
-      <td>Amy</td>
-      <td>2012, 02, 08</td>
-      <td>3</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+<h2>Standardize Data</h2>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a scaler object</span>
+<span class="n">sc</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
 
-<h2>Rename Column Names</h2>
-<div class="codehilite"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Leader&#39;</span><span class="p">,</span> <span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="s1">&#39;Score&#39;</span><span class="p">]</span>
+<span class="c1"># Fit the scaler to the feature data and transform</span>
+<span class="n">X_std</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="n">df</span>
+<h2>Create Inner Cross Validation (For Parameter Tuning)</h2>
+<p>This is our inner cross validation. We will use this to hunt for the best parameters for <code>C</code>, the penalty for misclassifying a data point. <code>GridSearchCV</code> will conduct steps 1-6 listed at the top of this tutorial.</p>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a list of 10 candidate values for the C parameter</span>
+<span class="n">C_candidates</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+<span class="c1"># Create a gridsearch object with the support vector classifier and the C value candidates</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">SVC</span><span class="p">(),</span> <span class="n">param_grid</span><span class="o">=</span><span class="n">C_candidates</span><span class="p">)</span>
 </pre></div>
 
 
-<div>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Leader</th>
-      <th>Time</th>
-      <th>Score</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Cochice</th>
-      <td>Jason</td>
-      <td>2012, 02, 08</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>Pima</th>
-      <td>Molly</td>
-      <td>2012, 02, 08</td>
-      <td>24</td>
-    </tr>
-    <tr>
-      <th>Santa Cruz</th>
-      <td>Tina</td>
-      <td>2012, 02, 08</td>
-      <td>31</td>
-    </tr>
-    <tr>
-      <th>Maricopa</th>
-      <td>Jake</td>
-      <td>2012, 02, 08</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>Yuma</th>
-      <td>Amy</td>
-      <td>2012, 02, 08</td>
-      <td>3</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+<p>The code below isn't necessary for parameter tuning using nested cross validation, however to demonstrate that our inner cross validation grid search can find the best value for the parameter <code>C</code>, we will run it once here:</p>
+<div class="codehilite"><pre><span></span><span class="c1"># Fit the cross validated grid search on the data</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_std</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 
-<div class="codehilite"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Leader&#39;</span><span class="p">:</span> <span class="s1">&#39;Commander&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="c1"># Show the best value for C</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">C</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="n">df</span>
+<div class="codehilite"><pre><span></span>2.7825594022071258
 </pre></div>
 
 
-<div>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Commander</th>
-      <th>Time</th>
-      <th>Score</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Cochice</th>
-      <td>Jason</td>
-      <td>2012, 02, 08</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>Pima</th>
-      <td>Molly</td>
-      <td>2012, 02, 08</td>
-      <td>24</td>
-    </tr>
-    <tr>
-      <th>Santa Cruz</th>
-      <td>Tina</td>
-      <td>2012, 02, 08</td>
-      <td>31</td>
-    </tr>
-    <tr>
-      <th>Maricopa</th>
-      <td>Jake</td>
-      <td>2012, 02, 08</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>Yuma</th>
-      <td>Amy</td>
-      <td>2012, 02, 08</td>
-      <td>3</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+<h2>Create Outer Cross Validation (For Model Evaluation)</h2>
+<p>With our inner cross validation constructed, we can use <code>cross_val_score</code> to evaluate the model with a second (outer) cross validation.</p>
+<p>The code below splits the data into three folds, running the inner cross validation on two of the folds (merged together) and then evaluating the model on the third fold. This is repeated three times so that every fold is used for testing once.</p>
+<div class="codehilite"><pre><span></span><span class="n">cross_val_score</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_std</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>array([ 0.94736842,  0.97894737,  0.98412698])
+</pre></div>
+
+
+<p>Each the values above is an unbiased evaluation of the model's accuracy, once for each of the three test folds. Averaged together, they would represent the average accuracy of the model found in the inner cross validated grid search.</p>
 </div>
     <aside>
     <div class="bug-reporting__panel">
