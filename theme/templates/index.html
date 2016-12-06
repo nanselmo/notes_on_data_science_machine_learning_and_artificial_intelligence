@@ -203,6 +203,23 @@
   </div>
 </div>
 
+<div class="row" id="Machine_Learning">
+  <div class="col-sm-12">
+    <h2 class="homepage_category_title">Machine Learning</h2>
+  </div>
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        {% for article in articles if article.category == 'Machine Learning' %}
+          <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+        {% else %}
+          <li>Coming soon.</li>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="row" id="Command_Line">
   <div class="col-sm-12">
     <h2 class="homepage_category_title">Command Line</h2>
@@ -373,23 +390,6 @@
             <li>Coming soon.</li>
           {% endfor %}
         </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="row" id="Machine_Learning">
-  <div class="col-sm-12">
-    <h2 class="homepage_category_title">Machine Learning</h2>
-  </div>
-  <div class="col-sm-12">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        {% for article in articles if article.category == 'Machine Learning' %}
-          <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
-        {% else %}
-          <li>Coming soon.</li>
-        {% endfor %}
       </div>
     </div>
   </div>

@@ -24,10 +24,10 @@ import numpy as np
 
 
 ```python
-raw_data = {'first_name': ['Jason', 'Molly', 'Tina', 'Jake', 'Amy'], 
-        'last_name': ['Miller', 'Jacobson', 'Ali', 'Milner', 'Cooze'], 
+raw_data = {'first_name': ['Jason', 'Molly', 'Tina', 'Jake', 'Amy'],
+        'last_name': ['Miller', 'Jacobson', 'Ali', 'Milner', 'Cooze'],
         'female': [0, 1, 1, 0, 1],
-        'age': [42, 52, 36, 24, 73], 
+        'age': [42, 52, 36, 24, 73],
         'preTestScore': [4, 24, 31, 2, 3],
         'postTestScore': [25, 94, 57, 62, 70]}
 df = pd.DataFrame(raw_data, columns = ['first_name', 'last_name', 'age', 'female', 'preTestScore', 'postTestScore'])
@@ -117,7 +117,6 @@ plt.scatter(df.preTestScore, df.postTestScore
 
 
 
-
 ![png]({filename}/images/matplotlib_scatterplot_from_pandas/output_6_1.png)
 
 
@@ -137,4 +136,3 @@ plt.scatter(df.preTestScore, df.postTestScore, s=300, c='m')
 
 
 ![png]({filename}/images/matplotlib_scatterplot_from_pandas/output_8_1.png)
-
