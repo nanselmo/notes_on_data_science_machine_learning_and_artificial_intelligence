@@ -5,7 +5,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://chrisalbon.com/</loc>
-<lastmod>2016-12-08T11:05:57-00:00</lastmod>
+<lastmod>2016-12-08T13:52:34-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -47,6 +47,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://chrisalbon.com/machine-learning/logistic_regression_with_l1_regularization.html</loc>
+<lastmod>2016-12-01T12:00:00-08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://chrisalbon.com/machine-learning/pipelines_with_parameter_optimization.html</loc>
 <lastmod>2016-12-01T12:00:00-08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>

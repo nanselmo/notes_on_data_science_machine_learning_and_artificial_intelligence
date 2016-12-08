@@ -456,7 +456,85 @@ Test accuracy: 0.5
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Notice that as &lt;code&gt;C&lt;/code&gt; decreases the model coefficients become smaller (for example from &lt;code&gt;4.36276075&lt;/code&gt; when &lt;code&gt;C=10&lt;/code&gt; to &lt;code&gt;0.0.97175097&lt;/code&gt; when &lt;code&gt;C=0.1&lt;/code&gt;), until at &lt;code&gt;C=0.001&lt;/code&gt; all the coefficients are zero. This is the effect of the regularization penalty becoming more prominent.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Thu, 01 Dec 2016 12:00:00 -0800</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-12-01:machine-learning/logistic_regression_with_l1_regularization.html</guid><category>Basics</category></item><item><title>Convert Pandas Categorical Data For Scikit-Learn</title><link>http://chrisalbon.com/machine-learning/convert_pandas_categorical_column_into_integers_for_scikit-learn.html</link><description>&lt;h2&gt;Preliminaries&lt;/h2&gt;
+&lt;p&gt;Notice that as &lt;code&gt;C&lt;/code&gt; decreases the model coefficients become smaller (for example from &lt;code&gt;4.36276075&lt;/code&gt; when &lt;code&gt;C=10&lt;/code&gt; to &lt;code&gt;0.0.97175097&lt;/code&gt; when &lt;code&gt;C=0.1&lt;/code&gt;), until at &lt;code&gt;C=0.001&lt;/code&gt; all the coefficients are zero. This is the effect of the regularization penalty becoming more prominent.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Thu, 01 Dec 2016 12:00:00 -0800</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-12-01:machine-learning/logistic_regression_with_l1_regularization.html</guid><category>Basics</category></item><item><title>Pipelines With Parameter Optimization</title><link>http://chrisalbon.com/machine-learning/pipelines_with_parameter_optimization.html</link><description>&lt;h2&gt;Preliminaries&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Import required packages&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;linear_model&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;decomposition&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;datasets&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.pipeline&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Pipeline&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.model_selection&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;GridSearchCV&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;cross_val_score&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.preprocessing&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;StandardScaler&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Load Data&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Load the breast cancer data&lt;/span&gt;
+&lt;span class="n"&gt;dataset&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;datasets&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;load_breast_cancer&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Create X from the dataset&amp;#39;s features&lt;/span&gt;
+&lt;span class="n"&gt;X&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;dataset&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Create y from the dataset&amp;#39;s output&lt;/span&gt;
+&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;dataset&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;target&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Create Pipelines&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Create an scaler object&lt;/span&gt;
+&lt;span class="n"&gt;sc&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;StandardScaler&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Create a pca object&lt;/span&gt;
+&lt;span class="n"&gt;pca&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;decomposition&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;PCA&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Create a logistic regression object with an L2 penalty&lt;/span&gt;
+&lt;span class="n"&gt;logistic&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;linear_model&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;LogisticRegression&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Create a pipeline of three steps. First, standardize the data.&lt;/span&gt;
+&lt;span class="c1"&gt;# Second, tranform the data with PCA.&lt;/span&gt;
+&lt;span class="c1"&gt;# Third, train a logistic regression on the data.&lt;/span&gt;
+&lt;span class="n"&gt;pipe&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Pipeline&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;steps&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;sc&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sc&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; 
+                       &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;pca&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;pca&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; 
+                       &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;logistic&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;logistic&lt;/span&gt;&lt;span class="p"&gt;)])&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Create Parameter Space&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Create a list of a sequence of integers from 1 to 30 (the number of features in X + 1)&lt;/span&gt;
+&lt;span class="n"&gt;n_components&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Create a list of values of the regularization parameter&lt;/span&gt;
+&lt;span class="n"&gt;C&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;logspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Create&lt;/span&gt;
+&lt;span class="n"&gt;penalty&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;l1&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;l2&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Create a dictionary of all the parameter options &lt;/span&gt;
+&lt;span class="c1"&gt;# Note has you can access the parameters of steps of a pipeline by using &amp;#39;__’&lt;/span&gt;
+&lt;span class="n"&gt;parameters&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;dict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pca__n_components&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;n_components&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; 
+                  &lt;span class="n"&gt;logistic__C&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                  &lt;span class="n"&gt;logistic__penalty&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;penalty&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Conduct Parameter Optmization With Pipeline&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Create a grid search object&lt;/span&gt;
+&lt;span class="n"&gt;clf&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;GridSearchCV&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pipe&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;parameters&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Fit the grid search&lt;/span&gt;
+&lt;span class="n"&gt;clf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# View The Best Parameters&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Best Penalty:&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;clf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;best_estimator_&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_params&lt;/span&gt;&lt;span class="p"&gt;()[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;logistic__penalty&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Best C:&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;clf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;best_estimator_&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_params&lt;/span&gt;&lt;span class="p"&gt;()[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;logistic__C&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Best Number Of Components:&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;clf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;best_estimator_&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_params&lt;/span&gt;&lt;span class="p"&gt;()[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;pca__n_components&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Use Cross Validation To Evaluate Model&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Fit the grid search using 3-Fold cross validation&lt;/span&gt;
+&lt;span class="n"&gt;cross_val_score&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;clf&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Thu, 01 Dec 2016 12:00:00 -0800</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-12-01:machine-learning/pipelines_with_parameter_optimization.html</guid><category>Basics</category></item><item><title>Convert Pandas Categorical Data For Scikit-Learn</title><link>http://chrisalbon.com/machine-learning/convert_pandas_categorical_column_into_integers_for_scikit-learn.html</link><description>&lt;h2&gt;Preliminaries&lt;/h2&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Import required packages&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;preprocessing&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pandas&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;pd&lt;/span&gt;
@@ -1181,207 +1259,4 @@ Press &lt;code&gt;shift-z&lt;/code&gt;&lt;/p&gt;
 
 
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Accuracy: 0.87
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Fri, 04 Nov 2016 12:00:00 -0700</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-11-04:machine-learning/training_a_perceptron.html</guid><category>Basics</category></item><item><title>Mine Twitter's Stream For Hashtags Or Words</title><link>http://chrisalbon.com/python/mine_a_twitter_hashtags_and_words.html</link><description>&lt;p&gt;This is a script which monitor's Twitter for tweets containing certain hashtags, words, or phrases. When one of those appears, it saves that tweet, and the user's information to a csv file. A similar version of this script is available on &lt;a href="https://github.com/chrisalbon/twitter_miner"&gt;GitHub here&lt;/a&gt;. The main difference between the code presented here and the repo is that here I am added extensive comments in the code explaining what is happening. Also, the code below runs as a Jupyter notebook.&lt;/p&gt;
-&lt;p&gt;To get the code below to run, you need to added your own Twitter API credentials.&lt;/p&gt;
-&lt;h2&gt;Preliminaries&lt;/h2&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;#Import libraries&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;tweepy.streaming&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;StreamListener&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;tweepy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;OAuthHandler&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;tweepy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Stream&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;time&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;csv&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;Create A Twitter Stream Miner&lt;/h2&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Create a streamer object&lt;/span&gt;
-&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;StdOutListener&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;StreamListener&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-
-    &lt;span class="c1"&gt;# Define a function that is initialized when the miner is called&lt;/span&gt;
-    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;api&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-        &lt;span class="c1"&gt;# That sets the api&lt;/span&gt;
-        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;api&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;api&lt;/span&gt;
-        &lt;span class="c1"&gt;# Create a file with &amp;#39;data_&amp;#39; and the current time&lt;/span&gt;
-        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;data&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;_&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;strftime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;%Y%m&lt;/span&gt;&lt;span class="si"&gt;%d&lt;/span&gt;&lt;span class="s1"&gt;-%H%M%S&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;.csv&amp;#39;&lt;/span&gt;
-        &lt;span class="c1"&gt;# Create a new file with that filename&lt;/span&gt;
-        &lt;span class="n"&gt;csvFile&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;w&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-        &lt;span class="c1"&gt;# Create a csv writer&lt;/span&gt;
-        &lt;span class="n"&gt;csvWriter&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;csv&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;writer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;csvFile&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-        &lt;span class="c1"&gt;# Write a single row with the headers of the columns&lt;/span&gt;
-        &lt;span class="n"&gt;csvWriter&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;writerow&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;text&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                            &lt;span class="s1"&gt;&amp;#39;created_at&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                            &lt;span class="s1"&gt;&amp;#39;geo&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                            &lt;span class="s1"&gt;&amp;#39;lang&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                            &lt;span class="s1"&gt;&amp;#39;place&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                            &lt;span class="s1"&gt;&amp;#39;coordinates&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                            &lt;span class="s1"&gt;&amp;#39;user.favourites_count&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                            &lt;span class="s1"&gt;&amp;#39;user.statuses_count&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                            &lt;span class="s1"&gt;&amp;#39;user.description&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                            &lt;span class="s1"&gt;&amp;#39;user.location&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                            &lt;span class="s1"&gt;&amp;#39;user.id&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                            &lt;span class="s1"&gt;&amp;#39;user.created_at&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                            &lt;span class="s1"&gt;&amp;#39;user.verified&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                            &lt;span class="s1"&gt;&amp;#39;user.following&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                            &lt;span class="s1"&gt;&amp;#39;user.url&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                            &lt;span class="s1"&gt;&amp;#39;user.listed_count&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                            &lt;span class="s1"&gt;&amp;#39;user.followers_count&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                            &lt;span class="s1"&gt;&amp;#39;user.default_profile_image&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                            &lt;span class="s1"&gt;&amp;#39;user.utc_offset&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                            &lt;span class="s1"&gt;&amp;#39;user.friends_count&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                            &lt;span class="s1"&gt;&amp;#39;user.default_profile&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                            &lt;span class="s1"&gt;&amp;#39;user.name&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                            &lt;span class="s1"&gt;&amp;#39;user.lang&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                            &lt;span class="s1"&gt;&amp;#39;user.screen_name&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                            &lt;span class="s1"&gt;&amp;#39;user.geo_enabled&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                            &lt;span class="s1"&gt;&amp;#39;user.profile_background_color&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                            &lt;span class="s1"&gt;&amp;#39;user.profile_image_url&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                            &lt;span class="s1"&gt;&amp;#39;user.time_zone&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                            &lt;span class="s1"&gt;&amp;#39;id&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                            &lt;span class="s1"&gt;&amp;#39;favorite_count&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                            &lt;span class="s1"&gt;&amp;#39;retweeted&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                            &lt;span class="s1"&gt;&amp;#39;source&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                            &lt;span class="s1"&gt;&amp;#39;favorited&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                            &lt;span class="s1"&gt;&amp;#39;retweet_count&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
-
-    &lt;span class="c1"&gt;# When a tweet appears&lt;/span&gt;
-    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;on_status&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-
-        &lt;span class="c1"&gt;# Open the csv file created previously&lt;/span&gt;
-        &lt;span class="n"&gt;csvFile&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;a&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-        &lt;span class="c1"&gt;# Create a csv writer&lt;/span&gt;
-        &lt;span class="n"&gt;csvWriter&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;csv&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;writer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;csvFile&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-        &lt;span class="c1"&gt;# If the tweet is not a retweet&lt;/span&gt;
-        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;RT @&amp;#39;&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-            &lt;span class="c1"&gt;# Try to&lt;/span&gt;
-            &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-                &lt;span class="c1"&gt;# Write the tweet&amp;#39;s information to the csv file&lt;/span&gt;
-                &lt;span class="n"&gt;csvWriter&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;writerow&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                                    &lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;created_at&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                                    &lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;geo&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                                    &lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;lang&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                                    &lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;place&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                                    &lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;coordinates&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                                    &lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;favourites_count&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                                    &lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;statuses_count&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                                    &lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;description&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                                    &lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;location&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                                    &lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                                    &lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;created_at&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                                    &lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;verified&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                                    &lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;following&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                                    &lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                                    &lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;listed_count&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                                    &lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;followers_count&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                                    &lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;default_profile_image&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                                    &lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;utc_offset&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                                    &lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;friends_count&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                                    &lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;default_profile&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                                    &lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                                    &lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;lang&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                                    &lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;screen_name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                                    &lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;geo_enabled&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                                    &lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;profile_background_color&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                                    &lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;profile_image_url&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                                    &lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;time_zone&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                                    &lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                                    &lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;favorite_count&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                                    &lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;retweeted&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                                    &lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;source&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                                    &lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;favorited&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                                    &lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;retweet_count&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
-            &lt;span class="c1"&gt;# If some error occurs&lt;/span&gt;
-            &lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="ne"&gt;Exception&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-                &lt;span class="c1"&gt;# Print the error&lt;/span&gt;
-                &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-                &lt;span class="c1"&gt;# and continue&lt;/span&gt;
-                &lt;span class="k"&gt;pass&lt;/span&gt;
-
-        &lt;span class="c1"&gt;# Close the csv file&lt;/span&gt;
-        &lt;span class="n"&gt;csvFile&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;close&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-
-        &lt;span class="c1"&gt;# Return nothing&lt;/span&gt;
-        &lt;span class="k"&gt;return&lt;/span&gt;
-
-    &lt;span class="c1"&gt;# When an error occurs&lt;/span&gt;
-    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;on_error&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;status_code&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-        &lt;span class="c1"&gt;# Print the error code&lt;/span&gt;
-        &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Encountered error with status code:&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;status_code&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-        &lt;span class="c1"&gt;# If the error code is 401, which is the error for bad credentials&lt;/span&gt;
-        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;status_code&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;401&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-            &lt;span class="c1"&gt;# End the stream&lt;/span&gt;
-            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="bp"&gt;False&lt;/span&gt;
-
-    &lt;span class="c1"&gt;# When a deleted tweet appears&lt;/span&gt;
-    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;on_delete&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;status_id&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;user_id&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-
-        &lt;span class="c1"&gt;# Print message&lt;/span&gt;
-        &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Delete notice&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-        &lt;span class="c1"&gt;# Return nothing&lt;/span&gt;
-        &lt;span class="k"&gt;return&lt;/span&gt;
-
-    &lt;span class="c1"&gt;# When reach the rate limit&lt;/span&gt;
-    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;on_limit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;track&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-
-        &lt;span class="c1"&gt;# Print rate limiting error&lt;/span&gt;
-        &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Rate limited, continuing&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-        &lt;span class="c1"&gt;# Continue mining tweets&lt;/span&gt;
-        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;
-
-    &lt;span class="c1"&gt;# When timed out&lt;/span&gt;
-    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;on_timeout&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-
-        &lt;span class="c1"&gt;# Print timeout message&lt;/span&gt;
-        &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;stderr&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Timeout...&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-        &lt;span class="c1"&gt;# Wait 10 seconds&lt;/span&gt;
-        &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sleep&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-        &lt;span class="c1"&gt;# Return nothing&lt;/span&gt;
-        &lt;span class="k"&gt;return&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;Create A Wrapper For The Miner&lt;/h2&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Create a mining function&lt;/span&gt;
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;start_mining&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;queries&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="sd"&gt;&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;
-&lt;span class="sd"&gt;    Inputs list of strings. Returns tweets containing those strings.&lt;/span&gt;
-&lt;span class="sd"&gt;    &amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;
-
-    &lt;span class="c1"&gt;#Variables that contains the user credentials to access Twitter API&lt;/span&gt;
-    &lt;span class="n"&gt;consumer_key&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;YOUR_CREDENTIALS&amp;quot;&lt;/span&gt;
-    &lt;span class="n"&gt;consumer_secret&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;YOUR_CREDENTIALS&amp;quot;&lt;/span&gt;
-    &lt;span class="n"&gt;access_token&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;YOUR_CREDENTIALS&amp;quot;&lt;/span&gt;
-    &lt;span class="n"&gt;access_token_secret&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;YOUR_CREDENTIALS&amp;quot;&lt;/span&gt;
-
-    &lt;span class="c1"&gt;# Create a listener&lt;/span&gt;
-    &lt;span class="n"&gt;l&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;StdOutListener&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-
-    &lt;span class="c1"&gt;# Create authorization info&lt;/span&gt;
-    &lt;span class="n"&gt;auth&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;OAuthHandler&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;consumer_key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;consumer_secret&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="n"&gt;auth&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_access_token&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;access_token&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;access_token_secret&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-    &lt;span class="c1"&gt;# Create a stream object with listener and authorization&lt;/span&gt;
-    &lt;span class="n"&gt;stream&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Stream&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;auth&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;l&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-    &lt;span class="c1"&gt;# Run the stream object using the user defined queries&lt;/span&gt;
-    &lt;span class="n"&gt;stream&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;filter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;track&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;queries&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;Run The Stream Miner&lt;/h2&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Start the miner&lt;/span&gt;
-&lt;span class="n"&gt;start_mining&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;python&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;#Python&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Encountered error with status code: 401
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Wed, 02 Nov 2016 12:00:00 -0700</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-11-02:python/mine_a_twitter_hashtags_and_words.html</guid><category>Other</category></item></channel></rss>
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Fri, 04 Nov 2016 12:00:00 -0700</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-11-04:machine-learning/training_a_perceptron.html</guid><category>Basics</category></item></channel></rss>

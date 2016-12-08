@@ -10,7 +10,7 @@
     <meta name="author" content="Chris Albon">
     <link rel="icon" href="../favicon.ico">
 
-    <title>Cleaning Up Gender - R Stats</title>
+    <title>Pipelines With Parameter Optimization - Machine Learning</title>
 
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -34,7 +34,7 @@
     <![endif]-->
      <link href="http://chrisalbon.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Chris Albon Full RSS Feed" />        
 
-    <meta name="tags" content="Data Wrangling" />
+    <meta name="tags" content="Basics" />
 
 
 </head>
@@ -124,49 +124,97 @@
 <section id="content" class="body">
     <header>
     <h1>
-      Cleaning Up Gender
+      Pipelines With Parameter Optimization
     </h1>
 <ol class="breadcrumb">
     <li>
-        <time class="published" datetime="2016-05-01T12:00:00-07:00">
-            01 May 2016
+        <time class="published" datetime="2016-12-01T12:00:00-08:00">
+            01 December 2016
         </time>
     </li>
-    <li>R Stats</li>
-    <li>Data Wrangling</li>
+    <li>Machine Learning</li>
+    <li>Basics</li>
 </ol>
 </header>
 <div class='article_content'>
-<p>Original source: Learning R</p>
-<div class="codehilite"><pre><span></span><span class="c1"># create some messy fake gender data</span>
-gender <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;MALE&quot;</span><span class="p">,</span> <span class="s">&quot;Male&quot;</span><span class="p">,</span> <span class="s">&quot;male&quot;</span><span class="p">,</span> <span class="s">&quot;M&quot;</span><span class="p">,</span> <span class="s">&quot;FEMALE&quot;</span><span class="p">,</span> <span class="s">&quot;Female&quot;</span><span class="p">,</span> <span class="s">&quot;female&quot;</span><span class="p">,</span> <span class="s">&quot;f&quot;</span><span class="p">,</span> <span class="kc">NA</span><span class="p">)</span>
+<h2>Preliminaries</h2>
+<div class="codehilite"><pre><span></span><span class="c1"># Import required packages</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">linear_model</span><span class="p">,</span> <span class="n">decomposition</span><span class="p">,</span> <span class="n">datasets</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GridSearchCV</span><span class="p">,</span> <span class="n">cross_val_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="c1"># find strings that start with m and optionally ending in ale</span>
-clean_gender <span class="o">&lt;-</span> str_replace<span class="p">(</span>
-  gender<span class="p">,</span>
-  ignore.case<span class="p">(</span><span class="s">&quot;^m(ale)?$&quot;</span><span class="p">),</span>
-  <span class="s">&quot;Male&quot;</span>
-<span class="p">)</span>
+<h2>Load Data</h2>
+<div class="codehilite"><pre><span></span><span class="c1"># Load the breast cancer data</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_breast_cancer</span><span class="p">()</span>
+
+<span class="c1"># Create X from the dataset&#39;s features</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">data</span>
+
+<span class="c1"># Create y from the dataset&#39;s output</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">target</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="c1"># find strings the start with f and optionally end in emale</span>
-clean_gender <span class="o">&lt;-</span> str_replace<span class="p">(</span>
-  clean_gender<span class="p">,</span>
-  ignore.case<span class="p">(</span><span class="s">&quot;^f(emale)?$&quot;</span><span class="p">),</span>
-  <span class="s">&quot;Female&quot;</span>
-<span class="p">)</span>
+<h2>Create Pipelines</h2>
+<div class="codehilite"><pre><span></span><span class="c1"># Create an scaler object</span>
+<span class="n">sc</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+
+<span class="c1"># Create a pca object</span>
+<span class="n">pca</span> <span class="o">=</span> <span class="n">decomposition</span><span class="o">.</span><span class="n">PCA</span><span class="p">()</span>
+
+<span class="c1"># Create a logistic regression object with an L2 penalty</span>
+<span class="n">logistic</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LogisticRegression</span><span class="p">()</span>
+
+<span class="c1"># Create a pipeline of three steps. First, standardize the data.</span>
+<span class="c1"># Second, tranform the data with PCA.</span>
+<span class="c1"># Third, train a logistic regression on the data.</span>
+<span class="n">pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;sc&#39;</span><span class="p">,</span> <span class="n">sc</span><span class="p">),</span> 
+                       <span class="p">(</span><span class="s1">&#39;pca&#39;</span><span class="p">,</span> <span class="n">pca</span><span class="p">),</span> 
+                       <span class="p">(</span><span class="s1">&#39;logistic&#39;</span><span class="p">,</span> <span class="n">logistic</span><span class="p">)])</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>clean_gender
+<h2>Create Parameter Space</h2>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a list of a sequence of integers from 1 to 30 (the number of features in X + 1)</span>
+<span class="n">n_components</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="c1"># Create a list of values of the regularization parameter</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+
+<span class="c1"># Create</span>
+<span class="n">penalty</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;l1&#39;</span><span class="p">,</span> <span class="s1">&#39;l2&#39;</span><span class="p">]</span>
+
+<span class="c1"># Create a dictionary of all the parameter options </span>
+<span class="c1"># Note has you can access the parameters of steps of a pipeline by using &#39;__’</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">pca__n_components</span><span class="o">=</span><span class="n">n_components</span><span class="p">,</span> 
+                  <span class="n">logistic__C</span><span class="o">=</span><span class="n">C</span><span class="p">,</span>
+                  <span class="n">logistic__penalty</span><span class="o">=</span><span class="n">penalty</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>[1] &quot;Male&quot;   &quot;Male&quot;   &quot;Male&quot;   &quot;Male&quot;   &quot;Female&quot; &quot;Female&quot; &quot;Female&quot; &quot;Female&quot;
-[9] NA
+<h2>Conduct Parameter Optmization With Pipeline</h2>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a grid search object</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">pipe</span><span class="p">,</span> <span class="n">parameters</span><span class="p">)</span>
+
+<span class="c1"># Fit the grid search</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="c1"># View The Best Parameters</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Best Penalty:&#39;</span><span class="p">,</span> <span class="n">clf</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">get_params</span><span class="p">()[</span><span class="s1">&#39;logistic__penalty&#39;</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Best C:&#39;</span><span class="p">,</span> <span class="n">clf</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">get_params</span><span class="p">()[</span><span class="s1">&#39;logistic__C&#39;</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Best Number Of Components:&#39;</span><span class="p">,</span> <span class="n">clf</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">get_params</span><span class="p">()[</span><span class="s1">&#39;pca__n_components&#39;</span><span class="p">])</span>
+</pre></div>
+
+
+<h2>Use Cross Validation To Evaluate Model</h2>
+<div class="codehilite"><pre><span></span><span class="c1"># Fit the grid search using 3-Fold cross validation</span>
+<span class="n">cross_val_score</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
     <aside>
