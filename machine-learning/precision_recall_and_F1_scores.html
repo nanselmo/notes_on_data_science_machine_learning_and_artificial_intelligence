@@ -143,40 +143,33 @@
 <h2>Some Terms:</h2>
 <p>Positive (P): Observation is positive (for example: is an apple)</p>
 <p>Negative (N): Observation is not positive (for example: is not an apple).</p>
-<p>True Positive (TP): Observation is Positive, and is predicted to be Positive.</p>
-<p>False Negative (FN): Observation is Positive, but is predicted Negative.</p>
-<p>True Negative (TN): Observation is Negative, and is predicted to be Negative.</p>
-<p>False Positive (FP): Observation is Negative, but is predicted Positive.</p>
+<p>True Positive (TP): Observation is positive, and is predicted to be positive.</p>
+<p>False Negative (FN): Observation is positive, but is predicted negative.</p>
+<p>True Negative (TN): Observation is negative, and is predicted to be negative.</p>
+<p>False Positive (FP): Observation is negative, but is predicted positive.</p>
 <h2>Error:</h2>
-<p>Proportion of all predictions that are incorrect.</p>
+<p>Proportion of all predictions that are incorrect. Error is a measurement of how bad a model is.</p>
 <div class="math">$$error = \frac{FP+FN}{FP+FN+TP+TN} = \frac{\text{incorrect predictions}}{\text{all predictions}}$$</div>
-<p>Error is a measurement of how bad a model is.</p>
 <h2>Accuracy:</h2>
-<p>Proportion of all predictions that are correct.</p>
+<p>Proportion of all predictions that are correct. Accuracy is a measurment of how good a model is.</p>
 <div class="math">$$accuracy = \frac{TP+FN}{TP+FN+TP+TN} = \frac{\text{correct predictions}}{\text{all predictions}}$$</div>
-<p>Accuracy is a measurment of how good a model is.</p>
 <h2>False Positive Rate:</h2>
-<p>Proportion of all negative observation that are predicted incorrectly.</p>
+<p>Proportion of all negative observation that are predicted incorrectly. False positive rate is a measure of how good a model is at predicting negative cases.</p>
 <div class="math">$$FPR = \frac{FP}{FP+TN} = \frac{FP}{N} = \frac{\text{predicted to be positive}}{\text{all negative observations}}$$</div>
-<p>False positive rate is a measure of how good a model is at predicting negative cases.</p>
 <h2>True Positive Rate:</h2>
-<p>Proportion of all positive observation that are predicted incorrectly.</p>
+<p>Proportion of all positive observation that are predicted incorrectly. True positive rate is a measure of how good a model is at predicting positive cases.</p>
 <div class="math">$$TPR = \frac{TP}{TP+FN} = \frac{TP}{P} = \frac{\text{predicted to be positive}}{\text{all positive observations}}$$</div>
-<p>True positive rate is a measure of how good a model is at predicting positive cases.</p>
 <h2>Precision:</h2>
-<p>Proportion of all positive predictions that are correct.</p>
+<p>Proportion of all positive predictions that are correct. Precision is a measure of how many positive predictions were actual positive observations.</p>
 <div class="math">$$Precision = \frac{TP}{TP+FP} = \frac{\text{positive predicted correctly}}{\text{all positive predictions}}$$</div>
-<p>Precision is a measure of how many positive predictions were actual positive observations.</p>
 <p>Memory aid: "<strong>P</strong>recision is about the <strong>P</strong>redicted <strong>P</strong>ositives": correctly <strong>P</strong>redicted <strong>P</strong>ositives divided by all <strong>P</strong>redicted <strong>P</strong>ositives, <span class="math">\(\frac{\text{Correctly Predicted Positive}}{\text{All Predicted Positive}}\)</span>.</p>
 <h2>Recall:</h2>
-<p>Same as TPR. Proportion of all real positive observations that are correct.</p>
+<p>Same as TPR. Proportion of all real positive observations that are correct. Precision is a measure of how many actual positive observations were predicted correctly.</p>
 <div class="math">$$Recall = TPR = \frac{TP}{TP+FN} = \frac{TP}{P} = \frac{\text{predicted to be positive}}{\text{all positive observations}}$$</div>
-<p>Precision is a measure of how many actual positive observations were predicted correctly.</p>
 <p>Memory aid: "Recall is about the re-all (real) positives" <span class="math">\(\frac{\text{Correctly Predicted Positive}}{\text{All Real Positives}}\)</span></p>
 <h2>F1 Score:</h2>
-<p>The <a href="https://en.wikipedia.org/wiki/Harmonic_mean">harmonic mean</a> of precision and recall.</p>
+<p>The <a href="https://en.wikipedia.org/wiki/Harmonic_mean">harmonic mean</a> of precision and recall. F1 score is an 'average' of both precision and recall. We use the harmonic mean because it is the appropriate way to average ratios (while arthmetric mean is appropriate when it conceptually makes sense to add things up).</p>
 <div class="math">$$F1 = 2\frac{Precision * Recall}{Precision + Recall}$$</div>
-<p>F1 score is an 'average' of both precision and recall. We use the harmonic mean because it is the appropriate way to average ratios (while arthmetric mean is appropriate when it conceptually makes sense to add things up).</p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
         indent = "0em",
