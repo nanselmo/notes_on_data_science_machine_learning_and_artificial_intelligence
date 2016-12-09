@@ -80,6 +80,9 @@
                             <li><a href="..#Bayesian_Statistics">Bayesian Statistics</a></li>
                             <li><a href="..#Machine_Learning">Machine Learning</a></li>
                             <li><a href="..#GitHub">GitHub</a></li>
+                            <li><a href="..#Scala">Scala</a></li>
+                            <li><a href="..#Spark">Spark</a></li>
+                            <li><a href="..#Amazon_Web_Services">Amazon Web Services</a></li>
                             <li><a href="..#Articles">Articles</a></li>
                             <li><a href="..#Projects">Projects</a></li>
                         </ul>
@@ -172,8 +175,8 @@
 <span class="c1"># Create a pipeline of three steps. First, standardize the data.</span>
 <span class="c1"># Second, tranform the data with PCA.</span>
 <span class="c1"># Third, train a logistic regression on the data.</span>
-<span class="n">pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;sc&#39;</span><span class="p">,</span> <span class="n">sc</span><span class="p">),</span> 
-                       <span class="p">(</span><span class="s1">&#39;pca&#39;</span><span class="p">,</span> <span class="n">pca</span><span class="p">),</span> 
+<span class="n">pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;sc&#39;</span><span class="p">,</span> <span class="n">sc</span><span class="p">),</span>
+                       <span class="p">(</span><span class="s1">&#39;pca&#39;</span><span class="p">,</span> <span class="n">pca</span><span class="p">),</span>
                        <span class="p">(</span><span class="s1">&#39;logistic&#39;</span><span class="p">,</span> <span class="n">logistic</span><span class="p">)])</span>
 </pre></div>
 
@@ -185,12 +188,12 @@
 <span class="c1"># Create a list of values of the regularization parameter</span>
 <span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
 
-<span class="c1"># Create</span>
+<span class="c1"># Create a list of options for the regularization penalty</span>
 <span class="n">penalty</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;l1&#39;</span><span class="p">,</span> <span class="s1">&#39;l2&#39;</span><span class="p">]</span>
 
-<span class="c1"># Create a dictionary of all the parameter options </span>
+<span class="c1"># Create a dictionary of all the parameter options</span>
 <span class="c1"># Note has you can access the parameters of steps of a pipeline by using &#39;__’</span>
-<span class="n">parameters</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">pca__n_components</span><span class="o">=</span><span class="n">n_components</span><span class="p">,</span> 
+<span class="n">parameters</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">pca__n_components</span><span class="o">=</span><span class="n">n_components</span><span class="p">,</span>
                   <span class="n">logistic__C</span><span class="o">=</span><span class="n">C</span><span class="p">,</span>
                   <span class="n">logistic__penalty</span><span class="o">=</span><span class="n">penalty</span><span class="p">)</span>
 </pre></div>

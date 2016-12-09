@@ -80,6 +80,9 @@
                             <li><a href="..#Bayesian_Statistics">Bayesian Statistics</a></li>
                             <li><a href="..#Machine_Learning">Machine Learning</a></li>
                             <li><a href="..#GitHub">GitHub</a></li>
+                            <li><a href="..#Scala">Scala</a></li>
+                            <li><a href="..#Spark">Spark</a></li>
+                            <li><a href="..#Amazon_Web_Services">Amazon Web Services</a></li>
                             <li><a href="..#Articles">Articles</a></li>
                             <li><a href="..#Projects">Projects</a></li>
                         </ul>
@@ -177,7 +180,7 @@
           1.86000000e-01,   2.75000000e-01,   8.90200000e-02],
        [  1.96900000e+01,   2.12500000e+01,   1.30000000e+02, ...,
           2.43000000e-01,   3.61300000e-01,   8.75800000e-02],
-       ..., 
+       ...,
        [  1.66000000e+01,   2.80800000e+01,   1.08300000e+02, ...,
           1.41800000e-01,   2.21800000e-01,   7.82000000e-02],
        [  2.06000000e+01,   2.93300000e+01,   1.40100000e+02, ...,
@@ -187,7 +190,7 @@
 </pre></div>
 
 
-<h1>Standardize Features</h1>
+<h2>Standardize Features</h2>
 <div class="codehilite"><pre><span></span><span class="c1"># Create a scaler object</span>
 <span class="n">sc</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
 
@@ -196,7 +199,7 @@
 </pre></div>
 
 
-<h1>Conduct PCA</h1>
+<h2>Conduct PCA</h2>
 <p>Notice that PCA contains a parameter, the number of components. This is the number of output features and will need to be tuned.</p>
 <div class="codehilite"><pre><span></span><span class="c1"># Create a pca object with the 2 components as a parameter</span>
 <span class="n">pca</span> <span class="o">=</span> <span class="n">decomposition</span><span class="o">.</span><span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
@@ -206,7 +209,7 @@
 </pre></div>
 
 
-<h1>View New Features</h1>
+<h2>View New Features</h2>
 <p>After the PCA, the new data has been reduced to two features, with the same number of rows as the original feature.</p>
 <div class="codehilite"><pre><span></span><span class="c1"># View the new feature data&#39;s shape</span>
 <span class="n">X_std_pca</span><span class="o">.</span><span class="n">shape</span>
@@ -225,7 +228,7 @@
 <div class="codehilite"><pre><span></span>array([[  9.19283683,   1.94858307],
        [  2.3878018 ,  -3.76817174],
        [  5.73389628,  -1.0751738 ],
-       ..., 
+       ...,
        [  1.25617928,  -1.90229671],
        [ 10.37479406,   1.67201011],
        [ -5.4752433 ,  -0.67063679]])
