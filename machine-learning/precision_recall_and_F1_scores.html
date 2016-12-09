@@ -10,7 +10,7 @@
     <meta name="author" content="Chris Albon">
     <link rel="icon" href="../favicon.ico">
 
-    <title>Find Which Column Has The Greatest Value In Each Row - R Stats</title>
+    <title>Precision, Recall, and F1 Scores - Machine Learning</title>
 
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -34,7 +34,7 @@
     <![endif]-->
      <link href="http://chrisalbon.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Chris Albon Full RSS Feed" />        
 
-    <meta name="tags" content="Data Wrangling" />
+    <meta name="tags" content="Basics" />
 
 
 </head>
@@ -127,47 +127,113 @@
 <section id="content" class="body">
     <header>
     <h1>
-      Find Which Column Has The Greatest Value In Each Row
+      Precision, Recall, and F1 Scores
     </h1>
 <ol class="breadcrumb">
     <li>
-        <time class="published" datetime="2016-05-01T12:00:00-07:00">
-            01 May 2016
+        <time class="published" datetime="2016-12-09T11:00:00-08:00">
+            09 December 2016
         </time>
     </li>
-    <li>R Stats</li>
-    <li>Data Wrangling</li>
+    <li>Machine Learning</li>
+    <li>Basics</li>
 </ol>
 </header>
 <div class='article_content'>
-<p>Original source: the r book</p>
-<div class="codehilite"><pre><span></span><span class="c1"># create a dataframe with simulated values</span>
-x <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">50</span><span class="p">)</span>
-y <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">50</span><span class="p">)</span>
-z <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">50</span><span class="p">)</span>
-a <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">50</span><span class="p">)</span>
-df <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>x<span class="p">,</span> y<span class="p">,</span> z<span class="p">,</span> a<span class="p">)</span>
-</pre></div>
+<h2>Some Terms:</h2>
+<p>Positive (P): Observation is positive (for example: is an apple)</p>
+<p>Negative (N): Observation is not positive (for example: is not an apple).</p>
+<p>True Positive (TP): Observation is Positive, and is predicted to be Positive.</p>
+<p>False Negative (FN): Observation is Positive, but is predicted Negative.</p>
+<p>True Negative (TN): Observation is Negative, and is predicted to be Negative.</p>
+<p>False Positive (FP): Observation is Negative, but is predicted Positive.</p>
+<h2>Error:</h2>
+<p>Proportion of all predictions that are incorrect.</p>
+<div class="math">$$error = \frac{FP+FN}{FP+FN+TP+TN} = \frac{\text{incorrect predictions}}{\text{all predictions}}$$</div>
+<p>Error is a measurement of how bad a model is.</p>
+<h2>Accuracy:</h2>
+<p>Proportion of all predictions that are correct.</p>
+<div class="math">$$accuracy = \frac{TP+FN}{TP+FN+TP+TN} = \frac{\text{correct predictions}}{\text{all predictions}}$$</div>
+<p>Accuracy is a measurment of how good a model is.</p>
+<h2>False Positive Rate:</h2>
+<p>Proportion of all negative observation that are predicted incorrectly.</p>
+<div class="math">$$FPR = \frac{FP}{FP+TN} = \frac{FP}{N} = \frac{\text{predicted to be positive}}{\text{all negative observations}}$$</div>
+<p>False positive rate is a measure of how good a model is at predicting negative cases.</p>
+<h2>True Positive Rate:</h2>
+<p>Proportion of all positive observation that are predicted incorrectly.</p>
+<div class="math">$$TPR = \frac{TP}{TP+FN} = \frac{TP}{P} = \frac{\text{predicted to be positive}}{\text{all positive observations}}$$</div>
+<p>True positive rate is a measure of how good a model is at predicting positive cases.</p>
+<h2>Precision:</h2>
+<p>Proportion of all positive predictions that are correct.</p>
+<div class="math">$$Precision = \frac{TP}{TP+FP} = \frac{\text{positive predicted correctly}}{\text{all positive predictions}}$$</div>
+<p>Precision is a measure of how many positive predictions were actual positive observations.</p>
+<p>Memory aid: "<strong>P</strong>recision is about the <strong>P</strong>redicted <strong>P</strong>ositives": correctly <strong>P</strong>redicted <strong>P</strong>ositives divided by all <strong>P</strong>redicted <strong>P</strong>ositives, <span class="math">\(\frac{\text{Correctly Predicted Positive}}{\text{All Predicted Positive}}\)</span>.</p>
+<h2>Recall:</h2>
+<p>Same as TPR. Proportion of all real positive observations that are correct.</p>
+<div class="math">$$Recall = TPR = \frac{TP}{TP+FN} = \frac{TP}{P} = \frac{\text{predicted to be positive}}{\text{all positive observations}}$$</div>
+<p>Precision is a measure of how many actual positive observations were predicted correctly.</p>
+<p>Memory aid: "Recall is about the re-all (real) positives" <span class="math">\(\frac{\text{Correctly Predicted Positive}}{\text{All Real Positives}}\)</span></p>
+<h2>F1 Score:</h2>
+<p>The <a href="https://en.wikipedia.org/wiki/Harmonic_mean">harmonic mean</a> of precision and recall.</p>
+<div class="math">$$F1 = 2\frac{Precision * Recall}{Precision + Recall}$$</div>
+<p>F1 score is an 'average' of both precision and recall. We use the harmonic mean because it is the appropriate way to average ratios (while arthmetric mean is appropriate when it conceptually makes sense to add things up).</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
 
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
 
-<div class="codehilite"><pre><span></span><span class="c1"># go through each row, and find the column index with the maximum value</span>
-<span class="kp">max.col</span><span class="p">(</span>df<span class="p">)</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span> [1] 1 2 4 4 2 1 3 2 2 3 3 2 2 3 3 3 2 2 3 2 3 3 2 2 2 1 4 1 3 4 2 3 4 3 2 4 4 1
-[39] 1 4 1 4 4 3 2 4 4 2 3 1
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span><span class="c1"># go through each row, and find the column index with the minimum value</span>
-<span class="kp">max.col</span><span class="p">(</span><span class="o">-</span>df<span class="p">)</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span> [1] 2 4 3 2 4 3 2 1 3 2 4 4 1 4 2 4 3 4 1 3 4 4 1 4 4 4 2 3 1 1 4 4 1 1 3 3 2 4
-[39] 4 3 3 3 2 2 4 2 2 3 1 4
-</pre></div>
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
 </div>
     <aside>
     <div class="bug-reporting__panel">

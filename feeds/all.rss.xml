@@ -1,5 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Chris Albon</title><link>http://chrisalbon.com/</link><description></description><lastBuildDate>Thu, 08 Dec 2016 12:00:00 -0800</lastBuildDate><item><title>Feature Extraction With PCA</title><link>http://chrisalbon.com/machine-learning/feature_extraction_with_pca.html</link><description>&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/Principal_component_analysis"&gt;Principle Component Analysis&lt;/a&gt; (PCA) is a common feature extraction method in data science. Technically, PCA finds the eigenvectors of a covariance matrix with the highest eigenvalues and then uses those to project the data into a new subspace of equal or less dimensions. Practically, PCA converts a matrix of &lt;code&gt;n&lt;/code&gt; features into a new dataset of (hopefully) less than &lt;code&gt;n&lt;/code&gt; features. That is, it reduces the number of features by constructing a new, smaller number variables which capture a signficant portion of the information found in the original features. However, the goal of this tutorial is not to explain the concept of PCA, that is done very well elsewhere, but rather to demonstrate PCA in action.&lt;/p&gt;
+<rss version="2.0"><channel><title>Chris Albon</title><link>http://chrisalbon.com/</link><description></description><lastBuildDate>Fri, 09 Dec 2016 11:00:00 -0800</lastBuildDate><item><title>Precision, Recall, and F1 Scores</title><link>http://chrisalbon.com/machine-learning/precision_recall_and_F1_scores.html</link><description>&lt;h2&gt;Some Terms:&lt;/h2&gt;
+&lt;p&gt;Positive (P): Observation is positive (for example: is an apple)&lt;/p&gt;
+&lt;p&gt;Negative (N): Observation is not positive (for example: is not an apple).&lt;/p&gt;
+&lt;p&gt;True Positive (TP): Observation is Positive, and is predicted to be Positive.&lt;/p&gt;
+&lt;p&gt;False Negative (FN): Observation is Positive, but is predicted Negative.&lt;/p&gt;
+&lt;p&gt;True Negative (TN): Observation is Negative, and is predicted to be Negative.&lt;/p&gt;
+&lt;p&gt;False Positive (FP): Observation is Negative, but is predicted Positive.&lt;/p&gt;
+&lt;h2&gt;Error:&lt;/h2&gt;
+&lt;p&gt;Proportion of all predictions that are incorrect.&lt;/p&gt;
+&lt;div class="math"&gt;$$error = \frac{FP+FN}{FP+FN+TP+TN} = \frac{\text{incorrect predictions}}{\text{all predictions}}$$&lt;/div&gt;
+&lt;p&gt;Error is a measurement of how bad a model is.&lt;/p&gt;
+&lt;h2&gt;Accuracy:&lt;/h2&gt;
+&lt;p&gt;Proportion of all predictions that are correct.&lt;/p&gt;
+&lt;div class="math"&gt;$$accuracy = \frac{TP+FN}{TP+FN+TP+TN} = \frac{\text{correct predictions}}{\text{all predictions}}$$&lt;/div&gt;
+&lt;p&gt;Accuracy is a measurment of how good a model is.&lt;/p&gt;
+&lt;h2&gt;False Positive Rate:&lt;/h2&gt;
+&lt;p&gt;Proportion of all negative observation that are predicted incorrectly.&lt;/p&gt;
+&lt;div class="math"&gt;$$FPR = \frac{FP}{FP+TN} = \frac{FP}{N} = \frac{\text{predicted to be positive}}{\text{all negative observations}}$$&lt;/div&gt;
+&lt;p&gt;False positive rate is a measure of how good a model is at predicting negative cases.&lt;/p&gt;
+&lt;h2&gt;True Positive Rate:&lt;/h2&gt;
+&lt;p&gt;Proportion of all positive observation that are predicted incorrectly.&lt;/p&gt;
+&lt;div class="math"&gt;$$TPR = \frac{TP}{TP+FN} = \frac{TP}{P} = \frac{\text{predicted to be positive}}{\text{all positive observations}}$$&lt;/div&gt;
+&lt;p&gt;True positive rate is a measure of how good a model is at predicting positive cases.&lt;/p&gt;
+&lt;h2&gt;Precision:&lt;/h2&gt;
+&lt;p&gt;Proportion of all positive predictions that are correct.&lt;/p&gt;
+&lt;div class="math"&gt;$$Precision = \frac{TP}{TP+FP} = \frac{\text{positive predicted correctly}}{\text{all positive predictions}}$$&lt;/div&gt;
+&lt;p&gt;Precision is a measure of how many positive predictions were actual positive observations.&lt;/p&gt;
+&lt;p&gt;Memory aid: "&lt;strong&gt;P&lt;/strong&gt;recision is about the &lt;strong&gt;P&lt;/strong&gt;redicted &lt;strong&gt;P&lt;/strong&gt;ositives": correctly &lt;strong&gt;P&lt;/strong&gt;redicted &lt;strong&gt;P&lt;/strong&gt;ositives divided by all &lt;strong&gt;P&lt;/strong&gt;redicted &lt;strong&gt;P&lt;/strong&gt;ositives, &lt;span class="math"&gt;\(\frac{\text{Correctly Predicted Positive}}{\text{All Predicted Positive}}\)&lt;/span&gt;.&lt;/p&gt;
+&lt;h2&gt;Recall:&lt;/h2&gt;
+&lt;p&gt;Same as TPR. Proportion of all real positive observations that are correct.&lt;/p&gt;
+&lt;div class="math"&gt;$$Recall = TPR = \frac{TP}{TP+FN} = \frac{TP}{P} = \frac{\text{predicted to be positive}}{\text{all positive observations}}$$&lt;/div&gt;
+&lt;p&gt;Precision is a measure of how many actual positive observations were predicted correctly.&lt;/p&gt;
+&lt;p&gt;Memory aid: "Recall is about the re-all (real) positives" &lt;span class="math"&gt;\(\frac{\text{Correctly Predicted Positive}}{\text{All Real Positives}}\)&lt;/span&gt;&lt;/p&gt;
+&lt;h2&gt;F1 Score:&lt;/h2&gt;
+&lt;p&gt;The &lt;a href="https://en.wikipedia.org/wiki/Harmonic_mean"&gt;harmonic mean&lt;/a&gt; of precision and recall.&lt;/p&gt;
+&lt;div class="math"&gt;$$F1 = 2\frac{Precision * Recall}{Precision + Recall}$$&lt;/div&gt;
+&lt;p&gt;F1 score is an 'average' of both precision and recall. We use the harmonic mean because it is the appropriate way to average ratios (while arthmetric mean is appropriate when it conceptually makes sense to add things up).&lt;/p&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' &amp;&amp; location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Fri, 09 Dec 2016 11:00:00 -0800</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-12-09:machine-learning/precision_recall_and_F1_scores.html</guid><category>Basics</category></item><item><title>Feature Extraction With PCA</title><link>http://chrisalbon.com/machine-learning/feature_extraction_with_pca.html</link><description>&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/Principal_component_analysis"&gt;Principle Component Analysis&lt;/a&gt; (PCA) is a common feature extraction method in data science. Technically, PCA finds the eigenvectors of a covariance matrix with the highest eigenvalues and then uses those to project the data into a new subspace of equal or less dimensions. Practically, PCA converts a matrix of &lt;code&gt;n&lt;/code&gt; features into a new dataset of (hopefully) less than &lt;code&gt;n&lt;/code&gt; features. That is, it reduces the number of features by constructing a new, smaller number variables which capture a signficant portion of the information found in the original features. However, the goal of this tutorial is not to explain the concept of PCA, that is done very well elsewhere, but rather to demonstrate PCA in action.&lt;/p&gt;
 &lt;h2&gt;Preliminaries&lt;/h2&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Import packages&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
@@ -1139,124 +1232,4 @@ Press &lt;code&gt;shift-z&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;https://ec2-52-39-239-66.us-west-2.compute.amazonaws.com:8888/&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img alt="chrome" src="http://chrisalbon.com/images/run_project_jupyter_on_amazon_ec2/chrome1.png" /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img alt="chrome" src="http://chrisalbon.com/images/run_project_jupyter_on_amazon_ec2/chrome2.png" /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="chrome" src="http://chrisalbon.com/images/run_project_jupyter_on_amazon_ec2/chrome3.png" /&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Thu, 10 Nov 2016 12:00:00 -0800</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-11-10:jupyter/run_project_jupyter_on_amazon_ec2.html</guid><category>Basic</category></item><item><title>Training A Perceptron</title><link>http://chrisalbon.com/machine-learning/training_a_perceptron.html</link><description>&lt;p&gt;A perceptron learner was one of the earliest machine learning techniques and still from the foundation of many modern neural networks. In this tutorial we use a perceptron learner to classify the &lt;a href="https://en.wikipedia.org/wiki/Iris_flower_data_set"&gt;famous iris dataset&lt;/a&gt;. This tutorial was inspired by &lt;a href="https://www.amazon.com/Python-Machine-Learning-Sebastian-Raschka-ebook/dp/B00YSILNL0"&gt;Python Machine Learning by Sebastian Raschka&lt;/a&gt;.&lt;/p&gt;
-&lt;h2&gt;Preliminaries&lt;/h2&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Load required libraries&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;datasets&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.preprocessing&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;StandardScaler&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.linear_model&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Perceptron&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.model_selection&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;train_test_split&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.metrics&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;accuracy_score&lt;/span&gt;
-&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;Load The Iris Data&lt;/h2&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Load the iris dataset&lt;/span&gt;
-&lt;span class="n"&gt;iris&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;datasets&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;load_iris&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-
-&lt;span class="c1"&gt;# Create our X and y data&lt;/span&gt;
-&lt;span class="n"&gt;X&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;iris&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;
-&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;iris&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;target&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;View The Iris Data&lt;/h2&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# View the first five observations of our y data&lt;/span&gt;
-&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;[:&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;array([0, 0, 0, 0, 0])
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# View the first five observations of our x data.&lt;/span&gt;
-&lt;span class="c1"&gt;# Notice that there are four independent variables (features)&lt;/span&gt;
-&lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="p"&gt;[:&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;array([[ 5.1,  3.5,  1.4,  0.2],
-       [ 4.9,  3. ,  1.4,  0.2],
-       [ 4.7,  3.2,  1.3,  0.2],
-       [ 4.6,  3.1,  1.5,  0.2],
-       [ 5. ,  3.6,  1.4,  0.2]])
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;Split The Iris Data Into Training And Test&lt;/h2&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Split the data into 70% training data and 30% test data&lt;/span&gt;
-&lt;span class="n"&gt;X_train&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;X_test&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y_train&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y_test&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;train_test_split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;test_size&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;Preprocess The X Data By Scaling&lt;/h2&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Train the scaler, which standarizes all the features to have mean=0 and unit variance&lt;/span&gt;
-&lt;span class="n"&gt;sc&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;StandardScaler&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;span class="n"&gt;sc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X_train&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;StandardScaler(copy=True, with_mean=True, with_std=True)
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Apply the scaler to the X training data&lt;/span&gt;
-&lt;span class="n"&gt;X_train_std&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X_train&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="c1"&gt;# Apply the SAME scaler to the X test data&lt;/span&gt;
-&lt;span class="n"&gt;X_test_std&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sc&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X_test&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;Train A Perceptron Learner&lt;/h2&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Create a perceptron object with the parameters: 40 iterations (epochs) over the data, and a learning rate of 0.1&lt;/span&gt;
-&lt;span class="n"&gt;ppn&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Perceptron&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n_iter&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;40&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;eta0&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;random_state&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="c1"&gt;# Train the perceptron&lt;/span&gt;
-&lt;span class="n"&gt;ppn&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X_train_std&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y_train&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Perceptron(alpha=0.0001, class_weight=None, eta0=0.1, fit_intercept=True,
-      n_iter=40, n_jobs=1, penalty=None, random_state=0, shuffle=True,
-      verbose=0, warm_start=False)
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;Apply The Trained Learner To Test Data&lt;/h2&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Apply the trained perceptron on the X data to make predicts for the y test data&lt;/span&gt;
-&lt;span class="n"&gt;y_pred&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ppn&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;predict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X_test_std&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;Compare The Predicted Y With The True Y&lt;/h2&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# View the predicted y test data&lt;/span&gt;
-&lt;span class="n"&gt;y_pred&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;array([0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 1, 1, 0, 2, 2, 2, 0, 0, 0, 0, 0, 2,
-       2, 1, 0, 0, 2, 1, 0, 0, 0, 0, 2, 1, 0, 2, 0, 2, 0, 2, 0, 2, 0, 1])
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# View the true y test data&lt;/span&gt;
-&lt;span class="n"&gt;y_test&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;array([0, 0, 0, 1, 0, 0, 2, 2, 0, 0, 1, 1, 1, 0, 2, 2, 2, 1, 0, 0, 0, 0, 2,
-       2, 1, 1, 0, 2, 1, 1, 1, 0, 0, 2, 1, 0, 2, 0, 2, 0, 2, 0, 2, 0, 1])
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;Examine Accuracy Metric&lt;/h2&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# View the accuracy of the model, which is: 1 - (observations predicted wrong / total observations)&lt;/span&gt;
-&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Accuracy: &lt;/span&gt;&lt;span class="si"&gt;%.2f&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;accuracy_score&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y_test&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y_pred&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Accuracy: 0.87
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Fri, 04 Nov 2016 12:00:00 -0700</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-11-04:machine-learning/training_a_perceptron.html</guid><category>Basics</category></item></channel></rss>
+&lt;p&gt;&lt;img alt="chrome" src="http://chrisalbon.com/images/run_project_jupyter_on_amazon_ec2/chrome3.png" /&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Thu, 10 Nov 2016 12:00:00 -0800</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-11-10:jupyter/run_project_jupyter_on_amazon_ec2.html</guid><category>Basic</category></item></channel></rss>
