@@ -5,7 +5,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://chrisalbon.com/</loc>
-<lastmod>2016-12-09T11:30:06-00:00</lastmod>
+<lastmod>2016-12-14T09:27:18-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -20,6 +20,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://chrisalbon.com/pages/test.html</loc>
 <lastmod>2016-05-01T12:00:00-07:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://chrisalbon.com/machine-learning/naive_bayes_classifier_from_scratch.html</loc>
+<lastmod>2016-12-12T12:00:00-08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>

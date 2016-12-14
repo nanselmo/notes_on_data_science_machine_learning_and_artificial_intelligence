@@ -1,5 +1,403 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Chris Albon</title><link>http://chrisalbon.com/</link><description></description><lastBuildDate>Fri, 09 Dec 2016 11:00:00 -0800</lastBuildDate><item><title>Precision, Recall, and F1 Scores</title><link>http://chrisalbon.com/machine-learning/precision_recall_and_F1_scores.html</link><description>&lt;h2&gt;Some Terms:&lt;/h2&gt;
+<rss version="2.0"><channel><title>Chris Albon</title><link>http://chrisalbon.com/</link><description></description><lastBuildDate>Mon, 12 Dec 2016 12:00:00 -0800</lastBuildDate><item><title>Naive Bayes Classifier By Hand</title><link>http://chrisalbon.com/machine-learning/naive_bayes_classifier_from_scratch.html</link><description>&lt;p&gt;Naive bayes is simple classifier known for doing well when only a small number of observations is available. In this tutorial we will create a gaussian naive bayes classifier from scratch and use it to predict the class of a previously unseen data point. This tutorial is based on an example on Wikipedia's &lt;a href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier"&gt;naive bayes classifier page&lt;/a&gt;, I have implemented it in Python and tweaked some notation to improve explanation.&lt;/p&gt;
+&lt;h2&gt;Preliminaries&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pandas&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;pd&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Create Data&lt;/h2&gt;
+&lt;p&gt;Our dataset is contains data on eight individuals. We will use the dataset to construct a classifier that takes in the height, weight, and foot size of an individual and outputs a prediction for their gender.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Create an empty dataframe&lt;/span&gt;
+&lt;span class="n"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DataFrame&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Create our target variable&lt;/span&gt;
+&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Gender&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;male&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;male&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;male&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;male&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;female&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;female&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;female&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;female&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Create our feature variables&lt;/span&gt;
+&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Height&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;5.92&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;5.58&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;5.92&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;5.5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;5.42&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;5.75&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Weight&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;180&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;190&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;170&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;165&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;150&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;130&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;150&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Foot_Size&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="c1"&gt;# View the data&lt;/span&gt;
+&lt;span class="n"&gt;data&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div&gt;
+&lt;table border="1" class="dataframe"&gt;
+  &lt;thead&gt;
+    &lt;tr style="text-align: right;"&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;Gender&lt;/th&gt;
+      &lt;th&gt;Height&lt;/th&gt;
+      &lt;th&gt;Weight&lt;/th&gt;
+      &lt;th&gt;Foot_Size&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;0&lt;/th&gt;
+      &lt;td&gt;male&lt;/td&gt;
+      &lt;td&gt;6.00&lt;/td&gt;
+      &lt;td&gt;180&lt;/td&gt;
+      &lt;td&gt;12&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;1&lt;/th&gt;
+      &lt;td&gt;male&lt;/td&gt;
+      &lt;td&gt;5.92&lt;/td&gt;
+      &lt;td&gt;190&lt;/td&gt;
+      &lt;td&gt;11&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;2&lt;/th&gt;
+      &lt;td&gt;male&lt;/td&gt;
+      &lt;td&gt;5.58&lt;/td&gt;
+      &lt;td&gt;170&lt;/td&gt;
+      &lt;td&gt;12&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;3&lt;/th&gt;
+      &lt;td&gt;male&lt;/td&gt;
+      &lt;td&gt;5.92&lt;/td&gt;
+      &lt;td&gt;165&lt;/td&gt;
+      &lt;td&gt;10&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;4&lt;/th&gt;
+      &lt;td&gt;female&lt;/td&gt;
+      &lt;td&gt;5.00&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;5&lt;/th&gt;
+      &lt;td&gt;female&lt;/td&gt;
+      &lt;td&gt;5.50&lt;/td&gt;
+      &lt;td&gt;150&lt;/td&gt;
+      &lt;td&gt;8&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;6&lt;/th&gt;
+      &lt;td&gt;female&lt;/td&gt;
+      &lt;td&gt;5.42&lt;/td&gt;
+      &lt;td&gt;130&lt;/td&gt;
+      &lt;td&gt;7&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;7&lt;/th&gt;
+      &lt;td&gt;female&lt;/td&gt;
+      &lt;td&gt;5.75&lt;/td&gt;
+      &lt;td&gt;150&lt;/td&gt;
+      &lt;td&gt;9&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The dataset above is used to construct our classifier. Below we will create a new person for whom we know their feature values but not their gender. Our goal is to predict their gender.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Create an empty dataframe&lt;/span&gt;
+&lt;span class="n"&gt;person&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DataFrame&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Create some feature values for this single row&lt;/span&gt;
+&lt;span class="n"&gt;person&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Height&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;person&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Weight&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;130&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;person&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Foot_Size&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="c1"&gt;# View the data&lt;/span&gt;
+&lt;span class="n"&gt;person&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div&gt;
+&lt;table border="1" class="dataframe"&gt;
+  &lt;thead&gt;
+    &lt;tr style="text-align: right;"&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;Height&lt;/th&gt;
+      &lt;th&gt;Weight&lt;/th&gt;
+      &lt;th&gt;Foot_Size&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;0&lt;/th&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;130&lt;/td&gt;
+      &lt;td&gt;8&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;h2&gt;Bayes Theorem&lt;/h2&gt;
+&lt;p&gt;Bayes theorem is a famous equation that allows us to make predictions based on data. Here is the classic version of the Bayes theorem:&lt;/p&gt;
+&lt;div class="math"&gt;$$\displaystyle P(A\mid B)={\frac {P(B\mid A)\,P(A)}{P(B)}}$$&lt;/div&gt;
+&lt;p&gt;This might be too abstract, so let us replace some of the variables to make it more concrete. In a bayes classifier, we are interested in finding out the class (e.g. male or female, spam or ham) of an observation &lt;em&gt;given&lt;/em&gt; the data:&lt;/p&gt;
+&lt;div class="math"&gt;$$p(\text{class} \mid \mathbf {\text{data}} )={\frac {p(\mathbf {\text{data}} \mid \text{class}) * p(\text{class})}{p(\mathbf {\text{data}} )}}$$&lt;/div&gt;
+&lt;p&gt;where:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(\text{class}\)&lt;/span&gt; is a particular class (e.g. male)&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(\mathbf {\text{data}}\)&lt;/span&gt; is an observation's data&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(p(\text{class} \mid \mathbf {\text{data}} )\)&lt;/span&gt; is called the posterior&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(p(\text{class})\)&lt;/span&gt; is called the likelihood&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(p(\text{class})\)&lt;/span&gt; is called the prior&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(p(\mathbf {\text{data}} )\)&lt;/span&gt; is called the marginal probability&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In a bayes classifier, we calculate the posterior (technically we only calculate the numerator of the posterior, but ignore that for now) for every class for each observation. Then, classify the observation based on the class with the largest posterior value. In our example, we have one observation to predict and two possible classes (e.g. male and female), therefore we will calculate two posteriors: one for male and one for female.&lt;/p&gt;
+&lt;div class="math"&gt;$$p(\text{person is male} \mid \mathbf {\text{person's data}} )={\frac {p(\mathbf {\text{person's data}} \mid \text{person is male}) * p(\text{person is male})}{p(\mathbf {\text{person's data}} )}}$$&lt;/div&gt;
+&lt;div class="math"&gt;$$p(\text{person is female} \mid \mathbf {\text{person's data}} )={\frac {p(\mathbf {\text{person's data}} \mid \text{person is female}) * p(\text{person is female})}{p(\mathbf {\text{person's data}} )}}$$&lt;/div&gt;
+&lt;h2&gt;Gaussian Naive Bayes Classifier&lt;/h2&gt;
+&lt;p&gt;A gaussian naive bayes is probably the most popular type of bayes classifier. To explain what the name means, let us look at what the bayes equations looks like when we apply our two classes (male and female) and three feature variables (height, weight, and footsize):&lt;/p&gt;
+&lt;div class="math"&gt;$${\displaystyle {\text{posterior (male)}}={\frac {P({\text{male}})\,p({\text{height}}\mid{\text{male}})\,p({\text{weight}}\mid{\text{male}})\,p({\text{foot size}}\mid{\text{male}})}{\text{marginal probability}}}}$$&lt;/div&gt;
+&lt;div class="math"&gt;$${\displaystyle {\text{posterior (female)}}={\frac {P({\text{female}})\,p({\text{height}}\mid{\text{female}})\,p({\text{weight}}\mid{\text{female}})\,p({\text{foot size}}\mid{\text{female}})}{\text{marginal probability}}}}$$&lt;/div&gt;
+&lt;p&gt;Now let us unpack the top equation a bit:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(P({\text{male}})\)&lt;/span&gt; is the prior probabilities. It is, as you can see, simply the probability an observation is male. This is just the number of males in the dataset divided by the total number of people in the dataset.&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(p({\text{height}}\mid{\text{female}})\,p({\text{weight}}\mid{\text{female}})\,p({\text{foot size}}\mid{\text{female}})\)&lt;/span&gt; is the likelihood. Notice that we have unpacked &lt;span class="math"&gt;\(\mathbf {\text{person's data}}\)&lt;/span&gt; so it is now every feature in the dataset. The "gaussian" and "naive" come from two assumptions present in this likelihood:&lt;ol&gt;
+&lt;li&gt;If you look each term in the likelihood you will notice that we assume each feature is uncorrelated from each other. That is, foot size is independent of weight or height etc.. This is obviously not true, and is a "naive" assumption - hence the name "naive bayes."&lt;/li&gt;
+&lt;li&gt;Second, we assume have that the value of the features (e.g. the height of women, the weight of women) are normally (gaussian) distributed. This means that &lt;span class="math"&gt;\(p(\text{height}\mid\text{female})\)&lt;/span&gt; is calculated by inputing the required parameters into the probability density function of the normal distribution:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="math"&gt;$$
+p(\text{height}\mid\text{female})=\frac{1}{\sqrt{2\pi\text{variance of female height in the data}}}\,e^{ -\frac{(\text{observation's height}-\text{average height of females in the data})^2}{2\text{variance of female height in the data}} }
+$$&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(\text{marginal probability}\)&lt;/span&gt; is probably one of the most confusing parts of bayesian approaches. In toy examples (including ours) it is completely possible to calculate the marginal probability. However, in many real-world cases, it is either extremely difficult or impossible to find the value of the marginal probability (explaining why is beyond the scope of this tutorial). This is not as much of a problem for our classifier as you might think. Why? Because we don't care what the true posterior value is, we only care which class has a the highest posterior value. And because the marginal probability is the same for all classes 1) we can ignore the denominator, 2) calculate only the posterior's numerator for each class, and 3) pick the largest numerator. That is, we can ignore the posterior's denominator and make a prediction solely on the relative values of the posterior's numerator.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Okay! Theory over. Now let us start calculating all the different parts of the bayes equations.&lt;/p&gt;
+&lt;h2&gt;Calculate Priors&lt;/h2&gt;
+&lt;p&gt;Priors can be either constants or probability distributions. In our example is the simply the probability of being a gender. Calculating this is simple:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Number of males&lt;/span&gt;
+&lt;span class="n"&gt;n_male&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Gender&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Gender&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;male&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;count&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Number of males&lt;/span&gt;
+&lt;span class="n"&gt;n_female&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Gender&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Gender&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;female&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;count&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Total rows&lt;/span&gt;
+&lt;span class="n"&gt;total_ppl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Gender&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;count&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Number of males divided by the total rows&lt;/span&gt;
+&lt;span class="n"&gt;P_male&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;n_male&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;total_ppl&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Number of females divided by the total rows&lt;/span&gt;
+&lt;span class="n"&gt;P_female&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;n_female&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;total_ppl&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Calculate Likelihood&lt;/h2&gt;
+&lt;p&gt;Remember that each term (e.g. &lt;span class="math"&gt;\(p(\text{height}\mid\text{female})\)&lt;/span&gt;) in our likelihood is assumed to be a normal pdf. For example:&lt;/p&gt;
+&lt;div class="math"&gt;$$
+p(\text{height}\mid\text{female})=\frac{1}{\sqrt{2\pi\text{variance of female height in the data}}}\,e^{ -\frac{(\text{observation's height}-\text{average height of females in the data})^2}{2\text{variance of female height in the data}} }
+$$&lt;/div&gt;
+&lt;p&gt;This means that for each class (e.g. female) and feature (e.g. height) combination we need to calculate the variance and mean value from the data. Pandas makes this easy:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Group the data by gender and calculate the means of each feature&lt;/span&gt;
+&lt;span class="n"&gt;data_means&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;groupby&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Gender&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mean&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="c1"&gt;# View the values&lt;/span&gt;
+&lt;span class="n"&gt;data_means&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div&gt;
+&lt;table border="1" class="dataframe"&gt;
+  &lt;thead&gt;
+    &lt;tr style="text-align: right;"&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;Height&lt;/th&gt;
+      &lt;th&gt;Weight&lt;/th&gt;
+      &lt;th&gt;Foot_Size&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Gender&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;female&lt;/th&gt;
+      &lt;td&gt;5.4175&lt;/td&gt;
+      &lt;td&gt;132.50&lt;/td&gt;
+      &lt;td&gt;7.50&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;male&lt;/th&gt;
+      &lt;td&gt;5.8550&lt;/td&gt;
+      &lt;td&gt;176.25&lt;/td&gt;
+      &lt;td&gt;11.25&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Group the data by gender and calculate the variance of each feature&lt;/span&gt;
+&lt;span class="n"&gt;data_variance&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;groupby&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Gender&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;var&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="c1"&gt;# View the values&lt;/span&gt;
+&lt;span class="n"&gt;data_variance&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div&gt;
+&lt;table border="1" class="dataframe"&gt;
+  &lt;thead&gt;
+    &lt;tr style="text-align: right;"&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;Height&lt;/th&gt;
+      &lt;th&gt;Weight&lt;/th&gt;
+      &lt;th&gt;Foot_Size&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Gender&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;female&lt;/th&gt;
+      &lt;td&gt;0.097225&lt;/td&gt;
+      &lt;td&gt;558.333333&lt;/td&gt;
+      &lt;td&gt;1.666667&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;male&lt;/th&gt;
+      &lt;td&gt;0.035033&lt;/td&gt;
+      &lt;td&gt;122.916667&lt;/td&gt;
+      &lt;td&gt;0.916667&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Now we can create all the variables we need. The code below might look complex but all we are doing is creating a variable out of each cell in both of the tables above.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Means for male&lt;/span&gt;
+&lt;span class="n"&gt;male_height_mean&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;data_means&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Height&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;data_variance&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;index&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;male&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;male_weight_mean&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;data_means&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Weight&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;data_variance&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;index&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;male&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;male_footsize_mean&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;data_means&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Foot_Size&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;data_variance&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;index&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;male&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Variance for male&lt;/span&gt;
+&lt;span class="n"&gt;male_height_variance&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;data_variance&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Height&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;data_variance&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;index&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;male&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;male_weight_variance&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;data_variance&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Weight&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;data_variance&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;index&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;male&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;male_footsize_variance&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;data_variance&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Foot_Size&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;data_variance&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;index&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;male&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Means for female&lt;/span&gt;
+&lt;span class="n"&gt;female_height_mean&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;data_means&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Height&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;data_variance&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;index&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;female&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;female_weight_mean&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;data_means&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Weight&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;data_variance&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;index&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;female&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;female_footsize_mean&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;data_means&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Foot_Size&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;data_variance&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;index&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;female&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Variance for female&lt;/span&gt;
+&lt;span class="n"&gt;female_height_variance&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;data_variance&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Height&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;data_variance&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;index&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;female&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;female_weight_variance&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;data_variance&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Weight&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;data_variance&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;index&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;female&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;female_footsize_variance&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;data_variance&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Foot_Size&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="n"&gt;data_variance&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;index&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;female&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Finally, we need to create a function to calculate the probability density of each of the terms of the likelihood (e.g. &lt;span class="math"&gt;\(p(\text{height}\mid\text{female})\)&lt;/span&gt;).&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Create a function that calculates p(x | y):&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;p_x_given_y&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;mean_y&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;variance_y&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# Input the arguments into a probability density function&lt;/span&gt;
+    &lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sqrt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;variance_y&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exp&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;mean_y&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;variance_y&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+    &lt;span class="c1"&gt;# return p&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Apply Bayes Classifier To New Data Point&lt;/h2&gt;
+&lt;p&gt;Alright! Our bayes classifier is ready. Remember that since we can ignore the marginal probability (the demoninator), what we are actually calculating is this:&lt;/p&gt;
+&lt;div class="math"&gt;$${\displaystyle {\text{numerator of the posterior}}={P({\text{female}})\,p({\text{height}}\mid{\text{female}})\,p({\text{weight}}\mid{\text{female}})\,p({\text{foot size}}\mid{\text{female}})}{}}$$&lt;/div&gt;
+&lt;p&gt;To do this, we just need to plug in the values of the unclassified person (height = 6), the variables of the dataset (e.g. mean of female height), and the function (&lt;code&gt;p_x_given_y&lt;/code&gt;) we made above:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Numerator of the posterior if the unclassified observation is a male&lt;/span&gt;
+&lt;span class="n"&gt;P_male&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; \
+&lt;span class="n"&gt;p_x_given_y&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;person&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Height&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;male_height_mean&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;male_height_variance&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; \
+&lt;span class="n"&gt;p_x_given_y&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;person&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Weight&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;male_weight_mean&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;male_weight_variance&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; \
+&lt;span class="n"&gt;p_x_given_y&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;person&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Foot_Size&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;male_footsize_mean&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;male_footsize_variance&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;6.1970718438780782e-09
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Numerator of the posterior if the unclassified observation is a female&lt;/span&gt;
+&lt;span class="n"&gt;P_female&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; \
+&lt;span class="n"&gt;p_x_given_y&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;person&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Height&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;female_height_mean&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;female_height_variance&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; \
+&lt;span class="n"&gt;p_x_given_y&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;person&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Weight&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;female_weight_mean&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;female_weight_variance&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; \
+&lt;span class="n"&gt;p_x_given_y&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;person&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Foot_Size&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;female_footsize_mean&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;female_footsize_variance&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;0.00053779091836300176
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Because the numerator of the posterior for male is greater than female, then we predict that the person is male.&lt;/p&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' &amp;&amp; location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Mon, 12 Dec 2016 12:00:00 -0800</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-12-12:machine-learning/naive_bayes_classifier_from_scratch.html</guid><category>Basics</category></item><item><title>Precision, Recall, and F1 Scores</title><link>http://chrisalbon.com/machine-learning/precision_recall_and_F1_scores.html</link><description>&lt;h2&gt;Some Terms:&lt;/h2&gt;
 &lt;p&gt;Positive (P): Observation is positive (for example: is an apple)&lt;/p&gt;
 &lt;p&gt;Negative (N): Observation is not positive (for example: is not an apple).&lt;/p&gt;
 &lt;p&gt;True Positive (TP): Observation is positive, and is predicted to be positive.&lt;/p&gt;
@@ -1113,116 +1511,4 @@ Test accuracy: 0.5
         "}";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-&lt;/script&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Tue, 22 Nov 2016 12:00:00 -0800</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-11-22:machine-learning/svc_parameters_using_rbf_kernel.html</guid><category>Basics</category></item><item><title>Run Project Jupyter Notebooks On Amazon EC2</title><link>http://chrisalbon.com/jupyter/run_project_jupyter_on_amazon_ec2.html</link><description>&lt;p&gt;This is tutorial on running Project Jupyter Notebook on an Amazon EC2 instance. It is based on a &lt;a href="http://blog.impiyush.me/2015/02/running-ipython-notebook-server-on-aws.html"&gt;tutorial&lt;/a&gt; by Piyush Agarwal which did not work for me immediately, but I tweaked a few things and got it working.&lt;/p&gt;
-&lt;p&gt;Note: This is not a beginner's tutorial. I don't explain some of the steps fully and don't explain some concepts. There are other tutorials out there for that.&lt;/p&gt;
-&lt;h2&gt;Create an AWS account&lt;/h2&gt;
-&lt;p&gt;An EC2 instance requires an AWS account. &lt;a href="https://aws.amazon.com/"&gt;You can make an account here&lt;/a&gt;.&lt;/p&gt;
-&lt;h2&gt;Navigate to EC2&lt;/h2&gt;
-&lt;p&gt;Log into AWS and go to the EC2 main page. Then you will see a 'Launch Instance' button.&lt;/p&gt;
-&lt;h2&gt;Launch a new instance&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="png" src="http://chrisalbon.com/images/run_project_jupyter_on_amazon_ec2/launch_instance.png" /&gt;&lt;/p&gt;
-&lt;h2&gt;Select Ubuntu&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="Select Ubuntu" src="http://chrisalbon.com/images/run_project_jupyter_on_amazon_ec2/select_ubuntu.png" /&gt;&lt;/p&gt;
-&lt;h2&gt;Select t2.micro&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="Select Micro T2" src="http://chrisalbon.com/images/run_project_jupyter_on_amazon_ec2/select_micro_t2.png" /&gt;&lt;/p&gt;
-&lt;h2&gt;Check out your new instance&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="png" src="http://chrisalbon.com/images/run_project_jupyter_on_amazon_ec2/comes_with_8gig.png" /&gt;&lt;/p&gt;
-&lt;h2&gt;Create a new security group&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="png" src="http://chrisalbon.com/images/run_project_jupyter_on_amazon_ec2/security_group.png" /&gt;&lt;/p&gt;
-&lt;h2&gt;Create and download a new key pair&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="png" src="http://chrisalbon.com/images/run_project_jupyter_on_amazon_ec2/key_pair.png" /&gt;&lt;/p&gt;
-&lt;h2&gt;View connect instructions&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="connect_1" src="http://chrisalbon.com/images/run_project_jupyter_on_amazon_ec2/connect_1.png" /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="connect_2" src="http://chrisalbon.com/images/run_project_jupyter_on_amazon_ec2/connect_2.png" /&gt;&lt;/p&gt;
-&lt;h2&gt;Set permissions on key pair&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;chmod 400 tutorial.pem&lt;/code&gt;&lt;/p&gt;
-&lt;h2&gt;Open terminal&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="terminal" src="http://chrisalbon.com/images/run_project_jupyter_on_amazon_ec2/terminal.png" /&gt;&lt;/p&gt;
-&lt;h2&gt;Connect using ssh&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="ssh" src="http://chrisalbon.com/images/run_project_jupyter_on_amazon_ec2/ssh.png" /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;ssh -i "tutorial.pem" ubuntu@ec2-52-39-239-66.us-west-2.compute.amazonaws.com&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Are you sure you want to continue connecting (yes/no)?&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="success!" src="http://chrisalbon.com/images/run_project_jupyter_on_amazon_ec2/command.png" /&gt;&lt;/p&gt;
-&lt;h2&gt;Download Anaconda to instance&lt;/h2&gt;
-&lt;p&gt;Visit Anaconda's &lt;a href="https://www.continuum.io/downloads"&gt;download page&lt;/a&gt; and right click to get the url of the latest version of the Linux 64-bit version. In my case this url was:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;https://repo.continuum.io/archive/Anaconda3-4.2.0-Linux-x86_64.sh&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Anaconda!" src="http://chrisalbon.com/images/run_project_jupyter_on_amazon_ec2/anaconda.png" /&gt;&lt;/p&gt;
-&lt;p&gt;Now, back in the terminal, tell the EC2 instance to download that file. Note: You aren't downloading the file to your computer, you are downloading it to the EC2 instance and installing it from there.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;wget https://repo.continuum.io/archive/Anaconda3-4.2.0-Linux-x86_64.sh&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Anaconda!" src="http://chrisalbon.com/images/run_project_jupyter_on_amazon_ec2/anaconda_download.png" /&gt;&lt;/p&gt;
-&lt;h2&gt;Install Anaconda&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;bash Anaconda3-4.2.0-Linux-x86_64.sh&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Press enter a few times&lt;/p&gt;
-&lt;p&gt;Type 'yes' to agree&lt;/p&gt;
-&lt;p&gt;'Press ENTER to confirm the location'&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Anaconda!" src="http://chrisalbon.com/images/run_project_jupyter_on_amazon_ec2/anaconda_install.png" /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Do you wish the installer to prepend the Anaconda3 install location
-to PATH in your /home/ubuntu/.bashrc ? [yes|no]
-[no] &amp;gt;&amp;gt;&amp;gt; yes&lt;/code&gt;&lt;/p&gt;
-&lt;h2&gt;Set Anaconda as the preferred environment&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;which python&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;[ubuntu@ip-172-31-43-70:~$ which python
-/usr/bin/python&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;source .bashrc&lt;/code&gt;&lt;/p&gt;
-&lt;h2&gt;Create a password for jupyter notebook&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;ipython&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;from IPython.lib import passwd&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;passwd()&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;'sha1:98ff0e580111:12798c72623a6eecd54b51c006b1050f0ac1a62d'&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;exit&lt;/code&gt;&lt;/p&gt;
-&lt;h2&gt;Create config profile&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;jupyter notebook --generate-config&lt;/code&gt;&lt;/p&gt;
-&lt;h2&gt;Create certificates for https&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;mkdir certs&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;cd certs&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;sudo openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Answer questions&lt;/p&gt;
-&lt;h2&gt;Configure jupyter&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;cd ~/.jupyter/&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;vi jupyter_notebook_config.py&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Vim" src="http://chrisalbon.com/images/run_project_jupyter_on_amazon_ec2/vi.png" /&gt;&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;c = get_config()
-
-# Kernel config
-c.IPKernelApp.pylab = &amp;#39;inline&amp;#39;  # if you want plotting support always in your notebook
-
-# Notebook config
-c.NotebookApp.certfile = u&amp;#39;/home/ubuntu/certs/mycert.pem&amp;#39; #location of your certificate file
-c.NotebookApp.ip = &amp;#39;*&amp;#39;
-c.NotebookApp.open_browser = False  #so that the ipython notebook does not opens up a browser by default
-c.NotebookApp.password = u&amp;#39;sha1:98ff0e580111:12798c72623a6eecd54b51c006b1050f0ac1a62d&amp;#39;  #the encrypted password we generated above
-# It is a good idea to put it on a known, fixed port
-c.NotebookApp.port = 8888
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Remember to replace &lt;code&gt;sha1:98ff0e580111:12798c72623a6eecd54b51c006b1050f0ac1a62d&lt;/code&gt; with your password!&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Vim" src="http://chrisalbon.com/images/run_project_jupyter_on_amazon_ec2/vi_2.png" /&gt;&lt;/p&gt;
-&lt;p&gt;Press &lt;code&gt;esc&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Press &lt;code&gt;shift-z&lt;/code&gt;
-Press &lt;code&gt;shift-z&lt;/code&gt;&lt;/p&gt;
-&lt;h2&gt;Create folder for notebooks&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;cd ~&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;mkdir Notebooks&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;cd Notebooks&lt;/code&gt;&lt;/p&gt;
-&lt;h2&gt;Create new screen&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;screen&lt;/code&gt;&lt;/p&gt;
-&lt;h2&gt;Start Jupyter notebook&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;jupyter notebook&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="jupyter" src="http://chrisalbon.com/images/run_project_jupyter_on_amazon_ec2/load_jupyter.png" /&gt;&lt;/p&gt;
-&lt;h2&gt;Detach from screen&lt;/h2&gt;
-&lt;p&gt;Command: &lt;code&gt;Ctrl-a&lt;/code&gt; and then &lt;code&gt;d&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Other useful commands:&lt;/strong&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Create new window: &lt;code&gt;Ctrl-a&lt;/code&gt; &lt;code&gt;c&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Switch windows: &lt;code&gt;Ctrl-a&lt;/code&gt; &lt;code&gt;n&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Reattach to Screen: &lt;code&gt;screen -r&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2&gt;Visit Jupyter notebook in browser&lt;/h2&gt;
-&lt;p&gt;Your EC2 instance will have a long url, like this:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;ec2-52-39-239-66.us-west-2.compute.amazonaws.com&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Visit that URL in your browser:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;https://ec2-52-39-239-66.us-west-2.compute.amazonaws.com:8888/&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="chrome" src="http://chrisalbon.com/images/run_project_jupyter_on_amazon_ec2/chrome1.png" /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="chrome" src="http://chrisalbon.com/images/run_project_jupyter_on_amazon_ec2/chrome2.png" /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="chrome" src="http://chrisalbon.com/images/run_project_jupyter_on_amazon_ec2/chrome3.png" /&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Thu, 10 Nov 2016 12:00:00 -0800</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-11-10:jupyter/run_project_jupyter_on_amazon_ec2.html</guid><category>Basic</category></item></channel></rss>
+&lt;/script&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Tue, 22 Nov 2016 12:00:00 -0800</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2016-11-22:machine-learning/svc_parameters_using_rbf_kernel.html</guid><category>Basics</category></item></channel></rss>
