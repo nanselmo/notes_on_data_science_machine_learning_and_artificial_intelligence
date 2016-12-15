@@ -145,10 +145,7 @@
 <div class="codehilite"><pre><span></span><span class="c1"># Ignore</span>
 <span class="o">%</span><span class="n">load_ext</span> <span class="n">sql</span>
 <span class="o">%</span><span class="n">sql</span> <span class="n">sqlite</span><span class="p">:</span><span class="o">//</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span>&#39;Connected: None@None&#39;
+<span class="o">%</span><span class="n">config</span> <span class="n">SqlMagic</span><span class="o">.</span><span class="n">feedback</span> <span class="o">=</span> <span class="bp">False</span>
 </pre></div>
 
 
@@ -169,50 +166,24 @@
 <span class="o">/*</span> <span class="n">Create</span> <span class="n">A</span> <span class="n">Table</span> <span class="n">Of</span> <span class="n">Crimes</span> <span class="o">*/</span>
 <span class="n">CREATE</span> <span class="n">TABLE</span> <span class="n">crimes</span> <span class="p">(</span><span class="n">cid</span><span class="p">,</span> <span class="n">crime</span><span class="p">,</span> <span class="n">city</span><span class="p">,</span> <span class="n">pid_arrested</span><span class="p">,</span> <span class="n">cash_stolen</span><span class="p">);</span>
 <span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">crimes</span> <span class="n">VALUES</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;fraud&#39;</span><span class="p">,</span> <span class="s1">&#39;Santa Rosa&#39;</span><span class="p">,</span> <span class="mi">412</span><span class="p">,</span> <span class="mi">40000</span><span class="p">);</span>
-<span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">crimes</span> <span class="n">VALUES</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;burglary&#39;</span><span class="p">,</span> <span class="s1">&#39;Petaluma&#39;</span><span class="p">,</span> <span class="mi">234</span><span class="p">,</span> <span class="mi">2000</span><span class="p">);</span>
-<span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">crimes</span> <span class="n">VALUES</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;burglary&#39;</span><span class="p">,</span> <span class="s1">&#39;Santa Rosa&#39;</span><span class="p">,</span> <span class="mi">632</span><span class="p">,</span> <span class="mi">2000</span><span class="p">);</span>
-<span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">crimes</span> <span class="n">VALUES</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;larcony&#39;</span><span class="p">,</span> <span class="s1">&#39;Petaluma&#39;</span><span class="p">,</span> <span class="mi">621</span><span class="p">,</span> <span class="mi">3500</span><span class="p">);</span> 
-<span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">crimes</span> <span class="n">VALUES</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;burglary&#39;</span><span class="p">,</span> <span class="s1">&#39;Santa Rosa&#39;</span><span class="p">,</span> <span class="mi">162</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span> 
-<span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">crimes</span> <span class="n">VALUES</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;larcony&#39;</span><span class="p">,</span> <span class="s1">&#39;Petaluma&#39;</span><span class="p">,</span> <span class="mi">901</span><span class="p">,</span> <span class="mi">50000</span><span class="p">);</span> 
-<span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">crimes</span> <span class="n">VALUES</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;fraud&#39;</span><span class="p">,</span> <span class="s1">&#39;San Francisco&#39;</span><span class="p">,</span> <span class="mi">412</span><span class="p">,</span> <span class="mi">60000</span><span class="p">);</span> 
-<span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">crimes</span> <span class="n">VALUES</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;burglary&#39;</span><span class="p">,</span> <span class="s1">&#39;Santa Rosa&#39;</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">7000</span><span class="p">);</span> 
-<span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">crimes</span> <span class="n">VALUES</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;burglary&#39;</span><span class="p">,</span> <span class="s1">&#39;San Francisco&#39;</span><span class="p">,</span> <span class="mi">411</span><span class="p">,</span> <span class="mi">3000</span><span class="p">);</span> 
-<span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">crimes</span> <span class="n">VALUES</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;robbery&#39;</span><span class="p">,</span> <span class="s1">&#39;Santa Rosa&#39;</span><span class="p">,</span> <span class="mi">632</span><span class="p">,</span> <span class="mi">2500</span><span class="p">);</span> 
-<span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">crimes</span> <span class="n">VALUES</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;robbery&#39;</span><span class="p">,</span> <span class="s1">&#39;Santa Rosa&#39;</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">3000</span><span class="p">);</span>
+<span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">crimes</span> <span class="n">VALUES</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;burglary&#39;</span><span class="p">,</span> <span class="s1">&#39;Petaluma&#39;</span><span class="p">,</span> <span class="mi">234</span><span class="p">,</span> <span class="mi">2000</span><span class="p">);</span>
+<span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">crimes</span> <span class="n">VALUES</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;burglary&#39;</span><span class="p">,</span> <span class="s1">&#39;Santa Rosa&#39;</span><span class="p">,</span> <span class="mi">632</span><span class="p">,</span> <span class="mi">2000</span><span class="p">);</span>
+<span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">crimes</span> <span class="n">VALUES</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">NULL</span><span class="p">,</span> <span class="n">NULL</span><span class="p">,</span> <span class="mi">621</span><span class="p">,</span> <span class="mi">3500</span><span class="p">);</span> 
+<span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">crimes</span> <span class="n">VALUES</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;burglary&#39;</span><span class="p">,</span> <span class="s1">&#39;Santa Rosa&#39;</span><span class="p">,</span> <span class="mi">162</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span> 
+<span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">crimes</span> <span class="n">VALUES</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="n">NULL</span><span class="p">,</span> <span class="s1">&#39;Petaluma&#39;</span><span class="p">,</span> <span class="mi">901</span><span class="p">,</span> <span class="mi">50000</span><span class="p">);</span> 
+<span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">crimes</span> <span class="n">VALUES</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="s1">&#39;fraud&#39;</span><span class="p">,</span> <span class="s1">&#39;San Francisco&#39;</span><span class="p">,</span> <span class="mi">412</span><span class="p">,</span> <span class="mi">60000</span><span class="p">);</span> 
+<span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">crimes</span> <span class="n">VALUES</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;burglary&#39;</span><span class="p">,</span> <span class="s1">&#39;Santa Rosa&#39;</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">7000</span><span class="p">);</span> 
+<span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">crimes</span> <span class="n">VALUES</span> <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="s1">&#39;burglary&#39;</span><span class="p">,</span> <span class="s1">&#39;San Francisco&#39;</span><span class="p">,</span> <span class="mi">411</span><span class="p">,</span> <span class="mi">3000</span><span class="p">);</span> 
+<span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">crimes</span> <span class="n">VALUES</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;robbery&#39;</span><span class="p">,</span> <span class="s1">&#39;Santa Rosa&#39;</span><span class="p">,</span> <span class="mi">632</span><span class="p">,</span> <span class="mi">2500</span><span class="p">);</span> 
+<span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">crimes</span> <span class="n">VALUES</span> <span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="s1">&#39;robbery&#39;</span><span class="p">,</span> <span class="s1">&#39;Santa Rosa&#39;</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">3000</span><span class="p">);</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>Done.
-1 rows affected.
-1 rows affected.
-1 rows affected.
-1 rows affected.
-1 rows affected.
-1 rows affected.
-1 rows affected.
-1 rows affected.
-Done.
-1 rows affected.
-1 rows affected.
-1 rows affected.
-1 rows affected.
-1 rows affected.
-1 rows affected.
-1 rows affected.
-1 rows affected.
-1 rows affected.
-1 rows affected.
-1 rows affected.
-
-
-
-
-
-[]
+<div class="codehilite"><pre><span></span>[]
 </pre></div>
 
 
-<h2>View Both Tables</h2>
+<h2>Select Each Everything In Teach Table</h2>
 <div class="codehilite"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
 
 <span class="o">--</span> <span class="n">Select</span> <span class="n">everything</span>
@@ -220,10 +191,6 @@ Done.
 
 <span class="o">--</span> <span class="n">From</span> <span class="n">the</span> <span class="n">table</span> <span class="s1">&#39;criminals&#39;</span>
 <span class="n">FROM</span> <span class="n">criminals</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span>Done.
 </pre></div>
 
 
@@ -312,10 +279,6 @@ Done.
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>Done.
-</pre></div>
-
-
 <table>
     <tr>
         <th>cid</th>
@@ -332,70 +295,70 @@ Done.
         <td>40000</td>
     </tr>
     <tr>
-        <td>1</td>
+        <td>2</td>
         <td>burglary</td>
         <td>Petaluma</td>
         <td>234</td>
         <td>2000</td>
     </tr>
     <tr>
-        <td>1</td>
+        <td>3</td>
         <td>burglary</td>
         <td>Santa Rosa</td>
         <td>632</td>
         <td>2000</td>
     </tr>
     <tr>
-        <td>1</td>
-        <td>larcony</td>
-        <td>Petaluma</td>
+        <td>4</td>
+        <td>None</td>
+        <td>None</td>
         <td>621</td>
         <td>3500</td>
     </tr>
     <tr>
-        <td>1</td>
+        <td>5</td>
         <td>burglary</td>
         <td>Santa Rosa</td>
         <td>162</td>
         <td>1000</td>
     </tr>
     <tr>
-        <td>1</td>
-        <td>larcony</td>
+        <td>6</td>
+        <td>None</td>
         <td>Petaluma</td>
         <td>901</td>
         <td>50000</td>
     </tr>
     <tr>
-        <td>1</td>
+        <td>7</td>
         <td>fraud</td>
         <td>San Francisco</td>
         <td>412</td>
         <td>60000</td>
     </tr>
     <tr>
-        <td>1</td>
+        <td>8</td>
         <td>burglary</td>
         <td>Santa Rosa</td>
         <td>512</td>
         <td>7000</td>
     </tr>
     <tr>
-        <td>1</td>
+        <td>9</td>
         <td>burglary</td>
         <td>San Francisco</td>
         <td>411</td>
         <td>3000</td>
     </tr>
     <tr>
-        <td>1</td>
+        <td>10</td>
         <td>robbery</td>
         <td>Santa Rosa</td>
         <td>632</td>
         <td>2500</td>
     </tr>
     <tr>
-        <td>1</td>
+        <td>11</td>
         <td>robbery</td>
         <td>Santa Rosa</td>
         <td>512</td>
