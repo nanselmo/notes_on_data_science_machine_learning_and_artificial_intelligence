@@ -5,7 +5,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://chrisalbon.com/</loc>
-<lastmod>2016-12-21T10:45:41-00:00</lastmod>
+<lastmod>2016-12-27T10:09:16-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -662,7 +662,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://chrisalbon.com/command-line/covert_all_ipynb_to_html.html</loc>
+<loc>http://chrisalbon.com/bash/covert_all_ipynb_to_html.html</loc>
 <lastmod>2016-05-01T12:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
@@ -1159,7 +1159,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://chrisalbon.com/command-line/list_all_files_and_folders_in_a_directory.html</loc>
+<loc>http://chrisalbon.com/bash/list_all_files_and_folders_in_a_directory.html</loc>
 <lastmod>2016-05-01T12:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
@@ -1502,7 +1502,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://chrisalbon.com/command-line/open_ipython_nb_in_nondefault_browser.html</loc>
+<loc>http://chrisalbon.com/bash/open_ipython_nb_in_nondefault_browser.html</loc>
 <lastmod>2016-05-01T12:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
