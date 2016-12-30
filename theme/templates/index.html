@@ -1,12 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="page-header">
-  <h1 class="index-page-title">Data Science for Political and Social Phenomena</h1>
+  <h1 class="index-page-title">Notes on Data Science, Machine Learning, and Artificial Intelligence</h1>
 </div>
 <div class="homepage-blurb row">
     <div class="col-sm-12">
-        <p>I am a <a href="{{ SITEURL }}/pages/about.html">data scientist and quantitative political scientist</a>. I specialize in the technical and organizational aspects of applying data science to political and social issues.</p>
-        <p>Years ago I noticed a gap in the existing data literature. On one side was data science, with roots in mathematics and computer science. On the other side were the social sciences, with hard-earned expertise modeling and predicting complex human behavior. The motivation for this site and ongoing book project is to bridge that gap: to create a practical guide to applying data science to political and social phenomena.</p>
+        <p>I am a <a href="{{ SITEURL }}/pages/about.html">data scientist and quantitative political scientist</a>. This is a collection of notes on applied machine intelligence and statistical learning.</p>
     </div>
 </div>
 
@@ -220,14 +219,14 @@
   </div>
 </div>
 
-<div class="row" id="Command_Line">
+<div class="row" id="Bash">
   <div class="col-sm-12">
-    <h2 class="homepage_category_title">Command Line</h2>
+    <h2 class="homepage_category_title">Bash</h2>
   </div>
   <div class="col-sm-12">
     <div class="panel panel-default">
       <div class="panel-body">
-        {% for article in articles if article.category == 'Command Line' %}
+        {% for article in articles if article.category == 'Bash' %}
           <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
         {% else %}
           <li>Coming soon.</li>
@@ -404,6 +403,82 @@
       <div class="panel-body">
         <ul>
           {% for article in articles if article.category == 'GitHub'  %}
+            <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+          {% else %}
+            <li>Coming soon.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row" id="Scala">
+  <div class="col-sm-12">
+    <h2 class="homepage_category_title">Scala</h2>
+  </div>
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <ul>
+          {% for article in articles if article.category == 'Scala'  %}
+            <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+          {% else %}
+            <li>Coming soon.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row" id="Spark">
+  <div class="col-sm-12">
+    <h2 class="homepage_category_title">Spark</h2>
+  </div>
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <ul>
+          {% for article in articles if article.category == 'Spark'  %}
+            <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+          {% else %}
+            <li>Coming soon.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row" id="Amazon_Web_Services">
+  <div class="col-sm-12">
+    <h2 class="homepage_category_title">Amazon Web Services</h2>
+  </div>
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <ul>
+          {% for article in articles if article.category == 'Amazon Web Services'  %}
+            <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+          {% else %}
+            <li>Coming soon.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row" id="Kaggle">
+  <div class="col-sm-12">
+    <h2 class="homepage_category_title">Kaggle</h2>
+  </div>
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <ul>
+          {% for article in articles if article.category == 'Kaggle'  %}
             <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
           {% else %}
             <li>Coming soon.</li>

@@ -66,7 +66,7 @@
                             <li><a href=".#Python">Python</a></li>
                             <li><a href=".#R_Stats">R Stats</a></li>
                             <li><a href=".#Regex">Regex</a></li>
-                            <li><a href=".#Command_Line">Command Line</a></li>
+                            <li><a href=".#Bash">Bash</a></li>
                             <li><a href=".#Project_Juypter">Project Juypter</a></li>
                             <li><a href=".#SQL">SQL</a></li>
                             <li><a href=".#Mathematics">Mathematics</a></li>
@@ -76,6 +76,10 @@
                             <li><a href=".#Bayesian_Statistics">Bayesian Statistics</a></li>
                             <li><a href=".#Machine_Learning">Machine Learning</a></li>
                             <li><a href=".#GitHub">GitHub</a></li>
+                            <li><a href=".#Scala">Scala</a></li>
+                            <li><a href=".#Spark">Spark</a></li>
+                            <li><a href=".#Amazon_Web_Services">Amazon Web Services</a></li>
+                            <li><a href=".#Kaggle">Kaggle</a></li>
                             <li><a href=".#Articles">Articles</a></li>
                             <li><a href=".#Projects">Projects</a></li>
                         </ul>
@@ -115,12 +119,11 @@
     <!-- end of header section -->
     <div class="container">
 <div class="page-header">
-  <h1 class="index-page-title">Data Science for Political and Social Phenomena</h1>
+  <h1 class="index-page-title">Notes on Data Science, Machine Learning, and Artificial Intelligence</h1>
 </div>
 <div class="homepage-blurb row">
     <div class="col-sm-12">
-        <p>I am a <a href="./pages/about.html">data scientist and quantitative political scientist</a>. I specialize in the technical and organizational aspects of applying data science to political and social issues.</p>
-        <p>Years ago I noticed a gap in the existing data literature. On one side was data science, with roots in mathematics and computer science. On the other side were the social sciences, with hard-earned expertise modeling and predicting complex human behavior. The motivation for this site and ongoing book project is to bridge that gap: to create a practical guide to applying data science to political and social phenomena.</p>
+        <p>I am a <a href="./pages/about.html">data scientist and quantitative political scientist</a>. This is a collection of notes on applied machine intelligence and statistical learning.</p>
     </div>
 </div>
 
@@ -206,6 +209,7 @@
       </div>
       <div class="panel-body">
         <ul>
+            <li><a href="./python/group_pandas_data_by_hour_of_the_day.html">Group Pandas Data By Hour Of The Day</a></li>
             <li><a href="./python/sort_a_list_by_last_name.html">Sort A List Of Names By Last Name</a></li>
             <li><a href="./python/sort_a_list_of_strings_by_length.html">Sort A List Of Strings By Length</a></li>
             <li><a href="./python/pandas_rename_column_headers.html">Rename Column Headers In Pandas</a></li>
@@ -586,9 +590,13 @@
   <div class="col-sm-12">
     <div class="panel panel-default">
       <div class="panel-body">
+          <li><a href="./machine-learning/naive_bayes_classifier_from_scratch.html">Naive Bayes Classifier From Scratch</a></li>
+          <li><a href="./machine-learning/precision_recall_and_F1_scores.html">Precision, Recall, and F1 Scores</a></li>
+          <li><a href="./machine-learning/feature_extraction_with_pca.html">Feature Extraction With PCA</a></li>
           <li><a href="./machine-learning/nested_cross_validation.html">Nested Cross Validation</a></li>
           <li><a href="./machine-learning/feature_selection_using_random_forest.html">Feature Selection Using Random Forest</a></li>
           <li><a href="./machine-learning/logistic_regression_with_l1_regularization.html">Logistic Regression With L1 Regularization</a></li>
+          <li><a href="./machine-learning/pipelines_with_parameter_optimization.html">Pipelines With Parameter Optimization</a></li>
           <li><a href="./machine-learning/convert_pandas_categorical_column_into_integers_for_scikit-learn.html">Convert Pandas Categorical Data For Scikit-Learn</a></li>
           <li><a href="./machine-learning/impute_missing_values_with_means.html">Impute Missing Values With Means</a></li>
           <li><a href="./machine-learning/svc_parameters_using_rbf_kernel.html">SVC Parameters When Using RBF Kernel</a></li>
@@ -609,16 +617,16 @@
   </div>
 </div>
 
-<div class="row" id="Command_Line">
+<div class="row" id="Bash">
   <div class="col-sm-12">
-    <h2 class="homepage_category_title">Command Line</h2>
+    <h2 class="homepage_category_title">Bash</h2>
   </div>
   <div class="col-sm-12">
     <div class="panel panel-default">
       <div class="panel-body">
-          <li><a href="./command-line/covert_all_ipynb_to_html.html">Convert All Jupyter Notebooks In A Folder To Basic HTML Using Bash</a></li>
-          <li><a href="./command-line/list_all_files_and_folders_in_a_directory.html">List All Files And Folders In A Directory</a></li>
-          <li><a href="./command-line/open_ipython_nb_in_nondefault_browser.html">Load Jupyter Notebook In Non-Default Browser</a></li>
+          <li><a href="./bash/covert_all_ipynb_to_html.html">Convert All Jupyter Notebooks In A Folder To Basic HTML Using Bash</a></li>
+          <li><a href="./bash/list_all_files_and_folders_in_a_directory.html">List All Files And Folders In A Directory</a></li>
+          <li><a href="./bash/open_ipython_nb_in_nondefault_browser.html">Load Jupyter Notebook In Non-Default Browser</a></li>
       </div>
     </div>
   </div>
@@ -684,7 +692,7 @@
     <div class="panel panel-default">
       <div class="panel-body">
         <ul>
-            <li>Coming soon.</li>
+            <li><a href="./sql/select_entire_table.html">Select An Entire Table</a></li>
         </ul>
       </div>
     </div>
@@ -767,12 +775,72 @@
   </div>
 </div>
 
+<div class="row" id="Scala">
+  <div class="col-sm-12">
+    <h2 class="homepage_category_title">Scala</h2>
+  </div>
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <ul>
+            <li>Coming soon.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row" id="Spark">
+  <div class="col-sm-12">
+    <h2 class="homepage_category_title">Spark</h2>
+  </div>
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <ul>
+            <li>Coming soon.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row" id="Amazon_Web_Services">
+  <div class="col-sm-12">
+    <h2 class="homepage_category_title">Amazon Web Services</h2>
+  </div>
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <ul>
+            <li>Coming soon.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row" id="Kaggle">
+  <div class="col-sm-12">
+    <h2 class="homepage_category_title">Kaggle</h2>
+  </div>
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <ul>
+            <li><a href="./kaggle/titanic_competition_with_random_forest.html">Titanic Competition With Random Forest</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
     </div>
     <!-- start of footer section -->
     <footer class="footer">
         <div class="container">
             <p class="text-muted">
-                <center>This project contains 346 pages and is available on <a href="https://github.com/chrisalbon/Data-Science-For-Political-And-Social-Phenomena">GitHub</a>.
+                <center>This project contains 353 pages and is available on <a href="https://github.com/chrisalbon/Data-Science-For-Political-And-Social-Phenomena">GitHub</a>.
                 <br/>
                 Copyright &copy; Chris Albon,
                     <time datetime="2016">2016</time>.

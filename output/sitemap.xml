@@ -5,7 +5,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://chrisalbon.com/</loc>
-<lastmod>2016-12-02T11:57:04-00:00</lastmod>
+<lastmod>2016-12-29T21:22:28-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -20,6 +20,41 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://chrisalbon.com/pages/test.html</loc>
 <lastmod>2016-05-01T12:00:00-07:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://chrisalbon.com/kaggle/titanic_competition_with_random_forest.html</loc>
+<lastmod>2016-12-29T00:01:00-08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://chrisalbon.com/python/group_pandas_data_by_hour_of_the_day.html</loc>
+<lastmod>2016-12-21T12:00:00-08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://chrisalbon.com/machine-learning/naive_bayes_classifier_from_scratch.html</loc>
+<lastmod>2016-12-12T12:00:00-08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://chrisalbon.com/machine-learning/precision_recall_and_F1_scores.html</loc>
+<lastmod>2016-12-09T11:00:00-08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://chrisalbon.com/machine-learning/feature_extraction_with_pca.html</loc>
+<lastmod>2016-12-08T12:00:00-08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -40,6 +75,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://chrisalbon.com/machine-learning/logistic_regression_with_l1_regularization.html</loc>
+<lastmod>2016-12-01T12:00:00-08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://chrisalbon.com/machine-learning/pipelines_with_parameter_optimization.html</loc>
 <lastmod>2016-12-01T12:00:00-08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
@@ -627,7 +669,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://chrisalbon.com/command-line/covert_all_ipynb_to_html.html</loc>
+<loc>http://chrisalbon.com/bash/covert_all_ipynb_to_html.html</loc>
 <lastmod>2016-05-01T12:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
@@ -1124,7 +1166,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://chrisalbon.com/command-line/list_all_files_and_folders_in_a_directory.html</loc>
+<loc>http://chrisalbon.com/bash/list_all_files_and_folders_in_a_directory.html</loc>
 <lastmod>2016-05-01T12:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
@@ -1467,7 +1509,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://chrisalbon.com/command-line/open_ipython_nb_in_nondefault_browser.html</loc>
+<loc>http://chrisalbon.com/bash/open_ipython_nb_in_nondefault_browser.html</loc>
 <lastmod>2016-05-01T12:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
@@ -2140,6 +2182,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://chrisalbon.com/r-stats/select-rows-by-logical-test.html</loc>
+<lastmod>2016-05-01T12:00:00-07:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://chrisalbon.com/sql/select_entire_table.html</loc>
 <lastmod>2016-05-01T12:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
