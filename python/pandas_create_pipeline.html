@@ -10,7 +10,7 @@
     <meta name="author" content="Chris Albon">
     <link rel="icon" href="../favicon.ico">
 
-    <title>Cutting Up Data - R Stats</title>
+    <title>Create A Pipeline In Pandas - Python</title>
 
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -34,7 +34,7 @@
     <![endif]-->
      <link href="http://chrisalbon.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Chris Albon - Data Science, Machine Learning, and Artificial Intelligence Full RSS Feed" />        
 
-    <meta name="tags" content="Basics" />
+    <meta name="tags" content="Data Wrangling" />
 
 
 </head>
@@ -129,47 +129,122 @@
 <section id="content" class="body">
     <header>
     <h1>
-      Cutting Up Data
+      Create A Pipeline In Pandas
     </h1>
 <ol class="breadcrumb">
     <li>
-        <time class="published" datetime="2016-05-01T12:00:00-07:00">
-            01 May 2016
+        <time class="published" datetime="2017-01-16T12:00:00-08:00">
+            16 January 2017
         </time>
     </li>
-    <li>R Stats</li>
-    <li>Basics</li>
+    <li>Python</li>
+    <li>Data Wrangling</li>
 </ol>
 </header>
 <div class='article_content'>
-<p>Original source: http://rforpublichealth.blogspot.com</p>
-<div class="codehilite"><pre><span></span><span class="c1"># create some simulated data</span>
-ID <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span>
-Age <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">26</span><span class="p">,</span> <span class="m">65</span><span class="p">,</span> <span class="m">15</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">88</span><span class="p">,</span> <span class="m">43</span><span class="p">,</span> <span class="m">28</span><span class="p">,</span> <span class="m">66</span> <span class="p">,</span><span class="m">45</span><span class="p">,</span> <span class="m">12</span><span class="p">)</span>
-Sex <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">0</span> <span class="p">,</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
-Weight <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">132</span><span class="p">,</span> <span class="m">122</span><span class="p">,</span> <span class="m">184</span><span class="p">,</span> <span class="m">145</span><span class="p">,</span> <span class="m">118</span><span class="p">,</span> <span class="kc">NA</span><span class="p">,</span> <span class="m">128</span><span class="p">,</span> <span class="m">154</span><span class="p">,</span> <span class="m">166</span><span class="p">,</span> <span class="m">164</span><span class="p">)</span>
-Height <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">60</span><span class="p">,</span> <span class="m">63</span><span class="p">,</span> <span class="m">57</span><span class="p">,</span> <span class="m">59</span><span class="p">,</span> <span class="m">64</span><span class="p">,</span> <span class="kc">NA</span><span class="p">,</span> <span class="m">67</span><span class="p">,</span> <span class="m">65</span><span class="p">,</span> <span class="kc">NA</span><span class="p">,</span> <span class="m">60</span><span class="p">)</span>
-Married <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
+<p>Pandas' pipeline feature allows you to string together Python functions in order to build a pipeline of data processing.</p>
+<h2>Preliminaries</h2>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="c1"># create a dataframe of the simulated data</span>
-mydata <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>ID<span class="p">,</span> Age<span class="p">,</span> Sex<span class="p">,</span> Weight<span class="p">,</span> Height<span class="p">,</span> Married<span class="p">)</span>
+<h2>Create Dataframe</h2>
+<div class="codehilite"><pre><span></span><span class="c1"># Create empty dataframe</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+
+<span class="c1"># Create a column</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;Steve&#39;</span><span class="p">,</span> <span class="s1">&#39;Sarah&#39;</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Male&#39;</span><span class="p">,</span> <span class="s1">&#39;Male&#39;</span><span class="p">,</span> <span class="s1">&#39;Female&#39;</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">31</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">19</span><span class="p">]</span>
+
+<span class="c1"># View dataframe</span>
+<span class="n">df</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="c1"># cut up Age by 0-5, 6-10, 11-15, 16-20 and label each category 1-6.</span>
-mydata<span class="o">$</span>Agecat1<span class="o">&lt;-</span><span class="kp">cut</span><span class="p">(</span>mydata<span class="o">$</span>Age<span class="p">,</span> <span class="kt">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">10</span><span class="p">,</span><span class="m">15</span><span class="p">,</span><span class="m">20</span><span class="p">,</span><span class="m">25</span><span class="p">,</span><span class="m">30</span><span class="p">),</span> labels<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">6</span><span class="p">))</span>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>gender</th>
+      <th>age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>John</td>
+      <td>Male</td>
+      <td>31</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Steve</td>
+      <td>Male</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Sarah</td>
+      <td>Female</td>
+      <td>19</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2>Create Functions To Process Data</h2>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a function that</span>
+<span class="k">def</span> <span class="nf">mean_age_by_group</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">col</span><span class="p">):</span>
+    <span class="c1"># groups the data by a column and returns the mean age per group</span>
+    <span class="k">return</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">col</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="c1"># it is a factor</span>
-<span class="kp">class</span><span class="p">(</span>mydata<span class="o">$</span>Agecat1<span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a function that</span>
+<span class="k">def</span> <span class="nf">uppercase_column_name</span><span class="p">(</span><span class="n">dataframe</span><span class="p">):</span>
+    <span class="c1"># Capitalizes all the column headers</span>
+    <span class="n">dataframe</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+    <span class="c1"># And returns them</span>
+    <span class="k">return</span> <span class="n">dataframe</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>[1] &quot;factor&quot;
+<h2>Create A Pipeline Of Those Functions</h2>
+<div class="codehilite"><pre><span></span><span class="c1"># Create a pipeline that applies the mean_age_by_group function</span>
+<span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">mean_age_by_group</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s1">&#39;gender&#39;</span><span class="p">)</span>
+   <span class="c1"># then applies the uppercase column name function</span>
+   <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">uppercase_column_name</span><span class="p">)</span>
+<span class="p">)</span>
 </pre></div>
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>AGE</th>
+    </tr>
+    <tr>
+      <th>gender</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Female</th>
+      <td>19.0</td>
+    </tr>
+    <tr>
+      <th>Male</th>
+      <td>31.5</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 </div>
     <aside>
     <div class="bug-reporting__panel">
