@@ -1,5 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Chris Albon - Data Science, Machine Learning, and Artificial Intelligence</title><link>http://chrisalbon.com/</link><description></description><lastBuildDate>Mon, 16 Jan 2017 12:00:00 -0800</lastBuildDate><item><title>Add New Row To Table</title><link>http://chrisalbon.com/sql/add_new_row_into_table.html</link><description>&lt;p&gt;Note: This tutorial was written using &lt;a href="https://github.com/catherinedevlin/ipython-sql"&gt;Catherine Devlin's SQL in Jupyter Notebooks library&lt;/a&gt;. If you have not using a Jupyter Notebook, you can ignore the two lines of code below and any line containing &lt;code&gt;%%sql&lt;/code&gt;. Furthermore, This tutorial uses SQLite's flavor of SQL, your version might have some differences in syntax.&lt;/p&gt;
+<rss version="2.0"><channel><title>Chris Albon - Data Science, Machine Learning, and Artificial Intelligence</title><link>http://chrisalbon.com/</link><description></description><lastBuildDate>Tue, 17 Jan 2017 12:00:00 -0800</lastBuildDate><item><title>Create A Table</title><link>http://chrisalbon.com/sql/create_a_table.html</link><description>&lt;p&gt;Note: This tutorial was written using &lt;a href="https://github.com/catherinedevlin/ipython-sql"&gt;Catherine Devlin's SQL in Jupyter Notebooks library&lt;/a&gt;. If you have not using a Jupyter Notebook, you can ignore the two lines of code below and any line containing &lt;code&gt;%%sql&lt;/code&gt;. Furthermore, This tutorial uses SQLite's flavor of SQL, your version might have some differences in syntax.&lt;/p&gt;
+&lt;p&gt;For more, check out &lt;a href="http://amzn.to/2jRriHj"&gt;Learning SQL&lt;/a&gt; by Alan Beaulieu.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Ignore&lt;/span&gt;
+&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="n"&gt;load_ext&lt;/span&gt; &lt;span class="n"&gt;sql&lt;/span&gt;
+&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="n"&gt;sql&lt;/span&gt; &lt;span class="n"&gt;sqlite&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;
+&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="n"&gt;config&lt;/span&gt; &lt;span class="n"&gt;SqlMagic&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;feedback&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;False&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Create A Table&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;%%&lt;/span&gt;&lt;span class="n"&gt;sql&lt;/span&gt;
+
+&lt;span class="o"&gt;--&lt;/span&gt; &lt;span class="n"&gt;Create&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;table&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;criminals&lt;/span&gt;
+&lt;span class="n"&gt;CREATE&lt;/span&gt; &lt;span class="n"&gt;TABLE&lt;/span&gt; &lt;span class="n"&gt;criminals&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pid&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;age&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sex&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;city&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;minor&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;INSERT&lt;/span&gt; &lt;span class="n"&gt;INTO&lt;/span&gt; &lt;span class="n"&gt;criminals&lt;/span&gt; &lt;span class="n"&gt;VALUES&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;412&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;James Smith&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;M&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Santa Rosa&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;INSERT&lt;/span&gt; &lt;span class="n"&gt;INTO&lt;/span&gt; &lt;span class="n"&gt;criminals&lt;/span&gt; &lt;span class="n"&gt;VALUES&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;234&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Bill James&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;22&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;M&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Santa Rosa&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;INSERT&lt;/span&gt; &lt;span class="n"&gt;INTO&lt;/span&gt; &lt;span class="n"&gt;criminals&lt;/span&gt; &lt;span class="n"&gt;VALUES&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;632&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Stacy Miller&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;23&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;F&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Santa Rosa&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;INSERT&lt;/span&gt; &lt;span class="n"&gt;INTO&lt;/span&gt; &lt;span class="n"&gt;criminals&lt;/span&gt; &lt;span class="n"&gt;VALUES&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;621&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Betty Bob&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;NULL&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;F&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Petaluma&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;INSERT&lt;/span&gt; &lt;span class="n"&gt;INTO&lt;/span&gt; &lt;span class="n"&gt;criminals&lt;/span&gt; &lt;span class="n"&gt;VALUES&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;162&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Jaden Ado&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;49&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;M&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;NULL&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;INSERT&lt;/span&gt; &lt;span class="n"&gt;INTO&lt;/span&gt; &lt;span class="n"&gt;criminals&lt;/span&gt; &lt;span class="n"&gt;VALUES&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;901&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Gordon Ado&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;32&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;F&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Santa Rosa&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;INSERT&lt;/span&gt; &lt;span class="n"&gt;INTO&lt;/span&gt; &lt;span class="n"&gt;criminals&lt;/span&gt; &lt;span class="n"&gt;VALUES&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;512&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Bill Byson&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;21&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;M&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Santa Rosa&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;INSERT&lt;/span&gt; &lt;span class="n"&gt;INTO&lt;/span&gt; &lt;span class="n"&gt;criminals&lt;/span&gt; &lt;span class="n"&gt;VALUES&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;411&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Bob Iton&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;NULL&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;M&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;San Francisco&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;[]
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Select Everything In That Table&lt;/h2&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;%%&lt;/span&gt;&lt;span class="n"&gt;sql&lt;/span&gt;
+
+&lt;span class="o"&gt;--&lt;/span&gt; &lt;span class="n"&gt;Select&lt;/span&gt; &lt;span class="n"&gt;everything&lt;/span&gt;
+&lt;span class="n"&gt;SELECT&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
+
+&lt;span class="o"&gt;--&lt;/span&gt; &lt;span class="n"&gt;From&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;table&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;criminals&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;FROM&lt;/span&gt; &lt;span class="n"&gt;criminals&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;pid&lt;/th&gt;
+        &lt;th&gt;name&lt;/th&gt;
+        &lt;th&gt;age&lt;/th&gt;
+        &lt;th&gt;sex&lt;/th&gt;
+        &lt;th&gt;city&lt;/th&gt;
+        &lt;th&gt;minor&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;412&lt;/td&gt;
+        &lt;td&gt;James Smith&lt;/td&gt;
+        &lt;td&gt;15&lt;/td&gt;
+        &lt;td&gt;M&lt;/td&gt;
+        &lt;td&gt;Santa Rosa&lt;/td&gt;
+        &lt;td&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;234&lt;/td&gt;
+        &lt;td&gt;Bill James&lt;/td&gt;
+        &lt;td&gt;22&lt;/td&gt;
+        &lt;td&gt;M&lt;/td&gt;
+        &lt;td&gt;Santa Rosa&lt;/td&gt;
+        &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;632&lt;/td&gt;
+        &lt;td&gt;Stacy Miller&lt;/td&gt;
+        &lt;td&gt;23&lt;/td&gt;
+        &lt;td&gt;F&lt;/td&gt;
+        &lt;td&gt;Santa Rosa&lt;/td&gt;
+        &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;621&lt;/td&gt;
+        &lt;td&gt;Betty Bob&lt;/td&gt;
+        &lt;td&gt;None&lt;/td&gt;
+        &lt;td&gt;F&lt;/td&gt;
+        &lt;td&gt;Petaluma&lt;/td&gt;
+        &lt;td&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;162&lt;/td&gt;
+        &lt;td&gt;Jaden Ado&lt;/td&gt;
+        &lt;td&gt;49&lt;/td&gt;
+        &lt;td&gt;M&lt;/td&gt;
+        &lt;td&gt;None&lt;/td&gt;
+        &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;901&lt;/td&gt;
+        &lt;td&gt;Gordon Ado&lt;/td&gt;
+        &lt;td&gt;32&lt;/td&gt;
+        &lt;td&gt;F&lt;/td&gt;
+        &lt;td&gt;Santa Rosa&lt;/td&gt;
+        &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;512&lt;/td&gt;
+        &lt;td&gt;Bill Byson&lt;/td&gt;
+        &lt;td&gt;21&lt;/td&gt;
+        &lt;td&gt;M&lt;/td&gt;
+        &lt;td&gt;Santa Rosa&lt;/td&gt;
+        &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;411&lt;/td&gt;
+        &lt;td&gt;Bob Iton&lt;/td&gt;
+        &lt;td&gt;None&lt;/td&gt;
+        &lt;td&gt;M&lt;/td&gt;
+        &lt;td&gt;San Francisco&lt;/td&gt;
+        &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Tue, 17 Jan 2017 12:00:00 -0800</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2017-01-17:sql/create_a_table.html</guid><category>Basics</category></item><item><title>Add New Row To Table</title><link>http://chrisalbon.com/sql/add_new_row_into_table.html</link><description>&lt;p&gt;Note: This tutorial was written using &lt;a href="https://github.com/catherinedevlin/ipython-sql"&gt;Catherine Devlin's SQL in Jupyter Notebooks library&lt;/a&gt;. If you have not using a Jupyter Notebook, you can ignore the two lines of code below and any line containing &lt;code&gt;%%sql&lt;/code&gt;. Furthermore, This tutorial uses SQLite's flavor of SQL, your version might have some differences in syntax.&lt;/p&gt;
 &lt;p&gt;For more, check out &lt;a href="http://amzn.to/2jRriHj"&gt;Learning SQL&lt;/a&gt; by Alan Beaulieu.&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Ignore&lt;/span&gt;
 &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="n"&gt;load_ext&lt;/span&gt; &lt;span class="n"&gt;sql&lt;/span&gt;
@@ -980,162 +1093,4 @@
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Mon, 16 Jan 2017 12:00:00 -0800</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2017-01-16:machine-learning/make_simulated_data_for_regression.html</guid><category>Basics</category></item><item><title>Multiple Conditional Statements</title><link>http://chrisalbon.com/sql/multiple_conditional_statements.html</link><description>&lt;p&gt;Note: This tutorial was written using &lt;a href="https://github.com/catherinedevlin/ipython-sql"&gt;Catherine Devlin's SQL in Jupyter Notebooks library&lt;/a&gt;. If you have not using a Jupyter Notebook, you can ignore the two lines of code below and any line containing &lt;code&gt;%%sql&lt;/code&gt;. Furthermore, This tutorial uses SQLite's flavor of SQL, your version might have some differences in syntax.&lt;/p&gt;
-&lt;p&gt;For more, check out &lt;a href="http://amzn.to/2jRriHj"&gt;Learning SQL&lt;/a&gt; by Alan Beaulieu.&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Ignore&lt;/span&gt;
-&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="n"&gt;load_ext&lt;/span&gt; &lt;span class="n"&gt;sql&lt;/span&gt;
-&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="n"&gt;sql&lt;/span&gt; &lt;span class="n"&gt;sqlite&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;
-&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="n"&gt;config&lt;/span&gt; &lt;span class="n"&gt;SqlMagic&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;feedback&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;False&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;Create Data&lt;/h2&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;%%&lt;/span&gt;&lt;span class="n"&gt;sql&lt;/span&gt;
-
-&lt;span class="o"&gt;--&lt;/span&gt; &lt;span class="n"&gt;Create&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;table&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;criminals&lt;/span&gt;
-&lt;span class="n"&gt;CREATE&lt;/span&gt; &lt;span class="n"&gt;TABLE&lt;/span&gt; &lt;span class="n"&gt;criminals&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pid&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;age&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sex&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;city&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;minor&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;span class="n"&gt;INSERT&lt;/span&gt; &lt;span class="n"&gt;INTO&lt;/span&gt; &lt;span class="n"&gt;criminals&lt;/span&gt; &lt;span class="n"&gt;VALUES&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;412&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;James Smith&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;M&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Santa Rosa&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;span class="n"&gt;INSERT&lt;/span&gt; &lt;span class="n"&gt;INTO&lt;/span&gt; &lt;span class="n"&gt;criminals&lt;/span&gt; &lt;span class="n"&gt;VALUES&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;901&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Gordon Ado&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;32&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;F&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;San Francisco&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;span class="n"&gt;INSERT&lt;/span&gt; &lt;span class="n"&gt;INTO&lt;/span&gt; &lt;span class="n"&gt;criminals&lt;/span&gt; &lt;span class="n"&gt;VALUES&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;512&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Bill Byson&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;21&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;M&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Petaluma&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;[]
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;View All Rows&lt;/h2&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;%%&lt;/span&gt;&lt;span class="n"&gt;sql&lt;/span&gt;
-
-&lt;span class="o"&gt;--&lt;/span&gt;  &lt;span class="n"&gt;Select&lt;/span&gt; &lt;span class="nb"&gt;all&lt;/span&gt;
-&lt;span class="n"&gt;SELECT&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
-
-&lt;span class="o"&gt;--&lt;/span&gt; &lt;span class="n"&gt;From&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;criminals&lt;/span&gt; &lt;span class="n"&gt;table&lt;/span&gt;
-&lt;span class="n"&gt;FROM&lt;/span&gt; &lt;span class="n"&gt;criminals&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;table&gt;
-    &lt;tr&gt;
-        &lt;th&gt;pid&lt;/th&gt;
-        &lt;th&gt;name&lt;/th&gt;
-        &lt;th&gt;age&lt;/th&gt;
-        &lt;th&gt;sex&lt;/th&gt;
-        &lt;th&gt;city&lt;/th&gt;
-        &lt;th&gt;minor&lt;/th&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;412&lt;/td&gt;
-        &lt;td&gt;James Smith&lt;/td&gt;
-        &lt;td&gt;15&lt;/td&gt;
-        &lt;td&gt;M&lt;/td&gt;
-        &lt;td&gt;Santa Rosa&lt;/td&gt;
-        &lt;td&gt;1&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;412&lt;/td&gt;
-        &lt;td&gt;James Smith&lt;/td&gt;
-        &lt;td&gt;15&lt;/td&gt;
-        &lt;td&gt;M&lt;/td&gt;
-        &lt;td&gt;Santa Rosa&lt;/td&gt;
-        &lt;td&gt;1&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;412&lt;/td&gt;
-        &lt;td&gt;James Smith&lt;/td&gt;
-        &lt;td&gt;15&lt;/td&gt;
-        &lt;td&gt;M&lt;/td&gt;
-        &lt;td&gt;Santa Rosa&lt;/td&gt;
-        &lt;td&gt;1&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;901&lt;/td&gt;
-        &lt;td&gt;Gordon Ado&lt;/td&gt;
-        &lt;td&gt;32&lt;/td&gt;
-        &lt;td&gt;F&lt;/td&gt;
-        &lt;td&gt;San Francisco&lt;/td&gt;
-        &lt;td&gt;0&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;512&lt;/td&gt;
-        &lt;td&gt;Bill Byson&lt;/td&gt;
-        &lt;td&gt;21&lt;/td&gt;
-        &lt;td&gt;M&lt;/td&gt;
-        &lt;td&gt;Petaluma&lt;/td&gt;
-        &lt;td&gt;0&lt;/td&gt;
-    &lt;/tr&gt;
-&lt;/table&gt;
-
-&lt;h2&gt;View Rows Where Age Is Greater Than 20 And City Is San Francisco&lt;/h2&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;%%&lt;/span&gt;&lt;span class="n"&gt;sql&lt;/span&gt;
-
-&lt;span class="o"&gt;--&lt;/span&gt;  &lt;span class="n"&gt;Select&lt;/span&gt; &lt;span class="nb"&gt;all&lt;/span&gt; &lt;span class="n"&gt;unique&lt;/span&gt;
-&lt;span class="n"&gt;SELECT&lt;/span&gt; &lt;span class="n"&gt;distinct&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
-
-&lt;span class="o"&gt;--&lt;/span&gt; &lt;span class="n"&gt;From&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;criminals&lt;/span&gt; &lt;span class="n"&gt;table&lt;/span&gt;
-&lt;span class="n"&gt;FROM&lt;/span&gt; &lt;span class="n"&gt;criminals&lt;/span&gt;
-
-&lt;span class="o"&gt;--&lt;/span&gt; &lt;span class="n"&gt;Where&lt;/span&gt; &lt;span class="n"&gt;age&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="n"&gt;greater&lt;/span&gt; &lt;span class="n"&gt;than&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;city&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="n"&gt;San&lt;/span&gt; &lt;span class="n"&gt;Francisco&lt;/span&gt;
-&lt;span class="n"&gt;WHERE&lt;/span&gt; &lt;span class="n"&gt;age&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt; &lt;span class="n"&gt;AND&lt;/span&gt; &lt;span class="n"&gt;city&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;San Francisco&amp;#39;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;table&gt;
-    &lt;tr&gt;
-        &lt;th&gt;pid&lt;/th&gt;
-        &lt;th&gt;name&lt;/th&gt;
-        &lt;th&gt;age&lt;/th&gt;
-        &lt;th&gt;sex&lt;/th&gt;
-        &lt;th&gt;city&lt;/th&gt;
-        &lt;th&gt;minor&lt;/th&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;901&lt;/td&gt;
-        &lt;td&gt;Gordon Ado&lt;/td&gt;
-        &lt;td&gt;32&lt;/td&gt;
-        &lt;td&gt;F&lt;/td&gt;
-        &lt;td&gt;San Francisco&lt;/td&gt;
-        &lt;td&gt;0&lt;/td&gt;
-    &lt;/tr&gt;
-&lt;/table&gt;
-
-&lt;h2&gt;View Rows Where Age Is Greater Than 20 or City Is San Francisco&lt;/h2&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;%%&lt;/span&gt;&lt;span class="n"&gt;sql&lt;/span&gt;
-
-&lt;span class="o"&gt;--&lt;/span&gt;  &lt;span class="n"&gt;Select&lt;/span&gt; &lt;span class="nb"&gt;all&lt;/span&gt; &lt;span class="n"&gt;unique&lt;/span&gt;
-&lt;span class="n"&gt;SELECT&lt;/span&gt; &lt;span class="n"&gt;distinct&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
-
-&lt;span class="o"&gt;--&lt;/span&gt; &lt;span class="n"&gt;From&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;criminals&lt;/span&gt; &lt;span class="n"&gt;table&lt;/span&gt;
-&lt;span class="n"&gt;FROM&lt;/span&gt; &lt;span class="n"&gt;criminals&lt;/span&gt;
-
-&lt;span class="o"&gt;--&lt;/span&gt; &lt;span class="n"&gt;Where&lt;/span&gt; &lt;span class="n"&gt;age&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="n"&gt;greater&lt;/span&gt; &lt;span class="n"&gt;than&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;city&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="n"&gt;San&lt;/span&gt; &lt;span class="n"&gt;Francisco&lt;/span&gt;
-&lt;span class="n"&gt;WHERE&lt;/span&gt; &lt;span class="n"&gt;age&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt; &lt;span class="n"&gt;OR&lt;/span&gt; &lt;span class="n"&gt;city&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;San Francisco&amp;#39;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;table&gt;
-    &lt;tr&gt;
-        &lt;th&gt;pid&lt;/th&gt;
-        &lt;th&gt;name&lt;/th&gt;
-        &lt;th&gt;age&lt;/th&gt;
-        &lt;th&gt;sex&lt;/th&gt;
-        &lt;th&gt;city&lt;/th&gt;
-        &lt;th&gt;minor&lt;/th&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;901&lt;/td&gt;
-        &lt;td&gt;Gordon Ado&lt;/td&gt;
-        &lt;td&gt;32&lt;/td&gt;
-        &lt;td&gt;F&lt;/td&gt;
-        &lt;td&gt;San Francisco&lt;/td&gt;
-        &lt;td&gt;0&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;512&lt;/td&gt;
-        &lt;td&gt;Bill Byson&lt;/td&gt;
-        &lt;td&gt;21&lt;/td&gt;
-        &lt;td&gt;M&lt;/td&gt;
-        &lt;td&gt;Petaluma&lt;/td&gt;
-        &lt;td&gt;0&lt;/td&gt;
-    &lt;/tr&gt;
-&lt;/table&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Mon, 16 Jan 2017 12:00:00 -0800</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2017-01-16:sql/multiple_conditional_statements.html</guid><category>Basics</category></item></channel></rss>
+&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Mon, 16 Jan 2017 12:00:00 -0800</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2017-01-16:machine-learning/make_simulated_data_for_regression.html</guid><category>Basics</category></item></channel></rss>

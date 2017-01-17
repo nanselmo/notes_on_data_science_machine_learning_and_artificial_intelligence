@@ -5,7 +5,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://chrisalbon.com/</loc>
-<lastmod>2017-01-16T14:58:15-00:00</lastmod>
+<lastmod>2017-01-17T16:44:50-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -20,6 +20,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://chrisalbon.com/pages/test.html</loc>
 <lastmod>2016-05-01T12:00:00-07:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://chrisalbon.com/sql/create_a_table.html</loc>
+<lastmod>2017-01-17T12:00:00-08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -473,6 +480,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>http://chrisalbon.com/sql/add_a_column.html</loc>
+<lastmod>2016-05-01T12:00:00-07:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>http://chrisalbon.com/r-stats/aggregate-by-week-or-month.html</loc>
 <lastmod>2016-05-01T12:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
@@ -551,6 +565,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://chrisalbon.com/python/assignment_operators.html</loc>
+<lastmod>2016-05-01T12:00:00-07:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://chrisalbon.com/sql/automatically_add_keys_to_rows.html</loc>
 <lastmod>2016-05-01T12:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
@@ -802,6 +823,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>http://chrisalbon.com/sql/copy_data_between_tables.html</loc>
+<lastmod>2016-05-01T12:00:00-07:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>http://chrisalbon.com/r-stats/count-number-elements.html</loc>
 <lastmod>2016-05-01T12:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
@@ -816,7 +844,21 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>http://chrisalbon.com/sql/create_index_for_a_table.html</loc>
+<lastmod>2016-05-01T12:00:00-07:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>http://chrisalbon.com/python/create_list_from_dictionary_keys_and_values.html</loc>
+<lastmod>2016-05-01T12:00:00-07:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://chrisalbon.com/sql/create_rules_constraining_data.html</loc>
 <lastmod>2016-05-01T12:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
@@ -900,6 +942,20 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>http://chrisalbon.com/sql/delete_a_table.html</loc>
+<lastmod>2016-05-01T12:00:00-07:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://chrisalbon.com/sql/delete_contents_of_table.html</loc>
+<lastmod>2016-05-01T12:00:00-07:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>http://chrisalbon.com/frequentist-statistics/demonstrate_the_central_limit_theorem.html</loc>
 <lastmod>2016-05-01T12:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
@@ -943,6 +999,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://chrisalbon.com/r-stats/drop-residual-factors.html</loc>
+<lastmod>2016-05-01T12:00:00-07:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://chrisalbon.com/sql/drop_a_column.html</loc>
 <lastmod>2016-05-01T12:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
