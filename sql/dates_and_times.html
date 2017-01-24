@@ -10,7 +10,7 @@
     <meta name="author" content="Chris Albon">
     <link rel="icon" href="../favicon.ico">
 
-    <title>Selecting Items In A List With Filters - Python</title>
+    <title>Dates And Times - SQL</title>
 
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -34,7 +34,7 @@
     <![endif]-->
      <link href="http://chrisalbon.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Chris Albon - Data Science, Machine Learning, and Artificial Intelligence Full RSS Feed" />        
 
-    <meta name="tags" content="Data Wrangling" />
+    <meta name="tags" content="Basics" />
 
 
 </head>
@@ -129,7 +129,7 @@
 <section id="content" class="body">
     <header>
     <h1>
-      Selecting Items In A List With Filters
+      Dates And Times
     </h1>
 <ol class="breadcrumb">
     <li>
@@ -137,75 +137,104 @@
             01 May 2016
         </time>
     </li>
-    <li>Python</li>
-    <li>Data Wrangling</li>
+    <li>SQL</li>
+    <li>Basics</li>
 </ol>
 </header>
 <div class='article_content'>
-<div class="codehilite"><pre><span></span><span class="c1"># Create an list of items denoting the number of soldiers in each regiment, view the list</span>
-<span class="n">regimentSize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5345</span><span class="p">,</span> <span class="mi">6436</span><span class="p">,</span> <span class="mi">3453</span><span class="p">,</span> <span class="mi">2352</span><span class="p">,</span> <span class="mi">5212</span><span class="p">,</span> <span class="mi">6232</span><span class="p">,</span> <span class="mi">2124</span><span class="p">,</span> <span class="mi">3425</span><span class="p">,</span> <span class="mi">1200</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">1211</span><span class="p">);</span> <span class="n">regimentSize</span>
+<p>Note: This tutorial was written using <a href="https://github.com/catherinedevlin/ipython-sql">Catherine Devlin's SQL in Jupyter Notebooks library</a>. If you have not using a Jupyter Notebook, you can ignore the two lines of code below and any line containing <code>%%sql</code>. Furthermore, This tutorial uses SQLite's flavor of SQL, your version might have some differences in syntax.</p>
+<p>For more, check out <a href="http://amzn.to/2jRriHj">Learning SQL</a> by Alan Beaulieu.</p>
+<div class="codehilite"><pre><span></span><span class="c1"># Ignore</span>
+<span class="o">%</span><span class="n">load_ext</span> <span class="n">sql</span>
+<span class="o">%</span><span class="n">sql</span> <span class="n">sqlite</span><span class="p">:</span><span class="o">//</span>
+<span class="o">%</span><span class="n">config</span> <span class="n">SqlMagic</span><span class="o">.</span><span class="n">feedback</span> <span class="o">=</span> <span class="bp">False</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>(5345, 6436, 3453, 2352, 5212, 6232, 2124, 3425, 1200, 1000, 1211)
+<h2>Get Current Date</h2>
+<div class="codehilite"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="o">--</span> <span class="n">Select</span> <span class="n">the</span> <span class="n">current</span> <span class="n">date</span>
+<span class="n">SELECT</span> <span class="n">date</span><span class="p">(</span><span class="s1">&#39;now&#39;</span><span class="p">);</span>
 </pre></div>
 
 
-<h2>One-line Method</h2>
-<p>This line of code does the same thing as the multiline method below, it is just more compact (but also more complicated to understand.</p>
-<div class="codehilite"><pre><span></span><span class="c1"># Create a list called smallRegiments that filters regimentSize to</span>
-<span class="c1"># find all items that fulfill the lambda function (which looks for all items under 2500).</span>
-<span class="n">smallRegiments</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">((</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">2500</span><span class="p">),</span> <span class="n">regimentSize</span><span class="p">));</span> <span class="n">smallRegiments</span>
+<table>
+    <tr>
+        <th>date(&#x27;now&#x27;)</th>
+    </tr>
+    <tr>
+        <td>2017-01-19</td>
+    </tr>
+</table>
+
+<h2>Get Current Date And Time</h2>
+<div class="codehilite"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="o">--</span> <span class="n">Select</span> <span class="n">the</span> <span class="n">unix</span> <span class="n">time</span> <span class="n">code</span> <span class="s1">&#39;1200762133&#39;</span>
+<span class="n">SELECT</span> <span class="n">datetime</span><span class="p">(</span><span class="s1">&#39;now&#39;</span><span class="p">,</span> <span class="s1">&#39;unixepoch&#39;</span><span class="p">);</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>[2352, 2124, 1200, 1000, 1211]
+<table>
+    <tr>
+        <th>datetime(&#x27;now&#x27;, &#x27;unixepoch&#x27;)</th>
+    </tr>
+    <tr>
+        <td>1970-01-29 10:42:53</td>
+    </tr>
+</table>
+
+<h2>Compute A UNIX timestamp into a date and time</h2>
+<div class="codehilite"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="o">--</span> <span class="n">Select</span> <span class="n">the</span> <span class="n">unix</span> <span class="n">time</span> <span class="n">code</span> <span class="s1">&#39;1169229733&#39;</span>
+<span class="n">SELECT</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">1169229733</span><span class="p">,</span> <span class="s1">&#39;unixepoch&#39;</span><span class="p">);</span>
 </pre></div>
 
 
-<h2>Multi-line Method</h2>
-<p>The ease with interpreting what is happening, I've broken down the one-line filter method into multiple steps, one per line of code. This appears below.</p>
-<div class="codehilite"><pre><span></span><span class="c1"># Create a lambda function that looks for things under 2500</span>
-<span class="n">lessThan2500Filter</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">2500</span>
+<table>
+    <tr>
+        <th>datetime(1169229733, &#x27;unixepoch&#x27;)</th>
+    </tr>
+    <tr>
+        <td>2007-01-19 18:02:13</td>
+    </tr>
+</table>
+
+<h2>Compute A UNIX timestamp into a date and time and convert to the local timezone.</h2>
+<div class="codehilite"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="o">--</span> <span class="n">Select</span> <span class="n">the</span> <span class="n">unix</span> <span class="n">time</span> <span class="n">code</span> <span class="s1">&#39;1171904533&#39;</span> <span class="ow">and</span> <span class="n">convert</span> <span class="n">to</span> <span class="n">the</span> <span class="n">machine</span><span class="s1">&#39;s local timezone</span>
+<span class="n">SELECT</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">1171904533</span><span class="p">,</span> <span class="s1">&#39;unixepoch&#39;</span><span class="p">,</span> <span class="s1">&#39;localtime&#39;</span><span class="p">);</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="c1"># Filter regimentSize by the lambda function filter</span>
-<span class="n">filteredRegiments</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="n">lessThan2500Filter</span><span class="p">,</span> <span class="n">regimentSize</span><span class="p">)</span>
+<table>
+    <tr>
+        <th>datetime(1171904533, &#x27;unixepoch&#x27;, &#x27;localtime&#x27;)</th>
+    </tr>
+    <tr>
+        <td>2007-02-19 10:02:13</td>
+    </tr>
+</table>
+
+<h2>Compute The Day Of The Week</h2>
+<div class="codehilite"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="o">--</span> <span class="n">Select</span> <span class="n">the</span> <span class="n">the</span> <span class="n">day</span> <span class="n">of</span> <span class="n">this</span> <span class="n">week</span> <span class="p">(</span><span class="mi">0</span> <span class="o">=</span> <span class="n">Sunday</span><span class="p">,</span> <span class="mi">4</span> <span class="o">=</span> <span class="n">Thursday</span><span class="p">)</span>
+<span class="n">SELECT</span> <span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%w&#39;</span><span class="p">,</span><span class="s1">&#39;now&#39;</span><span class="p">);</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="c1"># Convert the filter results into a list</span>
-<span class="n">smallRegiments</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">filteredRegiments</span><span class="p">)</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span>[2352, 2124, 1200, 1000, 1211]
-</pre></div>
-
-
-<h2>For Loop Equivalent</h2>
-<p>This for loop does the same as both methods above, except it uses a for loop.</p>
-<h3>Create a for loop that go through each item of a list and finds items under 2500</h3>
-<div class="codehilite"><pre><span></span><span class="c1"># Create a variable for the results of the loop to be placed</span>
-<span class="n">smallRegiments_2</span> <span class="o">=</span> <span class="p">[]</span>
-
-<span class="c1"># for each item in regimentSize,</span>
-<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">regimentSize</span><span class="p">:</span>
-    <span class="c1"># look if the item&#39;s value is less than 2500</span>
-    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">2500</span><span class="p">:</span>
-        <span class="c1"># if true, add that item to smallRegiments_2</span>
-        <span class="n">smallRegiments_2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span><span class="c1"># View the smallRegiment_2 variable</span>
-<span class="n">smallRegiments_2</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span>[2352, 2124, 1200, 1000, 1211]
-</pre></div>
+<table>
+    <tr>
+        <th>strftime(&#x27;%w&#x27;,&#x27;now&#x27;)</th>
+    </tr>
+    <tr>
+        <td>4</td>
+    </tr>
+</table>
 </div>
     <aside>
     <div class="bug-reporting__panel">
