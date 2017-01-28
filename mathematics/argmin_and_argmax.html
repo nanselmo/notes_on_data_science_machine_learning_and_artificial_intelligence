@@ -10,7 +10,7 @@
     <meta name="author" content="Chris Albon">
     <link rel="icon" href="../favicon.ico">
 
-    <title>Check To See If A Variable Exists - R Stats</title>
+    <title>argmin and argmax - Mathematics</title>
 
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -129,45 +129,80 @@
 <section id="content" class="body">
     <header>
     <h1>
-      Check To See If A Variable Exists
+      argmin and argmax
     </h1>
 <ol class="breadcrumb">
     <li>
-        <time class="published" datetime="2016-05-01T12:00:00-07:00">
-            01 May 2016
+        <time class="published" datetime="2016-01-23T12:00:00-08:00">
+            23 January 2016
         </time>
     </li>
-    <li>R Stats</li>
+    <li>Mathematics</li>
     <li>Basics</li>
 </ol>
 </header>
 <div class='article_content'>
-<p>original source: http://www.r-bloggers.com/check-if-a-variable-exists-in-r/</p>
-<div class="codehilite"><pre><span></span><span class="c1"># create a dataframe with simulated values</span>
-x <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">1000</span><span class="p">)</span>
-y <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">1000</span><span class="p">)</span>
-z <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">1000</span><span class="p">)</span>
-a <span class="o">&lt;-</span> runif<span class="p">(</span><span class="m">1000</span><span class="p">)</span>
-data <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>x<span class="p">,</span> y<span class="p">,</span> z<span class="p">,</span> a<span class="p">)</span>
-<span class="kp">rm</span><span class="p">(</span>x<span class="p">,</span> y<span class="p">,</span> z<span class="p">,</span> a<span class="p">)</span>
+<p><code>argmin</code> and <code>argmax</code> are the inputs, <code>x</code>'s, to a function, <code>f</code>, that creates the smallest and largest outputs, <code>f(x)</code>.</p>
+<h2>Preliminaries</h2>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="c1"># does a variable called &quot;x&quot; exists in the object &quot;data&quot;?</span>
-<span class="s">&quot;x&quot;</span> <span class="o">%in%</span> <span class="kp">names</span><span class="p">(</span>data<span class="p">)</span>
+<h2>Define A Function, f(x)</h2>
+<div class="codehilite"><pre><span></span><span class="c1"># Define a function that,</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="c1"># Outputs x multiplied by a random number drawn from a normal distribution</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>[1] TRUE
+<h2>Create Some Values Of x</h2>
+<div class="codehilite"><pre><span></span><span class="c1"># Create some values of x</span>
+<span class="n">xs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="c1"># does a column called &quot;x&quot; exists in the object &quot;data&quot;?</span>
-<span class="s">&quot;x&quot;</span> <span class="o">%in%</span> <span class="kp">colnames</span><span class="p">(</span>data<span class="p">)</span>
+<h2>Find The Argmin Of f(x)</h2>
+<div class="codehilite"><pre><span></span><span class="c1">#Define argmin that</span>
+<span class="k">def</span> <span class="nf">argmin</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">xs</span><span class="p">):</span>
+    <span class="c1"># Applies f on all the x&#39;s</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xs</span><span class="p">]</span>
+
+    <span class="c1"># Finds index of the smallest output of f(x)</span>
+    <span class="n">index_of_min</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+
+    <span class="c1"># Returns the x that produced that output</span>
+    <span class="k">return</span> <span class="n">xs</span><span class="p">[</span><span class="n">index_of_min</span><span class="p">]</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>[1] TRUE
+<div class="codehilite"><pre><span></span><span class="c1"># Run the argmin function</span>
+<span class="n">argmin</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">xs</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>6
+</pre></div>
+
+
+<h2>Check Our Results</h2>
+<div class="codehilite"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;|&#39;</span><span class="p">,</span> <span class="s1">&#39;f(x)&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;--------------&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xs</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="s1">&#39;|&#39;</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>x | f(x)
+--------------
+1 | 1.74481176422
+2 | -1.52241380179
+3 | 0.957117288171
+4 | -0.99748150191
+5 | 7.31053968522
+6 | -12.360844257
 </pre></div>
 </div>
     <aside>
