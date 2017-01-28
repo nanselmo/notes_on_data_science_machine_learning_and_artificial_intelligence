@@ -5,7 +5,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://chrisalbon.com/</loc>
-<lastmod>2017-01-28T12:13:04-00:00</lastmod>
+<lastmod>2017-01-28T15:31:58-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -494,7 +494,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://chrisalbon.com/articles/aisle_seat_probabilities.html</loc>
+<loc>http://chrisalbon.com/blog/aisle_seat_probabilities.html</loc>
 <lastmod>2016-05-01T12:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
@@ -900,7 +900,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://chrisalbon.com/articles/data_science_reading_list.html</loc>
+<loc>http://chrisalbon.com/blog/data_science_reading_list.html</loc>
 <lastmod>2016-05-01T12:00:00-07:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
@@ -2734,7 +2734,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://chrisalbon.com/articles/what-i-learned-tracking-my-time-at-techstars.html</loc>
+<loc>http://chrisalbon.com/blog/what-i-learned-tracking-my-time-at-techstars.html</loc>
 <lastmod>2016-02-01T22:28:00-08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
