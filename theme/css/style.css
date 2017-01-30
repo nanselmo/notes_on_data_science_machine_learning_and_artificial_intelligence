@@ -1,3 +1,4 @@
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -177,10 +178,10 @@ body > .container {
 }
 
 pre {
-    background-color: #fff;
+    background-color: #f2f2f2;
     border: 0px solid #DEDEDE;
     border-radius: 0px;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .panel {
