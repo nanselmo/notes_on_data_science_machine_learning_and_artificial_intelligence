@@ -6,6 +6,8 @@ Category: Python
 Tags: Data Wrangling  
 Authors: Chris Albon  
 
+Want to learn more? Try Wes McKinney's [Python for Data Analysis](http://amzn.to/2kVAU44).
+
 ### import modules
 
 

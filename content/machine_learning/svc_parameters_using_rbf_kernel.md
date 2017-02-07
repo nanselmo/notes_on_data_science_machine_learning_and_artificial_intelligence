@@ -6,7 +6,7 @@ Category: Machine Learning
 Tags: Basics  
 Authors: Chris Albon  
 
-In this tutorial we will visually explore the effects of the two parameters from the support vector classifier (SVC) when using the radial basis function kernel (RBF). This tutorial draws heavily on the code used in Sebastian Raschka's book [Python Machine Learning](https://www.amazon.com/Python-Machine-Learning-Sebastian-Raschka/dp/1783555130/).
+In this tutorial we will visually explore the effects of the two parameters from the support vector classifier (SVC) when using the radial basis function kernel (RBF). This tutorial draws heavily on the code used in Sebastian Raschka's book [Python Machine Learning](http://amzn.to/2iyMbpA).
 
 ## Preliminaries
 

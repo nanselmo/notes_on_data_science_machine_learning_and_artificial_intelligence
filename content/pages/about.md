@@ -7,13 +7,11 @@ Authors: Chris Albon
 
 <img src="{filename}/images/chris_albon_banner.jpg"></img>
 
-I am a data scientist, and the co-founder and Chief Science Officer at [Popily](http://www.popily.com). I am also the co-host of the data science podcast, [Partially Derivative](http://www.partiallyderivative.com). Previously, I led [Ushahidi's](http://www.ushahidi.com) work on crisis and humanitarian data and launched [CrisisNET](http://crisis.net). Prior to Ushahidi, I was Director of the Governance Project at [FrontlineSMS](http://www.frontlinesms.com). I earned a Ph.D. in Political Science from the University of California, Davis researching the quantitative impact of civil wars on health care systems.
+I am a data scientist. I founded the TechStars company [New Knowledge](http://www.newknowledge.io) and am also the co-host of the data science podcast, [Partially Derivative](http://www.partiallyderivative.com). Previously, I led [Ushahidi's](http://www.ushahidi.com) work on crisis and humanitarian data and launched [CrisisNET](http://crisis.net). Prior to Ushahidi, I was Director of the Governance Project at [FrontlineSMS](http://www.frontlinesms.com). I earned a Ph.D. in Political Science from the University of California, Davis researching the quantitative impact of civil wars on health care systems.
 
 In 2008, I founded [Conflict Health](http://www.chrisalbon.com/conflict-health/), a blog on the defense of health and health workers in armed conflict and political violence. I also wrote for the [Daily Dot](http://dailydot.com), [United States Naval Institute Blog](http://blog.usni.org), TheAtlantic.com, ForeignPolicy.com, [UN Dispatch](http://undispatch.com), and elsewhere.
 
 I earned a B.A. from the University of Miami, where I triple majored in political science, international studies, and religious studies.
-
-I code in [R](http://r-project.org) and [Python](http://www.python.org/), and write in [Markdown](http://daringfireball.net/projects/markdown/).
 
 -   Email: &#099;&#114;&#097;&#108;&#098;&#111;&#110;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;
 -   Twitter: [@chrisalbon](https://twitter.com/chrisalbon)
@@ -32,7 +30,7 @@ I code in [R](http://r-project.org) and [Python](http://www.python.org/), and wr
 
 ### Experience
 
--   **Co-founder & Chief Science Officer**, [Popily](http://www.popily.com), 2015 - Present
+-   **Co-founder & Chief Science Officer**, [New Knowledge](http://www.newknowledge.io), 2015 - Present
     -   In charge of everything data science and product.
 -   **Co-founder & Co-host**, [Partially Derivative](http://www.partiallyderivative.com), 2014 - Present
     -   Co-founded a podcast on data and data science.

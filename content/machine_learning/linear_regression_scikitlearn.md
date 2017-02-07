@@ -8,7 +8,7 @@ Authors: Chris Albon
 
 Sources: [scikit-learn](http://scikit-learn.org/stable/auto_examples/linear_model/plot_ols.html#example-linear-model-plot-ols-py), [DrawMyData](http://robertgrantstats.co.uk/drawmydata.html).
 
-The purpose of this tutorial is to give a brief introduction into the logic of statistical model building used in machine learning. If you want to read more about the theory behind this tutorial, check out [An Introduction To Statistical Learning](https://www.amazon.com/Introduction-Statistical-Learning-Applications-Statistics/dp/1461471370).
+The purpose of this tutorial is to give a brief introduction into the logic of statistical model building used in machine learning. If you want to read more about the theory behind this tutorial, check out [An Introduction To Statistical Learning](http://amzn.to/2izeMLi).
 
 Let us get started.
 

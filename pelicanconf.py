@@ -3,7 +3,7 @@
 from __future__ import unicode_literals
 
 AUTHOR = 'Chris Albon'
-SITENAME = 'Chris Albon'
+SITENAME = 'Chris Albon - Data Science, Machine Learning, and Artificial Intelligence'
 SITEURL = 'http://chrisalbon.com'
 THEME = 'theme/'
 
@@ -21,6 +21,7 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 FEED_ALL_RSS = 'feeds/all.rss.xml'
+CATEGORY_FEED_RSS = 'feeds/%s.rss.xml'
 
 DEFAULT_PAGINATION = False
 
