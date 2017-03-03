@@ -144,6 +144,7 @@
 <ul>
 <li><strong>Note:</strong> Based on: <a href="http://nbviewer.ipython.org/github/rasbt/matplotlib-gallery/blob/master/ipynb/barplots.ipynb">Sebastian Raschka</a>.</li>
 </ul>
+<p>Want to learn more? I recommend these Python books: <a href="http://amzn.to/2ljV9wY">Python for Data Analysis</a>, <a href="http://amzn.to/2m0mgMB">Python Data Science Handbook</a>, and <a href="http://amzn.to/2mjYiwK">Introduction to Machine Learning with Python</a>.</p>
 <h2>Preliminaries</h2>
 <div class="codehilite"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
@@ -221,51 +222,51 @@
 <span class="n">bar_width</span> <span class="o">=</span> <span class="mf">0.75</span>
 
 <span class="c1"># positions of the left bar-boundaries</span>
-<span class="n">bar_l</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;pre_score&#39;</span><span class="p">]))]</span> 
+<span class="n">bar_l</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;pre_score&#39;</span><span class="p">]))]</span>
 
 <span class="c1"># positions of the x-axis ticks (center of the bars as bar labels)</span>
-<span class="n">tick_pos</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="p">(</span><span class="n">bar_width</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">bar_l</span><span class="p">]</span> 
+<span class="n">tick_pos</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="p">(</span><span class="n">bar_width</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">bar_l</span><span class="p">]</span>
 
 <span class="c1"># Create a bar plot, in position bar_1</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">bar_l</span><span class="p">,</span> 
+<span class="n">ax1</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">bar_l</span><span class="p">,</span>
         <span class="c1"># using the pre_score data</span>
-        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;pre_score&#39;</span><span class="p">],</span> 
+        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;pre_score&#39;</span><span class="p">],</span>
         <span class="c1"># set the width</span>
         <span class="n">width</span><span class="o">=</span><span class="n">bar_width</span><span class="p">,</span>
         <span class="c1"># with the label pre score</span>
-        <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Pre Score&#39;</span><span class="p">,</span> 
+        <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Pre Score&#39;</span><span class="p">,</span>
         <span class="c1"># with alpha 0.5</span>
-        <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> 
+        <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
         <span class="c1"># with color</span>
         <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#F4561D&#39;</span><span class="p">)</span>
 
 <span class="c1"># Create a bar plot, in position bar_1</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">bar_l</span><span class="p">,</span> 
+<span class="n">ax1</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">bar_l</span><span class="p">,</span>
         <span class="c1"># using the mid_score data</span>
-        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;mid_score&#39;</span><span class="p">],</span> 
+        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;mid_score&#39;</span><span class="p">],</span>
         <span class="c1"># set the width</span>
         <span class="n">width</span><span class="o">=</span><span class="n">bar_width</span><span class="p">,</span>
         <span class="c1"># with pre_score on the bottom</span>
-        <span class="n">bottom</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;pre_score&#39;</span><span class="p">],</span> 
+        <span class="n">bottom</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;pre_score&#39;</span><span class="p">],</span>
         <span class="c1"># with the label mid score</span>
-        <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Mid Score&#39;</span><span class="p">,</span> 
+        <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Mid Score&#39;</span><span class="p">,</span>
         <span class="c1"># with alpha 0.5</span>
-        <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> 
+        <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
         <span class="c1"># with color</span>
         <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#F1911E&#39;</span><span class="p">)</span>
 
 <span class="c1"># Create a bar plot, in position bar_1</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">bar_l</span><span class="p">,</span> 
+<span class="n">ax1</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">bar_l</span><span class="p">,</span>
         <span class="c1"># using the post_score data</span>
-        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;post_score&#39;</span><span class="p">],</span> 
+        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;post_score&#39;</span><span class="p">],</span>
         <span class="c1"># set the width</span>
         <span class="n">width</span><span class="o">=</span><span class="n">bar_width</span><span class="p">,</span>
         <span class="c1"># with pre_score and mid_score on the bottom</span>
-        <span class="n">bottom</span><span class="o">=</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">j</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;pre_score&#39;</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;mid_score&#39;</span><span class="p">])],</span> 
+        <span class="n">bottom</span><span class="o">=</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">j</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;pre_score&#39;</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;mid_score&#39;</span><span class="p">])],</span>
         <span class="c1"># with the label post score</span>
-        <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Post Score&#39;</span><span class="p">,</span> 
+        <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Post Score&#39;</span><span class="p">,</span>
         <span class="c1"># with alpha 0.5</span>
-        <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> 
+        <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
         <span class="c1"># with color</span>
         <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#F1BD1A&#39;</span><span class="p">)</span>
 

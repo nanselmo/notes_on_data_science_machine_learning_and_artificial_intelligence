@@ -142,6 +142,7 @@
 </header>
 <div class='article_content'>
 <p><strong>Note:</strong> Based on: <a href="http://nbviewer.ipython.org/github/rasbt/matplotlib-gallery/blob/master/ipynb/barplots.ipynb">Sebastian Raschka</a>.</p>
+<p>Want to learn more? I recommend these Python books: <a href="http://amzn.to/2ljV9wY">Python for Data Analysis</a>, <a href="http://amzn.to/2m0mgMB">Python Data Science Handbook</a>, and <a href="http://amzn.to/2mjYiwK">Introduction to Machine Learning with Python</a>.</p>
 <h2>Preliminaries</h2>
 <div class="codehilite"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
@@ -350,16 +351,16 @@
 <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">data1</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">data2</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="mi">2000</span><span class="p">)</span> <span class="c1"># fixed bin size</span>
 
 <span class="c1"># Plot a histogram of attacker size</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data1</span><span class="p">,</span> 
-         <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> 
-         <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data1</span><span class="p">,</span>
+         <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span>
+         <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
          <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#EDD834&#39;</span><span class="p">,</span>
          <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Attacker&#39;</span><span class="p">)</span>
 
 <span class="c1"># Plot a histogram of defender size</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data2</span><span class="p">,</span> 
-         <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> 
-         <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data2</span><span class="p">,</span>
+         <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span>
+         <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
          <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#887E43&#39;</span><span class="p">,</span>
          <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Defender&#39;</span><span class="p">)</span>
 
@@ -383,31 +384,31 @@
 <span class="n">data1</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;attacker_size&#39;</span><span class="p">][</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;attacker_size&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">90000</span><span class="p">]</span>
 <span class="n">data2</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;defender_size&#39;</span><span class="p">][</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;attacker_size&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">90000</span><span class="p">]</span>
 
-<span class="c1"># Create 10 bins with the minimum </span>
-<span class="c1"># being the smallest value of data1 and data2 </span>
-<span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">data1</span> <span class="o">+</span> <span class="n">data2</span><span class="p">),</span> 
+<span class="c1"># Create 10 bins with the minimum</span>
+<span class="c1"># being the smallest value of data1 and data2</span>
+<span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">data1</span> <span class="o">+</span> <span class="n">data2</span><span class="p">),</span>
                    <span class="c1"># the max being the highest value</span>
                    <span class="nb">max</span><span class="p">(</span><span class="n">data1</span> <span class="o">+</span> <span class="n">data2</span><span class="p">),</span>
                    <span class="c1"># and divided into 10 bins</span>
                    <span class="mi">10</span><span class="p">)</span>
 
 <span class="c1"># Plot a histogram of attacker size</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data1</span><span class="p">,</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data1</span><span class="p">,</span>
          <span class="c1"># with bins defined as</span>
-         <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> 
+         <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span>
          <span class="c1"># with alpha</span>
-         <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> 
+         <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
          <span class="c1"># with color</span>
          <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#EDD834&#39;</span><span class="p">,</span>
          <span class="c1"># labelled attacker</span>
          <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Attacker&#39;</span><span class="p">)</span>
 
 <span class="c1"># Plot a histogram of defender size</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data2</span><span class="p">,</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data2</span><span class="p">,</span>
          <span class="c1"># with bins defined as</span>
-         <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> 
+         <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span>
          <span class="c1"># with alpha</span>
-         <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> 
+         <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
          <span class="c1"># with color</span>
          <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#887E43&#39;</span><span class="p">,</span>
          <span class="c1"># labeled defender</span>

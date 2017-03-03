@@ -143,6 +143,7 @@
 <div class='article_content'>
 <p>Geocoding (converting a phyiscal address or location into latitude/longitude) and reverse geocoding (converting a lat/long to a phyiscal address or location) are common tasks when working with geo-data.</p>
 <p>Python offers a number of packages to make the task incredibly easy. In the tutorial below, I use pygeocoder, a wrapper for Google's geo-API, to both geocode and reverse geocode.</p>
+<p>Want to learn more? I recommend these Python books: <a href="http://amzn.to/2ljV9wY">Python for Data Analysis</a>, <a href="http://amzn.to/2m0mgMB">Python Data Science Handbook</a>, and <a href="http://amzn.to/2mjYiwK">Introduction to Machine Learning with Python</a>.</p>
 <h2>Preliminaries</h2>
 <p>First we want to load the packages we will want to use in the script. Specifically, I am loading pygeocoder for its geo-functionality, pandas for it's dataframe structures, and numpy for it's missing value (np.nan) functionality.</p>
 <div class="codehilite"><pre><span></span><span class="c1"># Load packages</span>
@@ -288,7 +289,7 @@
 
 <p>Awesome. This is exactly what we want to see, one column of floats for latitude and one column of floats for longitude.</p>
 <h2>Reverse Geocoding</h2>
-<p>To reverse geocode, we feed a specific latitude and longitude pair, in this case the first row (indexed as '0') into pygeocoder's reverse_geocoder function. </p>
+<p>To reverse geocode, we feed a specific latitude and longitude pair, in this case the first row (indexed as '0') into pygeocoder's reverse_geocoder function.</p>
 <div class="codehilite"><pre><span></span><span class="c1"># Convert longitude and latitude to a location</span>
 <span class="n">results</span> <span class="o">=</span> <span class="n">Geocoder</span><span class="o">.</span><span class="n">reverse_geocode</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;latitude&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;longitude&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
@@ -357,7 +358,7 @@
 </pre></div>
 
 
-<p>But even more interesting, once the address is processed by the Google geo API, we can parse it and easily seperate street numbers, street names, etc. </p>
+<p>But even more interesting, once the address is processed by the Google geo API, we can parse it and easily seperate street numbers, street names, etc.</p>
 <div class="codehilite"><pre><span></span><span class="c1"># Find the lat/long of a certain address</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">Geocoder</span><span class="o">.</span><span class="n">geocode</span><span class="p">(</span><span class="s2">&quot;7250 South Tucson Boulevard, Tucson, AZ 85756&quot;</span><span class="p">)</span>
 </pre></div>

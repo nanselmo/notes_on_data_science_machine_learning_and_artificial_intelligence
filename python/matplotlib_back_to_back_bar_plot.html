@@ -141,6 +141,7 @@
 </ol>
 </header>
 <div class='article_content'>
+<p>Want to learn more? I recommend these Python books: <a href="http://amzn.to/2ljV9wY">Python for Data Analysis</a>, <a href="http://amzn.to/2m0mgMB">Python Data Science Handbook</a>, and <a href="http://amzn.to/2mjYiwK">Introduction to Machine Learning with Python</a>.</p>
 <p><strong>Note:</strong> Based on: <a href="http://nbviewer.ipython.org/github/rasbt/matplotlib-gallery/blob/master/ipynb/barplots.ipynb">Sebastian Raschka</a>.</p>
 <h2>Preliminaries</h2>
 <div class="codehilite"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
@@ -212,7 +213,7 @@
 </div>
 
 <h2>Make plot</h2>
-<div class="codehilite"><pre><span></span><span class="c1"># input data, specifically the second and </span>
+<div class="codehilite"><pre><span></span><span class="c1"># input data, specifically the second and</span>
 <span class="c1"># third rows, skipping the first column</span>
 <span class="n">x1</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:]</span>
 <span class="n">x2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">:]</span>
@@ -229,24 +230,24 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">y_pos</span><span class="p">,</span> <span class="n">bar_labels</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 
 <span class="c1"># Create a horizontal bar in the position y_pos</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">y_pos</span><span class="p">,</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">y_pos</span><span class="p">,</span>
          <span class="c1"># using x1 data</span>
-         <span class="n">x1</span><span class="p">,</span> 
+         <span class="n">x1</span><span class="p">,</span>
          <span class="c1"># that is centered</span>
-         <span class="n">align</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> 
+         <span class="n">align</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span>
          <span class="c1"># with alpha 0.4</span>
-         <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> 
+         <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span>
          <span class="c1"># and color green</span>
          <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#263F13&#39;</span><span class="p">)</span>
 
 <span class="c1"># Create a horizontal bar in the position y_pos</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">y_pos</span><span class="p">,</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">y_pos</span><span class="p">,</span>
          <span class="c1"># using NEGATIVE x2 data</span>
          <span class="o">-</span><span class="n">x2</span><span class="p">,</span>
          <span class="c1"># that is centered</span>
-         <span class="n">align</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> 
+         <span class="n">align</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span>
          <span class="c1"># with alpha 0.4</span>
-         <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> 
+         <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span>
          <span class="c1"># and color green</span>
          <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#77A61D&#39;</span><span class="p">)</span>
 

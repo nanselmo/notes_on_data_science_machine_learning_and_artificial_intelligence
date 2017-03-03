@@ -141,10 +141,11 @@
 </ol>
 </header>
 <div class='article_content'>
+<p>Want to learn more? I recommend these Python books: <a href="http://amzn.to/2ljV9wY">Python for Data Analysis</a>, <a href="http://amzn.to/2m0mgMB">Python Data Science Handbook</a>, and <a href="http://amzn.to/2mjYiwK">Introduction to Machine Learning with Python</a>.</p>
 <h2>Create some raw text</h2>
 <div class="codehilite"><pre><span></span><span class="c1"># Create a list of three strings.</span>
-<span class="n">incoming_reports</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;We are attacking on their left flank but are losing many men.&quot;</span><span class="p">,</span> 
-               <span class="s2">&quot;We cannot see the enemy army. Nothing else to report.&quot;</span><span class="p">,</span> 
+<span class="n">incoming_reports</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;We are attacking on their left flank but are losing many men.&quot;</span><span class="p">,</span>
+               <span class="s2">&quot;We cannot see the enemy army. Nothing else to report.&quot;</span><span class="p">,</span>
                <span class="s2">&quot;We are ready to attack but are waiting for your orders.&quot;</span><span class="p">]</span>
 </pre></div>
 
@@ -216,7 +217,7 @@
 <span class="k">for</span> <span class="n">review</span> <span class="ow">in</span> <span class="n">tokenized_reports</span><span class="p">:</span>
 
     <span class="n">new_review</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">review</span><span class="p">:</span> 
+    <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">review</span><span class="p">:</span>
         <span class="n">new_token</span> <span class="o">=</span> <span class="n">regex</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">token</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">new_token</span> <span class="o">==</span> <span class="sa">u</span><span class="s1">&#39;&#39;</span><span class="p">:</span>
             <span class="n">new_review</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_token</span><span class="p">)</span>
