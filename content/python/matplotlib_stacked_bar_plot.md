@@ -10,6 +10,8 @@ Authors: Chris Albon
 
 - **Note:** Based on: [Sebastian Raschka](http://nbviewer.ipython.org/github/rasbt/matplotlib-gallery/blob/master/ipynb/barplots.ipynb).
 
+Want to learn more? I recommend these Python books: [Python for Data Analysis](http://amzn.to/2ljV9wY), [Python Data Science Handbook](http://amzn.to/2m0mgMB), and [Introduction to Machine Learning with Python](http://amzn.to/2mjYiwK).
+
 ## Preliminaries
 
 
@@ -99,51 +101,51 @@ f, ax1 = plt.subplots(1, figsize=(10,5))
 bar_width = 0.75
 
 # positions of the left bar-boundaries
-bar_l = [i+1 for i in range(len(df['pre_score']))] 
+bar_l = [i+1 for i in range(len(df['pre_score']))]
 
 # positions of the x-axis ticks (center of the bars as bar labels)
-tick_pos = [i+(bar_width/2) for i in bar_l] 
+tick_pos = [i+(bar_width/2) for i in bar_l]
 
 # Create a bar plot, in position bar_1
-ax1.bar(bar_l, 
+ax1.bar(bar_l,
         # using the pre_score data
-        df['pre_score'], 
+        df['pre_score'],
         # set the width
         width=bar_width,
         # with the label pre score
-        label='Pre Score', 
+        label='Pre Score',
         # with alpha 0.5
-        alpha=0.5, 
+        alpha=0.5,
         # with color
         color='#F4561D')
 
 # Create a bar plot, in position bar_1
-ax1.bar(bar_l, 
+ax1.bar(bar_l,
         # using the mid_score data
-        df['mid_score'], 
+        df['mid_score'],
         # set the width
         width=bar_width,
         # with pre_score on the bottom
-        bottom=df['pre_score'], 
+        bottom=df['pre_score'],
         # with the label mid score
-        label='Mid Score', 
+        label='Mid Score',
         # with alpha 0.5
-        alpha=0.5, 
+        alpha=0.5,
         # with color
         color='#F1911E')
 
 # Create a bar plot, in position bar_1
-ax1.bar(bar_l, 
+ax1.bar(bar_l,
         # using the post_score data
-        df['post_score'], 
+        df['post_score'],
         # set the width
         width=bar_width,
         # with pre_score and mid_score on the bottom
-        bottom=[i+j for i,j in zip(df['pre_score'],df['mid_score'])], 
+        bottom=[i+j for i,j in zip(df['pre_score'],df['mid_score'])],
         # with the label post score
-        label='Post Score', 
+        label='Post Score',
         # with alpha 0.5
-        alpha=0.5, 
+        alpha=0.5,
         # with color
         color='#F1BD1A')
 
@@ -168,4 +170,3 @@ plt.xlim([min(tick_pos)-bar_width, max(tick_pos)+bar_width])
 
 
 ![png]({filename}/images/matplotlib_stacked_bar_plot/output_6_1.png)
-

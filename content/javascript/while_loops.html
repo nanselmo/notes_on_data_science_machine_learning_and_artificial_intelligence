@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>While Loops</title>
+    <meta name="date" content="2017-02-22 21:01" />
+    <meta name="category" content="Javascript" />
+    <meta name="tags" content="Basics" />
+    <meta name="authors" content="Chris Albon" />
+    <meta name="summary" content="While Loops In Javascript" />
+</head>
+
+<body>
+
+  <div class="codehilite">
+    <pre><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="c1">// You start with 50 bitcoins</span>
+<span class="kd">var</span> <span class="nx">bitcoins</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+
+<span class="c1">// While bitcoins is more than 1 and less than 100</span>
+<span class="k">while</span> <span class="p">(</span><span class="nx">bitcoins</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">bitcoins</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Loop over and over, each time subtracting 1 bitcoin</span>
+    <span class="nx">bitcoins</span> <span class="o">=</span> <span class="nx">bitcoins</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="p">}</span>
+
+<span class="c1">// View the final number of bitcoins</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Number of bitcoins:'</span><span class="p">,</span> <span class="nx">bitcoins</span><span class="p">)</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span></pre>
+  </div>
+
+    <script>
+        // You start with 50 bitcoins
+        var bitcoins = 50;
+
+        // While bitcoins is more than 1 and less than 100
+        while (bitcoins > 0 && bitcoins < 100) {
+            // Loop over and over, each time subtracting 1 bitcoin
+            bitcoins = bitcoins - 1
+        }
+
+        // View the final number of bitcoins
+        console.log('Number of bitcoins:', bitcoins)
+    </script>
+
+</body>
+
+</html>

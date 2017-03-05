@@ -6,7 +6,7 @@ Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon
 
-
+Want to learn more? I recommend these Python books: [Python for Data Analysis](http://amzn.to/2ljV9wY), [Python Data Science Handbook](http://amzn.to/2m0mgMB), and [Introduction to Machine Learning with Python](http://amzn.to/2mjYiwK).
 
 ### import modules
 
@@ -19,9 +19,9 @@ import pandas as pd
 
 
 ```python
-raw_data = {'first_name': ['Jason', 'Molly', 'Tina', 'Jake', 'Amy'], 
-        'last_name': ['Miller', 'Jacobson', 'Ali', 'Milner', 'Cooze'], 
-        'age': [42, 52, 36, 24, 73], 
+raw_data = {'first_name': ['Jason', 'Molly', 'Tina', 'Jake', 'Amy'],
+        'last_name': ['Miller', 'Jacobson', 'Ali', 'Milner', 'Cooze'],
+        'age': [42, 52, 36, 24, 73],
         'city': ['San Francisco', 'Baltimore', 'Miami', 'Douglas', 'Boston']}
 df = pd.DataFrame(raw_data, columns = ['first_name', 'last_name', 'age', 'city'])
 df
@@ -88,10 +88,10 @@ df
 
 
 ```python
-city_to_state = { 'San Francisco' : 'California', 
-                  'Baltimore' : 'Maryland', 
-                  'Miami' : 'Florida', 
-                  'Douglas' : 'Arizona', 
+city_to_state = { 'San Francisco' : 'California',
+                  'Baltimore' : 'Maryland',
+                  'Miami' : 'Florida',
+                  'Douglas' : 'Arizona',
                   'Boston' : 'Massachusetts'}
 ```
 
@@ -163,5 +163,3 @@ df
 </table>
 <p>5 rows × 5 columns</p>
 </div>
-
-

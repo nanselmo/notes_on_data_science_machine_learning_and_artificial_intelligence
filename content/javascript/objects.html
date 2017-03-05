@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Objects</title>
+    <meta name="date" content="2017-02-22 21:01" />
+    <meta name="category" content="Javascript" />
+    <meta name="tags" content="Basics" />
+    <meta name="authors" content="Chris Albon" />
+    <meta name="summary" content="Objects in javascript" />
+</head>
+
+<body>
+
+  <div class="codehilite">
+    <pre><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="c1">// Create an object called army</span>
+    <span class="kd">var</span> <span class="nx">army</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="c1">// With key value pair with a string</span>
+        <span class="nx">name</span><span class="o">:</span> <span class="s1">'5th Army'</span><span class="p">,</span>
+        <span class="c1">// And a nested object</span>
+        <span class="nx">vehicles</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">trucks</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span>
+            <span class="nx">tanks</span><span class="o">:</span> <span class="mi">6</span><span class="p">,</span>
+            <span class="nx">aircraft</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+            <span class="nx">helicpters</span><span class="o">:</span> <span class="mi">12</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">};</span>
+
+    <span class="c1">// View the number of trucks in the army</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Number of trucks:'</span><span class="p">,</span> <span class="nx">army</span><span class="p">.</span><span class="nx">vehicles</span><span class="p">.</span><span class="nx">trucks</span><span class="p">)</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span></pre>
+  </div>
+
+    <script>
+        // Create an object called army
+        var army = {
+            // With key value pair with a string
+            name: '5th Army',
+            // And a nested object
+            vehicles: {
+                trucks: 4,
+                tanks: 6,
+                aircraft: 10,
+                helicpters: 12,
+            },
+        };
+
+        // View the number of trucks in the army
+        console.log('Number of trucks:', army.vehicles.trucks)
+    </script>
+
+</body>
+
+</html>

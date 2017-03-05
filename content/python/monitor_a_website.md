@@ -12,6 +12,8 @@ It should be noted that there are more efficient ways of setting scripts to run 
 
 _Note: I've commented out the last few lines of this tutorial, which attempts to send an email. Before running this code, uncomment those lines_
 
+Want to learn more? I recommend these Python books: [Python for Data Analysis](http://amzn.to/2ljV9wY), [Python Data Science Handbook](http://amzn.to/2m0mgMB), and [Introduction to Machine Learning with Python](http://amzn.to/2mjYiwK).
+
 ## Preliminaries
 
 

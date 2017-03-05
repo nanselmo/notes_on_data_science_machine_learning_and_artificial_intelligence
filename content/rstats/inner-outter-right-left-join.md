@@ -6,7 +6,7 @@ Category: R Stats
 Tags: Basics
 Authors: Chris Albon
 
-
+Want to learn more? I recommend working through: [R for Data Science](http://amzn.to/2myxnhi), [R Cookbook](http://amzn.to/2lF6hkb), and [R Graphics Cookbook](http://amzn.to/2m0fcPL).
 
 Additional explaination: http://www.codinghorror.com/blog/2007/10/a-visual-explanation-of-sql-joins.html
 

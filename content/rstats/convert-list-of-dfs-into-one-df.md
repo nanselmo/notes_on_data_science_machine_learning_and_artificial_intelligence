@@ -11,6 +11,7 @@ original source: http://stackoverflow.com/questions/2851327/converting-a-list-of
 
 Imagine we have two dataframes of numeric data contained within a single list, and  we want to combine that data by stacking them on top of each other as a single dataframe
 
+Want to learn more? I recommend working through: [R for Data Science](http://amzn.to/2myxnhi), [R Cookbook](http://amzn.to/2lF6hkb), and [R Graphics Cookbook](http://amzn.to/2m0fcPL).
 
 ```R
 # create some simulated data

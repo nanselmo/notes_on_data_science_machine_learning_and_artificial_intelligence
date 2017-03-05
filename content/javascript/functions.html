@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Functions</title>
+    <meta name="date" content="2017-02-22 21:01" />
+    <meta name="category" content="Javascript" />
+    <meta name="tags" content="Basics" />
+    <meta name="authors" content="Chris Albon" />
+    <meta name="summary" content="Functions In Javascript" />
+</head>
+
+<body>
+
+  <div class="codehilite">
+    <pre><span></span><span class="p">&lt;</span><span class="nt">p</span> <span class="na">id</span><span class="o">=</span><span class="s">"demo"</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="c1">// Create a function with two parameters, x and y</span>
+    <span class="kd">function</span> <span class="nx">multiply</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Return x multipled to y</span>
+        <span class="k">return</span> <span class="nx">x</span> <span class="o">*</span> <span class="nx">y</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Call the function and insert the output inside the HTML element with ID="demo"</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"demo"</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">multiply</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span></pre>
+  </div>
+
+<p id="demo"></p>
+
+    <script>
+        // Create a function with two parameters, x and y
+        function multiply(x, y) {
+            // Return x multipled to y
+            return x * y;
+        }
+
+        // Call the function and insert the output inside the HTML element with ID="demo"
+        document.getElementById("demo").innerHTML = multiply(4, 3);
+    </script>
+
+</body>
+
+</html>

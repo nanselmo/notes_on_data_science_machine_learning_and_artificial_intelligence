@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>If... Else</title>
+    <meta name="date" content="2017-02-22 21:01" />
+    <meta name="category" content="Javascript" />
+    <meta name="tags" content="Basics" />
+    <meta name="authors" content="Chris Albon" />
+    <meta name="summary" content="If... Else In Javascript" />
+</head>
+
+<body>
+
+  <div class="codehilite">
+    <pre><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="c1">// Create a function that takes a max and min</span>
+<span class="kd">function</span> <span class="nx">randomInteger</span><span class="p">(</span><span class="nx">min</span><span class="p">,</span> <span class="nx">max</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Returns the integer of a random number scaled by max and min, inclusively</span>
+    <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="p">(</span><span class="nx">max</span> <span class="o">-</span> <span class="nx">min</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="nx">min</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">// Create a random integer between 1 and 100</span>
+<span class="kd">var</span> <span class="nx">price</span> <span class="o">=</span> <span class="nx">randomInteger</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="c1">// If price is less than two</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">price</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Set output variable</span>
+    <span class="nx">output</span> <span class="o">=</span> <span class="s2">"Less than 2"</span><span class="p">;</span>
+<span class="c1">// Else, if price is between 2 and 10</span>
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">price</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="o">&amp;&amp;</span> <span class="nx">price</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Set output variable</span>
+    <span class="nx">output</span> <span class="o">=</span> <span class="s2">"Between 2 and 10"</span><span class="p">;</span>
+<span class="c1">// Else, if price is exactly 16</span>
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">price</span> <span class="o">==</span> <span class="mi">16</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Set output variable</span>
+    <span class="nx">output</span> <span class="o">=</span> <span class="s2">"Exactly 16"</span><span class="p">;</span>
+<span class="c1">// Else, if price is either 30 or 31</span>
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">price</span> <span class="o">==</span> <span class="mi">30</span> <span class="o">||</span> <span class="nx">price</span> <span class="o">==</span> <span class="mi">31</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Set output variable</span>
+    <span class="nx">output</span> <span class="o">=</span> <span class="s2">"30 or 31"</span><span class="p">;</span>
+<span class="c1">// Else, if price is less than or equal to 20</span>
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">price</span> <span class="o">&lt;=</span> <span class="mi">20</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Set output variable</span>
+    <span class="nx">output</span> <span class="o">=</span> <span class="s2">"Less than or equal to 20"</span><span class="p">;</span>
+<span class="c1">// Else if price is not equal to 21</span>
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">price</span> <span class="o">!=</span> <span class="mi">21</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Set output variable</span>
+    <span class="nx">output</span> <span class="o">=</span> <span class="s2">"Not equal to 21"</span><span class="p">;</span>
+<span class="c1">// Otherwise</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="c1">// Set output variable</span>
+    <span class="nx">output</span> <span class="o">=</span> <span class="s2">"Some other number"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Output to console</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">output</span> <span class="o">+</span> <span class="s1">':'</span><span class="p">,</span> <span class="nx">price</span><span class="p">)</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span></pre>
+  </div>
+
+    <script>
+        // Create a function that takes a max and min
+        function randomInteger(min, max) {
+            // Returns the integer of a random number scaled by max and min, inclusively
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        };
+
+        // Create a random integer between 1 and 100
+        var price = randomInteger(1, 100)
+
+        // If price is less than two
+        if (price < 2) {
+            // Set output variable
+            output = "Less than 2";
+        // Else, if price is between 2 and 10
+        } else if (price > 2 && price < 10) {
+            // Set output variable
+            output = "Between 2 and 10";
+        // Else, if price is exactly 16
+        } else if (price == 16) {
+            // Set output variable
+            output = "Exactly 16";
+        // Else, if price is either 30 or 31
+        } else if (price == 30 || price == 31) {
+            // Set output variable
+            output = "30 or 31";
+        // Else, if price is less than or equal to 20
+        } else if (price <= 20) {
+            // Set output variable
+            output = "Less than or equal to 20";
+        // Else if price is not equal to 21
+        } else if (price != 21) {
+            // Set output variable
+            output = "Not equal to 21";
+        // Otherwise
+        } else {
+            // Set output variable
+            output = "Some other number";
+        }
+
+        // Output to console
+        console.log(output + ':', price)
+    </script>
+
+</body>
+
+</html>

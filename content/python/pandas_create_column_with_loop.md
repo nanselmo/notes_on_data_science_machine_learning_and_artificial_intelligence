@@ -6,7 +6,7 @@ Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon
 
-
+Want to learn more? I recommend these Python books: [Python for Data Analysis](http://amzn.to/2ljV9wY), [Python Data Science Handbook](http://amzn.to/2m0mgMB), and [Introduction to Machine Learning with Python](http://amzn.to/2mjYiwK).
 
 ## Preliminaries
 
@@ -20,7 +20,7 @@ import numpy as np
 
 
 ```python
-raw_data = {'student_name': ['Miller', 'Jacobson', 'Ali', 'Milner', 'Cooze', 'Jacon', 'Ryaner', 'Sone', 'Sloan', 'Piger', 'Riani', 'Ali'], 
+raw_data = {'student_name': ['Miller', 'Jacobson', 'Ali', 'Milner', 'Cooze', 'Jacon', 'Ryaner', 'Sone', 'Sloan', 'Piger', 'Riani', 'Ali'],
         'test_score': [76, 88, 84, 67, 53, 96, 64, 91, 77, 73, 52, np.NaN]}
 df = pd.DataFrame(raw_data, columns = ['student_name', 'test_score'])
 ```
@@ -70,7 +70,7 @@ for row in df['test_score']:
     else:
         # Append a failing grade
         grades.append('Failed')
-        
+
 # Create a column from the list
 df['grades'] = grades
 ```
@@ -170,5 +170,3 @@ df
   </tbody>
 </table>
 </div>
-
-

@@ -10,6 +10,7 @@ Authors: Chris Albon
 
 All variables have a class. Variables also have modes and storage types, but those are legacy and don't worry about them.
 
+Want to learn more? I recommend working through: [R for Data Science](http://amzn.to/2myxnhi), [R Cookbook](http://amzn.to/2lF6hkb), and [R Graphics Cookbook](http://amzn.to/2m0fcPL).
 
 ```R
 # Find a variable's class

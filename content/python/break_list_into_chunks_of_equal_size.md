@@ -6,10 +6,11 @@ Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon
 
-
 In this snippet we take a list and break it up into n-size chunks. This is a very common practice when dealing with APIs that have a maximum request size.
 
 Credit for this nifty function goes to Ned Batchelder who [posted it on StackOverflow](http://stackoverflow.com/questions/312443/how-do-you-split-a-list-into-evenly-sized-chunks-in-python).
+
+Want to learn more? I recommend these Python books: [Python for Data Analysis](http://amzn.to/2ljV9wY), [Python Data Science Handbook](http://amzn.to/2m0mgMB), and [Introduction to Machine Learning with Python](http://amzn.to/2mjYiwK).
 
 
 ```python

@@ -6,9 +6,7 @@ Category: R Stats
 Tags: Data Wrangling
 Authors: Chris Albon
 
-
-Original source: Learning R
-
+Want to learn more? I recommend working through: [R for Data Science](http://amzn.to/2myxnhi), [R Cookbook](http://amzn.to/2lF6hkb), and [R Graphics Cookbook](http://amzn.to/2m0fcPL).
 
 ```R
 # Create some dirty data that because of the mispelling is imported as a character string

@@ -9,7 +9,7 @@ Authors: Chris Albon
 
 Original code: http://onertipaday.blogspot.com/2007/06/string-manipulation-insert-delim.html
 
-
+Want to learn more? I recommend working through: [R for Data Science](http://amzn.to/2myxnhi), [R Cookbook](http://amzn.to/2lF6hkb), and [R Graphics Cookbook](http://amzn.to/2m0fcPL).
 ```R
 # Create a text string
 cities <- c("sonomanapahealdsburgoakland")

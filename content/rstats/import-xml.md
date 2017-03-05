@@ -9,7 +9,7 @@ Authors: Chris Albon
 
 Original source: http://giventhedata.blogspot.com/2012/06/r-and-web-for-beginners-part-ii-xml-in.html
 
-
+Want to learn more? I recommend working through: [R for Data Science](http://amzn.to/2myxnhi), [R Cookbook](http://amzn.to/2lF6hkb), and [R Graphics Cookbook](http://amzn.to/2m0fcPL).
 ```R
 # load XML library
 library(XML)

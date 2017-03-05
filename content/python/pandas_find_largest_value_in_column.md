@@ -7,7 +7,7 @@ Tags: Data Wrangling
 Authors: Chris Albon
 
 
-
+Want to learn more? I recommend these Python books: [Python for Data Analysis](http://amzn.to/2ljV9wY), [Python Data Science Handbook](http://amzn.to/2m0mgMB), and [Introduction to Machine Learning with Python](http://amzn.to/2mjYiwK).
 
 ```python
 # import modules
@@ -20,9 +20,9 @@ import numpy as np
 
 ```python
 # Create dataframe
-raw_data = {'first_name': ['Jason', 'Molly', 'Tina', 'Jake', 'Amy'], 
-        'last_name': ['Miller', 'Jacobson', 'Ali', 'Milner', 'Cooze'], 
-        'age': [42, 52, 36, 24, 73], 
+raw_data = {'first_name': ['Jason', 'Molly', 'Tina', 'Jake', 'Amy'],
+        'last_name': ['Miller', 'Jacobson', 'Ali', 'Milner', 'Cooze'],
+        'age': [42, 52, 36, 24, 73],
         'preTestScore': [4, 24, 31, 2, 3],
         'postTestScore': [25, 94, 57, 62, 70]}
 df = pd.DataFrame(raw_data, columns = ['first_name', 'last_name', 'age', 'preTestScore', 'postTestScore'])
@@ -102,5 +102,3 @@ df['preTestScore'].idxmax()
 
 
     2
-
-

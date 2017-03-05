@@ -6,7 +6,7 @@ Category: R Stats
 Tags: Basics
 Authors: Chris Albon
 
-
+Want to learn more? I recommend working through: [R for Data Science](http://amzn.to/2myxnhi), [R Cookbook](http://amzn.to/2lF6hkb), and [R Graphics Cookbook](http://amzn.to/2m0fcPL).
 
 R can handle a number of types of data, including numbers and text. In R, the text is refered to as character strings and is always wrapped in double quotation marks. In other words, if something is inside quotation marks, it is treated as text.
 

@@ -12,6 +12,7 @@ Factors are a variable type used for categorial data.
 
 Whenever a data frame is created with text strings, R treats it as a factor.
 
+Want to learn more? I recommend working through: [R for Data Science](http://amzn.to/2myxnhi), [R Cookbook](http://amzn.to/2lF6hkb), and [R Graphics Cookbook](http://amzn.to/2m0fcPL).
 
 ```R
 # Create three variables of 50 observations length.

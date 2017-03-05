@@ -9,6 +9,7 @@ Authors: Chris Albon
 
 Original source: https://github.com/patilv/3graphs/blob/master/ggplot2Page/index.md
 
+Want to learn more? I recommend working through: [R for Data Science](http://amzn.to/2myxnhi), [R Cookbook](http://amzn.to/2lF6hkb), and [R Graphics Cookbook](http://amzn.to/2m0fcPL).
 
 ```R
 # make sure the graphic displays in RStudio by turning off external devices

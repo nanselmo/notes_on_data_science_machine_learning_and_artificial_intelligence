@@ -6,6 +6,7 @@ Category: R Stats
 Tags: Basics
 Authors: Chris Albon
 
+Want to learn more? I recommend working through: [R for Data Science](http://amzn.to/2myxnhi), [R Cookbook](http://amzn.to/2lF6hkb), and [R Graphics Cookbook](http://amzn.to/2m0fcPL).
 
 original source: http://stackoverflow.com/questions/743812/calculating-moving-average-in-r
 

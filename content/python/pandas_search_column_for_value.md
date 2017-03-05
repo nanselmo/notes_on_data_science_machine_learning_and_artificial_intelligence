@@ -6,7 +6,7 @@ Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon
 
-
+Want to learn more? I recommend these Python books: [Python for Data Analysis](http://amzn.to/2ljV9wY), [Python Data Science Handbook](http://amzn.to/2m0mgMB), and [Introduction to Machine Learning with Python](http://amzn.to/2mjYiwK).
 
 
 ```python
@@ -16,9 +16,9 @@ import pandas as pd
 
 
 ```python
-raw_data = {'first_name': ['Jason', 'Jason', 'Tina', 'Jake', 'Amy'], 
-        'last_name': ['Miller', 'Miller', 'Ali', 'Milner', 'Cooze'], 
-        'age': [42, 42, 36, 24, 73], 
+raw_data = {'first_name': ['Jason', 'Jason', 'Tina', 'Jake', 'Amy'],
+        'last_name': ['Miller', 'Miller', 'Ali', 'Milner', 'Cooze'],
+        'age': [42, 42, 36, 24, 73],
         'preTestScore': [4, 4, 31, 2, 3],
         'postTestScore': [25, 25, 57, 62, 70]}
 df = pd.DataFrame(raw_data, columns = ['first_name', 'last_name', 'age', 'preTestScore', 'postTestScore'])
@@ -104,5 +104,3 @@ df['preTestScore'].where(df['postTestScore'] > 50)
     3     2
     4     3
     Name: preTestScore, dtype: float64
-
-

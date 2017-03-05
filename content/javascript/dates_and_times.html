@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dates And Times</title>
+    <meta name="date" content="2017-02-22 21:01" />
+    <meta name="category" content="Javascript" />
+    <meta name="tags" content="Basics" />
+    <meta name="authors" content="Chris Albon" />
+    <meta name="summary" content="Dates And Times In Javascript" />
+</head>
+
+<body>
+
+  <div class="codehilite">
+    <pre><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="c1">// Create current date and time</span>
+<span class="kd">var</span> <span class="nx">current</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+
+<span class="c1">// Output to log</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'current:'</span><span class="p">,</span> <span class="nx">current</span><span class="p">);</span>
+
+<span class="c1">// Specific date: Year, month (zero based!), day, hour, minute, second, and millisecond</span>
+<span class="kd">var</span> <span class="nx">birthday</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">1983</span><span class="p">,</span> <span class="mi">08</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="c1">// Output to log</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'birthday:'</span><span class="p">,</span> <span class="nx">birthday</span><span class="p">);</span>
+
+<span class="c1">// Date in string format</span>
+<span class="kd">var</span> <span class="nx">stringDate</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="s2">"2015-11-21"</span><span class="p">);</span>
+
+<span class="c1">// Output to log, printing only the year, month, day, and day of the week</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'stringDate:'</span><span class="p">,</span> <span class="nx">stringDate</span><span class="p">.</span><span class="nx">toDateString</span><span class="p">());</span>
+
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span></pre>
+  </div>
+
+    <script>
+
+    // Create current date and time
+    var current = new Date();
+
+    // Output to log
+    console.log('current:', current);
+
+    // Specific date: Year, month (zero based!), day, hour, minute, second, and millisecond
+    var birthday = new Date(1983, 08, 15, 11, 33, 30, 0);
+
+    // Output to log
+    console.log('birthday:', birthday);
+
+    // Date in string format
+    var stringDate = new Date("2015-11-21");
+
+    // Output to log, printing only the year, month, day, and day of the week
+    console.log('stringDate:', stringDate.toDateString());
+
+    </script>
+
+</body>
+
+</html>

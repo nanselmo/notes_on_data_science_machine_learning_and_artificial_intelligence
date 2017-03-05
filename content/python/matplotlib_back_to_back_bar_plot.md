@@ -6,7 +6,7 @@ Category: Python
 Tags: Data Visualization
 Authors: Chris Albon
 
-
+Want to learn more? I recommend these Python books: [Python for Data Analysis](http://amzn.to/2ljV9wY), [Python Data Science Handbook](http://amzn.to/2m0mgMB), and [Introduction to Machine Learning with Python](http://amzn.to/2mjYiwK).
 
 **Note:** Based on: [Sebastian Raschka](http://nbviewer.ipython.org/github/rasbt/matplotlib-gallery/blob/master/ipynb/barplots.ipynb).
 
@@ -92,7 +92,7 @@ df
 
 
 ```python
-# input data, specifically the second and 
+# input data, specifically the second and
 # third rows, skipping the first column
 x1 = df.ix[1, 1:]
 x2 = df.ix[2, 1:]
@@ -109,24 +109,24 @@ y_pos = [x for x in y_pos]
 plt.yticks(y_pos, bar_labels, fontsize=10)
 
 # Create a horizontal bar in the position y_pos
-plt.barh(y_pos, 
+plt.barh(y_pos,
          # using x1 data
-         x1, 
+         x1,
          # that is centered
-         align='center', 
+         align='center',
          # with alpha 0.4
-         alpha=0.4, 
+         alpha=0.4,
          # and color green
          color='#263F13')
 
 # Create a horizontal bar in the position y_pos
-plt.barh(y_pos, 
+plt.barh(y_pos,
          # using NEGATIVE x2 data
          -x2,
          # that is centered
-         align='center', 
+         align='center',
          # with alpha 0.4
-         alpha=0.4, 
+         alpha=0.4,
          # and color green
          color='#77A61D')
 
@@ -142,4 +142,3 @@ plt.show()
 
 
 ![png]({filename}/images/matplotlib_back_to_back_bar_plot/output_6_0.png)
-

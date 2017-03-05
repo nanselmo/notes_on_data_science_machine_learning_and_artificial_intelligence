@@ -6,7 +6,7 @@ Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon
 
-
+Want to learn more? I recommend these Python books: [Python for Data Analysis](http://amzn.to/2ljV9wY), [Python Data Science Handbook](http://amzn.to/2m0mgMB), and [Introduction to Machine Learning with Python](http://amzn.to/2mjYiwK).
 
 ## Preliminaries
 
@@ -26,8 +26,8 @@ pd.set_option('display.max_columns', 50)
 
 
 ```python
-data = {'name': ['Jason', 'Molly', 'Tina', 'Jake', 'Amy'], 
-        'year': [2012, 2012, 2013, 2014, 2014], 
+data = {'name': ['Jason', 'Molly', 'Tina', 'Jake', 'Amy'],
+        'year': [2012, 2012, 2013, 2014, 2014],
         'reports': [4, 24, 31, 2, 3]}
 df = pd.DataFrame(data, index = ['Cochice', 'Pima', 'Santa Cruz', 'Maricopa', 'Yuma'])
 df
@@ -238,5 +238,3 @@ df
   </tbody>
 </table>
 </div>
-
-

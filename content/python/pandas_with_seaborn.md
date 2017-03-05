@@ -6,7 +6,7 @@ Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon
 
-
+Want to learn more? I recommend these Python books: [Python for Data Analysis](http://amzn.to/2ljV9wY), [Python Data Science Handbook](http://amzn.to/2m0mgMB), and [Introduction to Machine Learning with Python](http://amzn.to/2mjYiwK).
 
 ## Preliminaries
 
@@ -156,7 +156,7 @@ sns.rugplot(df.x);
 ![png]({filename}/images/pandas_with_seaborn/output_12_0.png)
 
 
-## Boxplot 
+## Boxplot
 
 
 ```python
@@ -226,4 +226,3 @@ sns.clustermap(df)
 
 
 ![png]({filename}/images/pandas_with_seaborn/output_20_1.png)
-

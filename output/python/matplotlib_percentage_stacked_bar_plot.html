@@ -144,6 +144,7 @@
 <ul>
 <li><strong>Note:</strong> Based on: <a href="http://nbviewer.ipython.org/github/rasbt/matplotlib-gallery/blob/master/ipynb/barplots.ipynb">Sebastian Raschka</a>.</li>
 </ul>
+<p>Want to learn more? I recommend these Python books: <a href="http://amzn.to/2ljV9wY">Python for Data Analysis</a>, <a href="http://amzn.to/2m0mgMB">Python Data Science Handbook</a>, and <a href="http://amzn.to/2mjYiwK">Introduction to Machine Learning with Python</a>.</p>
 <h2>Preliminaries</h2>
 <div class="codehilite"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
@@ -220,10 +221,10 @@
 <span class="n">bar_width</span> <span class="o">=</span> <span class="mi">1</span>
 
 <span class="c1"># positions of the left bar-boundaries</span>
-<span class="n">bar_l</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;pre_score&#39;</span><span class="p">]))]</span> 
+<span class="n">bar_l</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;pre_score&#39;</span><span class="p">]))]</span>
 
 <span class="c1"># positions of the x-axis ticks (center of the bars as bar labels)</span>
-<span class="n">tick_pos</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="p">(</span><span class="n">bar_width</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">bar_l</span><span class="p">]</span> 
+<span class="n">tick_pos</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="p">(</span><span class="n">bar_width</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">bar_l</span><span class="p">]</span>
 
 <span class="c1"># Create the total score for each participant</span>
 <span class="n">totals</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="o">+</span><span class="n">k</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;pre_score&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;mid_score&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;post_score&#39;</span><span class="p">])]</span>
@@ -238,13 +239,13 @@
 <span class="n">post_rel</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="o">/</span> <span class="n">j</span> <span class="o">*</span> <span class="mi">100</span> <span class="k">for</span>  <span class="n">i</span><span class="p">,</span><span class="n">j</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;post_score&#39;</span><span class="p">],</span> <span class="n">totals</span><span class="p">)]</span>
 
 <span class="c1"># Create a bar chart in position bar_1</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">bar_l</span><span class="p">,</span> 
+<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">bar_l</span><span class="p">,</span>
        <span class="c1"># using pre_rel data</span>
-       <span class="n">pre_rel</span><span class="p">,</span> 
-       <span class="c1"># labeled </span>
-       <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Pre Score&#39;</span><span class="p">,</span> 
+       <span class="n">pre_rel</span><span class="p">,</span>
+       <span class="c1"># labeled</span>
+       <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Pre Score&#39;</span><span class="p">,</span>
        <span class="c1"># with alpha</span>
-       <span class="n">alpha</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> 
+       <span class="n">alpha</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
        <span class="c1"># with color</span>
        <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#019600&#39;</span><span class="p">,</span>
        <span class="c1"># with bar width</span>
@@ -254,17 +255,17 @@
        <span class="p">)</span>
 
 <span class="c1"># Create a bar chart in position bar_1</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">bar_l</span><span class="p">,</span> 
+<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">bar_l</span><span class="p">,</span>
        <span class="c1"># using mid_rel data</span>
-       <span class="n">mid_rel</span><span class="p">,</span> 
+       <span class="n">mid_rel</span><span class="p">,</span>
        <span class="c1"># with pre_rel</span>
-       <span class="n">bottom</span><span class="o">=</span><span class="n">pre_rel</span><span class="p">,</span> 
-       <span class="c1"># labeled </span>
-       <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Mid Score&#39;</span><span class="p">,</span> 
+       <span class="n">bottom</span><span class="o">=</span><span class="n">pre_rel</span><span class="p">,</span>
+       <span class="c1"># labeled</span>
+       <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Mid Score&#39;</span><span class="p">,</span>
        <span class="c1"># with alpha</span>
-       <span class="n">alpha</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> 
+       <span class="n">alpha</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
        <span class="c1"># with color</span>
-       <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#3C5F5A&#39;</span><span class="p">,</span> 
+       <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#3C5F5A&#39;</span><span class="p">,</span>
        <span class="c1"># with bar width</span>
        <span class="n">width</span><span class="o">=</span><span class="n">bar_width</span><span class="p">,</span>
        <span class="c1"># with border color</span>
@@ -272,17 +273,17 @@
        <span class="p">)</span>
 
 <span class="c1"># Create a bar chart in position bar_1</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">bar_l</span><span class="p">,</span> 
+<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">bar_l</span><span class="p">,</span>
        <span class="c1"># using post_rel data</span>
-       <span class="n">post_rel</span><span class="p">,</span> 
+       <span class="n">post_rel</span><span class="p">,</span>
        <span class="c1"># with pre_rel and mid_rel on bottom</span>
-       <span class="n">bottom</span><span class="o">=</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">j</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">pre_rel</span><span class="p">,</span> <span class="n">mid_rel</span><span class="p">)],</span> 
-       <span class="c1"># labeled </span>
+       <span class="n">bottom</span><span class="o">=</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">j</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">pre_rel</span><span class="p">,</span> <span class="n">mid_rel</span><span class="p">)],</span>
+       <span class="c1"># labeled</span>
        <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Post Score&#39;</span><span class="p">,</span>
        <span class="c1"># with alpha</span>
-       <span class="n">alpha</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> 
+       <span class="n">alpha</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
        <span class="c1"># with color</span>
-       <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#219AD8&#39;</span><span class="p">,</span> 
+       <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#219AD8&#39;</span><span class="p">,</span>
        <span class="c1"># with bar width</span>
        <span class="n">width</span><span class="o">=</span><span class="n">bar_width</span><span class="p">,</span>
        <span class="c1"># with border color</span>
@@ -321,7 +322,7 @@
     <footer class="footer">
         <div class="container">
             <p class="text-muted">
-                <center>This project contains 427 pages and is available on <a href="https://github.com/chrisalbon/notes_on_data_science_machine_learning_and_artificial_intelligence">GitHub</a>.
+                <center>This project contains 495 pages and is available on <a href="https://github.com/chrisalbon/notes_on_data_science_machine_learning_and_artificial_intelligence">GitHub</a>.
                 <br/>
                 Copyright &copy; Chris Albon,
                     <time datetime="2016">2016</time>.

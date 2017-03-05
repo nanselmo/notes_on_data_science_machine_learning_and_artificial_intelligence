@@ -6,7 +6,7 @@ Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon
 
-
+Want to learn more? I recommend these Python books: [Python for Data Analysis](http://amzn.to/2ljV9wY), [Python Data Science Handbook](http://amzn.to/2m0mgMB), and [Introduction to Machine Learning with Python](http://amzn.to/2mjYiwK).
 
 Originally from: Data Origami.
 
@@ -22,10 +22,10 @@ import patsy
 
 
 ```python
-raw_data = {'patient': [1, 1, 1, 0, 0], 
-        'obs': [1, 2, 3, 1, 2], 
+raw_data = {'patient': [1, 1, 1, 0, 0],
+        'obs': [1, 2, 3, 1, 2],
         'treatment': [0, 1, 0, 1, 0],
-        'score': ['strong', 'weak', 'normal', 'weak', 'strong']} 
+        'score': ['strong', 'weak', 'normal', 'weak', 'strong']}
 df = pd.DataFrame(raw_data, columns = ['patient', 'obs', 'treatment', 'score'])
 df
 ```
@@ -258,5 +258,3 @@ patsy.dmatrix('patient + treatment + patient:treatment-1', df, return_type='data
   </tbody>
 </table>
 </div>
-
-

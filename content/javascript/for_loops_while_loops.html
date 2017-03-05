@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>For Loops And While Loops</title>
+    <meta name="date" content="2017-02-22 21:01" />
+    <meta name="category" content="Javascript" />
+    <meta name="tags" content="Basics" />
+    <meta name="authors" content="Chris Albon" />
+    <meta name="summary" content="For Loops And While Loops In Javascript" />
+</head>
+
+<body>
+
+  <div class="codehilite">
+    <pre><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="c1">// Create an array of employee names</span>
+<span class="kd">var</span> <span class="nx">employees</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Steve Miller"</span><span class="p">,</span> <span class="s2">"Mark Jacob"</span><span class="p">,</span> <span class="s2">"Sam Stein"</span><span class="p">,</span> <span class="s2">"Judith Lack"</span><span class="p">,</span> <span class="s2">"Ado Stone"</span><span class="p">,</span> <span class="s2">"Bob Bill"</span><span class="p">];</span>
+
+<span class="c1">// Create an empty array</span>
+<span class="kd">var</span> <span class="nx">upperCaseEmployees</span> <span class="o">=</span> <span class="p">[];</span>
+
+<span class="c1">// Create a variable for index</span>
+<span class="kd">var</span> <span class="nx">i</span><span class="p">;</span>
+
+<span class="c1">// Start by setting i = 0</span>
+<span class="c1">// If i is less than length of employees, run loop</span>
+<span class="c1">// After each loop add 1 to i</span>
+<span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">employees</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Add uppercase versions of employee names</span>
+    <span class="nx">upperCaseEmployees</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="nx">employees</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">toUpperCase</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">// Output to log</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"upperCaseEmployees:"</span><span class="p">,</span> <span class="nx">upperCaseEmployees</span><span class="p">)</span>
+
+<span class="c1">// Create an empty array</span>
+<span class="kd">var</span> <span class="nx">lowerCaseEmployees</span> <span class="o">=</span> <span class="p">[];</span>
+
+<span class="c1">// Create a variable for index</span>
+<span class="kd">var</span> <span class="nx">j</span><span class="p">;</span>
+
+<span class="c1">// For each element in the array</span>
+<span class="k">for</span> <span class="p">(</span><span class="nx">j</span> <span class="k">in</span> <span class="nx">employees</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Change case and add to lowerCaseEmployees array</span>
+    <span class="nx">lowerCaseEmployees</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="o">=</span> <span class="nx">employees</span><span class="p">[</span><span class="nx">j</span><span class="p">].</span><span class="nx">toLowerCase</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">// Output to log</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"lowerCaseEmployees:"</span><span class="p">,</span> <span class="nx">lowerCaseEmployees</span><span class="p">)</span>
+
+<span class="c1">// Create an empty array</span>
+<span class="kd">var</span> <span class="nx">twoLowerCaseEmployees</span> <span class="o">=</span> <span class="p">[];</span>
+
+<span class="c1">// Create a variable for index</span>
+<span class="kd">var</span> <span class="nx">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="c1">// While k is less than 2</span>
+<span class="k">while</span> <span class="p">(</span><span class="nx">k</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Change case and add to array</span>
+    <span class="nx">twoLowerCaseEmployees</span><span class="p">[</span><span class="nx">k</span><span class="p">]</span> <span class="o">=</span> <span class="nx">employees</span><span class="p">[</span><span class="nx">k</span><span class="p">].</span><span class="nx">toLowerCase</span><span class="p">();</span>
+    <span class="c1">// And add 1 to k</span>
+    <span class="nx">k</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Output to log</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"twoLowerCaseEmployees:"</span><span class="p">,</span> <span class="nx">twoLowerCaseEmployees</span><span class="p">)</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span></pre>
+  </div>
+
+    <script>
+
+        // Create an array of employee names
+        var employees = ["Steve Miller", "Mark Jacob", "Sam Stein", "Judith Lack", "Ado Stone", "Bob Bill"];
+
+        // Create an empty array
+        var upperCaseEmployees = [];
+
+        // Create a variable for index
+        var i;
+
+        // Start by setting i = 0
+        // If i is less than length of employees, run loop
+        // After each loop add 1 to i
+        for (i = 0; i < employees.length; i++) {
+            // Add uppercase versions of employee names
+            upperCaseEmployees[i] = employees[i].toUpperCase();
+        }
+
+        // Output to log
+        console.log("upperCaseEmployees:", upperCaseEmployees)
+
+        // Create an empty array
+        var lowerCaseEmployees = [];
+
+        // Create a variable for index
+        var j;
+
+        // For each element in the array
+        for (j in employees) {
+            // Change case and add to lowerCaseEmployees array
+            lowerCaseEmployees[j] = employees[j].toLowerCase();
+        }
+
+        // Output to log
+        console.log("lowerCaseEmployees:", lowerCaseEmployees)
+
+        // Create an empty array
+        var twoLowerCaseEmployees = [];
+
+        // Create a variable for index
+        var k = 0;
+
+        // While k is less than 2
+        while (k < 2) {
+            // Change case and add to array
+            twoLowerCaseEmployees[k] = employees[k].toLowerCase();
+            // And add 1 to k
+            k++;
+        }
+
+        // Output to log
+        console.log("twoLowerCaseEmployees:", twoLowerCaseEmployees)
+    </script>
+
+</body>
+
+</html>

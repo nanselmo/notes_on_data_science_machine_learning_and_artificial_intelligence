@@ -6,7 +6,7 @@ Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon
 
-
+Want to learn more? I recommend these Python books: [Python for Data Analysis](http://amzn.to/2ljV9wY), [Python Data Science Handbook](http://amzn.to/2m0mgMB), and [Introduction to Machine Learning with Python](http://amzn.to/2mjYiwK).
 
 ### import modules
 
@@ -23,7 +23,7 @@ from IPython.display import Image
 ```python
 raw_data = {
         'subject_id': ['1', '2', '3', '4', '5'],
-        'first_name': ['Alex', 'Amy', 'Allen', 'Alice', 'Ayoung'], 
+        'first_name': ['Alex', 'Amy', 'Allen', 'Alice', 'Ayoung'],
         'last_name': ['Anderson', 'Ackerman', 'Ali', 'Aoni', 'Atiches']}
 df_a = pd.DataFrame(raw_data, columns = ['subject_id', 'first_name', 'last_name'])
 df_a
@@ -85,7 +85,7 @@ df_a
 ```python
 raw_data = {
         'subject_id': ['4', '5', '6', '7', '8'],
-        'first_name': ['Billy', 'Brian', 'Bran', 'Bryce', 'Betty'], 
+        'first_name': ['Billy', 'Brian', 'Bran', 'Bryce', 'Betty'],
         'last_name': ['Bonder', 'Black', 'Balwner', 'Brice', 'Btisan']}
 df_b = pd.DataFrame(raw_data, columns = ['subject_id', 'first_name', 'last_name'])
 df_b
@@ -989,5 +989,3 @@ pd.merge(df_a, df_b, right_index=True, left_index=True)
   </tbody>
 </table>
 </div>
-
-

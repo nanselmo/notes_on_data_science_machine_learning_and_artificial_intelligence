@@ -10,6 +10,8 @@ Authors: Chris Albon
 Original source: http://stackoverflow.com/questions/2397097/how-can-a-data-ellipse-be-superimposed-on-a-ggplot2-scatterplot
 
 
+Want to learn more? I recommend working through: [R for Data Science](http://amzn.to/2myxnhi), [R Cookbook](http://amzn.to/2lF6hkb), and [R Graphics Cookbook](http://amzn.to/2m0fcPL).
+
 ```R
 # create a dataframe of simulated data
 x <- c(2,3,4, 10,12,10, 20,21,23)

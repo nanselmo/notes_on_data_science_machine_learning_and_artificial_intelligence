@@ -6,6 +6,7 @@ Category: R Stats
 Tags: Basics
 Authors: Chris Albon
 
+Want to learn more? I recommend working through: [R for Data Science](http://amzn.to/2myxnhi), [R Cookbook](http://amzn.to/2lF6hkb), and [R Graphics Cookbook](http://amzn.to/2m0fcPL).
 
 Original source: http://rforpublichealth.blogspot.com/2013/07/lets-make-date-date-and-time-classes-in.html
 

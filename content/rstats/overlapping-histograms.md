@@ -9,6 +9,8 @@ Authors: Chris Albon
 
 Original Source: http://r-nold.blogspot.com/2013/03/overlapping-histogram-in-r.html
 
+Want to learn more? I recommend working through: [R for Data Science](http://amzn.to/2myxnhi), [R Cookbook](http://amzn.to/2lF6hkb), and [R Graphics Cookbook](http://amzn.to/2m0fcPL).
+
 ## Create two fictional histographs
 
 

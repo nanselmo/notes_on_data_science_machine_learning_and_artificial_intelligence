@@ -6,11 +6,11 @@ Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon
 
-
-
 Geocoding (converting a phyiscal address or location into latitude/longitude) and reverse geocoding (converting a lat/long to a phyiscal address or location) are common tasks when working with geo-data.
 
 Python offers a number of packages to make the task incredibly easy. In the tutorial below, I use pygeocoder, a wrapper for Google's geo-API, to both geocode and reverse geocode.
+
+Want to learn more? I recommend these Python books: [Python for Data Analysis](http://amzn.to/2ljV9wY), [Python Data Science Handbook](http://amzn.to/2m0mgMB), and [Introduction to Machine Learning with Python](http://amzn.to/2mjYiwK).
 
 ## Preliminaries
 
@@ -182,7 +182,7 @@ Awesome. This is exactly what we want to see, one column of floats for latitude 
 
 ## Reverse Geocoding
 
-To reverse geocode, we feed a specific latitude and longitude pair, in this case the first row (indexed as '0') into pygeocoder's reverse_geocoder function. 
+To reverse geocode, we feed a specific latitude and longitude pair, in this case the first row (indexed as '0') into pygeocoder's reverse_geocoder function.
 
 
 ```python
@@ -282,7 +282,7 @@ results.coordinates
 
 
 
-But even more interesting, once the address is processed by the Google geo API, we can parse it and easily seperate street numbers, street names, etc. 
+But even more interesting, once the address is processed by the Google geo API, we can parse it and easily seperate street numbers, street names, etc.
 
 
 ```python

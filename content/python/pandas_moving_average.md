@@ -6,7 +6,7 @@ Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon
 
-
+Want to learn more? I recommend these Python books: [Python for Data Analysis](http://amzn.to/2ljV9wY), [Python Data Science Handbook](http://amzn.to/2m0mgMB), and [Introduction to Machine Learning with Python](http://amzn.to/2mjYiwK).
 
 ### Import modules
 
@@ -15,7 +15,7 @@ Authors: Chris Albon
 import pandas as pd
 ```
 
-### Create a dataframe 
+### Create a dataframe
 
 
 ```python
@@ -81,7 +81,7 @@ df
 
 ```python
 # Calculate the moving average. That is, take
-# the first two values, average them, 
+# the first two values, average them,
 # then drop the first and add the third, etc.
 pd.rolling_mean(df, 2)
 ```
@@ -137,5 +137,3 @@ pd.rolling_mean(df, 2)
   </tbody>
 </table>
 </div>
-
-

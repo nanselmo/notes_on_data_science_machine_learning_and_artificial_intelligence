@@ -6,10 +6,7 @@ Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon
 
-
-
-- **Note:** Originally from: Data Origami.
-
+Want to learn more? I recommend these Python books: [Python for Data Analysis](http://amzn.to/2ljV9wY), [Python Data Science Handbook](http://amzn.to/2m0mgMB), and [Introduction to Machine Learning with Python](http://amzn.to/2mjYiwK).
 
 ```python
 # import modules
@@ -20,7 +17,7 @@ import patsy
 
 ```python
 # Create dataframe
-raw_data = {'countrycode': [1, 2, 3, 2, 1]} 
+raw_data = {'countrycode': [1, 2, 3, 2, 1]}
 df = pd.DataFrame(raw_data, columns = ['countrycode'])
 df
 ```
@@ -116,5 +113,3 @@ patsy.dmatrix('C(countrycode)-1', df, return_type='dataframe')
   </tbody>
 </table>
 </div>
-
-

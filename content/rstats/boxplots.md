@@ -7,6 +7,8 @@ Tags: Data Visualization
 Authors: Chris Albon
 
 
+Want to learn more? I recommend working through: [R for Data Science](http://amzn.to/2myxnhi), [R Cookbook](http://amzn.to/2lF6hkb), and [R Graphics Cookbook](http://amzn.to/2m0fcPL).
+
 Original Source: http://www.statmethods.net/graphs/boxplot.html
 
 

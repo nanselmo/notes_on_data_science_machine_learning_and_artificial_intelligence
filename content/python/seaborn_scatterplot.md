@@ -6,7 +6,7 @@ Category: Python
 Tags: Data Visualization
 Authors: Chris Albon
 
-
+Want to learn more? I recommend these Python books: [Python for Data Analysis](http://amzn.to/2ljV9wY), [Python Data Science Handbook](http://amzn.to/2m0mgMB), and [Introduction to Machine Learning with Python](http://amzn.to/2mjYiwK).
 
 ## Preliminaries
 
@@ -98,12 +98,12 @@ sns.set_context("notebook", font_scale=1.1)
 sns.set_style("ticks")
 
 
-sns.lmplot('x', 'y', 
-           data=df, 
-           fit_reg=False, 
+sns.lmplot('x', 'y',
+           data=df,
+           fit_reg=False,
            dropna=True,
            hue="z",  
-           scatter_kws={"marker": "D", 
+           scatter_kws={"marker": "D",
                         "s": 100})
 plt.title('Histogram of IQ')
 plt.xlabel('Time')
@@ -119,4 +119,3 @@ plt.ylabel('Deaths')
 
 
 ![png]({filename}/images/seaborn_scatterplot/output_6_1.png)
-

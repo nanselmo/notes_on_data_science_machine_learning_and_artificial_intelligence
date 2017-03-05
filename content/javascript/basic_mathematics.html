@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Basic Mathematics</title>
+    <meta name="date" content="2017-02-22 21:01" />
+    <meta name="category" content="Javascript" />
+    <meta name="tags" content="Basics" />
+    <meta name="authors" content="Chris Albon" />
+    <meta name="summary" content="Basic Mathematics In Javascript" />
+</head>
+
+<body>
+
+  <div class="codehilite">
+    <pre><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="c1">// Create an array of numbers</span>
+<span class="kd">var</span> <span class="nx">ages</span> <span class="o">=</span> <span class="p">[</span><span class="mi">22</span><span class="p">,</span><span class="mi">43</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">48</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="mi">34</span><span class="p">,</span><span class="mi">20</span><span class="p">];</span>
+
+<span class="c1">// Print to log</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'ages: '</span><span class="p">,</span> <span class="nx">ages</span><span class="p">);</span>
+
+<span class="c1">// Get the length of the ages array</span>
+<span class="kd">var</span> <span class="nx">numberOfEmployes</span> <span class="o">=</span> <span class="nx">ages</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+
+<span class="c1">// Print to log</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'numberOfEmployes: '</span><span class="p">,</span> <span class="nx">numberOfEmployes</span><span class="p">);</span>
+
+<span class="c1">// Square root</span>
+<span class="kd">var</span> <span class="nx">squareRoot</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="nx">numberOfEmployes</span><span class="p">);</span>
+
+<span class="c1">// Print to log</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'squareRoot: '</span><span class="p">,</span> <span class="nx">squareRoot</span><span class="p">);</span>
+
+<span class="c1">// Absolute Value</span>
+<span class="kd">var</span> <span class="nx">absoluteValue</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="o">-</span><span class="mf">4.7</span><span class="p">);</span>
+
+<span class="c1">// Print to log</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'absoluteValue: '</span><span class="p">,</span> <span class="nx">absoluteValue</span><span class="p">);</span>
+
+<span class="c1">// Minimum value of an array</span>
+<span class="kd">var</span> <span class="nx">min</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">ages</span><span class="p">);</span>
+
+<span class="c1">// Print to log</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'min: '</span><span class="p">,</span> <span class="nx">min</span><span class="p">);</span>
+
+<span class="c1">// Maximum value of an array</span>
+<span class="kd">var</span> <span class="nx">max</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">ages</span><span class="p">);</span>
+
+<span class="c1">// Print to log</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'max: '</span><span class="p">,</span> <span class="nx">max</span><span class="p">);</span>
+
+<span class="c1">// Log</span>
+<span class="kd">var</span> <span class="nx">log</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numberOfEmployes</span><span class="p">);</span>
+
+<span class="c1">// Print to log</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'log: '</span><span class="p">,</span> <span class="nx">log</span><span class="p">);</span>
+
+<span class="c1">// Exponent</span>
+<span class="kd">var</span> <span class="nx">exponent</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">exp</span><span class="p">(</span><span class="nx">numberOfEmployes</span><span class="p">);</span>
+
+<span class="c1">// Print to log</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'exponent: '</span><span class="p">,</span> <span class="nx">exponent</span><span class="p">);</span>
+
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span></pre>
+  </div>
+
+    <script>
+        // Create an array of numbers
+        var ages = [22,43,24,48,35,34,20];
+
+        // Print to log
+        console.log('ages: ', ages);
+
+        // Get the length of the ages array
+        var numberOfEmployes = ages.length;
+
+        // Print to log
+        console.log('numberOfEmployes: ', numberOfEmployes);
+
+        // Square root
+        var squareRoot = Math.sqrt(numberOfEmployes);
+
+        // Print to log
+        console.log('squareRoot: ', squareRoot);
+
+        // Absolute Value
+        var absoluteValue = Math.abs(-4.7);
+
+        // Print to log
+        console.log('absoluteValue: ', absoluteValue);
+
+        // Minimum value of an array
+        var min = Math.min.apply(null, ages);
+
+        // Print to log
+        console.log('min: ', min);
+
+        // Maximum value of an array
+        var max = Math.max.apply(null, ages);
+
+        // Print to log
+        console.log('max: ', max);
+
+        // Log
+        var log = Math.log(numberOfEmployes);
+
+        // Print to log
+        console.log('log: ', log);
+
+        // Exponent
+        var exponent = Math.exp(numberOfEmployes);
+
+        // Print to log
+        console.log('exponent: ', exponent);
+
+    </script>
+
+</body>
+
+</html>

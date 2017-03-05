@@ -9,7 +9,7 @@ Authors: Chris Albon
 
 Original source: http://www.unc.edu/~jasperlm/Rsnippets.html
 
-
+Want to learn more? I recommend working through: [R for Data Science](http://amzn.to/2myxnhi), [R Cookbook](http://amzn.to/2lF6hkb), and [R Graphics Cookbook](http://amzn.to/2m0fcPL).
 ```R
 # Create a list of wars
 wars <- c("Spanish Civil War", "Spanish Civil War", "Spanish Civil War", "Spanish Civil War", "WWII", "WWII")

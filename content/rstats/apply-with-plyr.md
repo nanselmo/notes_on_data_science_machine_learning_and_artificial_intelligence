@@ -11,6 +11,8 @@ Authors: Chris Albon
 **The plyr package uses \*\*ply() functions, where the first star in the input and the second star is the output. For example, llplyr takes a list in and spits a list out.**
 
 
+Want to learn more? I recommend working through: [R for Data Science](http://amzn.to/2myxnhi), [R Cookbook](http://amzn.to/2lF6hkb), and [R Graphics Cookbook](http://amzn.to/2m0fcPL).
+
 ```R
 # load the plyr package
 library(plyr)

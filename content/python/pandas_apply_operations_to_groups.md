@@ -6,7 +6,7 @@ Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon
 
-
+Want to learn more? I recommend these Python books: [Python for Data Analysis](http://amzn.to/2ljV9wY), [Python Data Science Handbook](http://amzn.to/2m0mgMB), and [Introduction to Machine Learning with Python](http://amzn.to/2mjYiwK).
 
 ## Preliminaries
 
@@ -19,9 +19,9 @@ import pandas as pd
 
 ```python
 # Create dataframe
-raw_data = {'regiment': ['Nighthawks', 'Nighthawks', 'Nighthawks', 'Nighthawks', 'Dragoons', 'Dragoons', 'Dragoons', 'Dragoons', 'Scouts', 'Scouts', 'Scouts', 'Scouts'], 
-        'company': ['1st', '1st', '2nd', '2nd', '1st', '1st', '2nd', '2nd','1st', '1st', '2nd', '2nd'], 
-        'name': ['Miller', 'Jacobson', 'Ali', 'Milner', 'Cooze', 'Jacon', 'Ryaner', 'Sone', 'Sloan', 'Piger', 'Riani', 'Ali'], 
+raw_data = {'regiment': ['Nighthawks', 'Nighthawks', 'Nighthawks', 'Nighthawks', 'Dragoons', 'Dragoons', 'Dragoons', 'Dragoons', 'Scouts', 'Scouts', 'Scouts', 'Scouts'],
+        'company': ['1st', '1st', '2nd', '2nd', '1st', '1st', '2nd', '2nd','1st', '1st', '2nd', '2nd'],
+        'name': ['Miller', 'Jacobson', 'Ali', 'Milner', 'Cooze', 'Jacon', 'Ryaner', 'Sone', 'Sloan', 'Piger', 'Riani', 'Ali'],
         'preTestScore': [4, 24, 31, 2, 3, 4, 24, 31, 2, 3, 2, 3],
         'postTestScore': [25, 94, 57, 62, 70, 25, 94, 57, 62, 70, 62, 70]}
 df = pd.DataFrame(raw_data, columns = ['regiment', 'company', 'name', 'preTestScore', 'postTestScore'])
@@ -400,7 +400,7 @@ df.groupby(['regiment', 'company']).size()
 
 ```python
 # Group the dataframe by regiment, and for each regiment,
-for name, group in df.groupby('regiment'): 
+for name, group in df.groupby('regiment'):
     # print the name of the regiment
     print(name)
     # print the data of that regiment
@@ -413,7 +413,7 @@ for name, group in df.groupby('regiment'):
     5  Dragoons     1st   Jacon             4             25
     6  Dragoons     2nd  Ryaner            24             94
     7  Dragoons     2nd    Sone            31             57
-    
+
     [4 rows x 5 columns]
     Nighthawks
          regiment company      name  preTestScore  postTestScore
@@ -421,7 +421,7 @@ for name, group in df.groupby('regiment'):
     1  Nighthawks     1st  Jacobson            24             94
     2  Nighthawks     2nd       Ali            31             57
     3  Nighthawks     2nd    Milner             2             62
-    
+
     [4 rows x 5 columns]
     Scouts
        regiment company   name  preTestScore  postTestScore
@@ -429,7 +429,7 @@ for name, group in df.groupby('regiment'):
     9    Scouts     1st  Piger             3             70
     10   Scouts     2nd  Riani             2             62
     11   Scouts     2nd    Ali             3             70
-    
+
     [4 rows x 5 columns]
 
 
@@ -458,7 +458,7 @@ list(df.groupby(df.dtypes, axis=1))
       9              3             70
       10             2             62
       11             3             70
-      
+
       [12 rows x 2 columns]), (dtype('O'),       regiment company      name
       0   Nighthawks     1st    Miller
       1   Nighthawks     1st  Jacobson
@@ -472,7 +472,7 @@ list(df.groupby(df.dtypes, axis=1))
       9       Scouts     1st     Piger
       10      Scouts     2nd     Riani
       11      Scouts     2nd       Ali
-      
+
       [12 rows x 3 columns])]
 
 
@@ -595,5 +595,3 @@ df['postTestScore'].groupby(df['categories']).apply(get_stats).unstack()
 </table>
 <p>3 rows × 4 columns</p>
 </div>
-
-

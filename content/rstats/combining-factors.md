@@ -10,6 +10,7 @@ Authors: Chris Albon
 
 Combining factors acts like interacting two variables. In other words, like interacting two binary variables to create all four possible combinations.
 
+Want to learn more? I recommend working through: [R for Data Science](http://amzn.to/2myxnhi), [R Cookbook](http://amzn.to/2lF6hkb), and [R Graphics Cookbook](http://amzn.to/2m0fcPL).
 
 ```R
 # Create a binary variable for treatment or control

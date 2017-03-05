@@ -7,7 +7,7 @@ Tags: Data Wrangling
 Authors: Chris Albon
 
 
-
+Want to learn more? I recommend these Python books: [Python for Data Analysis](http://amzn.to/2ljV9wY), [Python Data Science Handbook](http://amzn.to/2m0mgMB), and [Introduction to Machine Learning with Python](http://amzn.to/2mjYiwK).
 
 ```python
 import pandas as pd
@@ -16,7 +16,7 @@ import numpy as np
 
 
 ```python
-raw_data = {'regiment': ['51st', '29th', '2nd', '19th', '12th', '101st', '90th', '30th', '193th', '1st', '94th', '91th'], 
+raw_data = {'regiment': ['51st', '29th', '2nd', '19th', '12th', '101st', '90th', '30th', '193th', '1st', '94th', '91th'],
             'trucks': ['MAZ-7310', np.nan, 'MAZ-7310', 'MAZ-7310', 'Tatra 810', 'Tatra 810', 'Tatra 810', 'Tatra 810', 'ZIS-150', 'Tatra 810', 'ZIS-150', 'ZIS-150'],
             'tanks': ['Merkava Mark 4', 'Merkava Mark 4', 'Merkava Mark 4', 'Leopard 2A6M', 'Leopard 2A6M', 'Leopard 2A6M', 'Arjun MBT', 'Leopard 2A6M', 'Arjun MBT', 'Arjun MBT', 'Arjun MBT', 'Arjun MBT'],
             'aircraft': ['none', 'none', 'none', 'Harbin Z-9', 'Harbin Z-9', 'none', 'Harbin Z-9', 'SH-60B Seahawk', 'SH-60B Seahawk', 'SH-60B Seahawk', 'SH-60B Seahawk', 'SH-60B Seahawk']}
@@ -110,5 +110,3 @@ list(df['trucks'].unique())
 
 
     ['MAZ-7310', nan, 'Tatra 810', 'ZIS-150']
-
-

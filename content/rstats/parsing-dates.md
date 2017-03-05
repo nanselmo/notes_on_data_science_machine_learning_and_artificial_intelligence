@@ -10,6 +10,7 @@ Authors: Chris Albon
 
 Often imported data will need to be parsed. If the dates are character strings, you can use strptime to parse the date-time.
 
+Want to learn more? I recommend working through: [R for Data Science](http://amzn.to/2myxnhi), [R Cookbook](http://amzn.to/2lF6hkb), and [R Graphics Cookbook](http://amzn.to/2m0fcPL).
 
 ```R
 # Import some moon landing day/times

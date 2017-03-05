@@ -9,6 +9,7 @@ Authors: Chris Albon
 
 original source: http://stackoverflow.com/questions/2074606/doing-a-plyr-operation-on-every-row-of-a-data-frame-in-r
 
+Want to learn more? I recommend working through: [R for Data Science](http://amzn.to/2myxnhi), [R Cookbook](http://amzn.to/2lF6hkb), and [R Graphics Cookbook](http://amzn.to/2m0fcPL).
 
 ```R
 # Load packages

@@ -10,6 +10,7 @@ Authors: Chris Albon
 
 We are taking two input numbers 1e10 and 1e-14, and formatting them with commas after zero and peroids before.
 
+Want to learn more? I recommend working through: [R for Data Science](http://amzn.to/2myxnhi), [R Cookbook](http://amzn.to/2lF6hkb), and [R Graphics Cookbook](http://amzn.to/2m0fcPL).
 
 ```R
 prettyNum(

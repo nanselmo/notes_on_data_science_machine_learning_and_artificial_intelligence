@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Manipulating Arrays</title>
+    <meta name="date" content="2017-02-22 21:01" />
+    <meta name="category" content="Javascript" />
+    <meta name="tags" content="Basics" />
+    <meta name="authors" content="Chris Albon" />
+    <meta name="summary" content="Manipulating Arrays In Javascript" />
+</head>
+
+<body>
+
+  <div class="codehilite">
+    <pre><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="c1">// Create some arrays</span>
+<span class="kd">var</span> <span class="nx">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Steve'</span><span class="p">,</span> <span class="s1">'Bob'</span><span class="p">,</span> <span class="s1">'Jack'</span><span class="p">,</span> <span class="s1">'Abe'</span><span class="p">,</span> <span class="s1">'Sven'</span><span class="p">]</span>
+
+<span class="kd">var</span> <span class="nx">ages</span> <span class="o">=</span> <span class="p">[</span><span class="mi">32</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">52</span><span class="p">,</span><span class="mi">69</span><span class="p">,</span><span class="mi">93</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">94</span><span class="p">];</span>
+
+<span class="kd">var</span> <span class="nx">moreAges</span> <span class="o">=</span> <span class="p">[</span><span class="mi">32</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">29</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="c1">// Pop out last element in array</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'ages.pop():'</span><span class="p">,</span> <span class="nx">ages</span><span class="p">.</span><span class="nx">pop</span><span class="p">());</span>
+
+<span class="c1">// Remove the first element of the array</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'ages.shift():'</span><span class="p">,</span> <span class="nx">ages</span><span class="p">.</span><span class="nx">shift</span><span class="p">());</span>
+
+<span class="c1">// Push in a new element at the end of the array</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'ages.push(32):'</span><span class="p">,</span> <span class="nx">ages</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mi">32</span><span class="p">));</span>
+
+<span class="c1">// Push in a new element at the start of the array</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'ages.unshift(23)'</span><span class="p">,</span> <span class="nx">ages</span><span class="p">.</span><span class="nx">unshift</span><span class="p">(</span><span class="mi">23</span><span class="p">));</span>
+
+<span class="c1">// Deleting element of the array</span>
+<span class="k">delete</span> <span class="nx">ages</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+
+<span class="c1">// Concatenating two arrays</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'ages.concat(moreAges):'</span><span class="p">,</span> <span class="nx">ages</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">moreAges</span><span class="p">));</span>
+
+<span class="c1">// Sort the array alphabetically</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'names.sort():'</span><span class="p">,</span> <span class="nx">names</span><span class="p">.</span><span class="nx">sort</span><span class="p">());</span>
+
+<span class="c1">// Sort the array reverse alphabetically</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'names.reverse():'</span><span class="p">,</span> <span class="nx">names</span><span class="p">.</span><span class="nx">reverse</span><span class="p">());</span>
+
+<span class="c1">// Sort ascending</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'ages.sort(function(a, b){return a - b}):'</span><span class="p">,</span> <span class="nx">ages</span><span class="p">.</span><span class="nx">sort</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">){</span><span class="k">return</span> <span class="nx">a</span> <span class="o">-</span> <span class="nx">b</span><span class="p">}));</span>
+
+<span class="c1">// Sort decending</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'ages.sort(function(a, b){return b - a}):'</span><span class="p">,</span> <span class="nx">ages</span><span class="p">.</span><span class="nx">sort</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">){</span><span class="k">return</span> <span class="nx">b</span> <span class="o">-</span> <span class="nx">a</span><span class="p">}));</span>
+
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span></pre>
+  </div>
+
+    <script>
+
+    // Create some arrays
+    var names = ['Steve', 'Bob', 'Jack', 'Abe', 'Sven']
+
+    var ages = [32,12,52,69,93,23,94];
+
+    var moreAges = [32,50,29,3]
+
+    // Pop out last element in array
+    console.log('ages.pop():', ages.pop());
+
+    // Remove the first element of the array
+    console.log('ages.shift():', ages.shift());
+
+    // Push in a new element at the end of the array
+    console.log('ages.push(32):', ages.push(32));
+
+    // Push in a new element at the start of the array
+    console.log('ages.unshift(23)', ages.unshift(23));
+
+    // Deleting element of the array
+    delete ages[2];
+
+    // Concatenating two arrays
+    console.log('ages.concat(moreAges):', ages.concat(moreAges));
+
+    // Sort the array alphabetically
+    console.log('names.sort():', names.sort());
+
+    // Sort the array reverse alphabetically
+    console.log('names.reverse():', names.reverse());
+
+    // Sort ascending
+    console.log('ages.sort(function(a, b){return a - b}):', ages.sort(function(a, b){return a - b}));
+
+    // Sort decending
+    console.log('ages.sort(function(a, b){return b - a}):', ages.sort(function(a, b){return b - a}));
+
+    </script>
+
+</body>
+
+</html>

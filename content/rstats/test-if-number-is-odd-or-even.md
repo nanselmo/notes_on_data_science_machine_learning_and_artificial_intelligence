@@ -6,7 +6,7 @@ Category: R Stats
 Tags: Other
 Authors: Chris Albon
 
-
+Want to learn more? I recommend working through: [R for Data Science](http://amzn.to/2myxnhi), [R Cookbook](http://amzn.to/2lF6hkb), and [R Graphics Cookbook](http://amzn.to/2m0fcPL).
 
 When you divide one number into another, sometimes you are left with a remainder. That remainder is called a modulo.
 

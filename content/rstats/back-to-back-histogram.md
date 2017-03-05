@@ -9,6 +9,7 @@ Authors: Chris Albon
 
 Original source: http://onertipaday.blogspot.com/2007/06/back-to-back-historgram.html
 
+Want to learn more? I recommend working through: [R for Data Science](http://amzn.to/2myxnhi), [R Cookbook](http://amzn.to/2lF6hkb), and [R Graphics Cookbook](http://amzn.to/2m0fcPL).
 
 ```R
 # Load the Hmisc package (install it if necessary)

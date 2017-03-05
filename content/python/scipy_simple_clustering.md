@@ -6,7 +6,7 @@ Category: Python
 Tags: Other
 Authors: Chris Albon
 
-
+Want to learn more? I recommend these Python books: [Python for Data Analysis](http://amzn.to/2ljV9wY), [Python Data Science Handbook](http://amzn.to/2m0mgMB), and [Introduction to Machine Learning with Python](http://amzn.to/2mjYiwK).
 
 ### Import modules
 
@@ -64,7 +64,7 @@ battles = np.vstack([year_1, year_2, year_3])
 
 
 ```python
-# calculate the centroid coordinates of each cluster 
+# calculate the centroid coordinates of each cluster
 # and the variance of all the clusters
 centroids, variance  = vq.kmeans(battles, 3)
 ```
@@ -168,4 +168,3 @@ plt.scatter(battles[:,0], battles[:,1], s=100, c=identified)
 
 
 ![png]({filename}/images/scipy_simple_clustering/output_26_1.png)
-

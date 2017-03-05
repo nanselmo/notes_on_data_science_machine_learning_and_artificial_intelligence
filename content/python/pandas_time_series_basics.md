@@ -6,7 +6,7 @@ Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon
 
-
+Want to learn more? I recommend these Python books: [Python for Data Analysis](http://amzn.to/2ljV9wY), [Python Data Science Handbook](http://amzn.to/2m0mgMB), and [Introduction to Machine Learning with Python](http://amzn.to/2mjYiwK).
 
 ### Import modules
 
@@ -22,7 +22,7 @@ import matplotlib.pyplot as pyplot
 
 
 ```python
-data = {'date': ['2014-05-01 18:47:05.069722', '2014-05-01 18:47:05.119994', '2014-05-02 18:47:05.178768', '2014-05-02 18:47:05.230071', '2014-05-02 18:47:05.230071', '2014-05-02 18:47:05.280592', '2014-05-03 18:47:05.332662', '2014-05-03 18:47:05.385109', '2014-05-04 18:47:05.436523', '2014-05-04 18:47:05.486877'], 
+data = {'date': ['2014-05-01 18:47:05.069722', '2014-05-01 18:47:05.119994', '2014-05-02 18:47:05.178768', '2014-05-02 18:47:05.230071', '2014-05-02 18:47:05.230071', '2014-05-02 18:47:05.280592', '2014-05-03 18:47:05.332662', '2014-05-03 18:47:05.385109', '2014-05-04 18:47:05.436523', '2014-05-04 18:47:05.486877'],
         'battle_deaths': [34, 25, 26, 15, 15, 14, 26, 25, 62, 41]}
 df = pd.DataFrame(data, columns = ['date', 'battle_deaths'])
 print(df)
@@ -39,7 +39,7 @@ print(df)
     7  2014-05-03 18:47:05.385109             25
     8  2014-05-04 18:47:05.436523             62
     9  2014-05-04 18:47:05.486877             41
-    
+
     [10 rows x 2 columns]
 
 
@@ -544,7 +544,7 @@ df.groupby(level=0).count()
 
 
 
-### 
+###
 
 ### Mean value of battle_deaths per day
 
@@ -654,4 +654,3 @@ df.resample('D', how='sum').plot()
 
 
 ![png]({filename}/images/pandas_time_series_basics/output_29_1.png)
-

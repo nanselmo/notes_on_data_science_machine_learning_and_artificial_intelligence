@@ -6,10 +6,7 @@ Category: R Stats
 Tags: Data Wrangling
 Authors: Chris Albon
 
-
-Original source: Learning R
-
-
+Want to learn more? I recommend working through: [R for Data Science](http://amzn.to/2myxnhi), [R Cookbook](http://amzn.to/2lF6hkb), and [R Graphics Cookbook](http://amzn.to/2m0fcPL).
 ```R
 # Generate some age data of 10000 soldiers between 16 and 66
 age <- 16 + 50 * rbeta(10000, 2, 3)

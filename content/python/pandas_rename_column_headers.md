@@ -8,6 +8,8 @@ Authors: Chris Albon
 
 Originally from [rgalbo](http://stackoverflow.com/users/3291077/rgalbo) on [StackOverflow](http://stackoverflow.com/questions/31328861/python-pandas-replacing-header-with-top-row).
 
+Want to learn more? I recommend these Python books: [Python for Data Analysis](http://amzn.to/2ljV9wY), [Python Data Science Handbook](http://amzn.to/2m0mgMB), and [Introduction to Machine Learning with Python](http://amzn.to/2mjYiwK).
+
 ## Preliminaries
 
 

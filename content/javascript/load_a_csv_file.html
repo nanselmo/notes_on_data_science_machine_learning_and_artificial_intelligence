@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Load A CSV File</title>
+    <meta name="date" content="2017-02-22 21:01" />
+    <meta name="category" content="Javascript" />
+    <meta name="tags" content="Data Visualization" />
+    <meta name="authors" content="Chris Albon" />
+    <meta name="summary" content="Load A CSV File In D3" />
+</head>
+
+<body>
+
+  <div class="codehilite">
+    <pre><span class="c">&lt;!-- Load D3 Library --&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"http://d3js.org/d3.v3.min.js"</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="c">&lt;!-- Use D3 Library --&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+
+  <span class="c1">// Create a variable with the url to the csv file</span>
+  <span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="s2">"https://gist.githubusercontent.com/d3byex/e5ce6526ba2208014379/raw/8fefb14cc18f0440dc00248f23cbf6aec80dcc13/walking_dead_s5.csv"</span><span class="p">;</span>
+
+  <span class="c1">// Load the csv file</span>
+  <span class="nx">d3</span><span class="p">.</span><span class="nx">csv</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Output the first observation to the log</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+  <span class="p">});</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span></pre>
+  </div>
+
+    <!-- Load D3 Library -->
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+    <!-- Use D3 Library -->
+    <script>
+
+      // Create a variable with the url to the csv file
+var url = "https://gist.githubusercontent.com/d3byex/e5ce6526ba2208014379/raw/8fefb14cc18f0440dc00248f23cbf6aec80dcc13/walking_dead_s5.csv";
+
+      // Load the csv file
+      d3.csv(url, function (error, data) {
+        // Output the first observation to the log
+    console.log(data[0]);
+});
+    </script>
+
+</body>
+
+</html>

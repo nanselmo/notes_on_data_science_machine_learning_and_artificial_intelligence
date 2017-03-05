@@ -6,6 +6,7 @@ Category: R Stats
 Tags: Data Visualization
 Authors: Chris Albon
 
+Want to learn more? I recommend working through: [R for Data Science](http://amzn.to/2myxnhi), [R Cookbook](http://amzn.to/2lF6hkb), and [R Graphics Cookbook](http://amzn.to/2m0fcPL).
 
 original source: http://stackoverflow.com/questions/11641356/circular-plot-in-ggplot2-with-line-segments-connected-in-r
 

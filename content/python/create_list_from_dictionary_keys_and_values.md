@@ -6,14 +6,14 @@ Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon
 
-
+Want to learn more? I recommend these Python books: [Python for Data Analysis](http://amzn.to/2ljV9wY), [Python Data Science Handbook](http://amzn.to/2m0mgMB), and [Introduction to Machine Learning with Python](http://amzn.to/2mjYiwK).
 
 ### Create a dictionary
 
 
 ```python
-dict = {'county': ['Cochice', 'Pima', 'Santa Cruz', 'Maricopa', 'Yuma'], 
-        'year': [2012, 2012, 2013, 2014, 2014], 
+dict = {'county': ['Cochice', 'Pima', 'Santa Cruz', 'Maricopa', 'Yuma'],
+        'year': [2012, 2012, 2013, 2014, 2014],
         'fireReports': [4, 24, 31, 2, 3]}
 ```
 
@@ -62,5 +62,3 @@ dictionaryValues
     [[2012, 2012, 2013, 2014, 2014],
      ['Cochice', 'Pima', 'Santa Cruz', 'Maricopa', 'Yuma'],
      [4, 24, 31, 2, 3]]
-
-

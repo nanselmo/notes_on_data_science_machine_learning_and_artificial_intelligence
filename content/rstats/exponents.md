@@ -10,6 +10,7 @@ Authors: Chris Albon
 
 R can display numbers with exponents with ease, so don't be confused when you see "e" in a number.
 
+Want to learn more? I recommend working through: [R for Data Science](http://amzn.to/2myxnhi), [R Cookbook](http://amzn.to/2lF6hkb), and [R Graphics Cookbook](http://amzn.to/2m0fcPL).
 
 ```R
 3.2e3 # 3200

@@ -6,7 +6,7 @@ Category: Python
 Tags: Data Visualization
 Authors: Chris Albon
 
-
+Want to learn more? I recommend these Python books: [Python for Data Analysis](http://amzn.to/2ljV9wY), [Python Data Science Handbook](http://amzn.to/2m0mgMB), and [Introduction to Machine Learning with Python](http://amzn.to/2mjYiwK).
 
 **Note:** Based on: [Sebastian Raschka](http://nbviewer.ipython.org/github/rasbt/matplotlib-gallery/blob/master/ipynb/barplots.ipynb).
 
@@ -108,9 +108,9 @@ x_pos = list(range(len(bar_labels)))
 # In x position
 plt.bar(x_pos,
         # using the data from the mean_values
-        mean_values, 
+        mean_values,
         # with a y-error lines set at variance
-        yerr=variance, 
+        yerr=variance,
         # aligned in the center
         align='center',
         # with color
@@ -135,4 +135,3 @@ plt.show()
 
 
 ![png]({filename}/images/matplotlib_bar_plot/output_6_0.png)
-

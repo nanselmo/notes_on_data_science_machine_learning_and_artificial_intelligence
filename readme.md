@@ -36,4 +36,3 @@ The motivation of this ongoing book project is to bridge that gap: to create a p
 
 - Rewrite bio / CV
 - add comments to css
-- tweak ts post

@@ -6,7 +6,7 @@ Category: R Stats
 Tags: Data Visualization
 Authors: Chris Albon
 
-
+Want to learn more? I recommend working through: [R for Data Science](http://amzn.to/2myxnhi), [R Cookbook](http://amzn.to/2lF6hkb), and [R Graphics Cookbook](http://amzn.to/2m0fcPL).
 
 Source: http://www.r-bloggers.com/a-nifty-area-plot-or-a-bootleg-of-a-ggplot-geom/
 

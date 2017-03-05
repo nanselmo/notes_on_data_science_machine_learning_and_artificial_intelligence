@@ -10,6 +10,8 @@ This is a script which monitor's Twitter for tweets containing certain hashtags,
 
 To get the code below to run, you need to added your own Twitter API credentials.
 
+Want to learn more? I recommend these Python books: [Python for Data Analysis](http://amzn.to/2ljV9wY), [Python Data Science Handbook](http://amzn.to/2m0mgMB), and [Introduction to Machine Learning with Python](http://amzn.to/2mjYiwK).
+
 ## Preliminaries
 
 

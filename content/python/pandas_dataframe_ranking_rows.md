@@ -6,8 +6,7 @@ Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon
 
-
-
+Want to learn more? I recommend these Python books: [Python for Data Analysis](http://amzn.to/2ljV9wY), [Python Data Science Handbook](http://amzn.to/2m0mgMB), and [Introduction to Machine Learning with Python](http://amzn.to/2mjYiwK).
 
 ```python
 # import modules
@@ -17,8 +16,8 @@ import pandas as pd
 
 ```python
 # Create dataframe
-data = {'name': ['Jason', 'Molly', 'Tina', 'Jake', 'Amy'], 
-        'year': [2012, 2012, 2013, 2014, 2014], 
+data = {'name': ['Jason', 'Molly', 'Tina', 'Jake', 'Amy'],
+        'year': [2012, 2012, 2013, 2014, 2014],
         'reports': [4, 24, 31, 2, 3],
         'coverage': [25, 94, 57, 62, 70]}
 df = pd.DataFrame(data, index = ['Cochice', 'Pima', 'Santa Cruz', 'Maricopa', 'Yuma'])
@@ -149,5 +148,3 @@ df
 </table>
 <p>5 rows × 5 columns</p>
 </div>
-
-

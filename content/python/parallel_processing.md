@@ -8,6 +8,8 @@ Authors: Chris Albon
 
 This tutorial is inspired by Chris Kiehl's [great post on multiprocessing](http://chriskiehl.com/article/parallelism-in-one-line/).
 
+Want to learn more? I recommend these Python books: [Python for Data Analysis](http://amzn.to/2ljV9wY), [Python Data Science Handbook](http://amzn.to/2m0mgMB), and [Introduction to Machine Learning with Python](http://amzn.to/2mjYiwK).
+
 ## Preliminaries
 
 

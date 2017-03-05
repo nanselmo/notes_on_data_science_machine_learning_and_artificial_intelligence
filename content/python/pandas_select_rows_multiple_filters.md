@@ -7,7 +7,7 @@ Tags: Data Wrangling
 Authors: Chris Albon
 
 
-
+Want to learn more? I recommend these Python books: [Python for Data Analysis](http://amzn.to/2ljV9wY), [Python Data Science Handbook](http://amzn.to/2m0mgMB), and [Introduction to Machine Learning with Python](http://amzn.to/2mjYiwK).
 
 ```python
 # import pandas as pd
@@ -17,7 +17,7 @@ import pandas as pd
 
 ```python
 # Create an example dataframe
-data = {'name': ['A', 'B', 'C', 'D', 'E'], 
+data = {'name': ['A', 'B', 'C', 'D', 'E'],
         'score': [1,2,3,4,5]}
 df = pd.DataFrame(data)
 df
@@ -104,5 +104,3 @@ df[(df['score'] > 1) & (df['score'] < 5)]
   </tbody>
 </table>
 </div>
-
-

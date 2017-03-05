@@ -6,7 +6,7 @@ Category: Python
 Tags: Data Wrangling
 Authors: Chris Albon
 
-
+Want to learn more? I recommend these Python books: [Python for Data Analysis](http://amzn.to/2ljV9wY), [Python Data Science Handbook](http://amzn.to/2m0mgMB), and [Introduction to Machine Learning with Python](http://amzn.to/2mjYiwK).
 
 
 ```python
@@ -16,7 +16,7 @@ import pandas as pd
 
 ```python
 # Create an example dataframe
-data = {'name': ['Jason', 'Molly'], 
+data = {'name': ['Jason', 'Molly'],
         'country': [['Syria', 'Lebanon'],['Spain', 'Morocco']]}
 df = pd.DataFrame(data)
 df
@@ -77,5 +77,3 @@ df[df['country'].map(lambda country: 'Syria' in country)]
   </tbody>
 </table>
 </div>
-
-

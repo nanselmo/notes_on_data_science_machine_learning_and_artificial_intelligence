@@ -221,7 +221,11 @@ pre {
 }
 
 h2.homepage_category_title {
-    font-size: 20px;
+    font-size: 25px;
+    font-weight: 700;
+    background-color: #333333;
+    color: #fff;
+    padding: 10px;
     }
 
 h3.panel-title {

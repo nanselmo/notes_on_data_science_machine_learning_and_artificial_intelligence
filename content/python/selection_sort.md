@@ -14,6 +14,8 @@ This might not be the most efficient implementation of the selection sort algori
 4. When you get to the last card, put the card in your hand into a separate pile.
 5. Repeat steps 1-4 until there are no more cards in the original deck
 
+Want to learn more? I recommend these Python books: [Python for Data Analysis](http://amzn.to/2ljV9wY), [Python Data Science Handbook](http://amzn.to/2m0mgMB), and [Introduction to Machine Learning with Python](http://amzn.to/2mjYiwK).
+
 ## Create A Sequence
 
 

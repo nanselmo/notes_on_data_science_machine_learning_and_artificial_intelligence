@@ -6,9 +6,9 @@ Category: Python
 Tags: Basics
 Authors: Chris Albon
 
+Want to learn more? I recommend these Python books: [Python for Data Analysis](http://amzn.to/2ljV9wY), [Python Data Science Handbook](http://amzn.to/2m0mgMB), and [Introduction to Machine Learning with Python](http://amzn.to/2mjYiwK).
 
-
-This snippet is a completely inefficient simulator of a 20 sided dice. To create a "succussful roll" the snippet has to generate  dozens of random numbers.
+This snippet is a completely inefficient simulator of a 20 sided dice. To create a "successful roll" the snippet has to generate  dozens of random numbers.
 
 ### Import random module
 
@@ -574,4 +574,3 @@ while rolling:
     Trying again.
     Trying again.
     You rolled a 13.
-

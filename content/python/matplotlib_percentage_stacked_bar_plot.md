@@ -6,9 +6,9 @@ Category: Python
 Tags: Data Visualization
 Authors: Chris Albon
 
-
-
 - **Note:** Based on: [Sebastian Raschka](http://nbviewer.ipython.org/github/rasbt/matplotlib-gallery/blob/master/ipynb/barplots.ipynb).
+
+Want to learn more? I recommend these Python books: [Python for Data Analysis](http://amzn.to/2ljV9wY), [Python Data Science Handbook](http://amzn.to/2m0mgMB), and [Introduction to Machine Learning with Python](http://amzn.to/2mjYiwK).
 
 ## Preliminaries
 
@@ -98,10 +98,10 @@ f, ax = plt.subplots(1, figsize=(10,5))
 bar_width = 1
 
 # positions of the left bar-boundaries
-bar_l = [i for i in range(len(df['pre_score']))] 
+bar_l = [i for i in range(len(df['pre_score']))]
 
 # positions of the x-axis ticks (center of the bars as bar labels)
-tick_pos = [i+(bar_width/2) for i in bar_l] 
+tick_pos = [i+(bar_width/2) for i in bar_l]
 
 # Create the total score for each participant
 totals = [i+j+k for i,j,k in zip(df['pre_score'], df['mid_score'], df['post_score'])]
@@ -116,13 +116,13 @@ mid_rel = [i / j * 100 for  i,j in zip(df['mid_score'], totals)]
 post_rel = [i / j * 100 for  i,j in zip(df['post_score'], totals)]
 
 # Create a bar chart in position bar_1
-ax.bar(bar_l, 
+ax.bar(bar_l,
        # using pre_rel data
-       pre_rel, 
-       # labeled 
-       label='Pre Score', 
+       pre_rel,
+       # labeled
+       label='Pre Score',
        # with alpha
-       alpha=0.9, 
+       alpha=0.9,
        # with color
        color='#019600',
        # with bar width
@@ -132,17 +132,17 @@ ax.bar(bar_l,
        )
 
 # Create a bar chart in position bar_1
-ax.bar(bar_l, 
+ax.bar(bar_l,
        # using mid_rel data
-       mid_rel, 
+       mid_rel,
        # with pre_rel
-       bottom=pre_rel, 
-       # labeled 
-       label='Mid Score', 
+       bottom=pre_rel,
+       # labeled
+       label='Mid Score',
        # with alpha
-       alpha=0.9, 
+       alpha=0.9,
        # with color
-       color='#3C5F5A', 
+       color='#3C5F5A',
        # with bar width
        width=bar_width,
        # with border color
@@ -150,17 +150,17 @@ ax.bar(bar_l,
        )
 
 # Create a bar chart in position bar_1
-ax.bar(bar_l, 
+ax.bar(bar_l,
        # using post_rel data
-       post_rel, 
+       post_rel,
        # with pre_rel and mid_rel on bottom
-       bottom=[i+j for i,j in zip(pre_rel, mid_rel)], 
-       # labeled 
+       bottom=[i+j for i,j in zip(pre_rel, mid_rel)],
+       # labeled
        label='Post Score',
        # with alpha
-       alpha=0.9, 
+       alpha=0.9,
        # with color
-       color='#219AD8', 
+       color='#219AD8',
        # with bar width
        width=bar_width,
        # with border color
@@ -185,4 +185,3 @@ plt.show()
 
 
 ![png]({filename}/images/matplotlib_percentage_stacked_bar_plot/output_6_0.png)
-

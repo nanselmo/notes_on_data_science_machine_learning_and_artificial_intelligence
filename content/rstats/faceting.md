@@ -7,7 +7,7 @@ Tags: Data Visualization
 Authors: Chris Albon
 
 
-Original source: ggplot2 book
+Want to learn more? I recommend working through: [R for Data Science](http://amzn.to/2myxnhi), [R Cookbook](http://amzn.to/2lF6hkb), and [R Graphics Cookbook](http://amzn.to/2m0fcPL).
 
 Faceting is when we show many little charts, one for each category of a factor
 
