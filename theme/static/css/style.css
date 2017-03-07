@@ -221,10 +221,8 @@ pre {
 }
 
 h2.homepage_category_title {
-    font-size: 25px;
-    font-weight: 700;
-    background-color: #333333;
-    color: #fff;
+    background-color: #ececec;
+    color: rgb(84, 84, 84);
     padding: 10px;
     }
 
