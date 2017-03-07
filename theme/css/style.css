@@ -224,6 +224,7 @@ h2.homepage_category_title {
     background-color: #ececec;
     color: rgb(84, 84, 84);
     padding: 10px;
+    border: solid 1px #ddd;
     }
 
 h3.panel-title {
