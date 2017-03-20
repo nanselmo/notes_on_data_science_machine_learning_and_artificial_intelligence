@@ -3,7 +3,7 @@ Slug: cross_validation_pipeline
 Summary: Cross validaton pipeline with scikit.   
 Date: 2016-09-22 12:00  
 Category: Machine Learning  
-Tags: Basics  
+Tags: Model Evaluation  
 Authors: Chris Albon
 
 The code below does a lot in only a few lines. To help explain things, here are the steps that code is doing:

@@ -3,7 +3,7 @@ Slug: linear_regression_scikit-learn
 Summary: A simple example of linear regression in scikit-learn
 Date: 2016-08-19 12:00  
 Category: Machine Learning  
-Tags: Basics  
+Tags: Supervised Learning - Regression  
 Authors: Chris Albon  
 
 Sources: [scikit-learn](http://scikit-learn.org/stable/auto_examples/linear_model/plot_ols.html#example-linear-model-plot-ols-py), [DrawMyData](http://robertgrantstats.co.uk/drawmydata.html).

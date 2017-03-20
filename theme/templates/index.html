@@ -35,11 +35,16 @@
   <div class="col-sm-12">
     <h2 class="homepage_category_title">Machine Learning</h2>
   </div>
+
+
   <div class="col-sm-12">
     <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Basics</h3>
+      </div>
       <div class="panel-body">
         <ul>
-          {% for article in articles if article.category == 'Machine Learning' %}
+          {% for article in articles if article.category == 'Machine Learning' and 'Basics' in article.tags %}
             <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
           {% else %}
             <li>Coming soon.</li>
@@ -48,6 +53,143 @@
       </div>
     </div>
   </div>
+
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Preprocessing</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+          {% for article in articles if article.category == 'Machine Learning' and 'Preprocessing' in article.tags %}
+            <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+          {% else %}
+            <li>Coming soon.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Feature Engineering</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+          {% for article in articles if article.category == 'Machine Learning' and 'Feature Engineering' in article.tags %}
+            <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+          {% else %}
+            <li>Coming soon.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Feature Selection</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+          {% for article in articles if article.category == 'Machine Learning' and 'Feature Selection' in article.tags %}
+            <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+          {% else %}
+            <li>Coming soon.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Supervised Learning - Classification</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+          {% for article in articles if article.category == 'Machine Learning' and 'Supervised Learning - Classification' in article.tags %}
+            <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+          {% else %}
+            <li>Coming soon.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Supervised Learning - Regression</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+          {% for article in articles if article.category == 'Machine Learning' and 'Supervised Learning - Regression' in article.tags %}
+            <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+          {% else %}
+            <li>Coming soon.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Unsupervised Learning</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+          {% for article in articles if article.category == 'Machine Learning' and 'Unsupervised Learning' in article.tags %}
+            <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+          {% else %}
+            <li>Coming soon.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Model Selection</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+          {% for article in articles if article.category == 'Machine Learning' and 'Model Selection' in article.tags %}
+            <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+          {% else %}
+            <li>Coming soon.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Model Evaluation</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+          {% for article in articles if article.category == 'Machine Learning' and 'Model Evaluation' in article.tags %}
+            <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+          {% else %}
+            <li>Coming soon.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <div class="row" id="Python">
@@ -518,25 +660,6 @@
       <div class="panel-body">
         <ul>
           {% for article in articles if article.category == 'Amazon Web Services'  %}
-            <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
-          {% else %}
-            <li>Coming soon.</li>
-          {% endfor %}
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="row" id="Kaggle">
-  <div class="col-sm-12">
-    <h2 class="homepage_category_title">Kaggle</h2>
-  </div>
-  <div class="col-sm-12">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <ul>
-          {% for article in articles if article.category == 'Kaggle'  %}
             <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
           {% else %}
             <li>Coming soon.</li>

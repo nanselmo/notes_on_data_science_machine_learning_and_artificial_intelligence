@@ -3,7 +3,7 @@ Slug: naive_bayes_classifier_from_scratch
 Summary: How to build a naive bayes classifier from scratch in Python.   
 Date: 2016-12-12 12:00    
 Category: Machine Learning   
-Tags: Basics   
+Tags: Supervised Learning - Classification   
 Authors: Chris Albon    
 
 Naive bayes is simple classifier known for doing well when only a small number of observations is available. In this tutorial we will create a gaussian naive bayes classifier from scratch and use it to predict the class of a previously unseen data point. This tutorial is based on an example on Wikipedia's [naive bayes classifier page](https://en.wikipedia.org/wiki/Naive_Bayes_classifier), I have implemented it in Python and tweaked some notation to improve explanation.

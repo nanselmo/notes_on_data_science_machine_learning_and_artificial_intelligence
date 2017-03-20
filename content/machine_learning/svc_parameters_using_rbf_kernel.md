@@ -3,7 +3,7 @@ Slug: svc_parameters_using_rbf_kernel
 Summary: SVC Parameters When Using RBF Kernel  
 Date: 2016-11-22 12:00  
 Category: Machine Learning  
-Tags: Basics  
+Tags: Supervised Learning - Classification  
 Authors: Chris Albon  
 
 In this tutorial we will visually explore the effects of the two parameters from the support vector classifier (SVC) when using the radial basis function kernel (RBF). This tutorial draws heavily on the code used in Sebastian Raschka's book [Python Machine Learning](http://amzn.to/2iyMbpA).

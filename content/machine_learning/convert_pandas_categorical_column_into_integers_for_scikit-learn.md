@@ -3,7 +3,7 @@ Slug: convert_pandas_categorical_column_into_integers_for_scikit-learn
 Summary: Convert Pandas Categorical Column Into Integers For Scikit-Learn  
 Date: 2016-11-30 12:00  
 Category: Machine Learning  
-Tags: Basics  
+Tags: Preprocessing  
 Authors: Chris Albon  
 
 ## Preliminaries

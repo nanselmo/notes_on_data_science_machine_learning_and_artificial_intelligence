@@ -3,7 +3,7 @@ Slug: cross_validation_parameter_tuning_grid_search
 Summary: Cross Validation With Parameter Tuning Using Grid Search using Scikit-Learn.   
 Date: 2016-09-06 12:00  
 Category: Machine Learning  
-Tags: Basics  
+Tags: Model Selection  
 Authors: Chris Albon
 
 In machine learning, two tasks are commonly done at the same time in data pipelines: cross validation and (hyper)parameter tuning. Cross validation is the process of training learners using one set of data and testing it using a different set. Parameter tuning is the process to selecting the values for a model's parameters that maximize the accuracy of the model.

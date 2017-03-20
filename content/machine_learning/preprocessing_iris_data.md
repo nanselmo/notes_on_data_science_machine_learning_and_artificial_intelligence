@@ -3,7 +3,7 @@ Slug: preprocessing_iris_data
 Summary: Preprocessing iris data using scikit learn.  
 Date: 2016-09-21 12:00  
 Category: Machine Learning  
-Tags: Basics  
+Tags: Preprocessing  
 Authors: Chris Albon
 
 ## Preliminaries

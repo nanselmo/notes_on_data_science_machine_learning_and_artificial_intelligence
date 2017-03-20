@@ -3,7 +3,7 @@ Slug: impute_missing_values_with_k-nearest_neighbors
 Summary: Impute Missing Values Using K-Nearest Neighbors.   
 Date: 2016-09-06 12:00  
 Category: Machine Learning  
-Tags: Basics  
+Tags: Preprocessing  
 Authors: Chris Albon
 
 Nearest neighbor imputations which weights samples using the mean squared difference on features for which two rows both have observed data. In this example, we use 3 nearest rows which have a feature to fill in each row's missing features.

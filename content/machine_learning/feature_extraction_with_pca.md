@@ -3,7 +3,7 @@ Slug: feature_extraction_with_pca
 Summary: Feature extraction with PCA using scikit-learn.   
 Date: 2016-12-08 12:00   
 Category: Machine Learning  
-Tags: Basics  
+Tags: Feature Engineering  
 Authors: Chris Albon   
 
 [Principle Component Analysis](https://en.wikipedia.org/wiki/Principal_component_analysis) (PCA) is a common feature extraction method in data science. Technically, PCA finds the eigenvectors of a covariance matrix with the highest eigenvalues and then uses those to project the data into a new subspace of equal or less dimensions. Practically, PCA converts a matrix of `n` features into a new dataset of (hopefully) less than `n` features. That is, it reduces the number of features by constructing a new, smaller number variables which capture a signficant portion of the information found in the original features. However, the goal of this tutorial is not to explain the concept of PCA, that is done very well elsewhere, but rather to demonstrate PCA in action.

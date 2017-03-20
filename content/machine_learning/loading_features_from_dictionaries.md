@@ -3,7 +3,7 @@ Slug: loading_features_from_dictionaries
 Summary: Loading Features From Dictionaries  
 Date: 2016-11-01 12:00  
 Category: Machine Learning  
-Tags: Basics  
+Tags: Preprocessing  
 Authors: Chris Albon   
 
 ## Preliminaries

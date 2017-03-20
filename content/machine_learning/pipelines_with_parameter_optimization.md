@@ -3,7 +3,7 @@ Slug: pipelines_with_parameter_optimization
 Summary: Pipelines with parameter optimization using scikit-learn.  
 Date: 2016-12-01 12:00  
 Category: Machine Learning  
-Tags: Basics  
+Tags: Model Selection  
 Authors: Chris Albon  
 
 ## Preliminaries

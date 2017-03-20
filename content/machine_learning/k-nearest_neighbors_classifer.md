@@ -3,7 +3,7 @@ Slug: k-nearest_neighbors_using_scikit_pandas
 Summary: A quick guide to using k-nearest neighbor using numpy and scikit.
 Date: 2016-08-31 12:00  
 Category: Machine Learning  
-Tags: Basics  
+Tags: Unsupervised Learning  
 Authors: Chris Albon
 K-nearest neighbors classifier (KNN) is a simple and powerful classification learner.
 

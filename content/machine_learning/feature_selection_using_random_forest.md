@@ -3,7 +3,7 @@ Slug: feature_selection_using_random_forest
 Summary: Feature Selection Using Random Forest with scikit-learn.  
 Date: 2016-12-01 12:00  
 Category: Machine Learning  
-Tags: Basics  
+Tags: Feature Selection  
 Authors: Chris Albon  
 
 Often in data science we have hundreds or even millions of features and we want a way to create a model that only includes the most important features. This has three benefits. First, we make our model more simple to interpret. Second, we can reduce the variance of the model, and therefore overfitting. Finally, we can reduce the computational cost (and time) of training a model. The process of identifying only the most relevant features is called "feature selection."

@@ -3,7 +3,7 @@ Slug: logistic_regression_with_l1_regularization
 Summary: Logistic Regression With L1 Regularization using scikit-learn.  
 Date: 2016-12-01 12:00  
 Category: Machine Learning  
-Tags: Basics  
+Tags: Supervised Learning - Classification  
 Authors: Chris Albon  
 
 L1 regularization (also called least absolute deviations) is a powerful tool in data science. There are many tutorials out there explaining L1 regularization and I will not try to do that here. Instead, this tutorial is show the effect of the regularization parameter `C` on the coefficients and model accuracy.

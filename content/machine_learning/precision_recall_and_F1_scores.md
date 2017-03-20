@@ -3,7 +3,7 @@ Slug: precision_recall_and_F1_scores
 Summary: An explanation of precision, recall, and F1 scores.    
 Date: 2016-12-09 11:00    
 Category: Machine Learning   
-Tags: Basics  
+Tags: Model Evaluation  
 Authors: Chris Albon
 
 

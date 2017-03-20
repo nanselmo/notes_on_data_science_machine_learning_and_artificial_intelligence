@@ -3,7 +3,7 @@ Slug: lasso_regression_in_scikit
 Summary: Lasso Regression In Scikit-Learn   
 Date: 2016-11-01 12:00  
 Category: Machine Learning  
-Tags: Basics  
+Tags: Feature Selection  
 Authors: Chris Albon  
 
 Often we want conduct a process called [regularization](https://en.wikipedia.org/wiki/Regularization_(mathematics)), wherein we penalize the number of features in a model in order to only keep the most important features. This can be particularly important when you have a dataset with 100,000+ features.

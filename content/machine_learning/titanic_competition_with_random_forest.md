@@ -3,7 +3,7 @@ Slug: titanic_competition_with_random_forest
 Summary: Python code to make a submission to the titanic competition using a random forest.   
 Date: 2016-12-29 00:01  
 Category: Kaggle  
-Tags: Basics  
+Tags: Supervised Learning - Classification  
 Authors: Chris Albon
 
 This was my first attempt at a Kaggle submission and conducted mostly to understand the Kaggle competition process.

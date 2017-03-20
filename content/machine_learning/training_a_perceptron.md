@@ -3,7 +3,7 @@ Slug: training_a_perceptron
 Summary: Perceptron Learning using Python and scikit-learn.  
 Date: 2016-11-04 12:00  
 Category: Machine Learning  
-Tags: Basics  
+Tags: Supervised Learning - Classification  
 Authors: Chris Albon
 
 A perceptron learner was one of the earliest machine learning techniques and still from the foundation of many modern neural networks. In this tutorial we use a perceptron learner to classify the [famous iris dataset](https://en.wikipedia.org/wiki/Iris_flower_data_set). This tutorial was inspired by [Python Machine Learning by Sebastian Raschka](http://amzn.to/2iyMbpA).

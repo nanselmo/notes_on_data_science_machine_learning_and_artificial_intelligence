@@ -3,7 +3,7 @@ Slug: impute_missing_values_with_means
 Summary: Impute Missing Values With Means.   
 Date: 2016-11-28 12:00    
 Category: Machine Learning   
-Tags: Basics  
+Tags: Preprocessing  
 Authors: Chris Albon
 
 Mean imputation replaces missing values with the mean value of that feature/variable. Mean imputation is one of the most 'naive' imputation methods because unlike more complex methods like k-nearest neighbors imputation, it does not use the information we have about an observation to estimate a value for it.

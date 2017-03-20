@@ -3,7 +3,7 @@ Slug: nested_cross_validation
 Summary: Nested Cross Validation using scikit-learn.  
 Date: 2016-12-02 12:00  
 Category: Machine Learning  
-Tags: Basics  
+Tags: Model Evaluation  
 Authors: Chris Albon  
 
 Often we want to tune the parameters of a model (for example, `C` in a support vector machine). That is, we want to find the value of a parameter that minimizes our loss function. The best way to do this is cross validation:

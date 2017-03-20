@@ -3,7 +3,7 @@ Slug: preprocessing_categorical_features
 Summary: Preprocessing Categorical Features  
 Date: 2016-11-01 12:00  
 Category: Machine Learning  
-Tags: Basics  
+Tags: Preprocessing  
 Authors: Chris Albon   
 
 Often, machine learning methods (e.g. logistic regression, SVM with a linear kernel, etc) will require that categorical variables be converted into dummy variables (also called OneHot encoding). For example, a single feature `Fruit` would be converted into three features, `Apples`, `Oranges`, and `Bananas`, one for each category in the categorical feature.
