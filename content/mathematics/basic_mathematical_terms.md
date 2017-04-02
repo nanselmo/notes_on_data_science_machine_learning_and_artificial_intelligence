@@ -221,7 +221,7 @@ A point of a functon where both the first and second derivative is 0.
 
 ### Concave ###
 
-A function where the rate of increase slows as the value of the function gets bigger. Another way to think about it: if plotted in 2d, a convex function curves towards the ground.
+A function where the rate of increase slows as the value of the function gets bigger. Another way to think about it: if plotted in 2d, a concave function curves towards the ground.
 
 ### Convex ###
 
