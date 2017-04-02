@@ -5,7 +5,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://chrisalbon.com/</loc>
-<lastmod>2017-03-27T20:56:22-00:00</lastmod>
+<lastmod>2017-04-02T13:48:48-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -3273,6 +3273,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>http://chrisalbon.com/python/create_sorted_list.html</loc>
+<lastmod>2016-03-07T12:00:00-08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>http://chrisalbon.com/frequentist-statistics/pearsons_correlation_coefficient.html</loc>
 <lastmod>2016-02-08T12:00:00-08:00</lastmod>
 <changefreq>monthly</changefreq>
@@ -3310,13 +3317,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://chrisalbon.com/blog/what-i-learned-tracking-my-time-at-techstars.html</loc>
 <lastmod>2016-02-01T22:28:00-08:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://chrisalbon.com/python/binary_search.html</loc>
-<lastmod>2016-01-30T12:00:00-08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>

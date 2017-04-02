@@ -140,7 +140,7 @@
 &lt;h3&gt;Saddle Point&lt;/h3&gt;
 &lt;p&gt;A point of a functon where both the first and second derivative is 0.&lt;/p&gt;
 &lt;h3&gt;Concave&lt;/h3&gt;
-&lt;p&gt;A function where the rate of increase slows as the value of the function gets bigger. Another way to think about it: if plotted in 2d, a convex function curves towards the ground.&lt;/p&gt;
+&lt;p&gt;A function where the rate of increase slows as the value of the function gets bigger. Another way to think about it: if plotted in 2d, a concave function curves towards the ground.&lt;/p&gt;
 &lt;h3&gt;Convex&lt;/h3&gt;
 &lt;p&gt;A function where the rate of increase speeds up as the value of the function gets bigger. Another way to think about it: if plotted in 2d, a convex function curves towards the sky.&lt;/p&gt;
 &lt;h3&gt;Conditional Probability&lt;/h3&gt;

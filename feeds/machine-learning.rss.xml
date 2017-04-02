@@ -463,7 +463,7 @@
 &lt;li&gt;&lt;span class="math"&gt;\(\text{class}\)&lt;/span&gt; is a particular class (e.g. male)&lt;/li&gt;
 &lt;li&gt;&lt;span class="math"&gt;\(\mathbf {\text{data}}\)&lt;/span&gt; is an observation's data&lt;/li&gt;
 &lt;li&gt;&lt;span class="math"&gt;\(p(\text{class} \mid \mathbf {\text{data}} )\)&lt;/span&gt; is called the posterior&lt;/li&gt;
-&lt;li&gt;&lt;span class="math"&gt;\(p(\text{class})\)&lt;/span&gt; is called the likelihood&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(p(\text{data|class})\)&lt;/span&gt; is called the likelihood&lt;/li&gt;
 &lt;li&gt;&lt;span class="math"&gt;\(p(\text{class})\)&lt;/span&gt; is called the prior&lt;/li&gt;
 &lt;li&gt;&lt;span class="math"&gt;\(p(\mathbf {\text{data}} )\)&lt;/span&gt; is called the marginal probability&lt;/li&gt;
 &lt;/ul&gt;

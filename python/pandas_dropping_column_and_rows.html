@@ -141,7 +141,6 @@
 </ol>
 </header>
 <div class='article_content'>
-<p>Want to learn more? I recommend these Python books: <a href="http://amzn.to/2ljV9wY">Python for Data Analysis</a>, <a href="http://amzn.to/2m0mgMB">Python Data Science Handbook</a>, and <a href="http://amzn.to/2mjYiwK">Introduction to Machine Learning with Python</a>.</p>
 <h3>Import modules</h3>
 <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 </pre></div>
@@ -156,7 +155,7 @@
 </pre></div>
 
 
-<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<div>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -169,37 +168,36 @@
   <tbody>
     <tr>
       <th>Cochice</th>
-      <td> Jason</td>
-      <td>  4</td>
-      <td> 2012</td>
+      <td>Jason</td>
+      <td>4</td>
+      <td>2012</td>
     </tr>
     <tr>
       <th>Pima</th>
-      <td> Molly</td>
-      <td> 24</td>
-      <td> 2012</td>
+      <td>Molly</td>
+      <td>24</td>
+      <td>2012</td>
     </tr>
     <tr>
       <th>Santa Cruz</th>
-      <td>  Tina</td>
-      <td> 31</td>
-      <td> 2013</td>
+      <td>Tina</td>
+      <td>31</td>
+      <td>2013</td>
     </tr>
     <tr>
       <th>Maricopa</th>
-      <td>  Jake</td>
-      <td>  2</td>
-      <td> 2014</td>
+      <td>Jake</td>
+      <td>2</td>
+      <td>2014</td>
     </tr>
     <tr>
       <th>Yuma</th>
-      <td>   Amy</td>
-      <td>  3</td>
-      <td> 2014</td>
+      <td>Amy</td>
+      <td>3</td>
+      <td>2014</td>
     </tr>
   </tbody>
 </table>
-<p>5 rows × 3 columns</p>
 </div>
 
 <h3>Drop an observation (row)</h3>
@@ -207,7 +205,7 @@
 </pre></div>
 
 
-<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<div>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -220,25 +218,24 @@
   <tbody>
     <tr>
       <th>Santa Cruz</th>
-      <td> Tina</td>
-      <td> 31</td>
-      <td> 2013</td>
+      <td>Tina</td>
+      <td>31</td>
+      <td>2013</td>
     </tr>
     <tr>
       <th>Maricopa</th>
-      <td> Jake</td>
-      <td>  2</td>
-      <td> 2014</td>
+      <td>Jake</td>
+      <td>2</td>
+      <td>2014</td>
     </tr>
     <tr>
       <th>Yuma</th>
-      <td>  Amy</td>
-      <td>  3</td>
-      <td> 2014</td>
+      <td>Amy</td>
+      <td>3</td>
+      <td>2014</td>
     </tr>
   </tbody>
 </table>
-<p>3 rows × 3 columns</p>
 </div>
 
 <h3>Drop a variable (column)</h3>
@@ -247,7 +244,7 @@
 </pre></div>
 
 
-<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<div>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -259,42 +256,40 @@
   <tbody>
     <tr>
       <th>Cochice</th>
-      <td> Jason</td>
-      <td> 2012</td>
+      <td>Jason</td>
+      <td>2012</td>
     </tr>
     <tr>
       <th>Pima</th>
-      <td> Molly</td>
-      <td> 2012</td>
+      <td>Molly</td>
+      <td>2012</td>
     </tr>
     <tr>
       <th>Santa Cruz</th>
-      <td>  Tina</td>
-      <td> 2013</td>
+      <td>Tina</td>
+      <td>2013</td>
     </tr>
     <tr>
       <th>Maricopa</th>
-      <td>  Jake</td>
-      <td> 2014</td>
+      <td>Jake</td>
+      <td>2014</td>
     </tr>
     <tr>
       <th>Yuma</th>
-      <td>   Amy</td>
-      <td> 2014</td>
+      <td>Amy</td>
+      <td>2014</td>
     </tr>
   </tbody>
 </table>
-<p>5 rows × 2 columns</p>
 </div>
 
 <h3>Drop a row if it contains a certain value (in this case, "Tina")</h3>
 <p>Specifically: Create a new dataframe called df that includes all rows where the value of a cell in the name column does not equal "Tina"</p>
-<div class="codehilite"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">name</span> <span class="o">!=</span> <span class="s1">&#39;Tina&#39;</span><span class="p">]</span>
-<span class="n">df</span>
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">name</span> <span class="o">!=</span> <span class="s1">&#39;Tina&#39;</span><span class="p">]</span>
 </pre></div>
 
 
-<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<div>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -307,32 +302,230 @@
   <tbody>
     <tr>
       <th>Cochice</th>
-      <td> Jason</td>
-      <td>  4</td>
-      <td> 2012</td>
+      <td>Jason</td>
+      <td>4</td>
+      <td>2012</td>
     </tr>
     <tr>
       <th>Pima</th>
-      <td> Molly</td>
-      <td> 24</td>
-      <td> 2012</td>
+      <td>Molly</td>
+      <td>24</td>
+      <td>2012</td>
     </tr>
     <tr>
       <th>Maricopa</th>
-      <td>  Jake</td>
-      <td>  2</td>
-      <td> 2014</td>
+      <td>Jake</td>
+      <td>2</td>
+      <td>2014</td>
     </tr>
     <tr>
       <th>Yuma</th>
-      <td>   Amy</td>
-      <td>  3</td>
-      <td> 2014</td>
+      <td>Amy</td>
+      <td>3</td>
+      <td>2014</td>
     </tr>
   </tbody>
 </table>
-<p>4 rows × 3 columns</p>
 </div>
+
+<h3>Drop a row by row number (in this case, row 3)</h3>
+<p>Note that Pandas uses zero based numbering, so 0 is the first row, 1 is the second row, etc.</p>
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>reports</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Cochice</th>
+      <td>Jason</td>
+      <td>4</td>
+      <td>2012</td>
+    </tr>
+    <tr>
+      <th>Pima</th>
+      <td>Molly</td>
+      <td>24</td>
+      <td>2012</td>
+    </tr>
+    <tr>
+      <th>Maricopa</th>
+      <td>Jake</td>
+      <td>2</td>
+      <td>2014</td>
+    </tr>
+    <tr>
+      <th>Yuma</th>
+      <td>Amy</td>
+      <td>3</td>
+      <td>2014</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>can be extended to dropping a range</p>
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
+</pre></div>
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>reports</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Cochice</th>
+      <td>Jason</td>
+      <td>4</td>
+      <td>2012</td>
+    </tr>
+    <tr>
+      <th>Pima</th>
+      <td>Molly</td>
+      <td>24</td>
+      <td>2012</td>
+    </tr>
+    <tr>
+      <th>Yuma</th>
+      <td>Amy</td>
+      <td>3</td>
+      <td>2014</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>or dropping relative to the end of the DF.</p>
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>reports</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Cochice</th>
+      <td>Jason</td>
+      <td>4</td>
+      <td>2012</td>
+    </tr>
+    <tr>
+      <th>Pima</th>
+      <td>Molly</td>
+      <td>24</td>
+      <td>2012</td>
+    </tr>
+    <tr>
+      <th>Santa Cruz</th>
+      <td>Tina</td>
+      <td>31</td>
+      <td>2013</td>
+    </tr>
+    <tr>
+      <th>Yuma</th>
+      <td>Amy</td>
+      <td>3</td>
+      <td>2014</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>you can select ranges relative to the top or drop relative to the bottom of the DF as well.</p>
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span> <span class="c1">#keep top 3</span>
+</pre></div>
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>reports</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Cochice</th>
+      <td>Jason</td>
+      <td>4</td>
+      <td>2012</td>
+    </tr>
+    <tr>
+      <th>Pima</th>
+      <td>Molly</td>
+      <td>24</td>
+      <td>2012</td>
+    </tr>
+    <tr>
+      <th>Santa Cruz</th>
+      <td>Tina</td>
+      <td>31</td>
+      <td>2013</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="p">[:</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span> <span class="c1">#drop bottom 3</span>
+</pre></div>
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>reports</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Cochice</th>
+      <td>Jason</td>
+      <td>4</td>
+      <td>2012</td>
+    </tr>
+    <tr>
+      <th>Pima</th>
+      <td>Molly</td>
+      <td>24</td>
+      <td>2012</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="codehilite"><pre><span></span>
+</pre></div>
 </div>
     <aside>
     <div class="bug-reporting__panel">
