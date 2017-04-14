@@ -463,7 +463,7 @@
 &lt;li&gt;&lt;span class="math"&gt;\(\text{class}\)&lt;/span&gt; is a particular class (e.g. male)&lt;/li&gt;
 &lt;li&gt;&lt;span class="math"&gt;\(\mathbf {\text{data}}\)&lt;/span&gt; is an observation's data&lt;/li&gt;
 &lt;li&gt;&lt;span class="math"&gt;\(p(\text{class} \mid \mathbf {\text{data}} )\)&lt;/span&gt; is called the posterior&lt;/li&gt;
-&lt;li&gt;&lt;span class="math"&gt;\(p(\text{class})\)&lt;/span&gt; is called the likelihood&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(p(\text{data|class})\)&lt;/span&gt; is called the likelihood&lt;/li&gt;
 &lt;li&gt;&lt;span class="math"&gt;\(p(\text{class})\)&lt;/span&gt; is called the prior&lt;/li&gt;
 &lt;li&gt;&lt;span class="math"&gt;\(p(\mathbf {\text{data}} )\)&lt;/span&gt; is called the marginal probability&lt;/li&gt;
 &lt;/ul&gt;
@@ -662,7 +662,7 @@ $$&lt;/div&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Because the numerator of the posterior for male is greater than female, then we predict that the person is male.&lt;/p&gt;
+&lt;p&gt;Because the numerator of the posterior for female is greater than male, then we predict that the person is female.&lt;/p&gt;
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
         indent = "0em",

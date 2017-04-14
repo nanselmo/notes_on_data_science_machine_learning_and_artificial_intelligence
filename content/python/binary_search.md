@@ -1,75 +1,62 @@
-Title: Binary Search  
-Slug: binary_search  
-Summary: Binary Search Using Python.  
-Date: 2016-01-30 12:00  
-Category: Python  
-Tags: Algorithms  
-Authors: Chris Albon  
-
-Want to learn more? Check out [Data Structures and Algorithms in Python](http://amzn.to/2kjkqWQ)
-
-## Create Sorted List
-
+Title: Create Sorted List
+Slug: create_sorted_list
+Summary: Create Sorted List
+Date: 2016-03-07 12:00
+Category: Python
+Tags: Data Wrangling
+Authors: Chris Albon
 
 ```python
-sorted_list = list(range(20))
-
-sorted_list
+sorted_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 16, 18, 20]
+print(sorted_list)
 ```
 
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 16, 18, 20]
 
 
-
-    [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
-
-
-
-## Create A Binary Search Algorithm
+## Creat a binary search algorithm
 
 
 ```python
-# Define a function that takes a sorted list and the value we want to find,
 def binary_search(sorted_list, target):
 
-    # Set the initial search area to be the whole list
-    search_area = sorted_list
+    '''This function inputs a sorted list and a target value to find and returns ....'''
 
-    # While the search area has at least 1 element,
-    while len(search_area) >= 1:
+    # Create variables for the index of the first and last elements
+    start = 0
+    end = len(sorted_list) - 1
 
-        # Print the current search area:
-        print('Search area:', search_area)
+    while end >= start:
 
-        # Create the index of the last element
-        end = len(search_area) - 1
+        # Create a variable for the index of the middle term
+        middle = start + (end - start) // 2  # // is integer division in Python 3.X
 
-        # Create the index of the first element
-        middle = int((0 + end)/2)
+        # If the target value is less than the middle value of the search area
+        if target < sorted_list[middle]:
+            # Cut the list in half by making the new end value the old middle value minus 1
+            # The minus one is because we already ruled the middle value out, so we can ignore it
+            end = middle - 1
 
-        # If target is smaller than the middle value of the search area
-        if target < search_area[middle]:
-            # Make the new search area the first half of the current search area
-            search_area = search_area[:middle]
+        #  Else, if the target value is greater than the middle value of the search area
+        elif target > sorted_list[middle]:
+            # Cut the list in half by making the new start value the old middle value plus 1
+            # The plus one is because we already ruled the middle value out, so we can ignore it
+            start = middle + 1
 
-        # If target is greater than the middle value of the search area
-        elif target > search_area[middle]:
-            # Make the new search area the second half of the current search area
-            search_area = search_area[middle:]
-
-        # If the target is equal to the middle value of the search area:
+        # If it's not too high or too low, it must be just right, return the location
         else:
-            # Print success!
-            return print('Found it!', str(search_area[middle]))
-    # If the list area has 0 elements, print that search failed
-    else:
-        return print('Not in list!')
+            return ("Found it at index: {}".format(middle))
 
-# Run function
-binary_search(sorted_list, 7)
+    # If we've fallen out of the while loop the target value is not in the list
+    return print("Not in list!")
 ```
 
-    Search area: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
-    Search area: [0, 1, 2, 3, 4, 5, 6, 7, 8]
-    Search area: [4, 5, 6, 7, 8]
-    Search area: [6, 7, 8]
-    Found it! 7
+
+```python
+binary_search(sorted_list, 2)
+```
+
+
+
+
+    'Found it at index: 1'

@@ -171,7 +171,7 @@ where:
 - $\text{class}$ is a particular class (e.g. male)
 - $\mathbf {\text{data}}$ is an observation's data
 - $p(\text{class} \mid \mathbf {\text{data}} )$ is called the posterior
-- $p(\text{class})$ is called the likelihood
+- $p(\text{data|class})$ is called the likelihood
 - $p(\text{class})$ is called the prior
 - $p(\mathbf {\text{data}} )$ is called the marginal probability
 
@@ -412,4 +412,4 @@ p_x_given_y(person['Foot_Size'][0], female_footsize_mean, female_footsize_varian
 
 
 
-Because the numerator of the posterior for male is greater than female, then we predict that the person is male.
+Because the numerator of the posterior for female is greater than male, then we predict that the person is female.
