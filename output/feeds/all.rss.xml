@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Chris Albon - Data Science, Machine Learning, and Artificial Intelligence</title><link>http://chrisalbon.com/</link><description></description><lastBuildDate>Mon, 03 Apr 2017 12:00:00 -0700</lastBuildDate><item><title>Find Largest Key Or Value In A Map</title><link>http://chrisalbon.com/scala/find_largest_key_or_value_in_a_map.html</link><description>&lt;p&gt;If you want to learn more, check out &lt;a href="http://amzn.to/2lxbrxN"&gt;Scala Cookbook&lt;/a&gt; and &lt;a href="http://amzn.to/2lEtsLt"&gt;Programming in Scala&lt;/a&gt;.&lt;/p&gt;
+<rss version="2.0"><channel><title>Chris Albon - Data Science, Machine Learning, and Artificial Intelligence</title><link>http://chrisalbon.com/</link><description></description><lastBuildDate>Thu, 01 Jun 2017 12:00:00 -0700</lastBuildDate><item><title>Summer Of Machine Learning</title><link>http://chrisalbon.com/blog/summer_of_machine_learning.html</link><description>&lt;iframe style="width:100%; height:600px" src="https://docs.google.com/spreadsheets/d/1py70JDmjR7XtWpLZqzAIug6EoGjZwpAsA-k8zKGZba4/pubhtml?gid=1997341574&amp;amp;single=true&amp;amp;widget=true&amp;amp;headers=false"&gt;&lt;/iframe&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Thu, 01 Jun 2017 12:00:00 -0700</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2017-06-01:blog/summer_of_machine_learning.html</guid></item><item><title>Find Largest Key Or Value In A Map</title><link>http://chrisalbon.com/scala/find_largest_key_or_value_in_a_map.html</link><description>&lt;p&gt;If you want to learn more, check out &lt;a href="http://amzn.to/2lxbrxN"&gt;Scala Cookbook&lt;/a&gt; and &lt;a href="http://amzn.to/2lEtsLt"&gt;Programming in Scala&lt;/a&gt;.&lt;/p&gt;
 &lt;h2&gt;Create A Map&lt;/h2&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;// Create an immutable map with three key value pairs&lt;/span&gt;
 &lt;span class="k"&gt;val&lt;/span&gt; &lt;span class="n"&gt;numbers&lt;/span&gt; &lt;span class="k"&gt;=&lt;/span&gt; &lt;span class="nc"&gt;Map&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;
@@ -523,62 +523,4 @@
     &lt;/script&gt;
 
 
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Wed, 22 Feb 2017 21:01:00 -0800</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2017-02-22:javascript/bubble-plot.html</guid><category>Data Visualization</category></item><item><title>Convert Strings To Numbers</title><link>http://chrisalbon.com/javascript/convert-strings-to-numbers.html</link><description>
-
-  &lt;div class="codehilite"&gt;
-    &lt;pre&gt;&lt;span class="c"&gt;&amp;lt;!-- Load D3 Library --&amp;gt;&lt;/span&gt;
-&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt; &lt;span class="na"&gt;src&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"http://d3js.org/d3.v3.min.js"&lt;/span&gt; &lt;span class="na"&gt;charset&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"utf-8"&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
-
-&lt;span class="c"&gt;&amp;lt;!-- Use D3 Library --&amp;gt;&lt;/span&gt;
-&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class="c1"&gt;// Create a variable with the url to the data&lt;/span&gt;
-    &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"https://gist.githubusercontent.com/d3byex/e5ce6526ba2208014379/raw/8fefb14cc18f0440dc00248f23cbf6aec80dcc13/walking_dead_s5.csv"&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-
-    &lt;span class="c1"&gt;// Load a CSV file&lt;/span&gt;
-    &lt;span class="nx"&gt;d3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;url&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;error&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;data&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="c1"&gt;// Create a variable, map to each row/element in the data a function&lt;/span&gt;
-        &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;mappedAndConverted&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;data&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;d&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-            &lt;span class="c1"&gt;// Return&lt;/span&gt;
-            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-                &lt;span class="c1"&gt;// Convert episode to numeric and add&lt;/span&gt;
-                &lt;span class="nx"&gt;Episode&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="nx"&gt;d&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Episode&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                &lt;span class="c1"&gt;// Convert USViewers to numeric and add&lt;/span&gt;
-                &lt;span class="nx"&gt;USViewers&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="nx"&gt;d&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;USViewers&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                &lt;span class="c1"&gt;// Add title&lt;/span&gt;
-                &lt;span class="nx"&gt;Title&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;d&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Title&lt;/span&gt;
-            &lt;span class="p"&gt;};&lt;/span&gt;
-        &lt;span class="p"&gt;});&lt;/span&gt;
-        &lt;span class="c1"&gt;// Output to console&lt;/span&gt;
-        &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;mappedAndConverted&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-    &lt;span class="p"&gt;});&lt;/span&gt;
-&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;script&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;&lt;/pre&gt;
-  &lt;/div&gt;
-
-    &lt;!-- Load D3 Library --&gt;
-    &lt;script src="http://d3js.org/d3.v3.min.js" charset="utf-8"&gt;&lt;/script&gt;
-
-    &lt;!-- Use D3 Library --&gt;
-    &lt;script&gt;
-        // Create a variable with the url to the data
-        var url = "https://gist.githubusercontent.com/d3byex/e5ce6526ba2208014379/raw/8fefb14cc18f0440dc00248f23cbf6aec80dcc13/walking_dead_s5.csv";
-
-        // Load a CSV file
-        d3.csv(url, function(error, data) {
-            // Create a variable, map to each row/element in the data a function
-            var mappedAndConverted = data.map(function(d) {
-                // Return
-                return {
-                    // Convert episode to numeric and add
-                    Episode: +d.Episode,
-                    // Convert USViewers to numeric and add
-                    USViewers: +d.USViewers,
-                    // Add title
-                    Title: d.Title
-                };
-            });
-            // Output to console
-            console.log(mappedAndConverted);
-        });
-    &lt;/script&gt;
-
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Wed, 22 Feb 2017 21:01:00 -0800</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2017-02-22:javascript/convert-strings-to-numbers.html</guid><category>Basics</category></item></channel></rss>
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Chris Albon</dc:creator><pubDate>Wed, 22 Feb 2017 21:01:00 -0800</pubDate><guid isPermaLink="false">tag:chrisalbon.com,2017-02-22:javascript/bubble-plot.html</guid><category>Data Visualization</category></item></channel></rss>
