@@ -39,7 +39,7 @@ $$error = \frac{FP+FN}{FP+FN+TP+TN} = \frac{\text{incorrect predictions}}{\text{
 
 Proportion of all predictions that are correct. Accuracy is a measurment of how good a model is.
 
-$$accuracy = \frac{TP+FN}{TP+FN+TP+TN} = \frac{\text{correct predictions}}{\text{all predictions}}$$
+$$accuracy = \frac{TP+TN}{TP+FN+TP+TN} = \frac{\text{correct predictions}}{\text{all predictions}}$$
 
 
 
